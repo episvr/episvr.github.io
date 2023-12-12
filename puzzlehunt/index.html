@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>PuzzleHunt到底是什么？ | Epiphany的茶话小屋</title>
+<meta name="description" content="远道而来的客人，在这里歇歇脚吧~">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1702395998290">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1702395998290" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/卷" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">PuzzleHunt到底是什么？</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-11-27</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p>如果你认识我，你可能已经听我叨叨很多遍了。（但是我还要继续叨叨（🌹</p>
+<h1 id="首先什么是-puzzle">首先，什么是 puzzle ？</h1>
+<p>如果你喜欢玩解谜游戏或者密室逃脱，那么你应该对 <strong>puzzle(谜题)</strong> 并不陌生。<br>
+比较常见的谜题有<mark><strong>数独（Sudoku）、填字游戏（Crosswords）、字谜/文字游戏（Wordplay）、密码（Cipher）、推理/逻辑谜题（Logic puzzle）</strong></mark> 等等。</p>
+<p><strong>Puzzlehunt</strong> 在国内似乎没有常见的翻译，所以这里暂且翻译成<strong>解谜（puzzle）寻宝（hunt）</strong>。简单来说，puzzlehunt就是通过解开一系列的谜题，通过线索找到最终“宝藏”的游戏或比赛。</p>
+<p>但是 puzzlehunt 里的 puzzle 有一点不太一样</p>
+<h1 id="puzzlehunt-里的-puzzle-与-一般-puzzle-的区别">Puzzlehunt 里的 puzzle 与 一般 puzzle 的区别 ？</h1>
+<p>最大的区别就是<strong>没有指示</strong>。即便看上去像某些常见的谜题种类，这些谜题往往会加入一些令人意想不到的变化（比如一个无解的标准数独）。<br>
+因此，解谜的很大一部分在于寻找这些没有给出的步骤。<br>
+当然，没有指示不代表没有<strong>暗示</strong>，一些似乎难以想到的步骤很可能在谜题里通过各种方式暗示。</p>
+<blockquote>
+<p>Imagine a word search.<br>
+想象有一个搜词谜题（在一个字母表格里找到以各个方向隐藏的关键词的游戏）。<br>
+Now imagine you aren’t told what words to look for.<br>
+现在想象你不知道要找的是哪些单词。<br>
+Now imagine you aren’t told it’s a word search.<br>
+现在想象没人告诉你这是个搜词谜题。<br>
+Now imagine it isn’t a word search.<br>
+现在想象这其实不是个搜词谜题。</p>
+</blockquote>
+<p>而且 puzzlehunt 里还有一类特殊的谜题 ——  <mark><strong>元谜题（Meta）</strong></mark>。<br>
+这类谜题通常需要用到若干小题的答案，即所谓的“谜题的谜题” <strong>Meta</strong><br>
+而解puzzlehunt的最高目标就是解开最终谜题“<strong>FinalMeta</strong>”（用到所有小题的 meta）</p>
+<p>如果想更加仔细的了解Puzzlehunt, 可以从B站专栏**[cv8874287]**看起, 从-4看到-1.<br>
+密码学相关提高可以点公众号 <strong>「密码菌」</strong> 的 <strong>「微信专区」</strong> 后 <strong>「进入游戏」</strong> 来玩.</p>
+<h1 id="puzzlehunt-的组成成分">puzzlehunt 的组成成分</h1>
+<p>一个好的puzzlehunt，由 好题+美工+剧情+提示+人工服务 共同组成。</p>
+<p><strong>剧情</strong> 除了为主题服务，还可以顺带塞塞私货：P&amp;KU就是一个<s>芈雨和觅月的女同故事</s>，而LILAC04是一个<s>ANTELO和CARADO的男同故事</s> ，CCBC13/14 是<s>在星球在星空深处柏拉图式相爱</s>的故事，GPH是一个老套的打牌游戏，MIAOHUNT是一个<s>人均猫娘美少女</s>的故事（</p>
+<p><strong>提示</strong> 除题目外，我最关心的一点（，因为这关系到我能不能完赛（</p>
+<p><strong>好题</strong> 可能之后会写一些题解发上来（？</p>
+<h1 id="我还需要知道什么">我还需要知道什么？</h1>
+<p>在puzzlehunt圈里，有一些大家公认的<strong>解谜常识</strong>，而这类常识基本都属于<strong>古典密码</strong>的范畴，之后会写一篇古典密码汇总的（确信</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/linux/">
+              <h3 class="post-title">
+                下一篇：Linux常用命令学习与实战
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">远道而来的客人，在这里歇歇脚吧~</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

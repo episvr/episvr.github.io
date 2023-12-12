@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>古典之替代类密码（单表式加密） | Epiphany的茶话小屋</title>
+<meta name="description" content="远道而来的客人，在这里歇歇脚吧~">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1702395998290">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1702395998290" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/卷" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">古典之替代类密码（单表式加密）</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-12-07</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://episvr.github.io/tag/cfILhzIvH/">
+                    puzzle
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <p><strong>这是一种及其常见的古典密码密码类别</strong></p>
+<p>主要包括：</p>
+<h2 id="一梦开始的地方-a1z26">一，梦开始的地方 —— A1Z26（？）</h2>
+<ul>
+<li>见名知意，这是一个26字母与26个数字之间的加密（如果这是一种加密的话）</li>
+<li>这个<s>加密</s>大多都是约定俗成的，不需要任何提示</li>
+<li>值得注意的是，这个加密有一个mod26变种</li>
+</ul>
+<h2 id="二你也写代码-ascii码值表">二，你也写代码？ —— ascii码值表</h2>
+<ul>
+<li>见名知意</li>
+<li>如果观察到数字分布在65~90 or 97~122 的话就可能是ascii</li>
+</ul>
+<h2 id="三科学计算器-进制转换">三，科学计算器 —— 进制转换</h2>
+<ul>
+<li>在题目里，数字通常是突兀的，这时候如果使用进制转换的话，就可以使用两种形态（二进制）的形式体现数字了</li>
+<li>两种形态（黑白，开关，是非，凹凸……）</li>
+</ul>
+<h2 id="四只有两个键的键盘-摩斯电码">四，只有两个键的键盘 —— 摩斯电码</h2>
+<ul>
+<li>说到两种形态的话，摩斯电码很出名啊，在puzzlehunt中，这是出现率很高的（</li>
+<li>识别标志：两种形态，音频题，长短不一……</li>
+</ul>
+<h2 id="五加密解密的老祖宗-凯撒密码">五，加密解密的老祖宗 —— 凯撒密码</h2>
+<ul>
+<li>凯撒密码是按照字母表顺序移位的密码，在加密时需要一个“密钥”，比如A（+3）=D</li>
+<li>奇奇怪怪的字母组合就可以试试了（</li>
+</ul>
+<h2 id="六进阶式凯撒加密-维吉尼亚密码">六，进阶式凯撒加密 —— 维吉尼亚密码</h2>
+<ul>
+<li>在凯撒密码（和普通单表）中，有一个致命的弱点，那就是……频率分析（众所周知，英语中频率最高的就是E），如果整篇文字都用一个码表，很容易就被逆向破解，对此，如果使用多个码表呢？</li>
+<li>维吉尼亚密码加密中，也有一个“密钥”，这个密钥通常使用一串字母代替数字</li>
+</ul>
+<pre><code>这是一个栗子
+
+</code></pre>
+<h2 id="七对折的字母表-atbash加密">七，对折的字母表 —— Atbash加密</h2>
+<ul>
+<li></li>
+<li></li>
+</ul>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/sortfunc/">
+              <h3 class="post-title">
+                下一篇：选择排序 &amp;&amp; 冒泡排序
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">远道而来的客人，在这里歇歇脚吧~</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

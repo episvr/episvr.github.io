@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://episvr.github.io</id>
+    <title>Epiphany的茶话小屋</title>
+    <updated>2023-12-12T15:46:40.912Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://episvr.github.io"/>
+    <link rel="self" href="https://episvr.github.io/atom.xml"/>
+    <subtitle>远道而来的客人，在这里歇歇脚吧~</subtitle>
+    <logo>https://episvr.github.io/images/avatar.png</logo>
+    <icon>https://episvr.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, Epiphany的茶话小屋</rights>
+    <entry>
+        <title type="html"><![CDATA[数据结构之线性表]]></title>
+        <id>https://episvr.github.io/linear_list/</id>
+        <link href="https://episvr.github.io/linear_list/">
+        </link>
+        <updated>2023-12-12T15:01:06.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="数据结构之线性表">数据结构之线性表</h1>
+<p>线性表是由相同类型数据元素组成的有限序列<br>
+顾名思义，就像是一条线，除了端点，每个元素都有唯一的直接前驱，直接后继</p>
+<p>线性表有两种存储方式</p>
+<h2 id="1-顺序存储顺序表">1 顺序存储（顺序表）</h2>
+<p>顺序存储中元素的存储是连续的，这样的优点就是可以很快的<strong>访问</strong>元素，但是<strong>删除</strong>和<strong>插入</strong>要移动大量元素<br>
+顺序存储可以分为以下两类</p>
+<h3 id="11-静态分配">1.1 静态分配</h3>
+<p>使用<strong>数组</strong><code>data[]</code>存储数据，最大空间为<code>Maxsize</code>,实际存储的元素个数为<code>length</code></p>
+<pre><code class="language-cpp">const int Maxsize = 100; // 设置最大空间为100
+
+struct StaticArray 
+{
+    int data[Maxsize]; // 数组存储数据
+    int length; // 实际存储的元素个数
+};
+</code></pre>
+<p>容易超出分配的内存空间（溢出）</p>
+<h3 id="12-动态分配">1.2 动态分配</h3>
+<p>使用一段连续的存储空间的<strong>首地址</strong>存储数据，大小为<code>Maxsize</code>,实际存储的元素个数为<code>length</code></p>
+<pre><code class="language-cpp">struct DynamicArray 
+{
+    int *data;   // 指向动态数组的指针
+    int maxSize; // 顺序表的最大容量
+    int length;  // 实际存储的元素个数
+};
+</code></pre>
+<h4 id="121-创建与初始化">1.2.1 创建与初始化</h4>
+<ul>
+<li>分配空间</li>
+<li>是否分配成功</li>
+</ul>
+<pre><code class="language-cpp">bool init(DynamicArray &amp;arr, int maxSize) 
+{               //注意，↑引用参数
+    arr.data = new int[maxSize];
+    if (arr.data == nullptr) 
+    { 
+        return false;
+    }
+    arr.maxSize = maxSize;
+    arr.length = 0; 
+    return true; 
+}
+</code></pre>
+<ul>
+<li>初始化下标i</li>
+<li>判断是否满</li>
+<li>cin &gt;&gt; 头指针[i++]</li>
+<li>length++</li>
+</ul>
+<pre><code class="language-cpp">bool create(DynamicArray &amp;arr)
+{
+    int x, i = 0;
+    while(x != -1)//输入-1结束
+    {
+        if(arr.length == maxSize)
+        {
+            cout&lt;&lt;&quot;Error!Can't add!&quot;;
+            return false;
+        }
+        cin &gt;&gt; x;
+        arr.data[i++]=x;
+        arr.length++;
+    }
+    return true;
+}
+</code></pre>
+<h4 id="122-取值与查找">1.2.2 取值与查找</h4>
+<pre><code class="language-cpp">bool GetData(DynamicArray arr，int i，int &amp;ans)
+{
+    if(i &lt; 1 || i &gt; arr.length)
+    {
+        return false;
+    }
+    ans = arr.data[i-1];
+    return true;
+}
+</code></pre>
+<pre><code class="language-cpp">int locatedata(DynamicArray arr，int tobefind)
+{
+    for(int i = 0; i &lt; arr.length; i++)
+    {
+        if (arr.data[i] == tobefind) return i+1;
+    }
+    return -1;
+}
+</code></pre>
+<h4 id="123-插入与删除">1.2.3 插入与删除</h4>
+<ul>
+<li>插入是否合法？</li>
+<li>存储空间是否满？</li>
+<li>移动</li>
+</ul>
+<pre><code class="language-cpp">bool arr_insert(DynamicArray &amp;arr,int i,int e)
+{
+    if (i &lt; 1 || i &gt; arr.length + 1)
+    {
+        cout &lt;&lt; &quot;invaild insert!&quot; &lt;&lt; endl;
+        return false;
+    }
+    if (arr.length == Maxsize)
+    {
+        cout&lt;&lt;&quot;can't insert to a full array!&quot;&lt;&lt;endl;
+        return false;
+    }
+    for(int j=arr.length-1; j &gt;= i - 1; j--)
+    {
+        arr.data[j + 1] = arr.data[j];
+    }
+    arr.data[i-1] = e;
+    arr.length++;
+    return true;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[puzzlehunt好题选 之 Characters]]></title>
+        <id>https://episvr.github.io/puzzles_characters/</id>
+        <link href="https://episvr.github.io/puzzles_characters/">
+        </link>
+        <updated>2023-12-12T14:59:11.000Z</updated>
+        <content type="html"><![CDATA[<p>本题选自Huntinality的第一题，很好的一道题！</p>
+<h1 id="题目-characters">题目 Characters</h1>
+<p>You encounter some <strong>characters</strong> in the forest. But to get them to help, you'll need to find their <strong>base</strong> and then understand their <strong>code</strong>.</p>
+<p>译：你在森林遇到了一些<strong>角色</strong>，但是要得到帮助，你需要找到它们的<strong>基地</strong>，然后理解它们的<strong>代码</strong>。</p>
+<p>You, according to a game title (4) / Undergrad degree type (2) - Cooling system (2)</p>
+<p>Speed of light (1) × Singer Sheeran (2) - Highest-ranking card (3)</p>
+<p>(Visage (4) - Small restaurant (4)) / Hawaiian lava type (2)</p>
+<p>Taxi (3) / (US org that evaluates meds (3) - Wonderful, for short (3))</p>
+<p>Payment (3) - Sound scale unit abbreviation (2) - Flow away (3)</p>
+<p>Mi (1) × Gave sustenance to (3) - No longer alive (4)</p>
+<p>Art movement after World War I (4) - Romantic partner (3) - Give up (4)</p>
+<p>Worst grade (1) × Send to a secondary recipient (2) - Not good (3)</p>
+<h1 id="解答-characters">解答: Characters</h1>
+<h2 id="answer-unhexing">Answer: UNHEXING</h2>
+<h2 id="作者-dan-simon">作者: Dan Simon</h2>
+<h2 id="dev-shuxin-zhan">Dev: Shuxin Zhan</h2>
+<p>这个谜题有很多<strong>四则运算</strong><s>（其实是三则）</s>, 而且暂时不清楚如何进行运算。(当然如果你执意将数字放入方程式中，会发现其中一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mi mathvariant="normal">/</mi><mo>(</mo><mn>3</mn><mo>−</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">3/(3-3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span> 的非法运算，GG)</p>
+<p>但是，其中的<strong>单词clue提示</strong>还是可以直接正面做出来的。</p>
+<p>在解出几道题目后，我们可以注意到括号里的数字就是答案的单词长度</p>
+<p>Clue的答案分别是(虽然有一些的提示比较模糊, 但是问题不大，下一步可以反向爆破):</p>
+<table>
+<thead>
+<tr>
+<th>clue</th>
+<th>answer</th>
+<th>译者吐槽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You, according to a game title (4)</br>You，根据一个知名游戏标题</td>
+<td>BABA</td>
+<td>Baba is you是最好的解密游戏！！</td>
+</tr>
+<tr>
+<td>Undergrad degree type (2)</br>本科学位类型</td>
+<td>BA</td>
+<td>涨知识+1</td>
+</tr>
+<tr>
+<td>Cooling system (2)</br>冷却系统</td>
+<td>AC</td>
+<td>涨知识+2</br>AC即空冷</td>
+</tr>
+<tr>
+<td>Speed of light (1)</br>光速</td>
+<td>C</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>8</mn></msup><mi>m</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">3×10^8m/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord">/</span><span class="mord mathdefault">s</span></span></span></span></td>
+</tr>
+<tr>
+<td>Singer Sheeran (2)</br>爱德希兰</td>
+<td>ED</td>
+<td>没听过，不了解</td>
+</tr>
+<tr>
+<td>Highest-ranking card (3)</br>排序最高的卡片</td>
+<td>ACE</td>
+<td>原来是扑克牌，我还以为是SSR抽卡（</td>
+</tr>
+<tr>
+<td>Visage (4)</br>面容</td>
+<td>FACE</td>
+<td>没玩过不了解</td>
+</tr>
+<tr>
+<td>Small restaurant (4)</br>小小餐馆</td>
+<td>CAFE</td>
+<td>正确的定义</td>
+</tr>
+<tr>
+<td>Hawaiian lava type (2)	</br>夏威夷，熔岩，类型</td>
+<td>AA</td>
+<td>涨知识+3</br>“aa”是夏威夷词汇，音“阿阿”，用来描述表面粗糙的熔岩流。</td>
+</tr>
+<tr>
+<td>Taxi (3)</br>出租车</td>
+<td>CAB</td>
+<td>抽查！taxi的全称是什么</td>
+</tr>
+<tr>
+<td>US org that evaluates meds (3)</br>美国评估药物的组织</td>
+<td>FDA</td>
+<td>食品和药物管理局</td>
+</tr>
+<tr>
+<td>Wonderful, for short (3)</br>惊叹的，缩写</td>
+<td>FAB</td>
+<td>讨厌缩写！即fabulous</td>
+</tr>
+<tr>
+<td>Payment (3)</br>支付</td>
+<td>FEE</td>
+<td>文化差异</td>
+</tr>
+<tr>
+<td>Sound scale unit abbreviation (2)</br>声音量级单位，缩写</td>
+<td>DB</td>
+<td>非常好单位，使我的沉默震耳欲聋</td>
+</tr>
+<tr>
+<td>Flow away (3)</br>逃离</td>
+<td>EBB</td>
+<td>涨单词量+1</td>
+</tr>
+<tr>
+<td>Mi (1)</br>咪</td>
+<td>E</td>
+<td>没有乐理知识</td>
+</tr>
+<tr>
+<td>Gave sustenance to (3)	</br>给予食物</td>
+<td>FED</td>
+<td>涨单词量+2（甚至时态对应）</td>
+</tr>
+<tr>
+<td>No longer alive (4)</br>不再活着</td>
+<td>DEAD</td>
+<td>少数看的懂的</td>
+</tr>
+<tr>
+<td>Art movement after World War I (4)</br>一战后的一种艺术运动</td>
+<td>DADA</td>
+<td>达达主义</td>
+</tr>
+<tr>
+<td>Romantic partner (3)</br>浪漫伴侣</td>
+<td>BAE</td>
+<td>涨单词量+3</td>
+</tr>
+<tr>
+<td>Give up (4)</br>放弃</td>
+<td>CEDE</td>
+<td>涨单词量+4</td>
+</tr>
+<tr>
+<td>Worst grade (1)</br>最差了</td>
+<td>F</td>
+<td>菜就多练</td>
+</tr>
+<tr>
+<td>Send to a secondary recipient (2)</br>抄送给次级收件人</td>
+<td>CC</td>
+<td>不写邮件捏</td>
+</tr>
+<tr>
+<td>Not good (3)</br>不是很好</td>
+<td>BAD</td>
+<td>您有一个坏</td>
+</tr>
+</tbody>
+</table>
+<p>根据这些答案, 我们注意到它们都仅由ABCDEF六个字母组成，(解到一半的时候就可以意识到这一点并反向爆破)</p>
+<p>结合falvortext中的 “base”一词我们可以发现它们实际上是<strong>16进制</strong>(通过除法运算的结果是整数可以验证这一点)</p>
+<p>我们可以计算一下这些表达式的值</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>十进制</th>
+<th>十六进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BABA / BA - AC</td>
+<td>85</td>
+<td>55</td>
+</tr>
+<tr>
+<td>C × ED - ACE</td>
+<td>78</td>
+<td>4E</td>
+</tr>
+<tr>
+<td>(FACE - CAFE) / AA</td>
+<td>72</td>
+<td>48</td>
+</tr>
+<tr>
+<td>CAB / (FDA - FAB)</td>
+<td>69</td>
+<td>45</td>
+</tr>
+<tr>
+<td>FEE - DB - EBB</td>
+<td>88</td>
+<td>58</td>
+</tr>
+<tr>
+<td>E × FED - DEAD</td>
+<td>73</td>
+<td>49</td>
+</tr>
+<tr>
+<td>DADA - BAE - CEDE</td>
+<td>78</td>
+<td>4E</td>
+</tr>
+<tr>
+<td>F × CC - BAD</td>
+<td>71</td>
+<td>47</td>
+</tr>
+</tbody>
+</table>
+<p>你注意到它们的值分布在65到90之间了吗?</p>
+<p>如果你足够敏锐，就会知道这是<strong>ASCII码表</strong>A~Z的分布位置(标题中的“characters” 和flavortext 中的“code” 也提示了这一点)</p>
+<p>转换后可以得到 <strong>UNHEXING</strong> (即解16进制，非常好答案，使我的dna解螺旋)</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>十进制</th>
+<th>十六进制</th>
+<th>对应字母</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BABA / BA - AC</td>
+<td>85</td>
+<td>55</td>
+<td>U</td>
+</tr>
+<tr>
+<td>C × ED - ACE</td>
+<td>78</td>
+<td>4E</td>
+<td>N</td>
+</tr>
+<tr>
+<td>(FACE - CAFE) / AA</td>
+<td>72</td>
+<td>48</td>
+<td>H</td>
+</tr>
+<tr>
+<td>CAB / (FDA - FAB)</td>
+<td>69</td>
+<td>45</td>
+<td>E</td>
+</tr>
+<tr>
+<td>FEE - DB - EBB</td>
+<td>88</td>
+<td>58</td>
+<td>X</td>
+</tr>
+<tr>
+<td>E × FED - DEAD</td>
+<td>73</td>
+<td>49</td>
+<td>I</td>
+</tr>
+<tr>
+<td>DADA - BAE - CEDE</td>
+<td>78</td>
+<td>4E</td>
+<td>N</td>
+</tr>
+<tr>
+<td>F × CC - BAD</td>
+<td>71</td>
+<td>47</td>
+<td>G</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authors-notes-作者的话">Authors' Notes 作者的话</h2>
+<p>十六进制是一个相对不太常见的密码主题，所以在继两年前Huntinality中的 <strong>Wah-spkeeping</strong> (这是同作者出的另一道puzzle)后，我又出了一道用到十六进制(还有ascii码值)的小题还是挺suprising的。</p>
+<p>这个“解16进制”的答案也算是立了一个flag，我下次会换一种密码出题的 <s>(确信)</s> (除非又有了一个关于十六进制的good idea)</p>
+<p>还有一个很Surprising的事,在谜题内测时，有一个内测玩家跟我说他有一个类似的出题想法(他称之为：<em><strong>代号—“defaced facade”</strong></em> )。<s>不过这个代号太长了没用到</s></p>
+<p>由于</p>
+<ul>
+<li>meta</li>
+<li>这是hunt的第一题</li>
+<li><s>上次出的Wah-spkeeping的数学题部分把好多队卡住了</s></li>
+</ul>
+<p>所以这次出的题简单很多</p>
+<p>感觉构造的还可以，单纯的凑了凑一些常见单词，还塞了塞乘除法</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[古典之替代类密码（单表式加密）]]></title>
+        <id>https://episvr.github.io/ciphers/</id>
+        <link href="https://episvr.github.io/ciphers/">
+        </link>
+        <updated>2023-12-07T06:27:02.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>这是一种及其常见的古典密码密码类别</strong></p>
+<p>主要包括：</p>
+<h2 id="一梦开始的地方-a1z26">一，梦开始的地方 —— A1Z26（？）</h2>
+<ul>
+<li>见名知意，这是一个26字母与26个数字之间的加密（如果这是一种加密的话）</li>
+<li>这个<s>加密</s>大多都是约定俗成的，不需要任何提示</li>
+<li>值得注意的是，这个加密有一个mod26变种</li>
+</ul>
+<h2 id="二你也写代码-ascii码值表">二，你也写代码？ —— ascii码值表</h2>
+<ul>
+<li>见名知意</li>
+<li>如果观察到数字分布在65~90 or 97~122 的话就可能是ascii</li>
+</ul>
+<h2 id="三科学计算器-进制转换">三，科学计算器 —— 进制转换</h2>
+<ul>
+<li>在题目里，数字通常是突兀的，这时候如果使用进制转换的话，就可以使用两种形态（二进制）的形式体现数字了</li>
+<li>两种形态（黑白，开关，是非，凹凸……）</li>
+</ul>
+<h2 id="四只有两个键的键盘-摩斯电码">四，只有两个键的键盘 —— 摩斯电码</h2>
+<ul>
+<li>说到两种形态的话，摩斯电码很出名啊，在puzzlehunt中，这是出现率很高的（</li>
+<li>识别标志：两种形态，音频题，长短不一……</li>
+</ul>
+<h2 id="五加密解密的老祖宗-凯撒密码">五，加密解密的老祖宗 —— 凯撒密码</h2>
+<ul>
+<li>凯撒密码是按照字母表顺序移位的密码，在加密时需要一个“密钥”，比如A（+3）=D</li>
+<li>奇奇怪怪的字母组合就可以试试了（</li>
+</ul>
+<h2 id="六进阶式凯撒加密-维吉尼亚密码">六，进阶式凯撒加密 —— 维吉尼亚密码</h2>
+<ul>
+<li>在凯撒密码（和普通单表）中，有一个致命的弱点，那就是……频率分析（众所周知，英语中频率最高的就是E），如果整篇文字都用一个码表，很容易就被逆向破解，对此，如果使用多个码表呢？</li>
+<li>维吉尼亚密码加密中，也有一个“密钥”，这个密钥通常使用一串字母代替数字</li>
+</ul>
+<pre><code>这是一个栗子
+
+</code></pre>
+<h2 id="七对折的字母表-atbash加密">七，对折的字母表 —— Atbash加密</h2>
+<ul>
+<li></li>
+<li></li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[选择排序 && 冒泡排序]]></title>
+        <id>https://episvr.github.io/sortfunc/</id>
+        <link href="https://episvr.github.io/sortfunc/">
+        </link>
+        <updated>2023-12-01T06:21:08.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="写在前面的话">写在前面的话</h1>
+<p><em><strong>在写排序的时候，务必仔细检查数组的下标</strong></em></p>
+<h1 id="选择排序">选择排序</h1>
+<p>选择排序的重点在于 <strong>选择</strong>，即找到 <strong>最值元素</strong><br>
+我们可以建立一个标记<code>flag</code>,让其记住最值元素的下标</p>
+<ul>
+<li>例：使用选择排序对长度为n的数组由大到小排序</li>
+</ul>
+<pre><code class="language-cpp">int flag,min;
+for(int i = 0; i &lt; size - 1; i++)          //思考这里 i &lt; size-1 的含义;
+{
+    flag = i;                        //思考这里 flag = i 的含义;
+    if (int j = i+1; j &lt; size; j++)  //思考这里 j = i+1 的含义;
+    {
+        if (x[j] &gt; x[flag])
+            flag = j;             //使用flag标记最大值的下标
+        if(flag != i)
+        {
+            min = x[i];
+            x[i] = x[flag];       //swap(x[i], x[flag]) 
+            x[flag]=x[i]
+        }
+    }
+}
+</code></pre>
+<h1 id="冒泡排序">冒泡排序</h1>
+<p>选择排序的重点在于 <strong>交换</strong>，即不断进行交换，让数组逐渐趋近于有序状态（最值会通过交换 <strong>&quot;冒&quot;</strong> 出来）</p>
+<pre><code class="language-cpp">for (int i = 0; i &lt; size - 1; i++) 
+{
+    bool IsSwap = false;                   //思考:为什么要用isswap？
+    for (int j = 0; j &lt; size - i - 1; j++) //思考:为什么是size-i-1？
+    {
+        if (a[j] &gt; a[j + 1]) 
+        {
+            swap(a[j], a[j + 1]);
+            IsSwap = true;
+        }
+    }
+    if (!IsSwap) break;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[strcmp函数 和 动态指针数组]]></title>
+        <id>https://episvr.github.io/01/</id>
+        <link href="https://episvr.github.io/01/">
+        </link>
+        <updated>2023-11-30T01:30:25.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="nov29-上机课只解决了一道题">Nov.29 上机课只解决了一道题</h1>
+<p><s>（真是太有效率辣</s>~</p>
+<h2 id="题目描述">【题目描述】</h2>
+<p>编写程序，输入城市名，按字母顺序输出城市名清单。</p>
+<p>（注：城市按拼音排列输出）</p>
+<p>###【思路】</p>
+<p>（1）利用字符串比较函数（strcmp）和数组排序算法实现；</p>
+<p>（2）动态申请指针数组，每个数组元素的数据类型为，char *；</p>
+<h3 id="输入格式">【输入格式】</h3>
+<p>第一行一个整数 n 表示城市名的个数</p>
+<p>接下来 n 行每行一个字符串表示城市名</p>
+<h3 id="输出格式">【输出格式】</h3>
+<p>n 行 n 个字符串,表示城市名按顺序排序后的结果</p>
+<h1 id=""></h1>
+<p><strong>动态指针数组（指向字符串）</strong></p>
+<pre><code class="language-cpp">char **cities = new char *[size];
+for(int i = 0; i &lt; size; i++)
+{
+    char temp[1000];
+    cin &gt;&gt; temp;
+    cities[i] = new char[strlen(temp)+1];
+    strcpy(cities[i],temp);
+}
+/*
+code
+code
+code
+*/
+for(int i = 0; i &lt; size; i++)
+{
+    delete[] cities[i];
+}
+delete[] cities;
+</code></pre>
+<p><strong>strcmp</strong></p>
+<p>strcmp比较字典序，返回第一个不相符的ASCII码差值</p>
+<p><strong>冒泡排序</strong></p>
+<p>注意交换的写法</p>
+<pre><code class="language-cpp">for(int i = 0;i &lt; size - 1 ;i++)
+{
+    for (int j = 0;j &lt; size - 1 - i;j++)
+    {
+        if(strcmp(cities[j],cities[j+1])&gt;0)
+        {
+            char* temp = cities[j];
+            cities[j] = cities[j+1];
+            cities[j+1] = temp;//利用temp指针交换地址
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-cpp">for(int i = 0; i &lt; size; i++)
+{
+    cout &lt;&lt; cities[i] &lt;&lt; endl; // cout会识别地址内的内容输出，比如此处的cout[i]会输出的其中存的字符串
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[PuzzleHunt到底是什么？]]></title>
+        <id>https://episvr.github.io/puzzlehunt/</id>
+        <link href="https://episvr.github.io/puzzlehunt/">
+        </link>
+        <updated>2023-11-27T11:53:45.000Z</updated>
+        <content type="html"><![CDATA[<p>如果你认识我，你可能已经听我叨叨很多遍了。（但是我还要继续叨叨（🌹</p>
+<h1 id="首先什么是-puzzle">首先，什么是 puzzle ？</h1>
+<p>如果你喜欢玩解谜游戏或者密室逃脱，那么你应该对 <strong>puzzle(谜题)</strong> 并不陌生。<br>
+比较常见的谜题有<mark><strong>数独（Sudoku）、填字游戏（Crosswords）、字谜/文字游戏（Wordplay）、密码（Cipher）、推理/逻辑谜题（Logic puzzle）</strong></mark> 等等。</p>
+<p><strong>Puzzlehunt</strong> 在国内似乎没有常见的翻译，所以这里暂且翻译成<strong>解谜（puzzle）寻宝（hunt）</strong>。简单来说，puzzlehunt就是通过解开一系列的谜题，通过线索找到最终“宝藏”的游戏或比赛。</p>
+<p>但是 puzzlehunt 里的 puzzle 有一点不太一样</p>
+<h1 id="puzzlehunt-里的-puzzle-与-一般-puzzle-的区别">Puzzlehunt 里的 puzzle 与 一般 puzzle 的区别 ？</h1>
+<p>最大的区别就是<strong>没有指示</strong>。即便看上去像某些常见的谜题种类，这些谜题往往会加入一些令人意想不到的变化（比如一个无解的标准数独）。<br>
+因此，解谜的很大一部分在于寻找这些没有给出的步骤。<br>
+当然，没有指示不代表没有<strong>暗示</strong>，一些似乎难以想到的步骤很可能在谜题里通过各种方式暗示。</p>
+<blockquote>
+<p>Imagine a word search.<br>
+想象有一个搜词谜题（在一个字母表格里找到以各个方向隐藏的关键词的游戏）。<br>
+Now imagine you aren’t told what words to look for.<br>
+现在想象你不知道要找的是哪些单词。<br>
+Now imagine you aren’t told it’s a word search.<br>
+现在想象没人告诉你这是个搜词谜题。<br>
+Now imagine it isn’t a word search.<br>
+现在想象这其实不是个搜词谜题。</p>
+</blockquote>
+<p>而且 puzzlehunt 里还有一类特殊的谜题 ——  <mark><strong>元谜题（Meta）</strong></mark>。<br>
+这类谜题通常需要用到若干小题的答案，即所谓的“谜题的谜题” <strong>Meta</strong><br>
+而解puzzlehunt的最高目标就是解开最终谜题“<strong>FinalMeta</strong>”（用到所有小题的 meta）</p>
+<p>如果想更加仔细的了解Puzzlehunt, 可以从B站专栏**[cv8874287]**看起, 从-4看到-1.<br>
+密码学相关提高可以点公众号 <strong>「密码菌」</strong> 的 <strong>「微信专区」</strong> 后 <strong>「进入游戏」</strong> 来玩.</p>
+<h1 id="puzzlehunt-的组成成分">puzzlehunt 的组成成分</h1>
+<p>一个好的puzzlehunt，由 好题+美工+剧情+提示+人工服务 共同组成。</p>
+<p><strong>剧情</strong> 除了为主题服务，还可以顺带塞塞私货：P&amp;KU就是一个<s>芈雨和觅月的女同故事</s>，而LILAC04是一个<s>ANTELO和CARADO的男同故事</s> ，CCBC13/14 是<s>在星球在星空深处柏拉图式相爱</s>的故事，GPH是一个老套的打牌游戏，MIAOHUNT是一个<s>人均猫娘美少女</s>的故事（</p>
+<p><strong>提示</strong> 除题目外，我最关心的一点（，因为这关系到我能不能完赛（</p>
+<p><strong>好题</strong> 可能之后会写一些题解发上来（？</p>
+<h1 id="我还需要知道什么">我还需要知道什么？</h1>
+<p>在puzzlehunt圈里，有一些大家公认的<strong>解谜常识</strong>，而这类常识基本都属于<strong>古典密码</strong>的范畴，之后会写一篇古典密码汇总的（确信</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Linux常用命令学习与实战]]></title>
+        <id>https://episvr.github.io/linux/</id>
+        <link href="https://episvr.github.io/linux/">
+        </link>
+        <updated>2023-11-26T14:02:37.000Z</updated>
+        <content type="html"><![CDATA[<p>🚩<strong>对应《华为Openeuler开源操作系统》的 实战任务4~任务8</strong></p>
+<hr>
+<p>#任务四</p>
+<h2 id="不同的提示符">不同的提示符</h2>
+<p>超级用户root 的 Shell 提示符是<code>#</code><br>
+普通用户 的 Shell 提示符是美元货币符<code>$ </code></p>
+<h2 id="用左低右高的斜杠codecode来表示-linux-文件系统的根目录">用左低右高的斜杠<code><strong>/</strong></code>来表示 Linux 文件系统的根目录</h2>
+<p>注意，在 <strong>UNIX/Linux</strong> 中表示根目录时，使用的是左低右高的斜杠<code>/</code><br>
+而在 <strong>Windows</strong> 中表示根目录时，使用的是左高右低的斜杠<code>\</code></p>
+<h2 id="tree-的命令选项">tree 的命令选项</h2>
+<p><code>-u</code>选项表示显示用户名或者 （ UID）<br>
+<code>-d</code>选项表示只显示目录（directory）<br>
+<code>-L</code>选项表示显示目录的层级（layer）</p>
+<h2 id="注释">注释</h2>
+<p><code>#</code>后面的内容是Shell的注释</p>
+<h2 id="绝对路径-与-相对路径">绝对路径 与 相对路径</h2>
+<p>绝对路径是从Linux文件系统目录树的根<code><strong>/</strong></code>开始，经过一些目录，最后到达目标目录或者目标文件<br>
+当前的工作路径也称<strong>当前目录</strong><code><strong>.</strong></code><br>
+两个点号<code><strong>..</strong></code>用来表示当前目录的上一级目录，或者称为<strong>父目录</strong><br>
+使用 Linux 命令<code><strong>pwd</strong></code>可以打印当前的工作路径<br>
+如果使用了用来表示当前目录的<code>.</code>和用来表示当前目录的父目录的<code>..</code>，那么就说采用了<strong>相对路径</strong>来命名目录和文件。</p>
+<h2 id="文件目录名的通配符有两个正则表达式检索">文件(目录)名的通配符有两个（正则表达式检索）</h2>
+<p>星号<code>*</code> 表示0个或者多个字符。<br>
+问号<code>?</code>表示一个字符。</p>
+<h2 id="用户的主目录">用户的主目录</h2>
+<p>Linux用户首次登录系统后所处的目录称为主目录 (Home Directory)<br>
+这个目录一般位于/home/UserName</p>
+<ul>
+<li>例如用户 omm，它的主目录在 /home/omm 下。</li>
+</ul>
+<p>Linux 上的用户一般只对自己的主目录有完全的读写控制权，这种安排可以保证 Linux 操作系统中用户数据的安全。</p>
+<h2 id="ls-命令-list">ls 命令 <em><strong>list</strong></em></h2>
+<p><strong>列出目录和文件的信息</strong></p>
+<p>ls命令的语法如下:<code>ls [OPTION] … [FILE] … </code></p>
+<ul>
+<li>
+<p>没有任何选项的 ls 命令<br>
+当前目录文件名与子文件名</p>
+</li>
+<li>
+<p>ls命令的 -a 选项（<em>all</em>）当前目录下所有的文件名和目录名（包括隐藏文件,隐藏目录）</p>
+</li>
+<li>
+<p>ls命令的-l选项（<em>long</em>）,显示文件或目录的详细信息</p>
+</li>
+<li>
+<p>组合命令-al等</p>
+</li>
+<li>
+<p>ls命令的-F选项（<em>flag</em>）</p>
+</li>
+</ul>
+<pre><code>    * 表示可执行文件
+    / 表示目录
+    @ 表示文件符号链接
+    | 表示文件是管道文件
+    = 表示文件是套接字
+    &gt; 表示进程间的通信设备
+</code></pre>
+<ul>
+<li>
+<p>ls命令的-d选项（<em>directory</em>）只显示目录本身的信息</p>
+</li>
+<li>
+<p>ls命令的-R选项 （<em>recursive</em>）递归地显示目录及其所有子目录中的文件信息</p>
+</li>
+<li>
+<p>ls命令的-i选项（<em>index</em>）显示文件或者目录的索引节点号</p>
+</li>
+</ul>
+<h2 id="mkdir命令-make-directory">mkdir命令 <em><strong>make directory</strong></em></h2>
+<p><strong>在文件系统目录树上创建新的目录</strong></p>
+<p>命令语法：<code>mkdir [options] DirectoryName </code></p>
+<ul>
+<li>没有选项的 mkdir 命令</li>
+<li>mkdir命令的-p选项 (<em>parents</em>)  创建多层目录</li>
+</ul>
+<h2 id="rmdir命令-remove-directory">rmdir命令 <em><strong>remove directory</strong></em></h2>
+<p>删除一个空目录</p>
+<h2 id="du命令-disk-using">du命令    <em><strong>disk using</strong></em></h2>
+<p>查看磁盘存储空间占用情况</p>
+<p>语法:<code>du [options] DirectoryName</code></p>
+<ul>
+<li>-s选项(<em>size</em>): 只显示目录的总计大小，不显示该目录下子目录的大小</li>
+<li>-k选项: 以 KB 为单位显示大小</li>
+<li>-m选项: 以 MB 为单位显示大小</li>
+<li>-h选项(<em>human</em>) :以人类可读的方式显示大小</li>
+</ul>
+<h2 id="touch命令-touch">touch命令 <em><strong>touch</strong></em></h2>
+<p>作用1: 变更最后修改时间，达到重新编译的目的</p>
+<p>作用2: 创建新的空文件</p>
+<h2 id="cp命令-copy">cp命令   <em><strong>copy</strong></em></h2>
+<p><strong>复制文件和目录</strong></p>
+<p>语法：<code> cp [options] SourceFile DestinationFile </code></p>
+<ul>
+<li>没有选项的cp命令: 只能用来复制文件</li>
+<li>cp命令的-r选项 (recursive): 复制一个目录及子目录下的所有文件</li>
+<li>cp命令的-p选项（preserve）: 保留原文件的文件属性</li>
+</ul>
+<h2 id="ln-命令-link">ln 命令   <em><strong>link</strong></em></h2>
+<p><strong>创建文件和目录的链接</strong></p>
+<p>文件和目录的链接有两种:硬链接 和 软链接</p>
+<p>语法：→<code>ln [options]file-existed file-linked </code></p>
+<ul>
+<li>硬链接 <code> ln file-existed file-linked</code>
+<ul>
+<li>硬链接不能跨越文件系统。因为文件名不是文件的属性，因此可以在同一个文件系统下让某个文件只存储一个副本，但是该副本具有与原文件不同的名字。这可以通过使用 ln 命令为文件创建硬链接来实现。</li>
+<li>索引节点一致，只是文件名不同</li>
+</ul>
+</li>
+<li>软链接 <code>ln -s file-existed file-linked </code>
+<ul>
+<li>当需要在两个不同的文件系统之间创建链接时，只能创建软链接</li>
+<li>索引节点不同，是两个文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="mv命令-move">mv命令        <em><strong>move</strong></em></h2>
+<p>语法<code>mv OldfileName NewFileName</code></p>
+<h2 id="rm命令-remove">rm命令        <em><strong>remove</strong></em></h2>
+<p>语法 <code>rm [option] file-or-directory-list </code></p>
+<ul>
+<li>没有选项的rm命令 仅能删除目录</li>
+<li>rm 命令的-r选项 (<em>recursive</em>) 删除非空目录</li>
+<li>rm命令的-i选项 (<em>interactive</em>) 交互式确认</li>
+<li>rm命令的-f选项  (<em>force</em>) 屏蔽提醒</li>
+</ul>
+<h2 id="cat命令-concatenate">cat命令      <em><strong>concatenate</strong></em></h2>
+<p><strong>显示小于一页文件的内容</strong></p>
+<p>语法<code>cat FileList</code></p>
+<p>新文件<code>cat &gt;fileB &lt;&lt;EOF </code></p>
+<h2 id="more命令-more">more命令    <em><strong>more</strong></em></h2>
+<p><strong>查看多页文件的内容</strong></p>
+<p><code>more FileName</code></p>
+<pre><code> Enter 下一行
+ b     上一页
+ 空格  下一页
+ q     结束命令
+</code></pre>
+<h2 id="head命令-head">head命令     <em><strong>head</strong></em></h2>
+<p><strong>显示文件前几行的内容</strong></p>
+<p><code> head [option] file </code></p>
+<ul>
+<li>没有选项的head命令
+<ul>
+<li>默认前10行</li>
+</ul>
+</li>
+<li>head命令的-n选项
+<ul>
+<li><code>head -n num</code>表示显示前num行</li>
+</ul>
+</li>
+</ul>
+<h2 id="tail命令-tail">tail命令     <em><strong>tail</strong></em></h2>
+<p>语法 <code>tail [option] file</code></p>
+<ul>
+<li>没有选项的tail命令</li>
+<li>tail命令的-n选项</li>
+</ul>
+<h2 id="file命令-file">file命令     <em><strong>file</strong></em></h2>
+<p><strong>查看文件的类型</strong></p>
+<h2 id="grep命令-global-regular-expression">grep命令     <em><strong>global regular expression</strong></em></h2>
+<p><strong>搜索文件中的某一字符串</strong></p>
+<p>语法→<code> grep [option] pattern FileList </code></p>
+<ul>
+<li>没有选项的grep命令</li>
+<li>grep命令的-n选项
+<ul>
+<li>显示行号</li>
+</ul>
+</li>
+<li>grep命令的-v选项
+<ul>
+<li>反向搜索（不包含搜索模式的行）</li>
+</ul>
+</li>
+</ul>
+<h2 id="diff命令-different">diff命令 <em><strong>different</strong></em></h2>
+<h2 id="find命令-find">find命令  <em><strong>find</strong></em></h2>
+<p><strong>搜索指定名字的文件</strong></p>
+<p><code>find Pathname -option [-print] [-exec command{} ;]  </code><br>
+<code> find Pathname -option [-print] [-ok command{} ;]  </code></p>
+<ul>
+<li>find 命令的-name选项
+<ul>
+<li>查找指定名字的文件</li>
+</ul>
+</li>
+<li>find命令的-exec选项
+<ul>
+<li>查找指定名字的文件执行linux命令</li>
+</ul>
+</li>
+<li>find命令的-ok选项
+<ul>
+<li>在-exec选项的基础上，加入确认环节</li>
+</ul>
+</li>
+</ul>
+<h2 id="wc命令-word-count">wc命令       <em><strong>Word Count</strong></em></h2>
+<p><strong>统计文件的行数，单词数，字符数</strong></p>
+<p>语法 <code> wc [options] file </code></p>
+<ul>
+<li>[options]的常用项</li>
+</ul>
+<pre><code>-l  显示行数
+-w  显示单词数
+-c  字符数
+</code></pre>
+<h2 id="whereis命令-where-is">whereis命令  <em><strong>where is</strong></em></h2>
+<p><strong>在特定目录查找符合特定条件的文件</strong></p>
+<p>语法<code>whereis [options] [-B DirList][-M DirList][-S DirList] Filelist</code></p>
+<ul>
+<li>[options]的常用项</li>
+</ul>
+<pre><code>-b                                          只查找二进制文件
+-f                                           不显示文件名的前的路径名称
+-m                                         仅查找man手册文件
+-s                                           仅查找源代码文件
+-u                                           反向查找
+-B DirList                               在设置的目录下查找二进制文件
+-M DirList                              在设置的目录下查找man手册文件
+-S DirList                               在设置的目录下查找源代码文件        
+</code></pre>
+<h2 id="which命令-which">which命令 <em><strong>which</strong></em></h2>
+<p><strong>查找指定程序的文件在哪个文件下</strong></p>
+<p>语法→<code>which Command</code></p>
+<h2 id="locate-命令-locate">locate 命令 # locate</h2>
+<p><strong>根据名字来查找文件</strong></p>
+<p>语法→<code>locate [options] FileName</code></p>
+<ul>
+<li>[options]的常用选项</li>
+</ul>
+<pre><code>-h                                          帮助 # help 
+-V                                          版本信息  # version 
+-q                                          安静模式，不显示错误信息 # quiet 
+-i                                           忽略大小写  # ignore 
+-c                                          仅输出指定的数量 # count 
+-l num                                  最多输出num个条目
+-n num                                 最多显示n个输出
+-d DBPATH                           使用DBPATH指定的数据库 
+</code></pre>
+<h2 id="sort-命令">sort 命令</h2>
+<p><strong>对文件内容进行排序</strong><br>
+<code>sort [options] FileName</code></p>
+<pre><code>-n : 数字值排序
+-M ：识别三字符月份，按时间排序
+-r ：反向排序
+</code></pre>
+<hr>
+<h1 id="任务五-文件和目录权限管理">任务五 文件和目录权限管理</h1>
+<p><strong>属主，属组，其他用户</strong><br>
+<strong>r（read）4 ，w（write）2， x（execute）1</strong><br>
+eg：rwxr-----对应的是740</p>
+<h2 id="chmod-命令-change-mode">chmod 命令 <em><strong>change mode</strong></em></h2>
+<p><code>chmod [options] Mode file-or directory</code></p>
+<p>eg：<code>chmod 750 filename</code></p>
+<h2 id="chown-命令-change-owner">chown 命令 <em><strong>change owner</strong></em></h2>
+<p><code>chown [options] owner file-or directory</code></p>
+<hr>
+<h1 id="任务六-进程管理">任务六 进程管理</h1>
+<p><strong>父进程，子进程，天生进程，兄弟进程，孤儿进程，僵尸进程</strong></p>
+<h2 id="ps-命令">ps 命令：</h2>
+<p><code>ps [options]</code> <strong>（process status）</strong></p>
+<ul>
+<li>无参ps</li>
+<li>-ef命令 <em>every full</em></li>
+<li>-elf命令 <em>every long full</em></li>
+<li>-aux命令</li>
+</ul>
+<h2 id="pstree-命令">pstree 命令</h2>
+<p><strong>打印家族树信息</strong></p>
+<ul>
+<li>-p</li>
+<li>-u</li>
+<li>-pu</li>
+</ul>
+<h2 id="kill-命令">kill 命令</h2>
+<p><code>kill [options] PID</code></p>
+<ul>
+<li>-l</li>
+<li>PID</li>
+<li>-9 PID</li>
+<li>-HUP PID</li>
+</ul>
+<h2 id="pgrep-命令">pgrep 命令</h2>
+<p><strong>搜索进程</strong></p>
+<p><code> pgrep [options] &lt;pattern&gt; </code></p>
+<ul>
+<li>-o</li>
+<li>-n</li>
+<li>-l</li>
+<li>-P</li>
+<li>-g</li>
+<li>-t</li>
+<li>-u</li>
+</ul>
+<h2 id="killall-命令">killall 命令</h2>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[质数判断与质数筛]]></title>
+        <id>https://episvr.github.io/prime/</id>
+        <link href="https://episvr.github.io/prime/">
+        </link>
+        <updated>2023-11-25T10:04:48.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="什么是质数">什么是质数?</h1>
+<blockquote>
+<p>质数是指在大于1的自然数中，除了1和它本身以外不再有其他因数的自然数。</p>
+</blockquote>
+<blockquote>
+<p>质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个正因数的数）。</p>
+</blockquote>
+<p>可见<strong>整除</strong>对于质数的判断有很重要的作用</p>
+<hr>
+<p>进而我们有质数判断的最基本的写法如下↓</p>
+<h1 id="质数判断-10">质数判断 1.0</h1>
+<pre><code class="language-cpp">bool Isprime(int n)
+{
+    if (n == 1) return false;
+    for(int i = 2; i &lt; n; i++)
+    {
+        if(n % i == 0)  return false;
+    }
+    return true;
+}
+</code></pre>
+<p>即对于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2≤i≤n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 不是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的因数</p>
+<hr>
+<p>但是我们还能继续优化这个算法</p>
+<h1 id="质数判断-20">质数判断 2.0</h1>
+<pre><code class="language-cpp">bool Isprime(int n)
+{
+    if (n == 1) return false;
+    double sqrtn = sqrt(n)
+    for(int i = 2; i &lt; sqrtn + 1; i++)
+    {
+        if(n % i == 0)  return false;
+    }
+    return true;
+}
+</code></pre>
+<p>即对于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><msqrt><mi>n</mi></msqrt><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2≤i≤\sqrt n +1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 不是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的因数</p>
+<p>注意其中的<code>double sqrtn = sqrt(n)</code>语句的位置，这保证了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span></span></span></span> 不会每次都被计算</p>
+<hr>
+<h1 id="质数判断-final-30朴素筛">质数判断 final 3.0（朴素筛）</h1>
+<p>朴素筛的时间复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><msqrt><mi>n</mi></msqrt><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\sqrt n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<pre><code class="language-cpp">bool Isprime(int n)
+{
+    if (n == 1)  return false;
+    if (n == 2)  return true;
+    else if (n % 2 == 0) return false;
+    double sqrtn = sqrt(n)
+    for(int i = 3; i &lt; sqrtn + 1; i+=2)
+    {
+        if(n % i == 0)  return false;
+    }
+    return true;
+}
+</code></pre>
+<p>即对于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>≤</mo><mi>i</mi><mo>≤</mo><msqrt><mi>n</mi></msqrt><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2≤i≤\sqrt n +1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.79549em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>，奇数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 不是奇数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 的因数</p>
+<p>其实这里已经能看出来质数筛的思想了，就是逐步利用<strong>质因子</strong>筛去合数</p>
+<hr>
+<h1 id="质数筛法之埃式筛埃拉托斯特尼算法">质数筛法之埃式筛（埃拉托斯特尼算法）</h1>
+<p>埃氏筛的时间复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>l</mi><mi>o</mi><mi>g</mi><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n log log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p>要得到自然数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 以内的全部素数，必须把不大于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.23972em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
+-10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
+-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
+35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
+-221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
+s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
+s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span></span></span></span> 的所有素数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> 的倍数剔除，剩下的就是素数</p>
+<p><strong>eg；使用埃氏筛输出 100 以内的质数</strong></p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+using namespace std;
+const int n = 100;
+int main() 
+{
+    bool R[n + 1];
+    for (int i = 0; i &lt;= n; i++) 
+        R[i] = true; // 初始化所有数为素数
+ 
+    for (int i = 2; i * i &lt;= n; i++)
+        if (R[i]) 
+            for (int j = i * i; j &lt;= n; j += i) 
+                R[j] = false; //核心：剔除素数的倍数
+
+
+    for (int i = 2; i &lt;= n; i++) 
+        if (R[i]) 
+            cout &lt;&lt; i &lt;&lt; &quot; &quot;; //输出
+    return 0;
+}
+</code></pre>
+<p>下面，我们审视一下代码</p>
+<pre><code class="language-cpp">for (int i = 2; i * i &lt;= n; i++)
+        if (R[i]) 
+            for (int j = i * i; j &lt;= n; j += i) 
+                R[j] = false; 
+</code></pre>
+<p>这里值得注意的地方是<code>j = i * i</code>的初始化</p>
+<p>为什么不从 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>i</mi><mi mathvariant="normal">（</mi><mi>k</mi><mo>&lt;</mo><mi>i</mi><mi mathvariant="normal">）</mi></mrow><annotation encoding="application/x-tex">ki（k&lt;i）</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span><span class="mord cjk_fallback">（</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span><span class="mord cjk_fallback">）</span></span></span></span> 开始算起呢？答案是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mi>i</mi></mrow><annotation encoding="application/x-tex">ki</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mord mathdefault">i</span></span></span></span> 会被更小的素数筛去，这样做减少了重复筛除</p>
+<hr>
+<p>能不能进一步优化呢？当然是可以的！</p>
+<h1 id="大名鼎鼎的欧拉筛">大名鼎鼎的欧拉筛</h1>
+<p>欧拉筛的时间复杂度是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></p>
+<p><strong>代码如下</strong></p>
+<pre><code class="language-cpp">bool isprime[MAXN]; 
+int prime[MAXN]; 
+int n;
+int cnt; 
+
+void euler()
+{
+    memset(isprime, true, sizeof(isprime)); 
+    isprime[1] = false; 
+    for(int i = 2; i &lt;= n; ++i)
+    {
+        if(isprime[i]) prime[++cnt] = i; // 记录素数
+        for(int j = 1; j &lt;= cnt &amp;&amp; i * prime[j] &lt;= n; ++j)
+        {
+            isprime[i * prime[j]] = false;  // 筛去i的质数倍
+            if(i % prime[j] == 0) break; //直到遇到i的最小质因子
+        }
+    }
+}
+</code></pre>
+<p>下面，我们审视一下这个代码的关键之处</p>
+<pre><code class="language-cpp">for(int j = 1; j &lt;= cnt &amp;&amp; i * prime[j] &lt;= n; ++j)
+{
+    isprime[i * prime[j]] = false;  //筛去i的质数倍
+    if(i % prime[j] == 0) break; //直到遇到最小质因子
+}
+</code></pre>
+<p>对于任意合数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi><mo>=</mo><mi>p</mi><mi>X</mi></mrow><annotation encoding="application/x-tex">N=pX</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> (其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> 为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 的最小质因子)<br>
+那么，由于<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi><mo>&lt;</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">X&lt;N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72243em;vertical-align:-0.0391em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> 会先进入筛子</p>
+<p><strong>关键：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">X</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">X</span></span></span></span> 的最小质因子不会小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span>，所以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span> 会被它的最小质因子 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span></span></span></span> 筛去</strong></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello！Gridea]]></title>
+        <id>https://episvr.github.io/hello-gridea/</id>
+        <link href="https://episvr.github.io/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>👏  终于搭好了！ <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
