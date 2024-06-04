@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>程序员的小把戏罢了——web谜介绍 | Epiphany的茶话小屋</title>
+<meta name="description" content="苦逼C++学习之路">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1717483077153">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1717483077153" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/learning" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">程序员的小把戏罢了——web谜介绍</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-04-07</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://episvr.github.io/cfILhzIvH/">
+                    puzzle
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <h2 id="1-什么是web谜">1. 什么是Web谜</h2>
+<p>简单来说，是指一种网页小游戏，游戏分为若干关卡，基本上每个关卡都是一个网页，你需要利用一定的方式达到最终的网页（<strong>Final web</strong>），你可能需要知道……</p>
+<ul>
+<li>学科知识</li>
+<li>程序员必备小知识</li>
+<li>伟大的互联网</li>
+<li>一些游戏知识，文学知识，和<s>常识</s>…</li>
+<li>熟知一些古典密码…</li>
+<li>一些注意力</li>
+<li>maybe some魔法……</li>
+</ul>
+<h2 id="2-web谜的答案">2. Web谜的答案</h2>
+<p>Web的答案基本上是一个由字母和数字（可能还有下划线 _ ）组成的字符串</p>
+<p>你需要根据各种手段获取到与答案有关的信息，比如说…</p>
+<ul>
+<li>
+<p>浏览一下当前网页？</p>
+</li>
+<li>
+<p>检索一下题干？（如果有的话）</p>
+</li>
+<li>
+<p>网址有什么特殊规律吗？</p>
+</li>
+<li>
+<p>用古典密码解密一下？</p>
+</li>
+<li>
+<p>控制台有什么内容吗？</p>
+</li>
+<li>
+<p>网页源码有什么值得注意的地方吗？（特殊的注释，拼错的单词…）</p>
+</li>
+<li>
+<p>网页有隐藏信息吗？<span class='katex-error' title='ParseError: KaTeX parse error: Expected &#039;{&#039;, got &#039;\white&#039; at position 8: \color \̲w̲h̲i̲t̲e̲\text{（警惕白底白字）}'>\color \white\text{（警惕白底白字）}</span></p>
+</li>
+<li>
+<p>有奇怪的图片/音频吗？</p>
+<ul>
+<li>图片、音频是不是隐藏了什么？</li>
+<li>改后缀名？</li>
+</ul>
+</li>
+<li>
+<p>与之前的网页有关吗？</p>
+</li>
+</ul>
+<h2 id="3-web谜的提交">3. Web谜的提交</h2>
+<p>当你千辛万苦做完了题目，然后惊奇的发现…</p>
+<blockquote>
+<p>欸？提交框怎么不见了？</p>
+</blockquote>
+<p>大多数情况，你是看不到提交框的</p>
+<p>Web谜作为一个网页谜题，最大的特点就是它的提交方式——地址栏</p>
+<p>比如说你在<code>https://episvr.github.io/ciphers/</code>中解出了<code>9aLORLkN-</code>的答案，你只需要把地址栏的最后一部分的<code>ciphers</code>改为<code>9aLORLkN-</code>即可</p>
+<p>tip: 上述网址为<strong>虚构网址</strong></p>
+<h2 id="4-web谜推荐">4. Web谜推荐</h2>
+<p>你学会了吗？来试试看吧！</p>
+<p>The Riddle：https://harrynull.tech/cipher/</p>
+<p>QwQuiz：https://quiz.qwq.re</p>
+<p>Nazo Game：https://nazo.one-story.cn</p>
+<p>Nazo App：https://nazo.app</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/9aLORLkN-/">
+              <h3 class="post-title">
+                下一篇：CSAPP
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">苦逼C++学习之路</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  远道而来的客人，在这里歇歇脚吧~ | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

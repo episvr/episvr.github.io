@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>CSAPP Chapter 1 计算机系统漫游 | Epiphany的茶话小屋</title>
+<meta name="description" content="苦逼C++学习之路">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1717483077153">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1717483077153" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/learning" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">CSAPP Chapter 1 计算机系统漫游</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-06-04</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <h2 id="11-一个-c-语言程序">1.1 一个 C 语言程序</h2>
+<h3 id="111-文本字符">1.1.1 文本字符</h3>
+<p>hello 程序的生命周期是从一个<strong>源程序</strong>（或者说源文件）开始的，即程序员通过编辑器创建并保存的文本文件，文件名是 hello.c。源程序实际上就是一个由值 0 和 1 组成的<strong>位</strong>（又称为比特）序列， 8 个位被组织成一组，称为<strong>字节</strong>。每个字节表示程序中的某些文本字符。</p>
+<p>大部分的现代计算机系统都使用 <strong>ASCII 标准</strong>来表示文本字符。</p>
+<p>hello.c 程序是以字节序列的方式储存在文件中的 。注意 ，每个文本行都是以一个看不见的换行符 '\n' 来结束的，像 hello.c 这样只由 ASCII 字符构成的文件称为<em>文本文件</em>，所有其他文件都称为<em>二进制文件</em>。</p>
+<p>系统中所有的信息包括磁盘文件、内存中的程序、内存中存放的用户数据以及网络上传送的数据，都是由一串比特表示的。区分不同数据对象的唯一方法是我们读到这些数据对象时的上下文。</p>
+<h3 id="112可执行文件">1.1.2可执行文件</h3>
+<p>hello 程序的生命周期是从一个高级 C 语言程序开始的，然而，为了在系统上运行 hello.c 程序，每条 C 语句都必须被其他程序转化为一系列的低级机器语言指令。然后这些指令按照一种称为<strong>可执行目标程序</strong>的格式打好包，并以二进制磁盘文件的形式存放起来。目标程序也称为可执行目标文件。</p>
+<p>在 Unix 系统上，从源文件到目标文件的转化是由编译器驱动程序完成的：<br>
+<code>linux&gt; gcc -o hello hello.c</code><br>
+在这里， GCC 编译器驱动程序读取源程序文件 hello.c, 并把它翻译成一个可执行目标文件 hello 。这个翻译过程可分为四个阶段完成，执行这四个阶段的程序（<strong>预处理器、编译器、汇编器和链接器</strong>）一起构成了<strong>编译系统</strong> (compilation system)。</p>
+<figure data-type="image" tabindex="1"><img src="https://episvr.github.io/post-images/1717482310515.png" alt="" loading="lazy"></figure>
+<h2 id="12-硬件系统的组成">1.2 硬件系统的组成</h2>
+<ol>
+<li>
+<h3 id="总线"><strong>总线</strong></h3>
+<p>贯穿整个系统的是一组电子管道，称作<em>总线</em>，它携带信息字节并负责在各个部件间传递。通常总线被设计成传送定长的字节块，也就是字 (word) 。字中的字节数（即字长）是一个基本的系统参数，各个系统中都不尽相同。现在的大多数机器字长要么是 4 个字节 (32位），要么是 8 个字节 (64 位）。本书中，我们不对字长做任何固定的假设。相反，我们将在需要明确定义的上下文中具体说明一个”字”是多大。</p>
+</li>
+<li>
+<h3 id="io-设备"><strong>I/O 设备</strong></h3>
+<p>I/O设备是系统与外部世界的联系通道。</p>
+<p>我们的示例系统包括四个 I/O设备：</p>
+<ul>
+<li>
+<p>作为用户输入的键盘和鼠标，</p>
+</li>
+<li>
+<p>作为用户输出的显示器，</p>
+</li>
+<li>
+<p>用于长期存储数据和程序的磁盘驱动器（磁盘）。</p>
+</li>
+</ul>
+<p>最开始，可执行程序 hello 就存放在磁盘上。每个 I/O设备都通过一个控制器或适配器与I/O总线相连。控制器和适配器之间的区别主要在于它们的封装方式。控制器是 I/O 设备本身或者系统的主印制电路板（通常称作主板）上的芯片组。而适配器则是一块插在主板插槽上的卡。无论如何，它们的功能都是在I/O 总线和 I/O设备之间传递信息。</p>
+</li>
+</ol>
+<figure data-type="image" tabindex="2"><img src="https://episvr.github.io/post-images/1717482292305.png" alt="" loading="lazy"></figure>
+<ol start="3">
+<li>
+<h3 id="主存"><strong>主存</strong></h3>
+<p>主存是一个临时存储设备，在处理器执行程序时，用来存放程序和程序处理的数据。</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>从物理上来说，主存是由一组动态随机存取存储器 (DRAM) 芯片组成的。</p>
+</li>
+<li>
+<p>从逻辑上来说，存储器是一个线性的字节数组，每个字节都有其唯一的地址（数组索引），这些地址是从零开始的。</p>
+<p>一般来说，组成程序的每条机器指令都由不同数量的字节构成。与 C 程序变量相对应的数据项的大小是根据类型变化的。比如，在运行 Linux 的 x86-64 机器上， short 类型的数据需要 2 个字节， int 和 float 类型需要 4 个字节，而 long 和 double 类型需要 8 个字节。</p>
+</li>
+</ul>
+<ol start="4">
+<li>
+<h3 id="处理器"><strong>处理器</strong></h3>
+<p>中央处理单元 、处理器(CPU)</p>
+<ul>
+<li>是解释（或执行）存储在主存中指令的引擎。</li>
+</ul>
+<p>寄存器、程序计数器 (PC)</p>
+<ul>
+<li>在任何时刻， PC 都指向主存中的某条机器语言指令（即含有该条指令的地址）。 从系统通电开始，直到系统断电，处理器一直在不断地执行程序计数器指向的指令，再更新程序计数器，使其指向下一条指令。</li>
+</ul>
+<p>CPU看上去是按照一个非常简单的指令执行模型来操作的，这个模型是由<strong>指令集架构</strong>决定的。在这个模型中，指令按照严格的顺序执行，而执行一条指令包含执行一系列的步骤。</p>
+<p>CPU从PC指向的内存处读取指令，解释指令中的位，执行该指令指示的简单操作，然后更新 PC, 使其指向下一条指令，而这条指令并不一定和在内存中刚刚执行的指令相邻。<br>
+这样的简单操作并不多，它们围绕着<em><strong>主存、寄存器文件 (register file) 和算术／逻辑单元 (ALU)</strong></em> 进行。</p>
+<p><strong>寄存器文件</strong>是一个小的存储设备，由一些单个字长的寄存器组成，每个寄存器都有唯一的名字。</p>
+<p><strong>ALU</strong> 计算新的数据和地址值。下面是一些简单操作的例子，CPU 在指令的要求下可能会执行这些操作。</p>
+<ul>
+<li>
+<p>加载：从主存复制一个字节或者一个字到寄存器，以覆盖寄存器原来的内容 。</p>
+</li>
+<li>
+<p>存储：从寄存器复制一个字节或者一个字到主存的某个位置，以覆盖这个位置上原<br>
+来的内容。</p>
+</li>
+<li>
+<p>操作 ： 把两个寄存器的内容复制到 ALU, ALU 对这两个字做算术运算，并将结果<br>
+存放到一个寄存器中，以覆盖该寄存器中原来的内容。</p>
+</li>
+<li>
+<p>跳转：从指令本身中抽取一个字，并将这个字复制到程序计数器 (PC) 中，以覆盖<br>
+PC 中原来的值。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>指令集架构</strong>描述的是每条机器代码指令的效果</p>
+<p><strong>微体系结构</strong>描述的是处理器实际上是如何实现的</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="13-程序的运行">1.3 程序的运行</h2>
+<p><strong>读取命令</strong></p>
+<p>鼠标键盘→IO→寄存器→IO→主存</p>
+<p><strong>加载文件</strong></p>
+<p>磁盘→IO→主存</p>
+<p><strong>执行命令</strong></p>
+<p>主存→IO→寄存器→IO→显示器</p>
+<h2 id="14-存储设备形成层次结构">1.4 存储设备形成层次结构</h2>
+<p>为了解决处理器与主存之间的差异，系统设计者采用了更小更快的存储设备，称为<strong>高速缓存存储器</strong> (cache memory, 简称为 cache 或高速缓存），作为暂时的集结区域，存放处理器近期可能会需要的信息。</p>
+<figure data-type="image" tabindex="3"><img src="https://episvr.github.io/post-images/1717482257425.png" alt="" loading="lazy"></figure>
+<h2 id="15-进程-虚拟内存与文件">1.5 进程、虚拟内存与文件</h2>
+<p><strong>进程</strong>是操作系统对一个正在运行的程序的一种抽象。</p>
+<ul>
+<li>
+<p><strong>并发运行</strong>，则是说一个进程的指令和另 一个进程的指令是交错执行的。这是通过处理器在进程间切换来实现的。操作系统实现这种交错执行的机制称为<strong>上下文切换</strong>。</p>
+</li>
+<li>
+<p>操作系统保持跟踪进程运行所需的所有状态信息，也就是<strong>上下文</strong>，包括许多信息，比如 PC 和寄存器文件的当前值，以及主存的内容。在任何一个时刻，单处理器系统都只能执行一个进程的代码。当操作系统决定要把控制权从当前进程转移到某个新进程时，就会进行上下文切换，即保存当前进程的上下文、恢复新进程的上下文，然后将控制权传递到新进程。新进程就会从它上次停止的地方开始。</p>
+</li>
+<li>
+<p>从一个进程到另一个进程的转换是由操作系统<strong>内核</strong> (kernel) 管理的。内核是操作系统代码常驻主存的部分。当应用程序需要操作系统的某些操作时，比如读写文件，它就执行一条特殊的<strong>系统调用</strong> (system call) 指令，将控制权传递给内核。然后内核执行被请求的操作并返回应用程序。</p>
+</li>
+<li>
+<p>内核不是一个独立的进程，而是系统管理全部进程所用代码和数据结构的集合。</p>
+</li>
+</ul>
+<p>每个进程看到的内存都是一致的，称为<strong>虚拟地址空间</strong>。</p>
+<ul>
+<li><strong>程序代码和数据</strong>。对所有的进程来说，代码是从同一固定地址开始，紧接着的是和<br>
+C 全局变量相对应的数据位置。代码和数据区是直接按照可执行目标文件的内容初<br>
+始化的，在示例中就是可执行文件 hello。</li>
+<li><strong>堆</strong>。代码和数据区后紧随着的是运行时堆。代码和数据区在进程一开始运行时就被<br>
+指定了大小，与此不同，当调用像 malloc 和 free 这样的 C 标准库函数时，堆可<br>
+以在运行时动态地扩展和收缩。</li>
+<li><strong>共享库</strong>。大约在地址空间的中间部分是一块用来存放像 C 标准库和数学库这样的共<br>
+享库的代码和数据的区域。</li>
+<li><strong>栈</strong>。位于用户虚拟地址空间顶部的是用户栈，编译器用它来实现函数调用。和堆一<br>
+样，用户栈在程序执行期间可以动态地扩展和收缩 。 特别地，每次我们调用 一 个函<br>
+数时，栈就会增长；从一个函数返回时，栈就会收缩 。</li>
+<li><strong>内核虚拟内存</strong>。地址空间顶部的区域是为内核保留的。不允许应用程序读写这个区<br>
+域的内容或者直接调用内核代码定义的函数 。 相反，它们必须调用内核来执行这些<br>
+操作。</li>
+</ul>
+<p><strong>文件</strong>就是字节序列,每个 I/O设备，包括磁盘、键盘、显示器，甚至网络，都可以看成是文件。</p>
+<h2 id="16-网络通信">1.6 网络通信</h2>
+<p>从一个单独的系统来看，网络可视为一个I/O设备，当系统从主存复制一串字节到网络适配器时，数据流经过网络到达另一台机器，而不是比如说到达本地磁盘驱动器。相似地，系统可以读取从其他机器发送来的数据，并把数据复制到自己的主存。</p>
+<h2 id="17-一些重要概念">1.7 一些重要概念</h2>
+<ul>
+<li>Amdahl定律</li>
+<li>并发与并行
+<ul>
+<li>并发：同时具有多个活动的系统</li>
+<li>并行：用并发使系统变得更快</li>
+</ul>
+</li>
+<li>抽象</li>
+</ul>
+<h2 id="18-小结">1.8 小结</h2>
+<p>计算机系统是由硬件和系统软件组成的，它们共同协作以运行应用程序。计算机内部的信息被表示为一组组的位，它们依据上下文有不同的解释方式。程序被其他程序翻译成不同的形式，开始时是ASCII 文本，然后被编译器和链接器翻译成二进制可执行文件。</p>
+<p>处理器读取并解释存放在主存里的二进制指令。因为计算机花费了大量的时间在内存、 I/O 设备和 CPU 寄存器之间复制数据，所以将系统中的存储设备划分成层次结构—— CPU 寄存器在顶部，接着是多层的硬件高速缓存存储器、 DRAM 主存和磁盘存储器。在层次模型中，位于更高层的存储设备比低层的存储设备要更快，单位比特造价也更高。层次结构中较高层次的存储设备可以作为较低层次设备的高速缓存。通过理解和运用这种存储层次结构的知识，程序员可以优化 C 程序的性能。</p>
+<p>操作系统内核是应用程序和硬件之间的媒介。它提供三个基本的抽象：</p>
+<ol>
+<li>文件是对 I/0 设备的抽象；</li>
+<li>虚拟内存是对主存和磁盘的抽象；</li>
+<li>进程是处理器、主存和 I/0 设备的抽象</li>
+</ol>
+<p>最后，网络提供了计算机系统之间通信的手段。从特殊系统的角度来看，网络就是一种 I/0 设备。</p>
+<p>用户需求→应用程序→<strong>高级语言→汇编语言→操作系统→机器语言</strong>→时序逻辑</p>
+<p>应用程序→高级语言→汇编语言→操作系统→机器语言→微程序→硬联逻辑</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/webriddles/">
+              <h3 class="post-title">
+                下一篇：程序员的小把戏罢了——web谜介绍
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">苦逼C++学习之路</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  远道而来的客人，在这里歇歇脚吧~ | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

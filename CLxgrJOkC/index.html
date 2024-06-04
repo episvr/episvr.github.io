@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>CSAPP Chapter 3 程序的机器级表示 | Epiphany的茶话小屋</title>
+<meta name="description" content="苦逼C++学习之路">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1717483077153">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1717483077153" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/learning" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">CSAPP Chapter 3 程序的机器级表示</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2024-06-04</span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <h2 id="31-历史观点">3.1 历史观点</h2>
+<p>Intel 处理器的模型，摩尔定律</p>
+<h2 id="32-程序编码">3.2 程序编码</h2>
+<blockquote>
+<p><code>linux&gt; gcc -Og -o p p1.c p2.c</code></p>
+</blockquote>
+<p><code>gcc</code> 指的就是 GCC C 编译器，我们也可以简单地用 cc 来启动它。编译选项 -Og 告诉编译器使用会生成符合原始 C 代码整体结构的机器代码的优化等级。</p>
+<p>实际中，从得到的程序的性能考虑，较高级别的优化（例如，-O1或 -O2）是较好的选择(吸氧大法好)</p>
+<p>实际上 gcc 命令调用了一整套的程序，将源代码转化成可执行代码。</p>
+<ul>
+<li>首先， C 预处理器扩展源代码，插入所有用#include 命令指定的文件，并扩展所有用 ``#define` 声明指定的宏。</li>
+<li>其次，编译器产生两个源文件的汇编代码，名字分别为 p1. s 和 p2.s 。</li>
+<li>接下来，汇编器会将汇编代码转化成二进制目标代码文件 p1.o 和 p2.o 。 目标代码是机器代码的一种形式，它包含所有指令的二进制表示，但是还没有填入全局值的地址。</li>
+<li>最后，链接器将两个目标代码文件与实现库函数的代码合并，并产生最终的可执行代码文件 p（由命令行指示符 -op 指定的）。可执行代码是我们要考虑的机器代码的第二种形式，也就是处理器执行的代码格式。</li>
+</ul>
+<p>计算机系统使用了多种不同形式的抽象，利用更简单的抽象模型来隐藏实现的细节。对于机器级编程来说，其中两种抽象尤为重要。</p>
+<ul>
+<li>
+<p>第一种是由指令集体系结构或指令集架构 来定义机器级程序的格式和行为，它定义了处理器状态、指令的格式，以及每条指令对状态的影响。</p>
+<ul>
+<li>大多数ISA, 包括 x86-64, 将程序的行为描述成好像每条指令都是按顺序执行的，一条指令结束后，下一条再开始。处理器的硬件远比描述的精细复杂，它们<em>并发</em> 地执行许多指令，但是可以采取措施保证整体行为与 ISA 指定的顺序执行的行为完全一致。</li>
+</ul>
+</li>
+<li>
+<p>第二种抽象是，机器级程序使用的内存地址是<em>虚拟地址</em>，提供的内存模型看上去是一个非常大的字节数组。</p>
+<ul>
+<li>存储器系统的实际实现是将多个硬件存储器和操作系统软件组合起来</li>
+</ul>
+</li>
+</ul>
+<p>在整个编译过程中，编译器会完成大部分的工作，将把用 C 语言提供的相对比较抽象的执行模型表示的程序转化成处理器执行的非常基本的指令 。 汇编代码表示非常接近于机器代码 。 与机器代码的二进制格式相比，汇编代码的主要特点是它用可读性更好的文本格式表示 。能够理解汇编代码以及它与原始 C 代码的联系，是理解计算机如何执行程序的关键一步。</p>
+<ul>
+<li>
+<p>程序计数器（通常称为 &quot;PC&quot;, 在 x86-64 中用 <code>%rip</code> 表示）给出将要执行的下一条指令在内存中的地址。</p>
+</li>
+<li>
+<p>整数寄存器文件包含 16 个命名的位置，分别存储 64 位的值。这些寄存器可以存储地址（对应于 C 语言的指针）或整数数据。有的寄存器被用来记录某些重要的程序状态，而其他的寄存器用来保存临时数据，例如过程的参数和局部变量，以及函数的返回值。</p>
+</li>
+<li>
+<p>条件码寄存器保存着最近执行的算术或逻辑指令的状态信息。它们用来实现控制或数据流中的条件变化，比如说用来实现 if 和 while 语句。</p>
+</li>
+<li>
+<p>一组向量寄存器可以存放一个或多个整数或浮点数值。</p>
+</li>
+</ul>
+<p>虽然 C 语言提供了一种模型，可以在内存中声明和分配各种数据类型的对象，但是机器代码只是简单地将内存看成一个很大的、按字节寻址的数组。</p>
+<ul>
+<li>C 语言中的聚合数据类型，例如数组和结构，在机器代码中用一组连续的字节来表示。</li>
+<li>即使是对标量数据类型，汇编代码也不区分有符号或无符号整数，不区分各种类型的指针，甚至于不区分指针和整数。</li>
+</ul>
+<p>程序内存包含：程序的可执行机器代码，操作系统需要的一些信息，用来管理过程调用和返回的运行时栈，以及用户分配的内存块(比如说用 malloc 库函数分配的。)正如前面提到的，程序内存用虚拟地址来寻址。在任意给定的时刻，只有有限的一部分虚拟地址被认为是合法的。操作系统负责管理虚拟地址空间，将虚拟地址翻译成实际处理器内存中的物理地址。</p>
+<p>一条机器指令只执行一个非常基本的操作</p>
+<ul>
+<li>将存放在寄存器中的两个数字相加</li>
+<li>在存储器和寄存器之间传送数据</li>
+<li>条件分支转移到新的指令地址</li>
+</ul>
+<p>编译器必须产生这些指令的序列，从而实现（像算术表达式求值、循环或过程调用和返回这样的）程序结构。</p>
+<p>在命令行上使用 &quot;-s&quot; 选项，就能看到 C 语言编译器产生的汇编代码：<br>
+<code>linux&gt; gcc -Og -S mstore.c</code></p>
+<p>如果我们使用 &quot; -c&quot; 命令行选项， GCC 会编译并汇编该代码：<br>
+<code>linux&gt; gcc -Og -c mstore.c</code></p>
+<p>要查看机器代码文件的内容，有一类称为反汇编器 (disassembier) 的程序非常有用。<br>
+这些程序根据机器代码产生一种类似于汇编代码的格式。在 Linux 系统中，带-d命令行标志的程序 OBJDUMP( 表示 &quot;object dump&quot;) 可以充当这个角色：<br>
+<code>linux&gt; objdump -d mstore.o</code></p>
+<h2 id="33-数据格式">3.3 数据格式</h2>
+<p>Intel 用术语”字 (word)&quot; 表示 16 位数据类型。称 32 位数为“双字 (double words)&quot;, 称 64 位数为“四字 (quad words)&quot;</p>
+<table>
+<thead>
+<tr>
+<th>C声明</th>
+<th>Intel数据类型</th>
+<th>汇编代码后缀</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>char</td>
+<td>字节</td>
+<td>b</td>
+<td>1</td>
+</tr>
+<tr>
+<td>short</td>
+<td>字</td>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>int</td>
+<td>双字</td>
+<td>l</td>
+<td>4</td>
+</tr>
+<tr>
+<td>long</td>
+<td>四字</td>
+<td>q</td>
+<td>8</td>
+</tr>
+<tr>
+<td>char*</td>
+<td>四字</td>
+<td>q</td>
+<td>8</td>
+</tr>
+<tr>
+<td>float</td>
+<td>单精度</td>
+<td>s</td>
+<td>4</td>
+</tr>
+<tr>
+<td>double</td>
+<td>双精度</td>
+<td>l</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>大多数 GCC 生成的汇编代码指令都有一个字符的后缀，表明操作数的大小。</p>
+<blockquote>
+<p>例如，数据传送指令有四个变种： movb( 传送字节）、 movw( 传送字）、 movl 以传送双字）和 movq( 传送四字）。</p>
+</blockquote>
+<h2 id="34-访问信息">3.4 访问信息</h2>
+<h3 id="341-寄存器">3.4.1 寄存器</h3>
+<p>一个 x86-64 的中央处理单元 (CPU) 包含一组 16 个存储 64 位值的目的寄存器。这些寄存器用来存储整数数据和指针 。</p>
+<p>指令可以对这 16 个寄存器的低位字节中存放的不同大小的数据进行操作。字节级操作可以访问最低的字节， 16 位操作可以访问最低的 2 个字节， 32 位操作可以访问最低的 4 个字节，而 64 位操作可以访问整个寄存器。</p>
+<ul>
+<li>最初的 8086 中有 8 个 16 位的寄存器，每个寄存器都有特殊的用途，它们的名字就反映了这些不同的用途。</li>
+<li>扩展到 IA32 架构时，这些寄存器也扩展成 32位寄存器，标号从 %eax 到 %ebp 。</li>
+<li>扩展到 x86-64 后，原来的 8 个寄存器扩展成 64 位，标号从 %rax 到 %rbp。</li>
+<li>除此之外，还增加了 8 个新的寄存器，它们的标号是按照新的命名规则制定的：从 %r8 到 %r15 。</li>
+</ul>
+<p>当这些指令以寄存器作为目标时，对于生成小于 8 字节结果的指令，寄存器中剩下的字节会怎么样，对此有两条规则：生成 1 字节和 2 字节数字的指令会保持剩下的字节不变；生成 4 字节数字的指令会把高位 4 个字节置为 0 。</p>
+<p>特别的，栈指针 <code>%rsp</code>, 用来指明运行时栈的结束位置</p>
+<h3 id="342-操作数指示符">3.4.2 操作数指示符</h3>
+<p>大多数指令有一个或多个操作数, 指示出执行一个操作中要使用的源数据值，以及放置结果的目的位置。 x86-64 支持多种操作数格式 。 源数据值可以以常数形式给出，或是从寄存器或内存中读出。结果可以存放在寄存器或内存中 。 因此，各种不同的操作数的可能性被分为三种类型。</p>
+<ul>
+<li>
+<p>第一种类型是立即数 (immediate) , 用来表示常数值。</p>
+<p>在 AT&amp;T 格式的汇编代码中，立即数的书写方式是<code>$</code>后面跟一个用标准 C 表示法表示的整数，比如， <code>$-577 或 $0x1F</code>。不同的指令允许的立即数值范围不同，汇编器会自动选择最紧凑的方式进行数值编码。</p>
+</li>
+<li>
+<p>第二种类型是寄存器 (register) , 它表示某个寄存器的内容</p>
+<p>16 个寄存器的低位 1 字节、 2 字节、 4 字 节或 8 字节中的一个作为操作数，这些字节数分别对应于 8 位、 16 位、 32 位或 64 位。我们用符号 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>r</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">r_a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 来表示任意寄存器 a, 用引用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>[</mo><msub><mi>r</mi><mi>a</mi></msub><mo>]</mo></mrow><annotation encoding="application/x-tex">R[r_a]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>来表示它的值，这是将寄存器集合看成一个数组 R, 用寄存器标识符作为索引 。</p>
+</li>
+<li>
+<p>第三类操作数是内存引用，它会根据计算出来的地址（通常称为有效地址）访问某个内存位置 。 因为将内存看成一个很大的字节数组，我们用符号<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>M</mi><mi>b</mi></msub><mo>[</mo><mi>A</mi><mi>d</mi><mi>d</mi><mi>r</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">M_b[Addr]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault">A</span><span class="mord mathdefault">d</span><span class="mord mathdefault">d</span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span> 表示对存储在内存中从地址 Addr 开始的 b 个字节值的引用 。 为了简便，我们通常省去下标 b 。</p>
+</li>
+</ul>
+<p>有多种不同的寻址模式，允许不同形式的内存引用。表中底部用语法<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>m</mi><mi>m</mi><mo>(</mo><msub><mi>r</mi><mi>b</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>s</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">Imm(r_b,r_i,s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">m</span><span class="mord mathdefault">m</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span>表示的是最常用的形式 。</p>
+<p>这样的引用有四个组成部分：</p>
+<ul>
+<li>一个立即数偏移<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>m</mi><mi>m</mi></mrow><annotation encoding="application/x-tex">Imm</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">m</span><span class="mord mathdefault">m</span></span></span></span></li>
+<li>一个基址寄存器 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">R_b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+<li>一个变址寄存器 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>R</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">R_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.00773em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (除了<code>%rsp</code>)</li>
+<li>一个比例因子<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span></li>
+</ul>
+<p>其中基址和变址寄存器都必须是 64 位寄存器，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>必须是 1 2 4或者 8</p>
+<p>有效地址被计算为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>I</mi><mi>m</mi><mi>m</mi><mo>+</mo><mi>R</mi><mo>[</mo><msub><mi>r</mi><mi>b</mi></msub><mo>]</mo><mo>+</mo><mi>R</mi><mo>[</mo><msub><mi>r</mi><mi>i</mi></msub><mo>]</mo><mo>×</mo><mi>s</mi></mrow><annotation encoding="application/x-tex">Imm+R[r_b]+R[r_i]\times s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span><span class="mord mathdefault">m</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02778em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">s</span></span></span></span>。 引用数组元素时，会用到这种通用形式。其他形式都是这种通用形式的特殊情况，只是省略了某些部分。正如我们将看到的，当引用数组和结构元素 时，比较复杂的寻址模式是很有用的 。</p>
+<h3 id="343-数据的传送指令">3.4.3 数据的传送指令</h3>
+<p><code>MOV  Src，Dst</code>将Src位置的数据复制到Dst位置</p>
+<p>movb,movw,<strong>movl,movq</strong></p>
+<p><code>MOVZ</code> 类中的指令把目的中剩余的字节填充为0, 而 <code>MOVS</code> 类中的指令通过符号扩展来填充，把源操作的最高位进行复制</p>
+<p>并没有<code>movzlq</code>指令。这样的数据传送可以用<code>movl</code>指令来实现。</p>
+<p><code>cltq</code>等价于<code>movslq %eax,%rax</code></p>
+<h3 id="344-压入和弹出栈数据">3.4.4 压入和弹出栈数据</h3>
+<blockquote>
+<p>push是比较少见的操作数仅有source的指令</p>
+</blockquote>
+<p><code>push + src </code>,<code>pop + dst</code></p>
+<p>栈是倒着生长的，栈顶指针<code>rsp</code>总是指向栈中元素的<strong>最低地址</strong></p>
+<p>所以入栈<code>pushq，%rsp-8</code></p>
+<p><code>pop</code>只移动栈指针，不清空值，这有一定的安全隐患</p>
+<h3 id="345-算数与逻辑操作todo">3.4.5 算数与逻辑操作[Todo]</h3>
+<figure data-type="image" tabindex="1"><img src="https://episvr.github.io/post-images/1717483027904.png" alt="" loading="lazy"></figure>
+<h2 id="36-控制">3.6 控制</h2>
+<blockquote>
+<p>用 jump 指令可以改变一组机器代码指令的执行顺序</p>
+</blockquote>
+<h3 id="361-条件码">3.6.1 条件码</h3>
+<blockquote>
+<p>除了整数寄存器， CPU 还维护着一组单个位的条件码 (condition code) 寄存器，它们<br>
+描述了最近的算术或逻辑操作的属性</p>
+<p>所有的算术和逻辑操作都会设置条件码</p>
+</blockquote>
+<p>CF: 进位标志。最近的操作使最高位产生了进位。可用来检查无符号操作的溢出<br>
+ZF: 零标志。最近的操作得出的结果为 0<br>
+SF: 符号标志。最近的操作得到的结果为负数<br>
+OF: 溢出标志。最近的操作导致一个补码溢出 正溢出或负溢出</p>
+<blockquote>
+<p>leaq 指令不改变任何条件码，因为它是用来进行地址计算的</p>
+</blockquote>
+<blockquote>
+<p>cmp与sub指令一致，test与and指令一致 但它们只设置条件码，不改变寄存器的值</p>
+</blockquote>
+<h3 id="362-访问条件码">3.6.2 访问条件码</h3>
+<p>条件码通常不会直接读取，常用的使用方法有三种：</p>
+<ul>
+<li>可以根据条件码的某种组合，将一个字节设置为 0 或者 1,</li>
+<li>可以条件跳转到程序的某个其他的部分</li>
+<li>可以有条件地传送数据。</li>
+</ul>
+<p>对于第一种情况，根据条件码的某种组合，将一个字节设置为 0 或者 1。这一整类指令称为 SET 指令，一条 SET 指令的目的操作数是低位单字节寄存器元素之一。它们之间的区别在于它们考虑的条件码的组合是什么，这些指令名字的不同后缀指明了它们所考虑的条件码的组合。这些指令的后缀表示不同的条件而不是操作数大小，了解这一点很重要。</p>
+<p>例如，指令 setl 和setb 表示“小于时设置 (set less)&quot; 和“低于时设置 (set below)&quot;</p>
+<p>某些底层的机器指令可能有多个名字，我们称之为**“同义名&quot;** 。</p>
+<p>比如说，setg( 表示“设置大于&quot;)和 setnle( 表示“设置不小于等于&quot;)指的就是同一条机器指令。<br>
+编译器和反汇编器会随意决定使用哪个名字。</p>
+<h3 id="363-跳转指令">3.6.3 跳转指令</h3>
+<p>jmp 指令是无条件跳转。 它可以是直接跳转， 即跳转目标是作为指令的一部分编码的；也可以是间接跳转，即跳转目标是从寄存器或内存位置中读出的 。</p>
+<p>其他跳转指令都是有条件的 它们根据条件码的某种组合，或者跳转，或者继续执行代码序列中下一条指令。同 SET 指令一样，一些底层的机器指令有多个名字。条件跳转只能是直接跳转。</p>
+<h3 id="364-跳转指令的编码待补">3.6.4 跳转指令的编码【待补】</h3>
+<h3 id="365-条件分支">3.6.5 条件分支</h3>
+<ul>
+<li>
+<p>使用控制的条件转移。短路与的实现</p>
+</li>
+<li>
+<p>使用数据的条件转移。这种方法计算一个条件操作的两种结果，然后再根据条件是否满足从中选取一个。 使用<code>CMOV</code>类指令，预测错误处罚</p>
+</li>
+</ul>
+<h3 id="366-循环">3.6.6 循环</h3>
+<ul>
+<li>do while</li>
+<li>while
+<ul>
+<li>jump to middle</li>
+<li>guarded do</li>
+</ul>
+</li>
+<li>for
+<ul>
+<li>initial test优化(-O1)</li>
+</ul>
+</li>
+</ul>
+<h2 id="37-过程">3.7 过程</h2>
+<p>假设过程 P 调用过程 Q, Q 执行后返回到 P。执行的动作包括：</p>
+<ul>
+<li>传递控制
+<ul>
+<li>在进入过程 Q 的时候，PC 必须被设置为 Q 的代码的起始地址</li>
+<li>然后在返回时，要把 PC 设置为 P 中调用 Q 后面那条指令的地址</li>
+</ul>
+</li>
+<li>传递数据
+<ul>
+<li>P 必须能够向 Q 提供一个或多个参数</li>
+<li>Q 必须能够向 P 返回一个值</li>
+</ul>
+</li>
+<li>分配和释放内存
+<ul>
+<li>在开始时， Q 可能需要为局部变量分配空间</li>
+<li>在返回前，又必须释放这些存储空间</li>
+</ul>
+</li>
+</ul>
+<h3 id="371-运行时栈">3.7.1 运行时栈</h3>
+<p>当过程需要的存储空间超出寄存器能够存放的大小时，就会在栈上分配空间。这个部分称为过程的<strong>栈帧</strong></p>
+<h3 id="372-转移控制">3.7.2 转移控制</h3>
+<p>将控制从函数 P 转移到函数 Q 只需要简单地把程序计数器 (PC) 设置为 Q 的代码的起始位置 。 不过，当稍后从 Q 返回的时候，处理器必须记录好它需要继续 P 的执行的代码位置</p>
+<p><code>call,ret</code>隐式的执行了压栈弹栈的操作，同时改变<code>%rip(PC)</code>的值</p>
+<p>栈帧实现了函数的递归</p>
+<p><code>rbp</code>帧指针</p>
+<p>在被调函数的内部使用了额外的寄存器，会临时分配寄存器，这一过程会覆盖掉寄存器的原值，需要利用栈帧保存原值</p>
+<h3 id="373-数据传送todo">3.7.3 数据传送[todo]</h3>
+<h2 id="38-数组的分配与访问">3.8 数组的分配与访问</h2>
+<h3 id="381-基本原则">3.8.1 基本原则</h3>
+<p><code>T A[N]</code>这个声明有两个效果。</p>
+<ul>
+<li>首先，它在内存中分配一个 <code>L*N</code> 字节的连续区域，这里 <code>L</code> 是数据类型 <code>T</code> 的大小（单位为字节）。</li>
+<li>其次，它引入了标识符 <code>A</code>, 可以用 <code>A</code> 来作为指向数组开头的指针</li>
+<li>可以用 <code>0~N-1</code> 的整数索引来访问该数组元素。数组元素 <code>i</code>会被存放在地址为<code>A+L*i</code>的地方</li>
+</ul>
+<p>内存引用指令可以简化数组访问</p>
+<h3 id="382-指针运算">3.8.2 指针运算</h3>
+<p>C 语言允许对指针进行运算，而计算出来的值会根据该指针引用的数据类型的大小进行伸缩。也就是说，如果<code>p</code>是一个指向类型为 <code>T</code> 的数据的指针，那么表达式<code>p+i</code> 的值为<code>p+L* i</code>, 这里 L 是数据类型 <code>T</code> 的大小。</p>
+<p>单操作数操作符<code>&amp;</code>和<code>*</code>可以产生指针和间接引用指针</p>
+<blockquote>
+<p>数组引用 <code>A [i]</code> 等同于表达式<code>* (A+ i)</code></p>
+</blockquote>
+<h3 id="383-嵌套数组">3.8.3 嵌套数组</h3>
+<blockquote>
+<p>二维数组是一维数组的数组</p>
+</blockquote>
+<p>要访问多维数组的元素，编译器会以数组起始为基地址，（可能需要经过伸缩的 ）偏移量为索引 ，产生计算期望的元素的偏移量，然后使用某种 MOV 指令。</p>
+<p>通常来说，对于一个声明如下的数组：<code>T D[R] [C]</code></p>
+<p><code>&amp; D[i][j] = D+L(C*i+j)</code></p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int A1[3]</code></td>
+<td>一维数组，元素都是整形</td>
+</tr>
+<tr>
+<td><code>int *A2[3]</code></td>
+<td>一维数组，元素都是指针（行指针）（多级数组）</td>
+</tr>
+<tr>
+<td><code>int (*A2)[3]</code></td>
+<td>数组指针，指向一个数组（多维数组）</td>
+</tr>
+</tbody>
+</table>
+<p>由于二维数组是多维数组，所以如果要将使用二级指针来访问二维数组，需要将二维数组转化为二级数组</p>
+<h3 id="384-定长数组">3.8.4 定长数组</h3>
+<p>以下编译优化等级为 -O1</p>
+<blockquote>
+<p>当程序要用一个常数作为数组的维度或者缓冲区的大小时</p>
+<p>最好通过<code># define</code>声明将这个常数与一个名字联系起来,然后在后面一直使用这个名字代替常数的数值</p>
+</blockquote>
+<h3 id="385-变长数组">3.8.5 变长数组</h3>
+<p>历史上，程序员需要变长数组时不得不用 malloc 或 calloc 这样的函数为这些数组分配存储空间，而且不得不显式地编码，用行优先索引将多维数组映射到一维数组。</p>
+<p>ISO C99引入了一种功能，允许数组的维度是表达式，在数组被分配的时候才计算出来。</p>
+<p>在变长数组中我们可将一个数组声明如下：<code>int A[expr1] [expr2]</code><br>
+它可以作为一个局部变量，也可以作为一个函数的参数，然后在遇到这个声明的时候，通过对表达式 expr1 和 expr2 求值来确定数组的维度</p>
+<p>如果允许使用优化， gcc 能够识别出程序访问多维数组的元素的步长</p>
+<h2 id="39-异质的数据结构">3.9 异质的数据结构</h2>
+<p><code>struct</code> <code>union</code></p>
+<h3 id="391-结构todo">3.9.1 结构[Todo]</h3>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/CNj5OORSK/">
+              <h3 class="post-title">
+                下一篇：CSAPP Chapter 2 数据的表示和处理
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">苦逼C++学习之路</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  远道而来的客人，在这里歇歇脚吧~ | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

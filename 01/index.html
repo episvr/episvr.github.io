@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>strcmp函数 和 动态指针数组 | Epiphany的茶话小屋</title>
+<meta name="description" content="苦逼C++学习之路">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1717483077153">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1717483077153" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/learning" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">strcmp函数 和 动态指针数组</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-11-30</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://episvr.github.io/I5Nqq3dOn/">
+                    code
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <h1 id="nov29-上机课只解决了一道题">Nov.29 上机课只解决了一道题</h1>
+<p><s>（真是太有效率辣</s>~</p>
+<h2 id="题目描述">【题目描述】</h2>
+<p>编写程序，输入城市名，按字母顺序输出城市名清单。</p>
+<p>（注：城市按拼音排列输出）</p>
+<p>###【思路】</p>
+<p>（1）利用字符串比较函数（strcmp）和数组排序算法实现；</p>
+<p>（2）动态申请指针数组，每个数组元素的数据类型为，char *；</p>
+<h3 id="输入格式">【输入格式】</h3>
+<p>第一行一个整数 n 表示城市名的个数</p>
+<p>接下来 n 行每行一个字符串表示城市名</p>
+<h3 id="输出格式">【输出格式】</h3>
+<p>n 行 n 个字符串,表示城市名按顺序排序后的结果</p>
+<h1 id=""></h1>
+<p><strong>动态指针数组（指向字符串）</strong></p>
+<pre><code class="language-cpp">char **cities = new char *[size];
+for(int i = 0; i &lt; size; i++)
+{
+    char temp[1000];
+    cin &gt;&gt; temp;
+    cities[i] = new char[strlen(temp)+1];
+    strcpy(cities[i],temp);
+}
+/*
+code
+code
+code
+*/
+for(int i = 0; i &lt; size; i++)
+{
+    delete[] cities[i];
+}
+delete[] cities;
+</code></pre>
+<p><strong>strcmp</strong></p>
+<p>strcmp比较字典序，返回第一个不相符的ASCII码差值</p>
+<p><strong>冒泡排序</strong></p>
+<p>注意交换的写法</p>
+<pre><code class="language-cpp">for(int i = 0;i &lt; size - 1 ;i++)
+{
+    for (int j = 0;j &lt; size - 1 - i;j++)
+    {
+        if(strcmp(cities[j],cities[j+1])&gt;0)
+        {
+            char* temp = cities[j];
+            cities[j] = cities[j+1];
+            cities[j+1] = temp;//利用temp指针交换地址
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-cpp">for(int i = 0; i &lt; size; i++)
+{
+    cout &lt;&lt; cities[i] &lt;&lt; endl; // cout会识别地址内的内容输出，比如此处的cout[i]会输出的其中存的字符串
+}
+</code></pre>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/puzzlehunt/">
+              <h3 class="post-title">
+                下一篇：PuzzleHunt是什么
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">苦逼C++学习之路</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  远道而来的客人，在这里歇歇脚吧~ | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

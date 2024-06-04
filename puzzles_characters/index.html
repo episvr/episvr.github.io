@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>puzzlehunt好题选 之 Characters | Epiphany的茶话小屋</title>
+<meta name="description" content="苦逼C++学习之路">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1717483077153">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1717483077153" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/learning" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">puzzlehunt好题选 之 Characters</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-12-12</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://episvr.github.io/cfILhzIvH/">
+                    puzzle
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <h1 id="题目-characters">题目 Characters</h1>
+<p>You encounter some <strong>characters</strong> in the forest. But to get them to help, you'll need to find their <strong>base</strong> and then understand their <strong>code</strong>.</p>
+<p>译：你在森林遇到了一些<strong>角色</strong>，但是要得到帮助，你需要找到它们的<strong>基地</strong>，然后理解它们的<strong>代码</strong>。</p>
+<p>You, according to a game title (4) / Undergrad degree type (2) - Cooling system (2)</p>
+<p>Speed of light (1) × Singer Sheeran (2) - Highest-ranking card (3)</p>
+<p>(Visage (4) - Small restaurant (4)) / Hawaiian lava type (2)</p>
+<p>Taxi (3) / (US org that evaluates meds (3) - Wonderful, for short (3))</p>
+<p>Payment (3) - Sound scale unit abbreviation (2) - Flow away (3)</p>
+<p>Mi (1) × Gave sustenance to (3) - No longer alive (4)</p>
+<p>Art movement after World War I (4) - Romantic partner (3) - Give up (4)</p>
+<p>Worst grade (1) × Send to a secondary recipient (2) - Not good (3)</p>
+<h1 id="解答-characters">解答: Characters</h1>
+<h2 id="answer-unhexing">Answer: UNHEXING</h2>
+<h2 id="作者-dan-simon">作者: Dan Simon</h2>
+<h2 id="dev-shuxin-zhan">Dev: Shuxin Zhan</h2>
+<p>这个谜题有很多<strong>四则运算</strong><s>（其实是三则）</s>, 而且暂时不清楚如何进行运算。(当然如果你执意将数字放入方程式中，会发现其中一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mi mathvariant="normal">/</mi><mo>(</mo><mn>3</mn><mo>−</mo><mn>3</mn><mo>)</mo></mrow><annotation encoding="application/x-tex">3/(3-3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mord">/</span><span class="mopen">(</span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">3</span><span class="mclose">)</span></span></span></span> 的非法运算，GG)</p>
+<p>但是，其中的<strong>单词clue提示</strong>还是可以直接正面做出来的。</p>
+<p>在解出几道题目后，我们可以注意到括号里的数字就是答案的单词长度</p>
+<p>Clue的答案分别是(虽然有一些的提示比较模糊, 但是问题不大，下一步可以反向爆破):</p>
+<table>
+<thead>
+<tr>
+<th>clue</th>
+<th>answer</th>
+<th>译者吐槽</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>You, according to a game title (4)</br>You，根据一个知名游戏标题</td>
+<td>BABA</td>
+<td>Baba is you是最好的解密游戏！！</td>
+</tr>
+<tr>
+<td>Undergrad degree type (2)</br>本科学位类型</td>
+<td>BA</td>
+<td>涨知识+1</td>
+</tr>
+<tr>
+<td>Cooling system (2)</br>冷却系统</td>
+<td>AC</td>
+<td>涨知识+2</br>AC即空冷</td>
+</tr>
+<tr>
+<td>Speed of light (1)</br>光速</td>
+<td>C</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>8</mn></msup><mi>m</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">3×10^8m/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span></span></span></span></span><span class="mord mathdefault">m</span><span class="mord">/</span><span class="mord mathdefault">s</span></span></span></span></td>
+</tr>
+<tr>
+<td>Singer Sheeran (2)</br>爱德希兰</td>
+<td>ED</td>
+<td>没听过，不了解</td>
+</tr>
+<tr>
+<td>Highest-ranking card (3)</br>排序最高的卡片</td>
+<td>ACE</td>
+<td>原来是扑克牌，我还以为是SSR抽卡（</td>
+</tr>
+<tr>
+<td>Visage (4)</br>面容</td>
+<td>FACE</td>
+<td>没玩过不了解</td>
+</tr>
+<tr>
+<td>Small restaurant (4)</br>小小餐馆</td>
+<td>CAFE</td>
+<td>正确的定义</td>
+</tr>
+<tr>
+<td>Hawaiian lava type (2)	</br>夏威夷，熔岩，类型</td>
+<td>AA</td>
+<td>涨知识+3</br>“aa”是夏威夷词汇，音“阿阿”，用来描述表面粗糙的熔岩流。</td>
+</tr>
+<tr>
+<td>Taxi (3)</br>出租车</td>
+<td>CAB</td>
+<td>抽查！taxi的全称是什么</td>
+</tr>
+<tr>
+<td>US org that evaluates meds (3)</br>美国评估药物的组织</td>
+<td>FDA</td>
+<td>食品和药物管理局</td>
+</tr>
+<tr>
+<td>Wonderful, for short (3)</br>惊叹的，缩写</td>
+<td>FAB</td>
+<td>讨厌缩写！即fabulous</td>
+</tr>
+<tr>
+<td>Payment (3)</br>支付</td>
+<td>FEE</td>
+<td>文化差异</td>
+</tr>
+<tr>
+<td>Sound scale unit abbreviation (2)</br>声音量级单位，缩写</td>
+<td>DB</td>
+<td>非常好单位，使我的沉默震耳欲聋</td>
+</tr>
+<tr>
+<td>Flow away (3)</br>逃离</td>
+<td>EBB</td>
+<td>涨单词量+1</td>
+</tr>
+<tr>
+<td>Mi (1)</br>咪</td>
+<td>E</td>
+<td>没有乐理知识</td>
+</tr>
+<tr>
+<td>Gave sustenance to (3)	</br>给予食物</td>
+<td>FED</td>
+<td>涨单词量+2（甚至时态对应）</td>
+</tr>
+<tr>
+<td>No longer alive (4)</br>不再活着</td>
+<td>DEAD</td>
+<td>少数看的懂的</td>
+</tr>
+<tr>
+<td>Art movement after World War I (4)</br>一战后的一种艺术运动</td>
+<td>DADA</td>
+<td>达达主义</td>
+</tr>
+<tr>
+<td>Romantic partner (3)</br>浪漫伴侣</td>
+<td>BAE</td>
+<td>涨单词量+3</td>
+</tr>
+<tr>
+<td>Give up (4)</br>放弃</td>
+<td>CEDE</td>
+<td>涨单词量+4</td>
+</tr>
+<tr>
+<td>Worst grade (1)</br>最差了</td>
+<td>F</td>
+<td>菜就多练</td>
+</tr>
+<tr>
+<td>Send to a secondary recipient (2)</br>抄送给次级收件人</td>
+<td>CC</td>
+<td>不写邮件捏</td>
+</tr>
+<tr>
+<td>Not good (3)</br>不是很好</td>
+<td>BAD</td>
+<td>您有一个坏</td>
+</tr>
+</tbody>
+</table>
+<p>根据这些答案, 我们注意到它们都仅由ABCDEF六个字母组成，(解到一半的时候就可以意识到这一点并反向爆破)</p>
+<p>结合falvortext中的 “base”一词我们可以发现它们实际上是<strong>16进制</strong>(通过除法运算的结果是整数可以验证这一点)</p>
+<p>我们可以计算一下这些表达式的值</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>十进制</th>
+<th>十六进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BABA / BA - AC</td>
+<td>85</td>
+<td>55</td>
+</tr>
+<tr>
+<td>C × ED - ACE</td>
+<td>78</td>
+<td>4E</td>
+</tr>
+<tr>
+<td>(FACE - CAFE) / AA</td>
+<td>72</td>
+<td>48</td>
+</tr>
+<tr>
+<td>CAB / (FDA - FAB)</td>
+<td>69</td>
+<td>45</td>
+</tr>
+<tr>
+<td>FEE - DB - EBB</td>
+<td>88</td>
+<td>58</td>
+</tr>
+<tr>
+<td>E × FED - DEAD</td>
+<td>73</td>
+<td>49</td>
+</tr>
+<tr>
+<td>DADA - BAE - CEDE</td>
+<td>78</td>
+<td>4E</td>
+</tr>
+<tr>
+<td>F × CC - BAD</td>
+<td>71</td>
+<td>47</td>
+</tr>
+</tbody>
+</table>
+<p>你注意到它们的值分布在65到90之间了吗?</p>
+<p>如果你足够敏锐，就会知道这是<strong>ASCII码表</strong>A~Z的分布位置(标题中的“characters” 和flavortext 中的“code” 也提示了这一点)</p>
+<p>转换后可以得到 <strong>UNHEXING</strong> (即解16进制，非常好答案，使我的dna解螺旋)</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>十进制</th>
+<th>十六进制</th>
+<th>对应字母</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BABA / BA - AC</td>
+<td>85</td>
+<td>55</td>
+<td>U</td>
+</tr>
+<tr>
+<td>C × ED - ACE</td>
+<td>78</td>
+<td>4E</td>
+<td>N</td>
+</tr>
+<tr>
+<td>(FACE - CAFE) / AA</td>
+<td>72</td>
+<td>48</td>
+<td>H</td>
+</tr>
+<tr>
+<td>CAB / (FDA - FAB)</td>
+<td>69</td>
+<td>45</td>
+<td>E</td>
+</tr>
+<tr>
+<td>FEE - DB - EBB</td>
+<td>88</td>
+<td>58</td>
+<td>X</td>
+</tr>
+<tr>
+<td>E × FED - DEAD</td>
+<td>73</td>
+<td>49</td>
+<td>I</td>
+</tr>
+<tr>
+<td>DADA - BAE - CEDE</td>
+<td>78</td>
+<td>4E</td>
+<td>N</td>
+</tr>
+<tr>
+<td>F × CC - BAD</td>
+<td>71</td>
+<td>47</td>
+<td>G</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authors-notes-作者的话">Authors' Notes 作者的话</h2>
+<p>十六进制是一个相对不太常见的密码主题，所以在继两年前Huntinality中的 <strong>Wah-spkeeping</strong> (这是同作者出的另一道puzzle)后，我又出了一道用到十六进制(还有ascii码值)的小题还是挺suprising的。</p>
+<p>这个“解16进制”的答案也算是立了一个flag，我下次会换一种密码出题的 <s>(确信)</s> (除非又有了一个关于十六进制的good idea)</p>
+<p>还有一个很Surprising的事,在谜题内测时，有一个内测玩家跟我说他有一个类似的出题想法(他称之为：<em><strong>代号—“defaced facade”</strong></em> )。<s>不过这个代号太长了没用到</s></p>
+<p>由于</p>
+<ul>
+<li>meta</li>
+<li>这是hunt的第一题</li>
+<li><s>上次出的Wah-spkeeping的数学题部分把好多队卡住了</s></li>
+</ul>
+<p>所以这次出的题简单很多</p>
+<p>感觉构造的还可以，单纯的凑了凑一些常见单词，还塞了塞乘除法</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/ciphers/">
+              <h3 class="post-title">
+                下一篇：古典密码大合集
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">苦逼C++学习之路</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  远道而来的客人，在这里歇歇脚吧~ | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

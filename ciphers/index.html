@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>古典密码大合集 | Epiphany的茶话小屋</title>
+<meta name="description" content="苦逼C++学习之路">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://episvr.github.io/favicon.ico?v=1717483077153">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://episvr.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://episvr.github.io">
+        <img class="avatar" src="https://episvr.github.io/images/avatar.png?v=1717483077153" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://episvr.github.io">
+        <h1 class="site-title">Epiphany的茶话小屋</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/learning" class="menu purple-link">
+            Epiphany的刷题记录单
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/friends/" class="menu purple-link">
+            友情链接
+          </a>
+        
+      
+        
+          <a href="https://episvr.github.io/vocaloid" class="menu purple-link">
+            woc你也听术？
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">古典密码大合集</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2023-12-07</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://episvr.github.io/cfILhzIvH/">
+                    puzzle
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content" v-pre>
+            <h2 id="一梦开始破碎的地方-a1z26">一，梦开始破碎的地方 —— A1Z26</h2>
+<p>众所周知，字母有26个，所以我们可以在字母与数字间建立联系，A=1，B=2，以此类推</p>
+<blockquote>
+<p>任何事物：出现26次</p>
+<p>Puzzle Hunter:  眼冒红光. jpg</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">原码</th>
+<th style="text-align:center">加密后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">……</td>
+<td style="text-align:center">……</td>
+</tr>
+<tr>
+<td style="text-align:center">z</td>
+<td style="text-align:center">26</td>
+</tr>
+</tbody>
+</table>
+<h2 id="二程序员的最佳拍档-ascii码值">二，程序员的最佳拍档—— ascii码值</h2>
+<p>众程序员所周知，ASCII码值也在字母与数字间建立了联系，因此可以使用ASCII加密</p>
+<blockquote>
+<p>在计算机中，所有的数据在存储和运算时都要使用二进制数表示,而具体用哪些二进制数字表示哪个符号，当然每个人都可以约定自己的一套（这就叫编码），而大家如果要想互相通信而不造成混乱，那么大家就必须使用相同的编码规则，于是美国有关的标准化组织就出台了ASCII编码，统一规定了上述常用符号用哪些二进制数来表示</p>
+<p>如果观察到数字分布在65~90 or 97~122 的话就可能是ascii</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">原码</th>
+<th style="text-align:center">加密后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">65</td>
+</tr>
+<tr>
+<td style="text-align:center">……</td>
+<td style="text-align:center">……</td>
+</tr>
+<tr>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">90</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">原码</th>
+<th style="text-align:center">加密后</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">97</td>
+</tr>
+<tr>
+<td style="text-align:center">……</td>
+<td style="text-align:center">……</td>
+</tr>
+<tr>
+<td style="text-align:center">z</td>
+<td style="text-align:center">122</td>
+</tr>
+</tbody>
+</table>
+<h2 id="三某超级科学计算器-进制转换">三，某超级科学计算器 —— 进制转换</h2>
+<ul>
+<li>在题目里，十进制数字出现太多是很突兀的，太容易被大家发现有蹊跷</li>
+<li>这时候如果使用二进制，三进制的话，就可以不用数字表示数字</li>
+<li>两种形态（黑白，开关，是非，凹凸，对错……），三种形态（黑白灰，的得地，1 一 壹）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">十进制</th>
+<th style="text-align:center">二进制</th>
+<th style="text-align:center">三进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">10</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">11</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">101</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">110</td>
+<td style="text-align:center">20</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">21</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">1000</td>
+<td style="text-align:center">22</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1001</td>
+<td style="text-align:center">100</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">1010</td>
+<td style="text-align:center">101</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">1011</td>
+<td style="text-align:center">102</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">1100</td>
+<td style="text-align:center">110</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">1101</td>
+<td style="text-align:center">111</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">1110</td>
+<td style="text-align:center">112</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">1111</td>
+<td style="text-align:center">120</td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">10000</td>
+<td style="text-align:center">121</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">10001</td>
+<td style="text-align:center">122</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">10010</td>
+<td style="text-align:center">200</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">10011</td>
+<td style="text-align:center">201</td>
+</tr>
+<tr>
+<td style="text-align:center">20</td>
+<td style="text-align:center">10100</td>
+<td style="text-align:center">202</td>
+</tr>
+<tr>
+<td style="text-align:center">21</td>
+<td style="text-align:center">10101</td>
+<td style="text-align:center">210</td>
+</tr>
+<tr>
+<td style="text-align:center">22</td>
+<td style="text-align:center">10110</td>
+<td style="text-align:center">211</td>
+</tr>
+<tr>
+<td style="text-align:center">23</td>
+<td style="text-align:center">10111</td>
+<td style="text-align:center">212</td>
+</tr>
+<tr>
+<td style="text-align:center">24</td>
+<td style="text-align:center">11000</td>
+<td style="text-align:center">220</td>
+</tr>
+<tr>
+<td style="text-align:center">25</td>
+<td style="text-align:center">11001</td>
+<td style="text-align:center">221</td>
+</tr>
+<tr>
+<td style="text-align:center">26</td>
+<td style="text-align:center">11010</td>
+<td style="text-align:center">222</td>
+</tr>
+</tbody>
+</table>
+<h2 id="四只有两个键的键盘-摩斯电码">四，只有两个键的键盘 —— 摩斯电码</h2>
+<ul>
+<li>
+<p>说到两种形态的话，摩斯电码很出名啊，在puzzlehunt中，这是出现率很高的</p>
+</li>
+<li>
+<p>识别标志：两种形态，音频题，长短不一……</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">字符</th>
+<th style="text-align:center">电码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A</td>
+<td style="text-align:center">．━</td>
+</tr>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">━ ．．．</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">━ ．━ ．</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">━ ．．</td>
+</tr>
+<tr>
+<td style="text-align:center">E</td>
+<td style="text-align:center">．</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">．．━ ．</td>
+</tr>
+<tr>
+<td style="text-align:center">G</td>
+<td style="text-align:center">━ ━ ．</td>
+</tr>
+<tr>
+<td style="text-align:center">H</td>
+<td style="text-align:center">．．．．</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">．．</td>
+</tr>
+<tr>
+<td style="text-align:center">J</td>
+<td style="text-align:center">．━ ━ ━</td>
+</tr>
+<tr>
+<td style="text-align:center">K</td>
+<td style="text-align:center">━ ．━</td>
+</tr>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:center">．━ ．．</td>
+</tr>
+<tr>
+<td style="text-align:center">M</td>
+<td style="text-align:center">━ ━</td>
+</tr>
+<tr>
+<td style="text-align:center">N</td>
+<td style="text-align:center">━ ．</td>
+</tr>
+<tr>
+<td style="text-align:center">O</td>
+<td style="text-align:center">━ ━ ━</td>
+</tr>
+<tr>
+<td style="text-align:center">P</td>
+<td style="text-align:center">．━ ━ ．</td>
+</tr>
+<tr>
+<td style="text-align:center">Q</td>
+<td style="text-align:center">━ ━ ．━</td>
+</tr>
+<tr>
+<td style="text-align:center">R</td>
+<td style="text-align:center">．━ ．</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">．．．</td>
+</tr>
+<tr>
+<td style="text-align:center">T</td>
+<td style="text-align:center">━</td>
+</tr>
+<tr>
+<td style="text-align:center">U</td>
+<td style="text-align:center">．．━</td>
+</tr>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center">．．．━</td>
+</tr>
+<tr>
+<td style="text-align:center">W</td>
+<td style="text-align:center">．━ ━</td>
+</tr>
+<tr>
+<td style="text-align:center">X</td>
+<td style="text-align:center">━ ．．━</td>
+</tr>
+<tr>
+<td style="text-align:center">Y</td>
+<td style="text-align:center">━ ．━ ━</td>
+</tr>
+<tr>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">━ ━ ．．</td>
+</tr>
+</tbody>
+</table>
+<h2 id="五加密解密的老祖宗-凯撒密码">五，加密解密的老祖宗 —— 凯撒密码</h2>
+<ul>
+<li>凯撒密码是按照字母表顺序移位的密码，在加密时需要一个“密钥”，比如A（+3）=D</li>
+<li>看到奇奇怪怪的字母组合就可以试试了（</li>
+<li>最典型的凯撒移位应该就是凯撒十三(ROT13)了</li>
+</ul>
+<pre><code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+N O P Q R S T U V W X Y Z A B C D E F G H I J K L M
+</code></pre>
+<h2 id="六超进化的凯撒加密-维吉尼亚密码">六，超进化的凯撒加密 —— 维吉尼亚密码</h2>
+<ul>
+<li>在凯撒密码（和普通单表）中，有一个致命的弱点，那就是……频率分析（众所周知，英语中频率最高的就是E），如果整篇文字都用一个码表，很容易就被逆向破解，对此，如果每个字符的移位都不同呢？</li>
+<li>在维吉尼亚密码加密中，也有一个“密钥”，这个密钥通常使用一串字母代替移位数字!<br>
+<img src="https://episvr.github.io/post-images/1710389621356.jpg" alt="" loading="lazy"></li>
+</ul>
+<h2 id="七对折一半的字母表-atbash加密">七，对折一半的字母表 —— Atbash加密</h2>
+<p>又一种映射方法，看起来就像把字母表对折了一样</p>
+<pre><code>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
+</code></pre>
+<blockquote>
+<p>冷知识：在Atbash加密下：hold = slow，zoo = all，low = old，glow = told</p>
+</blockquote>
+<h2 id="八听起来是一种食品-培根密码">八，听起来是一种食品 —— 培根密码</h2>
+<p>一种新型二进制，有两种培根加密</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">明文</th>
+<th style="text-align:center">密文</th>
+<th style="text-align:center">明文</th>
+<th style="text-align:center">密文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A/a</td>
+<td style="text-align:center">aaaaa</td>
+<td style="text-align:center">N/n</td>
+<td style="text-align:center">abbab</td>
+</tr>
+<tr>
+<td style="text-align:center">B/b</td>
+<td style="text-align:center">aaaab</td>
+<td style="text-align:center">O/o</td>
+<td style="text-align:center">abbba</td>
+</tr>
+<tr>
+<td style="text-align:center">C/c</td>
+<td style="text-align:center">aaaba</td>
+<td style="text-align:center">P/p</td>
+<td style="text-align:center">abbbb</td>
+</tr>
+<tr>
+<td style="text-align:center">D/d</td>
+<td style="text-align:center">aaabb</td>
+<td style="text-align:center">Q/q</td>
+<td style="text-align:center">baaaa</td>
+</tr>
+<tr>
+<td style="text-align:center">E/e</td>
+<td style="text-align:center">aabaa</td>
+<td style="text-align:center">R/r</td>
+<td style="text-align:center">baaab</td>
+</tr>
+<tr>
+<td style="text-align:center">F/f</td>
+<td style="text-align:center">aabab</td>
+<td style="text-align:center">S/s</td>
+<td style="text-align:center">baaba</td>
+</tr>
+<tr>
+<td style="text-align:center">G/g</td>
+<td style="text-align:center">aabba</td>
+<td style="text-align:center">T/t</td>
+<td style="text-align:center">baabb</td>
+</tr>
+<tr>
+<td style="text-align:center">H/h</td>
+<td style="text-align:center">aabbb</td>
+<td style="text-align:center">U/u</td>
+<td style="text-align:center">babaa</td>
+</tr>
+<tr>
+<td style="text-align:center">I/i</td>
+<td style="text-align:center">abaaa</td>
+<td style="text-align:center">V/v</td>
+<td style="text-align:center">babab</td>
+</tr>
+<tr>
+<td style="text-align:center">J/j</td>
+<td style="text-align:center">abaab</td>
+<td style="text-align:center">W/w</td>
+<td style="text-align:center">babba</td>
+</tr>
+<tr>
+<td style="text-align:center">K/k</td>
+<td style="text-align:center">ababa</td>
+<td style="text-align:center">X/x</td>
+<td style="text-align:center">babbb</td>
+</tr>
+<tr>
+<td style="text-align:center">L/l</td>
+<td style="text-align:center">ababb</td>
+<td style="text-align:center">Y/y</td>
+<td style="text-align:center">bbaaa</td>
+</tr>
+<tr>
+<td style="text-align:center">M/m</td>
+<td style="text-align:center">abbaa</td>
+<td style="text-align:center">Z/z</td>
+<td style="text-align:center">bbaab</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">明文</th>
+<th style="text-align:center">密文</th>
+<th style="text-align:center">明文</th>
+<th style="text-align:center">密文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">A/a</td>
+<td style="text-align:center">aaaaa</td>
+<td style="text-align:center">N/n</td>
+<td style="text-align:center">abbaa</td>
+</tr>
+<tr>
+<td style="text-align:center">B/b</td>
+<td style="text-align:center">aaaab</td>
+<td style="text-align:center">O/o</td>
+<td style="text-align:center">abbab</td>
+</tr>
+<tr>
+<td style="text-align:center">C/c</td>
+<td style="text-align:center">aaaba</td>
+<td style="text-align:center">P/p</td>
+<td style="text-align:center">abbba</td>
+</tr>
+<tr>
+<td style="text-align:center">D/d</td>
+<td style="text-align:center">aaabb</td>
+<td style="text-align:center">Q/q</td>
+<td style="text-align:center">abbbb</td>
+</tr>
+<tr>
+<td style="text-align:center">E/e</td>
+<td style="text-align:center">aabaa</td>
+<td style="text-align:center">R/r</td>
+<td style="text-align:center">baaaa</td>
+</tr>
+<tr>
+<td style="text-align:center">F/f</td>
+<td style="text-align:center">aabab</td>
+<td style="text-align:center">S/s</td>
+<td style="text-align:center">baaab</td>
+</tr>
+<tr>
+<td style="text-align:center">G/g</td>
+<td style="text-align:center">aabba</td>
+<td style="text-align:center">T/t</td>
+<td style="text-align:center">baaba</td>
+</tr>
+<tr>
+<td style="text-align:center">H/h</td>
+<td style="text-align:center">aabbb</td>
+<td style="text-align:center">U/u &amp;&amp;V/v</td>
+<td style="text-align:center">baabb</td>
+</tr>
+<tr>
+<td style="text-align:center">I/i &amp;&amp;J/j</td>
+<td style="text-align:center">abaaa</td>
+<td style="text-align:center">W/w</td>
+<td style="text-align:center">babaa</td>
+</tr>
+<tr>
+<td style="text-align:center">K/k</td>
+<td style="text-align:center">abaab</td>
+<td style="text-align:center">X/x</td>
+<td style="text-align:center">babab</td>
+</tr>
+<tr>
+<td style="text-align:center">L/l</td>
+<td style="text-align:center">ababa</td>
+<td style="text-align:center">Y/y</td>
+<td style="text-align:center">babba</td>
+</tr>
+<tr>
+<td style="text-align:center">M/m</td>
+<td style="text-align:center">ababb</td>
+<td style="text-align:center">Z/z</td>
+<td style="text-align:center">babbb</td>
+</tr>
+</tbody>
+</table>
+<h2 id="九一行字我分三行写-栅栏密码">九，一行字我分三行写 —— 栅栏密码</h2>
+<p>把要加密的明文分成N个一组，然后把每组的第1个字连起来</p>
+<pre><code>THE GAME IS AFOOT!
+THEGA MEISA FOOT!
+TMFHEOEIOGSTAA!
+</code></pre>
+<p>值得一提的是还有W形状的栅栏密码</p>
+<pre><code>WEAREDISCOVEREDFLEEATONCE
+
+W . . . E . . . C . . . R . . . L . . . T . . . E
+. E . R . D . S . O . E . E . F . E . A . O . C .
+. . A . . . I . . . V . . . D . . . E . . . N . .
+
+WECRLTEERDSOEEFEAOCAIVDEN
+</code></pre>
+<h2 id="十跟随风指示的方向-旗语">十，跟随风指示的方向 —— 旗语</h2>
+<p>如下图所示<br>
+<img src="https://episvr.github.io/post-images/1710389648914.jpg" alt="" loading="lazy"></p>
+<h2 id="十二新字母表与新旗语-nato和国际信号旗">十二，新字母表与新旗语 —— NATO和国际信号旗</h2>
+<figure data-type="image" tabindex="1"><img src="https://episvr.github.io/post-images/1710389663423.png" alt="" loading="lazy"></figure>
+<h2 id="十三遇上彩虹吃定电阻-彩虹色与电阻色">十三，遇上彩虹吃定电阻 —— 彩虹色与电阻色</h2>
+<p>彩虹色</p>
+<p style="color: rgb(255,0,0);">█   red</p>
+<p style="color: rgb(255,165,0);">█  orange</p>
+<p style="color: rgb(255,255,0);">█  yellow</p>
+<p style="color: rgb(0,255,0);">█  lime</p>
+<p style="color: rgb(0,255,255);">█   cyan</p>
+<p style="color: rgb(0,0,255);">█  blue</p>
+<p style="color: rgb(128,0,128);">█  purple</p>
+<p>电阻色：</p>
+<p style="color: rgb(0,0,0);">█   black</p>
+<p style="color: rgb(165,42,42);">█  brown</p>
+<p style="color: rgb(255,0,0);">█  red</p>
+<p style="color: rgb(255,165,0);">█  orange</p>
+<p style="color: rgb(255,255,0);">█  yellow</p>
+<p style="color: rgb(0,255,0);">█  lime</p>
+<p style="color: rgb(0,0,255);">█  blue</p>
+<p style="color: rgb(138,43,226);">█  violet</p>
+<p style="color: rgb(128,128,128);">█  gray</p>
+<p style="color: rgb(255,255,255);">█  white</p>
+<h2 id="十四我家真的不住这儿-猪圈密码">十四，我家真的不住这儿 —— 猪圈密码</h2>
+<figure data-type="image" tabindex="2"><img src="https://episvr.github.io/post-images/1710389676252.png" alt="" loading="lazy"></figure>
+<h2 id="十五我怎么就看不见了盲文">十五，我怎么就看不见了——盲文</h2>
+<figure data-type="image" tabindex="3"><img src="https://episvr.github.io/post-images/1710389685320.png" alt="" loading="lazy"></figure>
+<h2 id="十六只有二十五个字母-棋盘密码">十六，只有二十五个字母 —— 棋盘密码</h2>
+<figure data-type="image" tabindex="4"><img src="https://episvr.github.io/post-images/1710389693144.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://episvr.github.io/post-images/1710389705123.png" alt="" loading="lazy"></figure>
+<h2 id="十七我就是超级键盘侠-qwe加密">十七，我就是超级键盘侠 —— QWE加密</h2>
+<p>源自QWERTY键盘，将QWERTY与ABCDEF对应：</p>
+<pre><code>a b	c d	e f	g h	i j	k l	m n	o p	q r	s t	u v	w x	y z
+q w e r t y u i o p a s d f g h j k l z x c v b n m
+</code></pre>
+<h2 id="十八手机二十六键太挤-手机九键加密">十八，手机二十六键太挤 —— 手机九键加密</h2>
+<p>一般传统的手机键盘都长这个样子：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2ABC</td>
+<td>3DEF</td>
+</tr>
+<tr>
+<td>4GHI</td>
+<td>5JKL</td>
+<td>6MNO</td>
+</tr>
+<tr>
+<td>7PQRS</td>
+<td>8TUV</td>
+<td>9WXYZ</td>
+</tr>
+</tbody>
+</table>
+<p>用两位数字记录字母，前一个记录第几宫，后一个记录第几个字母，如74就是S</p>
+<h2 id="十九先分后合的二进制-云影密码">十九，先分后合的二进制 —— 云影密码</h2>
+<p>云影加密：以‘0’为分隔，将数字相加，结果1-26对应字母a-z。</p>
+<pre><code>88421 0 122 0 48 0 2244 0 4 0 142242 0 248 0 122
+welldone
+</code></pre>
+<h2 id="二十难道你也要起舞吗-跳舞的小人">二十，难道你也要起舞吗 —— 跳舞的小人</h2>
+<p>出自于福尔摩斯探案集</p>
+<figure data-type="image" tabindex="6"><img src="https://episvr.github.io/post-images/1710389721176.jpg" alt="" loading="lazy"></figure>
+<h2 id="二十一转来转去头都晕了夏多密码">二十一，转来转去头都晕了——夏多密码</h2>
+<figure data-type="image" tabindex="7"><img src="https://episvr.github.io/post-images/1710389732160.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="8"><img src="https://episvr.github.io/post-images/1710389746352.png" alt="" loading="lazy"></figure>
+<p>1.向上旋转 2.向右旋转 3.向下旋转 4.向左旋转</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://episvr.github.io/01/">
+              <h3 class="post-title">
+                下一篇：strcmp函数 和 动态指针数组
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
+        
+
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">苦逼C++学习之路</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  远道而来的客人，在这里歇歇脚吧~ | <a class="rss" href="https://episvr.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '8b5033607080669105b7',
+        clientSecret: '5ec759e04d5f156f8c1a963ce1f63d4b26c4937d',
+        repo: 'episvr.github.io',
+        owner: 'episvr',
+        admin: ['episvr'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
