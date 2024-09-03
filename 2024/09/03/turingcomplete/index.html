@@ -27,17 +27,17 @@
 <meta property="og:site_name" content="Epiphany&#39;s Blog">
 <meta property="og:description" content="传奇计算机组成原理模拟器。推荐外挂：数电教材。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240828103246053.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/c896a4dd293baa1ff427de2ea693cb72.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg">
-<meta property="og:image" content="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240828114134526.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240903170143545.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/c896a4dd293baa1ff427de2ea693cb72.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828114134526.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240903170143545.png">
 <meta property="article:published_time" content="2024-09-03T08:53:36.763Z">
-<meta property="article:modified_time" content="2024-09-03T09:02:32.298Z">
+<meta property="article:modified_time" content="2024-09-03T11:35:10.842Z">
 <meta property="article:author" content="Epiphany">
 <meta property="article:tag" content="game">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240828103246053.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png">
 
 <link rel="canonical" href="http://example.com/2024/09/03/turingcomplete/">
 
@@ -201,7 +201,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-09-03 16:53:36 / Modified: 17:02:32" itemprop="dateCreated datePublished" datetime="2024-09-03T16:53:36+08:00">2024-09-03</time>
+              <time title="Created: 2024-09-03 16:53:36 / Modified: 19:35:10" itemprop="dateCreated datePublished" datetime="2024-09-03T16:53:36+08:00">2024-09-03</time>
             </span>
 
           
@@ -230,7 +230,7 @@
 </blockquote>
 <p>在《图灵完备》中，过了基础逻辑之后，游戏就会分为两条路，运算（ARITHMATIC）和存储（MEMORY），运算部分在了解了全加器，移位和补码的知识就很好过（暂时），但是存储的部分着实有些摸不着头脑，Epi依稀记得在计算机科学导论的课程里学习过SR锁存器，他决定复习一下</p>
 <p>观前提示，本文中对所有元件输入节点的编号均从上到下记作输入A，B，C，D</p>
-<h1 id="纠缠的门—SR锁存器"><a href="#纠缠的门—SR锁存器" class="headerlink" title="纠缠的门—SR锁存器"></a>纠缠的门—SR锁存器</h1><p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240828103246053.png" alt="image-20240828103246053"></p>
+<h1 id="纠缠的门—SR锁存器"><a href="#纠缠的门—SR锁存器" class="headerlink" title="纠缠的门—SR锁存器"></a>纠缠的门—SR锁存器</h1><p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png" alt="image-20240828103246053"></p>
 <p>在SR锁存器中，在中间形成了一个“纠缠”的循环链，这个循环有两种进行状态</p>
 <p>当输入IN的开关A开启时：循环以状态一运行，输出为0</p>
 <p>当输入IN的开关B开启时：循环以状态二运行，输出为1</p>
@@ -240,21 +240,21 @@
 <blockquote>
 <p>注：实际上SR锁存器使用<strong>或非门/与非门</strong>构建</p>
 <p>下图展示了<strong>或非门</strong>构建的SR锁存器全输入1时，输出全为1，称为<strong>禁止态</strong></p>
-<p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/c896a4dd293baa1ff427de2ea693cb72.png" alt="在这里插入图片描述"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/c896a4dd293baa1ff427de2ea693cb72.png" alt="在这里插入图片描述"></p>
 <p>S means Set（1）， R means reset（0）</p>
 </blockquote>
-<h1 id="Flip-Flop触发器"><a href="#Flip-Flop触发器" class="headerlink" title="Flip-Flop触发器"></a>Flip-Flop触发器</h1><p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg" alt="img"></p>
+<h1 id="Flip-Flop触发器"><a href="#Flip-Flop触发器" class="headerlink" title="Flip-Flop触发器"></a>Flip-Flop触发器</h1><p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg" alt="img"></p>
 <p>看起来是跟锁存器类似的结构，不太懂（</p>
 <h1 id="D锁存器"><a href="#D锁存器" class="headerlink" title="D锁存器"></a>D锁存器</h1><p>但是，SR锁存器是由两个输入分别控制置0置1的，有些<del>不好记</del>不方便</p>
 <blockquote>
 <p>Q: 能不能设计一个这样的电路：有两个输入，输入A控制是否启用锁存器，若输入A开启，则输入B为0时置0，输入1时置1，若输入A关闭，B不影响电路状态</p>
 </blockquote>
 <p>可以的！电路如下（其中的FF为触发器，输入A为1时置0，输入B为1时置1）</p>
-<p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240828114134526.png" alt="image-20240828114134526"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828114134526.png" alt="image-20240828114134526"></p>
 <p>这样我们就完成了D锁存器！</p>
 <p>把这样的8个锁存器连接起来，就得到了<strong>寄存器</strong>~</p>
 <p>顺带一提：发出文章的现在，epi卡在了<code>Caculation</code>这关</p>
-<p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240903170143545.png" alt="image-20240903170143545"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240903170143545.png" alt="image-20240903170143545"></p>
 
     </div>
 

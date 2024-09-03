@@ -304,7 +304,7 @@ mjx-container[display="true"] + br {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-09-03 16:53:36 / Modified: 17:02:32" itemprop="dateCreated datePublished" datetime="2024-09-03T16:53:36+08:00">2024-09-03</time>
+              <time title="Created: 2024-09-03 16:53:36 / Modified: 19:35:10" itemprop="dateCreated datePublished" datetime="2024-09-03T16:53:36+08:00">2024-09-03</time>
             </span>
 
           
@@ -472,7 +472,7 @@ b_7&=5a+8y&
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-07-15 00:16:44" itemprop="dateModified" datetime="2024-07-15T00:16:44+08:00">2024-07-15</time>
+                <time title="Modified: 2024-09-03 19:37:19" itemprop="dateModified" datetime="2024-09-03T19:37:19+08:00">2024-09-03</time>
               </span>
 
           
@@ -536,10 +536,16 @@ b_7&=5a+8y&
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2024-06-22 17:26:16 / Modified: 17:36:14" itemprop="dateCreated datePublished" datetime="2024-06-22T17:26:16+08:00">2024-06-22</time>
+              <time title="Created: 2024-06-22 17:26:16" itemprop="dateCreated datePublished" datetime="2024-06-22T17:26:16+08:00">2024-06-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-09-03 19:36:09" itemprop="dateModified" datetime="2024-09-03T19:36:09+08:00">2024-09-03</time>
+              </span>
 
           
 
@@ -556,7 +562,7 @@ b_7&=5a+8y&
 <p>epi在经过大一的洗礼后发现自己的技术严重不足，于是他决定去Github，油管，b站之类的地方找找项目来抄</p>
 </blockquote>
 <h2 id="目标：实现伪3D效果"><a href="#目标：实现伪3D效果" class="headerlink" title="目标：实现伪3D效果"></a>目标：实现伪3D效果</h2><p>好了，什么是 <strong>伪3D效果</strong>呢？大概如下</p>
-<p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/Simple_raycasting_with_fisheye_correction.gif" style="zoom:67%;"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/Simple_raycasting_with_fisheye_correction.gif" style="zoom:67%;"></p>
 <blockquote>
 <p>根据已知的右侧的二维地图（可以用二维数组存储），在控制台中显示伪3D图像，人物可wasd移动，但是没有跳跃和下蹲（即没有<strong>z轴</strong>的概念）</p>
 </blockquote>
@@ -564,7 +570,7 @@ b_7&=5a+8y&
 <p>如果想要了解更多与伪3D有关的故事，请移步差评君的这期<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nV4y1F7zX/">视频</a></p>
 <p>代码参考：<a target="_blank" rel="noopener" href="https://github.com/OneLoneCoder/CommandLineFPS">https://github.com/OneLoneCoder/CommandLineFPS</a></p>
 <h2 id="核心：光线投射算法"><a href="#核心：光线投射算法" class="headerlink" title="核心：光线投射算法"></a>核心：光线投射算法</h2><h3 id="视角的确定"><a href="#视角的确定" class="headerlink" title="视角的确定"></a>视角的确定</h3><p>伪3D的实现离不开透视，而透视离不开视角</p>
-<p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240622151030490.png" alt="image-20240622151030490"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240622151030490.png" alt="image-20240622151030490"></p>
 <p>我们可以看到视角的范围内的每一条线都可以对应到二维图上的一个边界点（或者无边界）</p>
 <p>设 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="1.74ex" height="1.595ex" role="img" focusable="false" viewBox="0 -683 769 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D449" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path></g></g></g></svg></mjx-container> 为视野范围角，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.05ex;" xmlns="http://www.w3.org/2000/svg" width="2.371ex" height="1.595ex" role="img" focusable="false" viewBox="0 -683 1048 705"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D44A" d="M436 683Q450 683 486 682T553 680Q604 680 638 681T677 682Q695 682 695 674Q695 670 692 659Q687 641 683 639T661 637Q636 636 621 632T600 624T597 615Q597 603 613 377T629 138L631 141Q633 144 637 151T649 170T666 200T690 241T720 295T759 362Q863 546 877 572T892 604Q892 619 873 628T831 637Q817 637 817 647Q817 650 819 660Q823 676 825 679T839 682Q842 682 856 682T895 682T949 681Q1015 681 1034 683Q1048 683 1048 672Q1048 666 1045 655T1038 640T1028 637Q1006 637 988 631T958 617T939 600T927 584L923 578L754 282Q586 -14 585 -15Q579 -22 561 -22Q546 -22 542 -17Q539 -14 523 229T506 480L494 462Q472 425 366 239Q222 -13 220 -15T215 -19Q210 -22 197 -22Q178 -22 176 -15Q176 -12 154 304T131 622Q129 631 121 633T82 637H58Q51 644 51 648Q52 671 64 683H76Q118 680 176 680Q301 680 313 683H323Q329 677 329 674T327 656Q322 641 318 637H297Q236 634 232 620Q262 160 266 136L501 550L499 587Q496 629 489 632Q483 636 447 637Q428 637 422 639T416 648Q416 650 418 660Q419 664 420 669T421 676T424 680T428 682T436 683Z"></path></g></g></g></svg></mjx-container> 为屏幕宽度 ，<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.025ex;" xmlns="http://www.w3.org/2000/svg" width="1.294ex" height="1.025ex" role="img" focusable="false" viewBox="0 -442 572 453"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></g></g></g></svg></mjx-container> 为当前屏幕像素的 x 坐标</p>
 <script type="math/tex; mode=display">
@@ -572,7 +578,7 @@ b_7&=5a+8y&
 \angle R &= \angle P - \frac{\angle V}{2} + \frac{x}{W} \angle V \\
 视线角 &= 主视角 - 半视域 + 视角偏移
 \end{flalign}</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> RayAngle = (PlayerA - FOV/<span class="number">2</span>) + (<span class="built_in">double</span>(x)/ScreenWidth) * FOV;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240622152433355.png" alt="image-20240622152433355"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240622152433355.png" alt="image-20240622152433355"></p>
 <h3 id="高度的确定"><a href="#高度的确定" class="headerlink" title="高度的确定"></a>高度的确定</h3><p>每一条视线都对应一列像素，它们在二维平面上的顶部的高度遵循透视原理， 近小远大</p>
 <script type="math/tex; mode=display">
 \begin{flalign}
@@ -584,7 +590,7 @@ D &= H-C \\
 \end{flalign}</script><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> nCeiling = (<span class="type">float</span>)(nScreenHeight / <span class="number">2.0</span>) - nScreenHeight / ((<span class="type">float</span>)fDistanceToWall);</span><br><span class="line">            <span class="type">int</span> nFloor = nScreenHeight - nCeiling;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>通过距离来调整高度的公式是一种简化的透视投影模型。它让物体的高度与距离成反比，这种关系在真实世界的透视投影中是合理的，如下图所示</p>
-<p><img src="https://raw.githubusercontent.com/episvr/IMG_Cloud/master/image-20240622155912649.png" alt="image-20240622155912649"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240622155912649.png" alt="image-20240622155912649"></p>
 </blockquote>
 <h3 id="距离的测定"><a href="#距离的测定" class="headerlink" title="距离的测定"></a>距离的测定</h3><p>我们使用如下策略测得距离</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while (未撞墙&amp;&amp;未越界)</span><br><span class="line">{</span><br><span class="line">    移动一小步</span><br><span class="line">    if(越界)</span><br><span class="line">    else if (撞墙)</span><br><span class="line">    {</span><br><span class="line">        记录当前距离</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
@@ -879,7 +885,7 @@ D &= H-C \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-06-15 21:09:57" itemprop="dateModified" datetime="2024-06-15T21:09:57+08:00">2024-06-15</time>
+                <time title="Modified: 2024-09-03 19:40:09" itemprop="dateModified" datetime="2024-09-03T19:40:09+08:00">2024-09-03</time>
               </span>
 
           
