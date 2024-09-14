@@ -279,6 +279,107 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/14/sep14_note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="Epiphany">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epiphany's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/09/14/sep14_note/" class="post-title-link" itemprop="url">因式分解与n次单位根</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2024-09-14 11:19:57 / Modified: 11:20:16" itemprop="dateCreated datePublished" datetime="2024-09-14T11:19:57+08:00">2024-09-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一道练习题引起的记录"><a href="#一道练习题引起的记录" class="headerlink" title="一道练习题引起的记录"></a>一道练习题引起的记录</h1><h2 id="习题引入"><a href="#习题引入" class="headerlink" title="习题引入"></a>习题引入</h2><p>今天上高代的时候遇见这样一道题</p>
+<blockquote>
+<script type="math/tex; mode=display">
+\text{用余数定理证明:}
+(x^4+x^3+x^2+x+1)|(x^5+x^{11}+x^{17}+x^{23}+x^{29})</script></blockquote>
+<p>老师最后给的解答是这样的</p>
+<blockquote>
+<p>对$(x^4+x^3+x^2+x+1)$进行因式分解，得到$(x-\omega_{1})(x-\omega_{2})(x-\omega_{3})(x-\omega_{4})$</p>
+<p>然后检验他们是不是右侧等式的根</p>
+</blockquote>
+<p>当然这个解法没有问题，但是相信很多同学都有这样的疑问</p>
+<ul>
+<li>该怎么因式分解？</li>
+<li>一定要带进右边等式算吗？</li>
+</ul>
+<p>本篇就是 epi 对这些问题的一点记录</p>
+<h2 id="单位根"><a href="#单位根" class="headerlink" title="单位根"></a>单位根</h2><p>首先，我们都知道 $x^n - 1=(x-1)(1 + x + x^2 + \dots + x^{n-1})$，注意到等式左边就出现了类似的结构。、</p>
+<p>你一定知道 $n$ 次多项式至多有 $n$ 个根</p>
+<p>有了这点共识，我们引入<strong>单位根</strong></p>
+<blockquote>
+<p>n次单位根是n次幂为1的复数，它们位于复平面的单位圆上，构成正n边形的顶点，其中一个顶点是1</p>
+</blockquote>
+<p>比如，四次单位根有四个，是 $1,i,-i，-1$</p>
+<p>有了单位根的概念，我们回头来看这个问题</p>
+<h2 id="问题解答"><a href="#问题解答" class="headerlink" title="问题解答"></a>问题解答</h2><p>$1+x+x^2+x^3+x^4$ 就对应了除 1 以外的五次单位根，也就是说，它们是单位圆的五等分点</p>
+<p>而 $x^5+x^{11}+x^{17}+x^{23}+x^{29}=x^4(x^1+x^6+x^{12}+x^{18}+x^{24})$</p>
+<p>我们可以类比的得到 $x^{30}-1=(x^6-1)(x^1+x^6+x^{12}+x^{18}+x^{24})$</p>
+<p>所以等式的右端就对应着单位圆的三十等分点去掉六等分点，加上原点</p>
+<p>根据几何直观可得，左边的根包含于右边，得证。</p>
+<p>实际上，n次单位根可以记为： $1,\varepsilon,\varepsilon^2,\varepsilon^3,\dots,\varepsilon^n$ （其中 $\displaystyle{\varepsilon = \cos \frac{2\pi}{n}+i\sin{\frac{2\pi}{n}}}$） <del>知道欧拉公式吧，还真有关系</del></p>
+<p>于是我们可以做出这样的解答：</p>
+<blockquote>
+<p>左侧的式子的根为 $\varepsilon^{1},\varepsilon^{2},\varepsilon^{3},\varepsilon^{4}$ （$\displaystyle{\varepsilon = \cos \frac{2\pi}{5}+i\sin{\frac{2\pi}{5}}}$），<del>注意到</del> 它们都是右侧式子的根，得证</p>
+</blockquote>
+<p>看起来没有区别，但是实际上完全不用做计算就能搞定，感觉这种技巧也是不可不品的证明手段</p>
+<h2 id="后记与参考资料"><a href="#后记与参考资料" class="headerlink" title="后记与参考资料"></a>后记与参考资料</h2><p>由 $x^n-1$ 的因式分解和单位根，可以进一步的提出<strong>分圆多项式</strong>，做练习遇到了再做记录吧。</p>
+<blockquote>
+<p>今天调休，可恶的调休，不过只有一节早八，开心</p>
+<p>参考资料：</p>
+<p>《高等代数学》第五章<strong>多项式</strong></p>
+<p>《数学女孩5》第四章<strong>与你共轭</strong> </p>
+<p><del>抛开情节不谈，《数学女孩》科普真不错吧，给中学阶段的我下放了很多数学知识，现在学的时候统统化做回旋镖了</del></p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/05/misemester_volume1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -988,80 +1089,11 @@ D &= H-C \\
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/14/puzzle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="Epiphany">
-      <meta itemprop="description" content="ad astra per aspera">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Epiphany's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/06/14/puzzle/" class="post-title-link" itemprop="url">Puzzlehunt是什么</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2024-06-14 10:12:21" itemprop="dateCreated datePublished" datetime="2024-06-14T10:12:21+08:00">2024-06-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-06-18 09:29:14" itemprop="dateModified" datetime="2024-06-18T09:29:14+08:00">2024-06-18</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>puzzlehunt就是通过解开一系列的谜题，通过线索找到最终“宝藏”的游戏或比赛...</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/06/14/puzzle/">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
 
 
 
@@ -1128,14 +1160,14 @@ D &= H-C \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
