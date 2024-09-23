@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.svg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="利用一定的方式达到Final web的网页小游戏...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="程序员的小把戏罢了——web谜介绍">
+<meta property="og:url" content="http://example.com/2024/06/14/pzzweb/index.html">
+<meta property="og:site_name" content="Epiphany&#39;s Blog">
+<meta property="og:description" content="利用一定的方式达到Final web的网页小游戏...">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-14T02:19:01.155Z">
+<meta property="article:modified_time" content="2024-06-18T01:30:56.630Z">
+<meta property="article:author" content="Epiphany">
+<meta property="article:tag" content="puzzle">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/06/14/pzzweb/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>程序员的小把戏罢了——web谜介绍 | Epiphany's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Epiphany's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-friend">
+
+    <a href="/friend/" rel="section"><i class="fa fa-link fa-fw"></i>friend</a>
+
+  </li>
+        <li class="menu-item menu-item-music">
+
+    <a href="/music/" rel="section"><i class="fa fa-music fa-fw"></i>music</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/14/pzzweb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="Epiphany">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epiphany's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          程序员的小把戏罢了——web谜介绍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2024-06-14 10:19:01" itemprop="dateCreated datePublished" datetime="2024-06-14T10:19:01+08:00">2024-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2024-06-18 09:30:56" itemprop="dateModified" datetime="2024-06-18T09:30:56+08:00">2024-06-18</time>
+              </span>
+
+          
+            <div class="post-description">利用一定的方式达到Final web的网页小游戏...</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-什么是Web谜"><a href="#1-什么是Web谜" class="headerlink" title="1. 什么是Web谜"></a>1. 什么是Web谜</h2><p>简单来说，是指一种网页小游戏，游戏分为若干关卡，基本上每个关卡都是一个网页，你需要利用一定的方式达到最终的网页（<strong>Final web</strong>），你可能需要知道……</p>
+<ul>
+<li>学科知识</li>
+<li>程序员必备小知识</li>
+<li>伟大的互联网</li>
+<li>一些游戏知识，文学知识，和常识…</li>
+<li>熟知一些古典密码…</li>
+<li>一些注意力</li>
+<li>maybe some魔法……</li>
+</ul>
+<span id="more"></span>
+<h2 id="2-Web谜的答案"><a href="#2-Web谜的答案" class="headerlink" title="2. Web谜的答案"></a>2. Web谜的答案</h2><p>Web的答案基本上是一个由字母和数字（可能还有下划线 _ ）组成的字符串</p>
+<p>你需要根据各种手段获取到与答案有关的信息，比如说…</p>
+<ul>
+<li>浏览一下当前网页？</li>
+<li>检索一下题干？（如果有的话）</li>
+<li>网址有什么特殊规律吗？</li>
+<li>用古典密码解密一下？</li>
+<li>控制台有什么内容吗？</li>
+<li>网页源码有什么值得注意的地方吗？（特殊的注释，拼错的单词…）</li>
+<li>网页有隐藏信息吗？\color \white\text{（警惕白底白字）}</li>
+<li>有奇怪的图片/音频吗？<ul>
+<li>图片、音频是不是隐藏了什么？</li>
+<li>改后缀名？</li>
+</ul>
+</li>
+<li>与之前的网页有关吗？</li>
+</ul>
+<h2 id="3-Web谜的提交"><a href="#3-Web谜的提交" class="headerlink" title="3. Web谜的提交"></a>3. Web谜的提交</h2><p>当你千辛万苦做完了题目，然后惊奇的发现…</p>
+<blockquote>
+<p>欸？提交框怎么不见了？</p>
+</blockquote>
+<p>大多数情况，你是看不到提交框的</p>
+<p>Web谜作为一个网页谜题，最大的特点就是它的提交方式——地址栏</p>
+<p>比如说你在<code>https://episvr.github.io/ciphers/</code>中解出了<code>9aLORLkN-</code>的答案，你只需要把地址栏的最后一部分的<code>ciphers</code>改为<code>9aLORLkN-</code>即可</p>
+<p>tip: 上述网址为<strong>虚构网址</strong></p>
+<h2 id="4-Web谜推荐"><a href="#4-Web谜推荐" class="headerlink" title="4. Web谜推荐"></a>4. Web谜推荐</h2><p>你学会了吗？来试试看吧！</p>
+<p>The Riddle：<a target="_blank" rel="noopener" href="https://harrynull.tech/cipher/">https://harrynull.tech/cipher/</a></p>
+<p>QwQuiz：<a target="_blank" rel="noopener" href="https://quiz.qwq.re">https://quiz.qwq.re</a></p>
+<p>Nazo Game：<a target="_blank" rel="noopener" href="https://nazo.one-story.cn">https://nazo.one-story.cn</a></p>
+<p>Nazo App：<a target="_blank" rel="noopener" href="https://nazo.app">https://nazo.app</a></p>
+<p>■すくえあ：<a target="_blank" rel="noopener" href="https://mingopen.netlify.app/square/">https://mingopen.netlify.app/square/</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/puzzle/" rel="tag"># puzzle</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/06/14/prime/" rel="prev" title="质数判断与质数筛">
+      <i class="fa fa-chevron-left"></i> 质数判断与质数筛
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2024/06/22/raycasting/" rel="next" title="光线投射算法">
+      光线投射算法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFWeb%E8%B0%9C"><span class="nav-number">1.</span> <span class="nav-text">1. 什么是Web谜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Web%E8%B0%9C%E7%9A%84%E7%AD%94%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">2. Web谜的答案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Web%E8%B0%9C%E7%9A%84%E6%8F%90%E4%BA%A4"><span class="nav-number">3.</span> <span class="nav-text">3. Web谜的提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Web%E8%B0%9C%E6%8E%A8%E8%8D%90"><span class="nav-number">4.</span> <span class="nav-text">4. Web谜推荐</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Epiphany"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Epiphany</p>
+  <div class="site-description" itemprop="description">ad astra per aspera</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Epiphany</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
