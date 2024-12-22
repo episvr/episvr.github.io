@@ -20,10 +20,10 @@
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #f0f0f0;
-  --highlight-foreground: #444;
-  --highlight-gutter-background: #dedede;
-  --highlight-gutter-foreground: #555;
+  --highlight-background: #1c1b1b;
+  --highlight-foreground: #fff;
+  --highlight-gutter-background: #323131;
+  --highlight-gutter-foreground: #e8e8e8;
   color-scheme: light;
 }
 html {
@@ -368,97 +368,76 @@ td {
   top: -6px;
   transform: rotate(-45deg);
 }
-/*
-
-Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
-
-*/
+/*!
+ * StackOverflow.com dark style
+ *
+ * @stackoverflow/stacks v0.56.0
+ * https://github.com/StackExchange/Stacks
+ */
 
 .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
-  background: #F0F0F0;
-}
-
-
-/* Base color: saturation 0; */
-
-.hljs,
-.hljs-subst {
-  color: #444;
+  color: #ffffff;
+  background: #1c1b1b;
 }
 
 .hljs-comment {
-  color: #888888;
+  color: #999999;
 }
 
 .hljs-keyword,
-.hljs-attribute,
 .hljs-selector-tag,
 .hljs-meta-keyword,
 .hljs-doctag,
-.hljs-name {
-  font-weight: bold;
+.hljs-section,
+.hljs-selector-class,
+.hljs-meta,
+.hljs-selector-pseudo,
+.hljs-attr {
+  color: #88aece;
 }
 
+.hljs-attribute {
+  color: v#c59bc1;
+}
 
-/* User color: hue: 0 */
-
+.hljs-name,
 .hljs-type,
-.hljs-string,
 .hljs-number,
 .hljs-selector-id,
-.hljs-selector-class,
 .hljs-quote,
 .hljs-template-tag,
-.hljs-deletion {
-  color: #880000;
-}
-
+.hljs-built_in,
 .hljs-title,
-.hljs-section {
-  color: #880000;
-  font-weight: bold;
+.hljs-literal {
+  color: #f08d49;
 }
 
+.hljs-string,
 .hljs-regexp,
 .hljs-symbol,
 .hljs-variable,
 .hljs-template-variable,
 .hljs-link,
 .hljs-selector-attr,
-.hljs-selector-pseudo {
-  color: #BC6060;
-}
-
-
-/* Language color: hue: 90; */
-
-.hljs-literal {
-  color: #78A960;
-}
-
-.hljs-built_in,
-.hljs-bullet,
-.hljs-code,
-.hljs-addition {
-  color: #397300;
-}
-
-
-/* Meta color: hue: 200 */
-
-.hljs-meta {
-  color: #1f7199;
-}
-
 .hljs-meta-string {
-  color: #4d99bf;
+  color: #b5bd68;
 }
 
+.hljs-bullet,
+.hljs-code {
+  color: #cccccc;
+}
 
-/* Misc effects */
+.hljs-deletion {
+  color: #de7176;
+}
+
+.hljs-addition {
+  color: #76c490;
+}
 
 .hljs-emphasis {
   font-style: italic;
@@ -468,6 +447,45 @@ Original highlight.js style (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
   font-weight: bold;
 }
 
+.highlight:hover .copy-btn,
+.code-container:hover .copy-btn {
+  opacity: 1;
+}
+.code-container {
+  position: relative;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  color: var(--highlight-foreground);
+  font-size: 14px;
+  right: 0;
+  top: 2px;
+}
+figure.highlight {
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+figure.highlight .table-container {
+  border-radius: 0 0 5px 5px;
+}
+figure.highlight::before {
+  background: #fc625d;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  border-radius: 50%;
+  content: ' ';
+  height: 12px;
+  width: 12px;
+}
 code,
 kbd,
 figure.highlight,
@@ -1219,7 +1237,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ebb83e;
+    background: #53a1d2;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
