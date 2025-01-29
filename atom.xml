@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Epi&#39;s Blog</title>
+  <icon>http://episvr.top/icon.png</icon>
+  
+  <link href="http://episvr.top/atom.xml" rel="self"/>
+  
+  <link href="http://episvr.top/"/>
+  <updated>2025-01-27T17:23:38.891Z</updated>
+  <id>http://episvr.top/</id>
+  
+  <author>
+    <name>Epi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024终 ~ Memory Addition.</title>
+    <link href="http://episvr.top/2025/01/28/Conclusion-SpView2024/"/>
+    <id>http://episvr.top/2025/01/28/Conclusion-SpView2024/</id>
+    <published>2025-01-27T17:16:11.495Z</published>
+    <updated>2025-01-27T17:23:38.891Z</updated>
+    
+    
+    <summary type="html">叮！快来看看Epi的2024的最终总结补丁！</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Epi 的组合数学笔记</title>
+    <link href="http://episvr.top/2025/01/07/Learning-Combinatorics/"/>
+    <id>http://episvr.top/2025/01/07/Learning-Combinatorics/</id>
+    <published>2025-01-07T10:28:05.150Z</published>
+    <updated>2025-01-07T10:42:57.964Z</updated>
+    
+    
+    <summary type="html">组合数学 第4版 (卢开澄，卢华明编著) 第一，二章的内容。</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Puzzlers&#39; Day 2024@BJ 总结</title>
+    <link href="http://episvr.top/2024/12/30/Repo-pzdaybj2024/"/>
+    <id>http://episvr.top/2024/12/30/Repo-pzdaybj2024/</id>
+    <published>2024-12-30T08:54:57.382Z</published>
+    <updated>2025-01-07T10:25:59.178Z</updated>
+    
+    
+    <summary type="html">哇，是Puzzlers&#39; Day 2024@BJ！文末有谜题！</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
+  
+</feed>
