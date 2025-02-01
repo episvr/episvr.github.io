@@ -6,7 +6,7 @@
   <link href="http://episvr.top/atom.xml" rel="self"/>
   
   <link href="http://episvr.top/"/>
-  <updated>2025-01-27T17:23:38.891Z</updated>
+  <updated>2025-02-01T19:07:03.907Z</updated>
   <id>http://episvr.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>立春 - Spring Out</title>
+    <link href="http://episvr.top/2025/02/01/Note-2025Feb01/"/>
+    <id>http://episvr.top/2025/02/01/Note-2025Feb01/</id>
+    <published>2025-02-01T13:46:21.358Z</published>
+    <updated>2025-02-01T19:07:03.907Z</updated>
+    
+    
+    <summary type="html">一些杂谈，说说过年遇到的事</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
   
   <entry>
     <title>2024终 ~ Memory Addition.</title>
@@ -42,23 +59,6 @@
     
     
     <summary type="html">组合数学 第4版 (卢开澄，卢华明编著) 第一，二章的内容。</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Puzzlers&#39; Day 2024@BJ 总结</title>
-    <link href="http://episvr.top/2024/12/30/Repo-pzdaybj2024/"/>
-    <id>http://episvr.top/2024/12/30/Repo-pzdaybj2024/</id>
-    <published>2024-12-30T08:54:57.382Z</published>
-    <updated>2025-01-07T10:25:59.178Z</updated>
-    
-    
-    <summary type="html">哇，是Puzzlers&#39; Day 2024@BJ！文末有谜题！</summary>
     
     
     
