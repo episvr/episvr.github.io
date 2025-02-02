@@ -761,6 +761,10 @@ pre code {
     transform: translate(1pt, -2pt) rotate(-1deg);
   }
 }
+.mermaid {
+  margin-bottom: 20px;
+  text-align: center;
+}
 .post-body .note {
   border-radius: 3px;
   margin-bottom: 20px;
@@ -1271,7 +1275,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #2d376b;
+    background: #1c69db;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2857,6 +2861,67 @@ header.header {
 }
 .item:hover {
   background-color: #f2e2c4;
+}
+/*LYRICS AT THE END OF POST*/
+/* Custom styling for the lyrics container */
+.lyrics-container {
+  background-image: url("https://episvr.top/images/logo.jpg"), linear-gradient(90deg, #000, rgba(0,0,0,0.373));
+  background-size: auto 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-blend-mode: overlay /* Try other blend modes if necessary */;
+  position: relative;
+  border-radius: 18px;
+  height: 400px;
+  width: 95%;
+  padding: 20px;
+  overflow-y: auto;
+}
+/* Custom scrollbar style for lyric container */
+.lyrics-container::-webkit-scrollbar {
+  width: 10px;
+}
+/* Styling for song info section */
+.song-info {
+  text-align: left;
+  margin-bottom: 20px;
+}
+/* Title styling */
+.song-title {
+  color: #b8860b;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* Lyric item styles */
+.lyric-item {
+  font-size: 28px;
+  line-height: 2;
+  text-align: left;
+  opacity: 0.5;
+  transition: opacity 0.4s ease-out, transform 0.3s ease-out;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 2px 10px;
+  color: #fff;
+}
+.lyric-item.active {
+  opacity: 1;
+}
+/* Hover effect for lyric items */
+.lyric-item:hover {
+  opacity: 0.7;
+  color: #e4aa17;
+}
+/* For original lyrics */
+.original-lyric {
+  font-weight: 600;
+}
+/* For translated lyrics */
+.translated-lyric {
+  margin-top: -5px;
+  font-size: 18px;
+  font-weight: 400;
 }
 /*************************
 ***********radius*********

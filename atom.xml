@@ -6,7 +6,7 @@
   <link href="http://episvr.top/atom.xml" rel="self"/>
   
   <link href="http://episvr.top/"/>
-  <updated>2025-02-01T19:07:03.907Z</updated>
+  <updated>2025-02-02T07:44:33.220Z</updated>
   <id>http://episvr.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>This is a test</title>
+    <link href="http://episvr.top/2025/02/02/Note-2025Feb02/"/>
+    <id>http://episvr.top/2025/02/02/Note-2025Feb02/</id>
+    <published>2025-02-02T07:21:04.936Z</published>
+    <updated>2025-02-02T07:44:33.220Z</updated>
+    
+    
+    <summary type="html">歌词样式的测试，顺便塞了记了记我老家的麻将规则</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
   
   <entry>
     <title>立春 - Spring Out</title>
@@ -42,23 +59,6 @@
     
     
     <summary type="html">叮！快来看看Epi的2024的最终总结补丁！</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Epi 的组合数学笔记</title>
-    <link href="http://episvr.top/2025/01/07/Learning-Combinatorics/"/>
-    <id>http://episvr.top/2025/01/07/Learning-Combinatorics/</id>
-    <published>2025-01-07T10:28:05.150Z</published>
-    <updated>2025-01-07T10:42:57.964Z</updated>
-    
-    
-    <summary type="html">组合数学 第4版 (卢开澄，卢华明编著) 第一，二章的内容。</summary>
     
     
     
