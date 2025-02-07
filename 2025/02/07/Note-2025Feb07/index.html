@@ -18,34 +18,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="传奇计算机组成原理模拟器。推荐外挂：数电教材。">
+    <meta name="description" content="一次摔跤引发的一场绞尽脑汁地数据转移战。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《图灵完备》卡关记录1：锁存器">
-<meta property="og:url" content="http://episvr.top/2024/09/03/Repo-TuringComplete/index.html">
+<meta property="og:title" content="有惊无险的数据抢救">
+<meta property="og:url" content="http://episvr.top/2025/02/07/Note-2025Feb07/index.html">
 <meta property="og:site_name" content="Epi&#39;s Blog">
-<meta property="og:description" content="传奇计算机组成原理模拟器。推荐外挂：数电教材。">
+<meta property="og:description" content="一次摔跤引发的一场绞尽脑汁地数据转移战。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/c896a4dd293baa1ff427de2ea693cb72.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828114134526.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240903170143545.png">
-<meta property="article:published_time" content="2024-09-03T08:53:36.763Z">
-<meta property="article:modified_time" content="2024-09-03T11:35:10.842Z">
+<meta property="og:image" content="http://episvr.top/2025/02/07/Note-2025Feb07/%5Cimg%5CNote2025Feb07%5C1.jpg">
+<meta property="og:image" content="http://episvr.top/2025/02/07/Note-2025Feb07/%5Cimg%5CNote2025Feb07%5C2.jpg">
+<meta property="article:published_time" content="2025-02-07T12:44:15.385Z">
+<meta property="article:modified_time" content="2025-02-07T12:46:11.590Z">
 <meta property="article:author" content="Epi">
-<meta property="article:tag" content="game">
+<meta property="article:tag" content="random_note">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png">
+<meta name="twitter:image" content="http://episvr.top/2025/02/07/Note-2025Feb07/%5Cimg%5CNote2025Feb07%5C1.jpg">
 
 
-<link rel="canonical" href="http://episvr.top/2024/09/03/Repo-TuringComplete/">
+<link rel="canonical" href="http://episvr.top/2025/02/07/Note-2025Feb07/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://episvr.top/2024/09/03/Repo-TuringComplete/","path":"2024/09/03/Repo-TuringComplete/","title":"《图灵完备》卡关记录1：锁存器"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://episvr.top/2025/02/07/Note-2025Feb07/","path":"2025/02/07/Note-2025Feb07/","title":"有惊无险的数据抢救"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>《图灵完备》卡关记录1：锁存器 | Epi's Blog</title>
+<title>有惊无险的数据抢救 | Epi's Blog</title>
   
 
 
@@ -118,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">纠缠的门—SR锁存器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Flip-Flop触发器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">D锁存器</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E4%BB%B6%E7%BA%AA%E5%AE%9E"><span class="nav-number">1.</span> <span class="nav-text">事件纪实</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD"><span class="nav-number">2.</span> <span class="nav-text">经验教训</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="nav-number">3.</span> <span class="nav-text">题外话</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -171,7 +168,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://episvr.top/2024/09/03/Repo-TuringComplete/">
+    <link itemprop="mainEntityOfPage" href="http://episvr.top/2025/02/07/Note-2025Feb07/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/logo.jpg">
@@ -184,12 +181,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="《图灵完备》卡关记录1：锁存器 | Epi's Blog">
-      <meta itemprop="description" content="传奇计算机组成原理模拟器。推荐外挂：数电教材。">
+      <meta itemprop="name" content="有惊无险的数据抢救 | Epi's Blog">
+      <meta itemprop="description" content="一次摔跤引发的一场绞尽脑汁地数据转移战。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《图灵完备》卡关记录1：锁存器
+          有惊无险的数据抢救
         </h1>
 
         <div class="post-meta-container">
@@ -201,7 +198,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-09-03 16:53:36 / Modified: 19:35:10" itemprop="dateCreated datePublished" datetime="2024-09-03T16:53:36+08:00">2024-09-03</time>
+      <time title="Created: 2025-02-07 20:44:15 / Modified: 20:46:11" itemprop="dateCreated datePublished" datetime="2025-02-07T20:44:15+08:00">2025-02-07</time>
     </span>
 
   
@@ -213,56 +210,93 @@
     </span>
     <span class="post-meta-item-text">Waline: </span>
   
-    <a title="waline" href="/2024/09/03/Repo-TuringComplete/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2024/09/03/Repo-TuringComplete/" itemprop="commentCount"></span>
+    <a title="waline" href="/2025/02/07/Note-2025Feb07/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/02/07/Note-2025Feb07/" itemprop="commentCount"></span>
     </a>
   </span>
   
   
 </div>
 
-            <div class="post-description">传奇计算机组成原理模拟器。推荐外挂：数电教材。</div>
+            <div class="post-description">一次摔跤引发的一场绞尽脑汁地数据转移战。</div>
         </div>
       </header>
 
     
     
     
-    <div class="post-body" itemprop="articleBody"><blockquote>
-<p>在学《计算机科学导论》的时候，Epi接触了门电路，但是那时候他没有过多在意</p>
-<p>在学《离散数学》的时候，Epi狠狠吃了一记回旋镖，他决定使用真值表大法</p>
-<p>在玩《图灵完备》时，Epi卡关了，警钟长鸣。</p>
-</blockquote>
-<p>在《图灵完备》中，过了基础逻辑之后，游戏就会分为两条路，运算（ARITHMATIC）和存储（MEMORY），运算部分在了解了全加器，移位和补码的知识就很好过（暂时），但是存储的部分着实有些摸不着头脑，Epi依稀记得在计算机科学导论的课程里学习过SR锁存器，他决定复习一下</p>
-<p>观前提示，本文中对所有元件输入节点的编号均从上到下记作输入A，B，C，D</p>
-<h1>纠缠的门—SR锁存器</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png" alt="image-20240828103246053"></p>
-<p>在SR锁存器中，在中间形成了一个“纠缠”的循环链，这个循环有两种进行状态</p>
-<p>当输入IN的开关A开启时：循环以状态一运行，输出为0</p>
-<p>当输入IN的开关B开启时：循环以状态二运行，输出为1</p>
-<p>当输入开关都关闭时：输出由<strong>循环状态</strong>决定，可能是1，也可能是0</p>
-<p>特别的，开关A，B都开启时，由于中间产生了冲突，最好不要这么做</p>
-<p>总的来说，开关A 置0，开关B 置1，循环状态起到了存储信息的作用，这个装置就叫做SR锁存器</p>
+    <div class="post-body" itemprop="articleBody"><h3 id="事件纪实">事件纪实</h3>
+<p>因为老妈的手机实在是太卡了，所以帮着做了数据迁移的活动，但在手机的物理运输过程中发生了小小的意外，事实上之前手机屏就已经碎了，貌似这次摔跤压上了最后一根稻草……</p>
 <blockquote>
-<p>注：实际上SR锁存器使用<strong>或非门/与非门</strong>构建</p>
-<p>下图展示了<strong>或非门</strong>构建的SR锁存器全输入1时，输出全为1，称为<strong>禁止态</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/c896a4dd293baa1ff427de2ea693cb72.png" alt="在这里插入图片描述"></p>
-<p>S means Set（1）， R means reset（0）</p>
+<p><img src="%5Cimg%5CNote2025Feb07%5C1.jpg" alt="你管这叫意外？"></p>
+<p>woc，给这屏幕干成啥样了。</p>
+<p>woc，我该怎么解释</p>
+<p>woc，我的想个办法</p>
 </blockquote>
-<h1>Flip-Flop触发器</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg" alt="img"></p>
-<p>看起来是跟锁存器类似的结构，不太懂（</p>
-<h1>D锁存器</h1>
-<p>但是，SR锁存器是由两个输入分别控制置0置1的，有些<s>不好记</s>不方便</p>
-<blockquote>
-<p>Q: 能不能设计一个这样的电路：有两个输入，输入A控制是否启用锁存器，若输入A开启，则输入B为0时置0，输入1时置1，若输入A关闭，B不影响电路状态</p>
-</blockquote>
-<p>可以的！电路如下（其中的FF为触发器，输入A为1时置0，输入B为1时置1）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828114134526.png" alt="image-20240828114134526"></p>
-<p>这样我们就完成了D锁存器！</p>
-<p>把这样的8个锁存器连接起来，就得到了<strong>寄存器</strong>~</p>
-<p>顺带一提：发出文章的现在，epi卡在了<code>Caculation</code>这关</p>
-<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240903170143545.png" alt="image-20240903170143545"></p>
+<p>诶~！🤓☝️ 我有一计：</p>
+<p>为了最小化罪行，Epi 决定“瞒天过海”，装作正在捣鼓手机的架势将数据以其他手段传过去，最后把手机冷处理，天才般的想法！思考了一下，Epi决定这样做：</p>
+<ol start="0">
+<li>首先，把不依赖于手机的一系列社交/娱乐软件迁移</li>
+<li>盲人摸象，试图凭借记忆打开同步软件，结果触屏太鬼畜了而失败</li>
+<li>数据线连电脑，结果电脑压根没弹出来驱动，失败</li>
+<li>OTG连接无线鼠标，哦我没打开OTG开关，失败。后来发现我的OTG转接头坏了（简直不能再坏了）</li>
+<li>通过锁屏状态下也能召唤出来的的语音助手打开蓝牙，经过数次触屏试错，成功连接蓝牙鼠标。再凭借至少现在还清楚的右上角屏幕定位到了手机的云同步功能，把重要的通讯录同步进云端。</li>
+<li>从云端下载数据导入新设备，Perfect！</li>
+</ol>
+<h3 id="经验教训">经验教训</h3>
+<ol start="0">
+<li>谨慎使用手机等电子设备</li>
+<li>勤做数据备份</li>
+<li>通讯录保存在SIM卡里而不是手机里</li>
+<li>如果可以的话，备好可以正常使用的数据线/转接线</li>
+</ol>
+<h3 id="题外话">题外话</h3>
+<ol>
+<li>
+<p>随着手机的迁移，有一张 32GB 的 SD 卡被挖掘了出来，被我装到另一部手机里供起来了。</p>
+</li>
+<li>
+<p>在翻找OTG转接头的过程中发现了高三毕业的礼物，发现还剩六块巧克力（共八块），bro 也是短暂的感伤了几秒。</p>
+<p><img src="%5Cimg%5CNote2025Feb07%5C2.jpg" alt="chocolate"></p>
+</li>
+<li>
+<p>最近又做了 puzzlehunt 的解析视频，偷偷的发了B站，没想到很快就被大伙转到了群里，甚至收到了Winfrid的推广，发现还有人在关注着自己真的太好了w</p>
+</li>
+<li>
+<p>这两天试着单刷 hunt，感觉有点手生。</p>
+</li>
+</ol>
+<hr>
+<p>最后还是点一首歌吧：</p>
+<div class="lyrics-container">
+    <div class="song-info">
+        <p class="song-title"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                   height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                  d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z" />
+            </svg>Override</p>
+    </div>
+    <div class="lyrics-display">
+        <div class="lyric-item">
+            <div class="original-lyric">限界まで足掻いた人生</div>
+            <div class="translated-lyric">挣扎到极限的人生</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">想像よりも狂っているらしい</div>
+            <div class="translated-lyric">似乎比想象中更疯狂</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">半端な生命の関数を</div>
+            <div class="translated-lyric">这半吊子的生命函数</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">少々ここらでオーバーライド</div>
+            <div class="translated-lyric">想在此处稍稍override</div>
+        </div>
+    </div>
+</div>
+<hr>
+<p>希望你看得开心~</p>
 
     </div>
 
@@ -272,21 +306,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/game/" rel="tag"><i class="fa fa-tag"></i> game</a>
+              <a href="/tags/random-note/" rel="tag"><i class="fa fa-tag"></i> random_note</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/08/24/Learning-Algo/" rel="prev" title="题解：[NOIP1998 提高组] 车站">
-                  <i class="fa fa-angle-left"></i> 题解：[NOIP1998 提高组] 车站
+                <a href="/2025/02/02/Note-2025Feb02/" rel="prev" title="This is a test">
+                  <i class="fa fa-angle-left"></i> This is a test
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/09/05/Learning-MissingSemester/" rel="next" title="Missing Semester学习总结（上）">
-                  Missing Semester学习总结（上） <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -356,7 +387,7 @@
 
 
 
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline.episvr.top/","libUrl":"https://unpkg.com/@waline/client@3.5.1/dist/waline.umd.js","cssUrl":"https://unpkg.com/@waline/client@v3.1.3/dist/waline.css","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2024/09/03/Repo-TuringComplete/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://waline.episvr.top/","libUrl":"https://unpkg.com/@waline/client@3.5.1/dist/waline.umd.js","cssUrl":"https://unpkg.com/@waline/client@v3.1.3/dist/waline.css","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2025/02/07/Note-2025Feb07/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3.1.3/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

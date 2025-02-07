@@ -6,7 +6,7 @@
   <link href="http://episvr.top/atom.xml" rel="self"/>
   
   <link href="http://episvr.top/"/>
-  <updated>2025-02-02T07:44:33.220Z</updated>
+  <updated>2025-02-07T12:46:11.590Z</updated>
   <id>http://episvr.top/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>有惊无险的数据抢救</title>
+    <link href="http://episvr.top/2025/02/07/Note-2025Feb07/"/>
+    <id>http://episvr.top/2025/02/07/Note-2025Feb07/</id>
+    <published>2025-02-07T12:44:15.385Z</published>
+    <updated>2025-02-07T12:46:11.590Z</updated>
+    
+    
+    <summary type="html">一次摔跤引发的一场绞尽脑汁地数据转移战。</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
+  
+  <entry>
     <title>This is a test</title>
     <link href="http://episvr.top/2025/02/02/Note-2025Feb02/"/>
     <id>http://episvr.top/2025/02/02/Note-2025Feb02/</id>
     <published>2025-02-02T07:21:04.936Z</published>
-    <updated>2025-02-02T07:44:33.220Z</updated>
+    <updated>2025-02-07T12:28:55.338Z</updated>
     
     
     <summary type="html">歌词样式的测试，顺便塞了记了记我老家的麻将规则</summary>
@@ -42,23 +59,6 @@
     
     
     <summary type="html">一些杂谈，说说过年遇到的事</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024终 ~ Memory Addition.</title>
-    <link href="http://episvr.top/2025/01/28/Conclusion-SpView2024/"/>
-    <id>http://episvr.top/2025/01/28/Conclusion-SpView2024/</id>
-    <published>2025-01-27T17:16:11.495Z</published>
-    <updated>2025-01-27T17:23:38.891Z</updated>
-    
-    
-    <summary type="html">叮！快来看看Epi的2024的最终总结补丁！</summary>
     
     
     
