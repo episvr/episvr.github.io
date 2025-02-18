@@ -6,7 +6,7 @@
   <link href="http://episvr.top/atom.xml" rel="self"/>
   
   <link href="http://episvr.top/"/>
-  <updated>2025-02-07T12:57:02.224Z</updated>
+  <updated>2025-02-18T04:49:12.986Z</updated>
   <id>http://episvr.top/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新年第一hunt：Cornsnaky write up</title>
+    <link href="http://episvr.top/2025/02/09/Repo-CornsnakeyWriteup/"/>
+    <id>http://episvr.top/2025/02/09/Repo-CornsnakeyWriteup/</id>
+    <published>2025-02-09T10:46:39.370Z</published>
+    <updated>2025-02-18T04:49:12.986Z</updated>
+    
+    
+    <summary type="html">Writeup for Cornsnakey hunt！</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
   
   <entry>
     <title>有惊无险的数据抢救</title>
@@ -42,23 +59,6 @@
     
     
     <summary type="html">歌词样式的测试，顺便塞了记了记我老家的麻将规则</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>立春 - Spring Out</title>
-    <link href="http://episvr.top/2025/02/01/Note-2025Feb01/"/>
-    <id>http://episvr.top/2025/02/01/Note-2025Feb01/</id>
-    <published>2025-02-01T13:46:21.358Z</published>
-    <updated>2025-02-07T12:56:38.037Z</updated>
-    
-    
-    <summary type="html">一些杂谈，说说过年遇到的事</summary>
     
     
     
