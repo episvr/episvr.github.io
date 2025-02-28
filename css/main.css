@@ -1275,7 +1275,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #b3b5ff;
+    background: #d4814e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2922,6 +2922,10 @@ header.header {
   margin-top: -5px;
   font-size: 18px;
   font-weight: 400;
+}
+/*toc*/
+.post-toc ol {
+  font-size: 15px;
 }
 /*************************
 ***********radius*********

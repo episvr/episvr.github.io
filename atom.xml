@@ -6,7 +6,7 @@
   <link href="http://episvr.top/atom.xml" rel="self"/>
   
   <link href="http://episvr.top/"/>
-  <updated>2025-02-18T14:39:46.353Z</updated>
+  <updated>2025-02-28T13:21:08.432Z</updated>
   <id>http://episvr.top/</id>
   
   <author>
@@ -17,11 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>深度学习小记(一)</title>
+    <link href="http://episvr.top/2025/02/28/Learning-NeuralNetwork01/"/>
+    <id>http://episvr.top/2025/02/28/Learning-NeuralNetwork01/</id>
+    <published>2025-02-28T13:05:50.989Z</published>
+    <updated>2025-02-28T13:21:08.432Z</updated>
+    
+    
+    <summary type="html">你说的对，但是【神经网络】是由【沃伦·麦卡洛克】和【沃尔特·皮茨】研发的开放世界推理游戏。在这款游戏中，玩家将被赋予【高等数学】和【线性代数】的武器，编不下去了…</summary>
+    
+    
+    
+    
+    <category term="coding" scheme="http://episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
     <title>雨水 - Ever Rain</title>
     <link href="http://episvr.top/2025/02/18/Note-2025Feb18/"/>
     <id>http://episvr.top/2025/02/18/Note-2025Feb18/</id>
     <published>2025-02-18T14:28:21.766Z</published>
-    <updated>2025-02-18T14:39:46.353Z</updated>
+    <updated>2025-02-28T12:48:53.505Z</updated>
     
     
     <summary type="html">快开学了，写篇杂谈谈谈最近的事，开学的索思分享会就用这个作为线索讲吧。（连着的三个“谈”诶）</summary>
@@ -38,7 +55,7 @@
     <link href="http://episvr.top/2025/02/09/Repo-CornsnakeyWriteup/"/>
     <id>http://episvr.top/2025/02/09/Repo-CornsnakeyWriteup/</id>
     <published>2025-02-09T10:46:39.370Z</published>
-    <updated>2025-02-18T14:30:12.072Z</updated>
+    <updated>2025-02-28T13:11:31.494Z</updated>
     
     
     <summary type="html">Writeup for Cornsnakey hunt！</summary>
@@ -48,22 +65,7 @@
     
     <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
     
-  </entry>
-  
-  <entry>
-    <title>有惊无险的数据抢救</title>
-    <link href="http://episvr.top/2025/02/07/Note-2025Feb07/"/>
-    <id>http://episvr.top/2025/02/07/Note-2025Feb07/</id>
-    <published>2025-02-07T12:44:15.385Z</published>
-    <updated>2025-02-18T14:18:22.468Z</updated>
-    
-    
-    <summary type="html">一次摔跤引发的一场绞尽脑汁地数据转移战。</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    <category term="puzzle" scheme="http://episvr.top/tags/puzzle/"/>
     
   </entry>
   
