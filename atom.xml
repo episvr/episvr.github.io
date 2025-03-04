@@ -6,7 +6,7 @@
   <link href="http://episvr.top/atom.xml" rel="self"/>
   
   <link href="http://episvr.top/"/>
-  <updated>2025-02-28T13:21:08.432Z</updated>
+  <updated>2025-03-04T13:22:15.470Z</updated>
   <id>http://episvr.top/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cornsnakey Meta Writeup-每逢佳节倍思戚</title>
+    <link href="http://episvr.top/2025/03/04/Repo-CornsnakeyMetaWriteup/"/>
+    <id>http://episvr.top/2025/03/04/Repo-CornsnakeyMetaWriteup/</id>
+    <published>2025-03-04T13:19:52.782Z</published>
+    <updated>2025-03-04T13:22:15.470Z</updated>
+    
+    
+    <summary type="html">本文是 蛇Hunt 的 meta &quot;每逢佳节倍思&quot; 的赛后回顾</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+    <category term="puzzle" scheme="http://episvr.top/tags/puzzle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三月三俳句记</title>
+    <link href="http://episvr.top/2025/03/04/Note-2025Mar03/"/>
+    <id>http://episvr.top/2025/03/04/Note-2025Mar03/</id>
+    <published>2025-03-04T13:19:41.606Z</published>
+    <updated>2025-03-04T13:19:00.457Z</updated>
+    
+    
+    <summary type="html">朋友过 20 岁生日，根据他朋友圈写的自庆诗即兴写了俳句。这里做个小记录。</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习小记(一)</title>
@@ -30,42 +66,6 @@
     
     
     <category term="coding" scheme="http://episvr.top/tags/coding/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>雨水 - Ever Rain</title>
-    <link href="http://episvr.top/2025/02/18/Note-2025Feb18/"/>
-    <id>http://episvr.top/2025/02/18/Note-2025Feb18/</id>
-    <published>2025-02-18T14:28:21.766Z</published>
-    <updated>2025-02-28T12:48:53.505Z</updated>
-    
-    
-    <summary type="html">快开学了，写篇杂谈谈谈最近的事，开学的索思分享会就用这个作为线索讲吧。（连着的三个“谈”诶）</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新年第一hunt：Cornsnaky write up</title>
-    <link href="http://episvr.top/2025/02/09/Repo-CornsnakeyWriteup/"/>
-    <id>http://episvr.top/2025/02/09/Repo-CornsnakeyWriteup/</id>
-    <published>2025-02-09T10:46:39.370Z</published>
-    <updated>2025-02-28T13:11:31.494Z</updated>
-    
-    
-    <summary type="html">Writeup for Cornsnakey hunt！</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
-    
-    <category term="puzzle" scheme="http://episvr.top/tags/puzzle/"/>
     
   </entry>
   
