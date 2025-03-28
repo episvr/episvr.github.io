@@ -1275,7 +1275,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #8287d6;
+    background: #f0a625;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2869,13 +2869,20 @@ header.header {
   background-size: auto 100%, 100% 100%;
   background-repeat: no-repeat;
   background-position: right;
-  background-blend-mode: overlay /* Try other blend modes if necessary */;
+  background-blend-mode: overlay;
   position: relative;
   border-radius: 18px;
   height: 400px;
   width: 95%;
   padding: 20px;
   overflow-y: auto;
+}
+@media (max-width: 768px) {
+  .lyrics-container {
+    height: auto;
+    padding: 15px;
+    width: 100%;
+  }
 }
 /* Custom scrollbar style for lyric container */
 .lyrics-container::-webkit-scrollbar {
@@ -2893,6 +2900,11 @@ header.header {
   font-weight: bold;
   margin-bottom: 10px;
 }
+@media (max-width: 768px) {
+  .song-title {
+    font-size: 28px;
+  }
+}
 /* Lyric item styles */
 .lyric-item {
   font-size: 28px;
@@ -2904,6 +2916,11 @@ header.header {
   position: relative;
   padding: 2px 10px;
   color: #fffff0;
+}
+@media (max-width: 768px) {
+  .lyric-item {
+    font-size: 20px;
+  }
 }
 .lyric-item.active {
   opacity: 1;
@@ -2923,9 +2940,19 @@ header.header {
   font-size: 18px;
   font-weight: 400;
 }
+@media (max-width: 768px) {
+  .translated-lyric {
+    font-size: 16px;
+  }
+}
 /*toc*/
 .post-toc ol {
   font-size: 15px;
+}
+@media (max-width: 768px) {
+  .post-toc ol {
+    font-size: 13px;
+  }
 }
 /*************************
 ***********radius*********
@@ -2950,6 +2977,7 @@ header.header,
 /* 文章卡片 */
 .post-block {
   border-radius: 12px !important;
+  background-color: #f5deb3;
 }
 /* 文章与页面标题 */
 .posts-expand .post-title {

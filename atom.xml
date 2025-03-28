@@ -6,7 +6,7 @@
   <link href="http://episvr.top/atom.xml" rel="self"/>
   
   <link href="http://episvr.top/"/>
-  <updated>2025-03-04T13:22:15.470Z</updated>
+  <updated>2025-03-28T15:11:32.730Z</updated>
   <id>http://episvr.top/</id>
   
   <author>
@@ -17,11 +17,45 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>杂谈：歌，格式与诗歌</title>
+    <link href="http://episvr.top/2025/03/28/Diary/2025/2025Mar28/"/>
+    <id>http://episvr.top/2025/03/28/Diary/2025/2025Mar28/</id>
+    <published>2025-03-28T07:10:32.850Z</published>
+    <updated>2025-03-28T15:11:32.730Z</updated>
+    
+    
+    <summary type="html">诗歌和格式的读音是对称的，你注意到了吗？</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习小记(二)</title>
+    <link href="http://episvr.top/2025/03/24/Learning/NeuralNetwork02/"/>
+    <id>http://episvr.top/2025/03/24/Learning/NeuralNetwork02/</id>
+    <published>2025-03-24T02:46:54.025Z</published>
+    <updated>2025-03-28T15:14:12.245Z</updated>
+    
+    
+    <summary type="html">在上一篇博客中，我们共同了解了神经网络的基本原理，这一次将聚焦于代码层次讨论如何“写”出一个神经网络。</summary>
+    
+    
+    
+    
+    <category term="coding" scheme="http://episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Cornsnakey Meta Writeup-每逢佳节倍思戚</title>
-    <link href="http://episvr.top/2025/03/04/Repo-CornsnakeyMetaWriteup/"/>
-    <id>http://episvr.top/2025/03/04/Repo-CornsnakeyMetaWriteup/</id>
+    <link href="http://episvr.top/2025/03/04/Repo/CornsnakeyMetaWriteup/"/>
+    <id>http://episvr.top/2025/03/04/Repo/CornsnakeyMetaWriteup/</id>
     <published>2025-03-04T13:19:52.782Z</published>
-    <updated>2025-03-04T13:22:15.470Z</updated>
+    <updated>2025-03-28T05:23:02.892Z</updated>
     
     
     <summary type="html">本文是 蛇Hunt 的 meta &quot;每逢佳节倍思&quot; 的赛后回顾</summary>
@@ -32,40 +66,6 @@
     <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
     
     <category term="puzzle" scheme="http://episvr.top/tags/puzzle/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>三月三俳句记</title>
-    <link href="http://episvr.top/2025/03/04/Note-2025Mar03/"/>
-    <id>http://episvr.top/2025/03/04/Note-2025Mar03/</id>
-    <published>2025-03-04T13:19:41.606Z</published>
-    <updated>2025-03-04T13:19:00.457Z</updated>
-    
-    
-    <summary type="html">朋友过 20 岁生日，根据他朋友圈写的自庆诗即兴写了俳句。这里做个小记录。</summary>
-    
-    
-    
-    
-    <category term="random_note" scheme="http://episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习小记(一)</title>
-    <link href="http://episvr.top/2025/02/28/Learning-NeuralNetwork01/"/>
-    <id>http://episvr.top/2025/02/28/Learning-NeuralNetwork01/</id>
-    <published>2025-02-28T13:05:50.989Z</published>
-    <updated>2025-02-28T13:21:08.432Z</updated>
-    
-    
-    <summary type="html">你说的对，但是【神经网络】是由【沃伦·麦卡洛克】和【沃尔特·皮茨】研发的开放世界推理游戏。在这款游戏中，玩家将被赋予【高等数学】和【线性代数】的武器，编不下去了…</summary>
-    
-    
-    
-    
-    <category term="coding" scheme="http://episvr.top/tags/coding/"/>
     
   </entry>
   
