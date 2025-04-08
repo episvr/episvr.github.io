@@ -1,19 +1,27 @@
 @font-face {
-    font-family: JetBrains Mono;
+    font-family: 'JetBrains Mono';
     src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
 }
 
-@font-face{
-    font-family: LinLibertine;
+@font-face {
+    font-family: 'LinLibertine';
     src: url('../fonts/LinLibertine.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
 }
 
-@font-face{
-    font-family: Yellowtail;
+@font-face {
+    font-family: 'Yellowtail';
     src: url('../fonts/Yellowtail.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
 }
 
-@font-face{
-    font-family: ZhuqueFangSong;
+@font-face {
+    font-family: 'ZhuqueFangSong';
     src: url('../fonts/ZhuqueFangsong-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
 }
