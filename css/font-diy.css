@@ -1,0 +1,19 @@
+@font-face {
+    font-family: JetBrains Mono;
+    src: url('../fonts/JetBrainsMono-Regular.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: LinLibertine;
+    src: url('../fonts/LinLibertine.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: Yellowtail;
+    src: url('../fonts/Yellowtail.woff2') format('woff2');
+}
+
+@font-face{
+    font-family: ZhuqueFangSong;
+    src: url('../fonts/ZhuqueFangsong-Regular.ttf') format('truetype');
+}
