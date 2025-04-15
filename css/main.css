@@ -13,17 +13,17 @@
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
   --menu-item-bg-color: #f5f5f5;
-  --theme-color: #222;
+  --theme-color: #00154b;
   --btn-default-bg: #fff;
   --btn-default-color: #555;
   --btn-default-border-color: #555;
   --btn-default-hover-bg: #222;
   --btn-default-hover-color: #fff;
   --btn-default-hover-border-color: #222;
-  --highlight-background: #1c1b1b;
-  --highlight-foreground: #fff;
-  --highlight-gutter-background: #323131;
-  --highlight-gutter-foreground: #e8e8e8;
+  --highlight-background: #fefefe;
+  --highlight-foreground: #545454;
+  --highlight-gutter-background: #ededed;
+  --highlight-gutter-foreground: #656565;
   color-scheme: light;
 }
 html {
@@ -199,7 +199,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Caveat, Long Cang, Noto Serif CJK SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Caveat, Long Cang, Yuji Mai, Noto Serif CJK SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -253,14 +253,21 @@ hr {
   margin: 40px 0;
 }
 blockquote {
-  border-left: 4px solid #ddd;
-  color: var(--blockquote-color);
-  margin: 0;
-  padding: 0 15px;
+  border-left: 8px solid #3498db;
+  background-color: #f0f8ff;
+  color: #333;
+  margin: 20px 0;
+  padding: 20px 10px 5px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 1.1em;
+  line-height: 1.4;
+  text-align: left;
 }
 blockquote cite::before {
   content: '-';
-  padding: 0 5px;
+  padding: 0 4px;
+  color: #3498db;
 }
 dt {
   font-weight: bold;
@@ -368,75 +375,71 @@ td {
   top: -6px;
   transform: rotate(-45deg);
 }
-/*!
- * StackOverflow.com dark style
- *
- * @stackoverflow/stacks v0.56.0
- * https://github.com/StackExchange/Stacks
- */
+/* a11y-light theme */
+/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+/* @author: ericwbailey */
+
+/* Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #696969;
+}
+
+/* Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+  color: #d91e18;
+}
+
+/* Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #aa5d00;
+}
+
+/* Yellow */
+.hljs-attribute {
+  color: #aa5d00;
+}
+
+/* Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #008000;
+}
+
+/* Blue */
+.hljs-title,
+.hljs-section {
+  color: #007faa;
+}
+
+/* Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #7928a1;
+}
 
 .hljs {
   display: block;
   overflow-x: auto;
+  background: #fefefe;
+  color: #545454;
   padding: 0.5em;
-  color: #ffffff;
-  background: #1c1b1b;
-}
-
-.hljs-comment {
-  color: #999999;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-meta-keyword,
-.hljs-doctag,
-.hljs-section,
-.hljs-selector-class,
-.hljs-meta,
-.hljs-selector-pseudo,
-.hljs-attr {
-  color: #88aece;
-}
-
-.hljs-attribute {
-  color: v#c59bc1;
-}
-
-.hljs-name,
-.hljs-type,
-.hljs-number,
-.hljs-selector-id,
-.hljs-quote,
-.hljs-template-tag,
-.hljs-built_in,
-.hljs-title,
-.hljs-literal {
-  color: #f08d49;
-}
-
-.hljs-string,
-.hljs-regexp,
-.hljs-symbol,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-link,
-.hljs-selector-attr,
-.hljs-meta-string {
-  color: #b5bd68;
-}
-
-.hljs-bullet,
-.hljs-code {
-  color: #cccccc;
-}
-
-.hljs-deletion {
-  color: #de7176;
-}
-
-.hljs-addition {
-  color: #76c490;
 }
 
 .hljs-emphasis {
@@ -445,6 +448,31 @@ td {
 
 .hljs-strong {
   font-weight: bold;
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .hljs-addition,
+  .hljs-attribute,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-bullet,
+  .hljs-comment,
+  .hljs-link,
+  .hljs-literal,
+  .hljs-meta,
+  .hljs-number,
+  .hljs-params,
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-type,
+  .hljs-quote {
+        color: highlight;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag {
+        font-weight: bold;
+    }
 }
 
 .highlight:hover .copy-btn,
@@ -1202,40 +1230,6 @@ pre code {
 .use-motion .menu-item {
   visibility: hidden;
 }
-.github-corner :hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out;
-}
-.github-corner svg {
-  color: #fff;
-  fill: var(--theme-color);
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 5;
-}
-@media (max-width: 991px) {
-  .github-corner svg {
-    color: var(--theme-color);
-    fill: #fff;
-  }
-  .github-corner .github-corner:hover .octo-arm {
-    animation: none;
-  }
-  .github-corner .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
-  }
-}
-@keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0);
-  }
-  20%, 60% {
-    transform: rotate(-25deg);
-  }
-  40%, 80% {
-    transform: rotate(10deg);
-  }
-}
 @media (max-width: 991px) {
   .sidebar {
     left: -320px;
@@ -1275,7 +1269,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #b8ede2;
+    background: #509cbe;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2746,32 +2740,112 @@ header.header {
     display: none;
   }
 }
-/* 友链样式 */
-:root {
-  --border-radius: 0.75rem;
-  --transition-duration: 0.3s;
-  --card-bg: rgba(216,209,226,0.6);
-  --card-hover-bg: #f1cfe5;
-  --text-primary: #2a0b19;
-  --text-accent: #ec56dd;
-  --avatar-border: #8d487a;
+/* LYRICS AT THE END OF POST */
+/* Custom styling for the lyrics container */
+.lyrics-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("https://img.xjh.me/random_img.php?type=bg&ctype=nature&return=302"), linear-gradient(90deg, #000, rgba(0,0,0,0.373));
+  background-position: right;
+  background-blend-mode: overlay;
+  position: relative;
+  border-radius: 18px;
+  height: 400px;
+  width: 95%;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
+@media (max-width: 768px) {
+  .lyrics-container {
+    height: 70vh;
+    padding: 15px;
+    border-radius: 12px;
+  }
+  .song-title {
+    font-size: 20px;
+  }
+  .lyric-item {
+    font-size: 15px;
+    line-height: 1.8;
+    padding: 1px 8px;
+  }
+  .translated-lyric {
+    font-size: 10px;
+  }
+}
+.lyrics-container::-webkit-scrollbar {
+  width: 10px;
+}
+.song-info {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.song-title {
+  font-family: Caveat, 'Yuji Mai', 'Long Cang', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: #3498db;
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+.lyric-item {
+  font-size: 28px;
+  line-height: 2;
+  text-align: left;
+  opacity: 0.5;
+  transition: opacity 0.4s ease-out, transform 0.3s ease-out;
+  margin-bottom: 10px;
+  position: relative;
+  padding: 2px 10px;
+  color: #fffff0;
+}
+.lyric-item.active {
+  opacity: 1;
+}
+.lyric-item:hover {
+  opacity: 0.7;
+  color: #5dbeff;
+}
+.original-lyric {
+  font-family: Caveat, 'Yuji Mai', 'Long Cang', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+.translated-lyric {
+  font-family: Caveat, 'Long Cang', 'Yuji Mai', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  margin-top: -5px;
+  font-size: 18px;
+  font-weight: 300;
+}
+/* Color Palette Variables */
+:root {
+  --link-border-radius: 0.75rem;
+  --link-transition-duration: 0.3s;
+  --link-card-bg: #dee8e8;
+  --link-card-hover-bg: #d8eeee;
+  --link-text-primary: #0b2938;
+  --link-text-accent: #3b7d7d;
+  --link-avatar-border: #5b8393;
+  --link-font-size-sm: clamp(0.875rem, 1.5vw, 1rem);
+  --link-font-size-md: clamp(1rem, 2vw, 1.4rem);
+  --link-shadow-light: rgba(0,0,0,0.1);
+  --link-shadow-hover: rgba(0,0,255,0.1);
+}
+/* Links Container */
 .links-content {
   display: grid;
   grid-template-columns: repeat(2, minmax(1rem, 1fr));
   gap: 2rem;
   margin-top: 2rem;
   padding: 1rem;
-  border-radius: var(--border-radius);
+  border-radius: var(--link-border-radius);
 }
+/* Card Component */
 .card {
-  background-color: var(--card-bg);
+  background-color: var(--link-card-bg);
   padding: 1rem;
-  border-radius: var(--border-radius);
-  box-shadow: 0 0 1rem rgba(0,0,0,0.1);
-  transition: all var(--transition-duration) ease;
+  border-radius: var(--link-border-radius);
+  box-shadow: 0 0 1rem var(--link-shadow-light);
+  transition: transform var(--link-transition-duration) ease, background-color var(--link-transition-duration) ease, box-shadow var(--link-transition-duration) ease;
   display: flex;
-  flex-direction: center;
+  flex-direction: column;
   align-items: center;
   text-align: center;
   cursor: pointer;
@@ -2779,28 +2853,43 @@ header.header {
   overflow: hidden;
   width: 95%;
 }
+/* Card Hover Effects */
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 1.25rem rgba(251,0,255,0.1);
-  background-color: var(--card-hover-bg);
+  box-shadow: 0 0 1.25rem var(--link-shadow-hover);
+  background-color: var(--link-card-hover-bg);
 }
+/* Card Description */
+.card .info-description {
+  opacity: 0.8;
+  font-size: var(--link-font-size-sm);
+  color: var(--link-avatar-border);
+  line-height: 1.5;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5rem;
+  transition: opacity var(--link-transition-duration) ease;
+}
+/* Card Hover Description */
 .card:hover .info-description {
   opacity: 1;
 }
+/* Avatar Section */
 .card-avatar {
   width: 4rem;
   height: 4rem;
   margin-bottom: 1.5rem;
   border-radius: 50%;
   overflow: hidden;
-  border: 0.25rem solid var(--avatar-border);
-  box-shadow: 0 0 1rem rgba(0,0,0,0.1);
+  border: 0.25rem solid var(--link-avatar-border);
+  box-shadow: 0 0 1rem var(--link-shadow-light);
 }
 .card-avatar .ava {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+/* Card Info (Title and Description) */
 .card-info {
   display: flex;
   flex-direction: column;
@@ -2808,34 +2897,32 @@ header.header {
   justify-content: center;
   width: 90%;
 }
+/* Card Title */
 .card-title {
-  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-size: var(--link-font-size-md);
   font-weight: bold;
-  color: var(--text-primary);
+  color: var(--link-text-primary);
   text-decoration: none;
   margin-bottom: 0.8rem;
   letter-spacing: 0.05em;
-  text-shadow: 0 0 0.375rem rgba(0,0,0,0.1);
-  transition: all var(--transition-duration) ease;
+  text-shadow: 0 0 0.375rem var(--link-shadow-light);
+  transition: color var(--link-transition-duration) ease, text-shadow var(--link-transition-duration) ease;
 }
+/* Card Title Hover */
 .card-title:hover {
-  color: var(--text-accent);
-  text-shadow: 0 0 0.75rem rgba(0,0,0,0.2);
+  color: var(--link-text-accent);
+  text-shadow: 0 0 0.75rem var(--link-shadow-light);
 }
-.info-description {
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
-  color: #8d487a;
-  line-height: 1.5;
-  font-style: italic;
-  text-align: center;
-  margin-top: 0.5rem;
-  opacity: 0.8;
-  transition: opacity var(--transition-duration) ease;
+/* 定义颜色变量 */
+:root {
+  --fav-primary-color: #62c0ed;
+  --fav-secondary-color: #dce7e9;
+  --fav-hover-color: #b1eaf4;
+  --fav-text-color: #333;
+  --fav-highlight-text-color: #333;
 }
-/*epi favlorite list*/
 .status {
-  font-weight: bold;
-  color: #1f4f59;
+  color: var(--fav-primary-color);
   margin-top: 10px;
 }
 .favlist-container {
@@ -2852,14 +2939,13 @@ header.header {
 }
 .item {
   font-size: 0.8rem;
-  font-weight: bold;
-  color: #1f4f59;
+  color: var(--fav-text-color);
   text-decoration: none;
   margin-bottom: 0.8rem;
   letter-spacing: 0.05rem;
   text-shadow: 0 0 6px rgba(0,0,0,0.1);
   transition: color 0.3s ease, text-shadow 0.3s ease;
-  background-color: #c9e0ee;
+  background-color: var(--fav-secondary-color);
   padding: 8px;
   border-radius: 8px;
   height: 2.4rem;
@@ -2869,99 +2955,45 @@ header.header {
   text-align: center;
 }
 .item:hover {
-  background-color: #ffd8db;
+  background-color: var(--fav-hover-color);
 }
-/*LYRICS AT THE END OF POST*/
-/* Custom styling for the lyrics container */
-.lyrics-container {
-  background-image: url("http://episvr.top/images/logo.jpg"), linear-gradient(90deg, #000, rgba(0,0,0,0.373));
-  background-size: auto 100%, 100% 100%;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-blend-mode: overlay;
-  position: relative;
-  border-radius: 18px;
-  height: 400px;
-  width: 95%;
-  padding: 20px;
-  overflow-y: auto;
-}
+/* 手机适配 */
 @media (max-width: 768px) {
-  .lyrics-container {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 在小屏设备上显示2列 */
+  }
+  .item {
+    font-size: 0.9rem; /* 增大字体，以便更容易阅读 */
+    height: auto; /* 调整项目高度，使内容适应 */
+    padding: 12px; /* 增加内边距，避免按钮过于拥挤 */
+  }
+}
+/* 更小屏幕适配 */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* 在超小屏幕设备上显示1列 */
+  }
+  .item {
+    font-size: 1rem; /* 进一步增大字体 */
+    padding: 16px; /* 增加内边距，提升点击区域 */
     height: auto;
-    padding: 15px;
-    width: 100%;
   }
 }
-/* Custom scrollbar style for lyric container */
-.lyrics-container::-webkit-scrollbar {
-  width: 10px;
+.tag-cloud a {
+  color: #3498db;
+  transition: all 0.3s ease;
+  background: rgba(52,152,219,0.1);
+  padding: 6px 12px;
+  border-radius: 12px;
+  border-bottom: none;
+  font-family: 'Segoe Print', cursive;
 }
-/* Styling for song info section */
-.song-info {
-  text-align: left;
-  margin-bottom: 20px;
-}
-/* Title styling */
-.song-title {
-  color: #b8860b;
-  font-size: 38px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-@media (max-width: 768px) {
-  .song-title {
-    font-size: 28px;
-  }
-}
-/* Lyric item styles */
-.lyric-item {
-  font-size: 28px;
-  line-height: 2;
-  text-align: left;
-  opacity: 0.5;
-  transition: opacity 0.4s ease-out, transform 0.3s ease-out;
-  margin-bottom: 10px;
-  position: relative;
-  padding: 2px 10px;
-  color: #fffff0;
-}
-@media (max-width: 768px) {
-  .lyric-item {
-    font-size: 20px;
-  }
-}
-.lyric-item.active {
-  opacity: 1;
-}
-/* Hover effect for lyric items */
-.lyric-item:hover {
-  opacity: 0.7;
-  color: #ffd700;
-}
-/* For original lyrics */
-.original-lyric {
-  font-weight: 600;
-}
-/* For translated lyrics */
-.translated-lyric {
-  margin-top: -5px;
-  font-size: 18px;
-  font-weight: 400;
-}
-@media (max-width: 768px) {
-  .translated-lyric {
-    font-size: 16px;
-  }
-}
-/*toc*/
-.post-toc ol {
-  font-size: 15px;
-}
-@media (max-width: 768px) {
-  .post-toc ol {
-    font-size: 13px;
-  }
+.tag-cloud a:hover {
+  color: #fff;
+  background: #3498db;
+  box-shadow: 0 2px 8px rgba(52,152,219,0.2);
+  transform: translateY(-2px);
+  border-radius: 12px;
 }
 /*************************
 ***********radius*********
@@ -2986,11 +3018,11 @@ header.header,
 /* 文章卡片 */
 .post-block {
   border-radius: 12px !important;
-  background-color: #f5deb3;
+  box-shadow: 0 4px 4px rgba(6,64,145,0.2) !important;
 }
 /* 文章与页面标题 */
 .posts-expand .post-title {
-  font-size: 1.45em;
+  font-size: 2.1em;
   font-weight: bold;
 }
 @media (max-width: 767px) {
@@ -2998,76 +3030,34 @@ header.header,
     margin-top: 10px;
   }
 }
-/* 文章标题 */
-.index .post-title,
-.post .post-title {
-  text-align: center;
-}
 /* 普通链接卡片 */
 .post-body .link-grid .link-grid-container {
   border-radius: 12px;
 }
-/*************************
-********tag-cloud*********
-**************************/
-.tag-cloud a {
-  color: #3498db;
-  transition: all 0.3s ease;
-  background: rgba(52,152,219,0.1);
-  padding: 6px 12px;
-  border-radius: 12px;
-  border-bottom: none;
-  font-family: 'Comic Sans MS', 'Segoe Print', cursive;
-}
-.tag-cloud a:hover {
-  color: #fff;
-  background: #3498db;
-  box-shadow: 0 2px 8px rgba(52,152,219,0.2);
-  transform: translateY(-2px);
-  border-radius: 12px;
-}
-/* Archive */
-/* 前言 */
-.posts-collapse .post-content {
-  margin-bottom: 35px;
-  margin-left: 35px;
-  position: relative;
-}
-@media (max-width: 767px) {
-  .posts-collapse .post-content {
-    margin-left: 0;
-    margin-right: 0;
-  }
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #e1f0ff;
+  --accent-color: #1c3f73;
+  --highlight-color: #86b5e0;
+  --border-color: #357abd;
+  --shadow-color: rgba(75,92,161,0.5);
+  --hover-color: #69a1ff;
 }
 .posts-collapse .post-content .collection-title {
-  font-size: 40px;
-  font-family: 'Comic Sans MS';
-  color: #235d3a;
-}
-.posts-collapse .post-content .collection-title::before {
-  content: '';
-  background: radial-gradient(circle, #73c088, #cbead1);
-  border: 1px solidrgb(58, 110, 61);
-  margin-left: -6px;
-  margin-top: -4px;
-  position: absolute;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(110,75,58,0.5);
-  animation: pulse 2s infinite;
+  font-size: 30px;
+  font-family: 'Segoe Print', cursive;
+  color: var(--accent-color);
 }
 .posts-collapse .post-content .collection-year {
-  font-size: 50px;
+  font-family: 'Segoe Print', cursive;
+  font-size: 45px;
   font-weight: bold;
-  font-family: 'Comic Sans MS';
   margin: 60px 0;
   position: relative;
-  color: #73c088;
+  color: var(--primary-color);
 }
 .posts-collapse .post-content .collection-year .collection-year-count {
-  font-size: 0.75em;
+  font-size: 13px;
   background: #ccc;
   border-radius: 10px;
   color: var(--content-bg-color);
@@ -3078,16 +3068,9 @@ header.header,
   text-shadow: 1px 1px 0 rgba(0,0,0,0.1);
 }
 .posts-collapse .post-content .collection-year::before {
-  content: '';
-  background: transparent;
-  border: 3px solid #cbead1;
-  margin-left: -13px;
-  margin-top: -4px;
-  position: absolute;
-  top: 50%;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
+  justify-items: center;
+  align-content: center;
+  content: ' ';
 }
 .posts-collapse .post-content .collection-header {
   display: block;
@@ -3096,66 +3079,39 @@ header.header,
   z-index: 1;
 }
 .posts-collapse .post-content .collection-header small {
-  color: #abe0b7;
+  color: var(--highlight-color);
   margin-left: 5px;
   text-shadow: 0 0 5px rgba(110,75,58,0.3);
 }
 .posts-collapse .post-content .post-header {
-  border-bottom: 1px dashed #abe0b7;
+  border-bottom: 1px dashed var(--highlight-color);
   margin: 30px 2px 0;
   padding-left: 15px;
   position: relative;
-  transition: border 0.2s ease-in-out;
   z-index: 2;
+  font-family: Caveat, Long Cang, Noto Serif CJK SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
 }
 .posts-collapse .post-content .post-header::before {
   content: '';
   background: transparent;
-  border: 2px solid #cbead1;
+  border: 2px solid var(--secondary-color);
   left: -10px;
   position: absolute;
-  top: 0.75em;
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(110,75,58,0.6);
+  box-shadow: 0 0 10px rgba(110,75,58,0.384);
   transition: all 0.3s ease;
 }
 .posts-collapse .post-content .post-header:hover {
-  border-bottom-color: #25d37a;
-  background-color: #cbead1;
+  border-bottom-color: var(--hover-color);
+  background-color: var(--secondary-color);
 }
 .posts-collapse .post-content .post-header:hover::before {
-  background: #397d54;
+  background: var(--border-color);
   box-shadow: 0 0 20px rgba(183,110,46,0.8);
-}
-.posts-collapse .post-content .post-meta-container {
-  display: inline;
-  font-size: 0.75em;
-  font-family: 'Comic Sans MS';
-  margin-right: 10px;
-}
-.posts-collapse .post-content .post-title {
-  display: inline;
-  color: #6e4b3a;
-  font-weight: bold;
-}
-.posts-collapse .post-content .post-title a {
-  border-bottom: 0;
-  color: var(--link-color);
-}
-.posts-collapse .post-content .post-title .fa {
-  font-size: 0.875em;
-  margin-left: 5px;
-}
-.posts-collapse .post-content::before {
-  background: #cbead1;
-  content: ' ';
-  height: 100%;
-  margin-left: -2px;
-  position: absolute;
-  top: 1.25em;
-  width: 4px;
 }
 @keyframes pulse {
   0% {
@@ -3170,4 +3126,29 @@ header.header,
     transform: scale(1);
     opacity: 1;
   }
+}
+:root {
+  --waline-theme-color: #00154b !important;
+}
+/*toc*/
+.post-toc ol {
+  font-size: 15px;
+}
+.post-title-link {
+  background: linear-gradient(45deg, #6ec9ff, #4c8fff) !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  line-height: 1.4 !important;
+  padding: 0 5px !important;
+  display: inline-block !important;
+}
+.post-block .btn {
+  background-color: #6ec9ff;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 15px;
+  border: none !important;
+}
+.post-block .btn:hover {
+  background-color: #4c8fff;
 }
