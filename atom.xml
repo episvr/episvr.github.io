@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Epi&#39;s Blog</title>
+  <icon>http://blog.episvr.top/icon.png</icon>
+  
+  <link href="http://blog.episvr.top/atom.xml" rel="self"/>
+  
+  <link href="http://blog.episvr.top/"/>
+  <updated>2025-04-15T11:27:43.729Z</updated>
+  <id>http://blog.episvr.top/</id>
+  
+  <author>
+    <name>Epi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自表达的代码（命名篇）</title>
+    <link href="http://blog.episvr.top/2025/04/09/Learning/SelfexprCodes01/"/>
+    <id>http://blog.episvr.top/2025/04/09/Learning/SelfexprCodes01/</id>
+    <published>2025-04-09T08:20:11.019Z</published>
+    <updated>2025-04-15T11:27:43.729Z</updated>
+    
+    
+    <summary type="html">课上不会教但是感觉必须要会的又一座大山。众所周知：组织得好的代码可以省去大量写文档注释的时间，看着赏心悦目，而且便于调 Bug。那么怎么写出这种并非“非人类”的代码呢？</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>杂谈：歌，格式与诗歌</title>
+    <link href="http://blog.episvr.top/2025/03/28/Diary/2025/2025Mar28/"/>
+    <id>http://blog.episvr.top/2025/03/28/Diary/2025/2025Mar28/</id>
+    <published>2025-03-28T07:10:32.850Z</published>
+    <updated>2025-03-28T15:11:32.730Z</updated>
+    
+    
+    <summary type="html">诗歌和格式的读音是对称的，你注意到了吗？</summary>
+    
+    
+    
+    
+    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习小记 (二)</title>
+    <link href="http://blog.episvr.top/2025/03/24/Learning/NeuralNetwork02/"/>
+    <id>http://blog.episvr.top/2025/03/24/Learning/NeuralNetwork02/</id>
+    <published>2025-03-24T02:46:54.025Z</published>
+    <updated>2025-03-28T15:14:12.245Z</updated>
+    
+    
+    <summary type="html">在上一篇博客中，我们共同了解了神经网络的基本原理，这一次将聚焦于代码层次讨论如何“写”出一个神经网络。</summary>
+    
+    
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+</feed>
