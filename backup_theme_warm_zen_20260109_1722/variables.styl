@@ -1,0 +1,30 @@
+// Global Theme Variables
+// 集中管理主题配色，方便日后一键换肤
+
+:root {
+  // --- 核心色调 (Main Colors) ---
+  --theme-primary: #ff8c42;        /* 亮橙色 (EVA 警告色/高亮色) */
+  --theme-secondary: #ffb74d;      /* 浅橙色 (次级高亮) */
+  --theme-accent: #bf360c;         /* 深红/褐红 (强调文字) */
+  
+  // --- 背景色 (Backgrounds) ---
+  --theme-bg-light: #fff3e0;       /* 暖米色 (卡片日常背景) */
+  --theme-bg-hover: #ffe0b2;       /* 悬停浅色 (过渡态) */
+  --theme-bg-tech: #000000;        /* 纯黑 (EVA 暴走/激活态背景) */
+  --theme-bg-white: #ffffff;
+  
+  // --- 文字颜色 (Typography) ---
+  --theme-text-main: #5d4037;      /* 深褐色 (日常正文) */
+  --theme-text-light: #ffffff;     /* 反白文字 (激活态) */
+  --theme-text-dim: rgba(0,0,0,0.5); 
+  
+  // --- 阴影与特效 (Effects) ---
+  --theme-shadow-soft: 0 4px 10px rgba(0,0,0,0.05);  /* 日常柔和阴影 */
+  --theme-shadow-neon: 0 0 10px rgba(255, 140, 66, 0.5); /* 霓虹辉光 */
+  --theme-shadow-solid: 5px 5px 0 var(--theme-primary); /* EVA 风格实心硬阴影 */
+  
+  // --- 字体 (Fonts) ---
+  --font-tech: 'Noto Sans SC', sans-serif; /* 科技感黑体 */
+  --font-art: 'Noto Serif SC', serif;      /* 人文感宋体 */
+  --font-hand: 'Caveat', cursive;          /* 手写体 */
+}

@@ -1,0 +1,44 @@
+// Global Theme Variables
+// 集中管理主题配色，方便日后一键换肤
+
+:root {
+  /******************************************************************
+   * THEME PRESET: AUTUMN (秋意暖阳)
+   * 关键词：温暖、橙红、纸质感、生活气息
+   ******************************************************************/
+
+  // --- 核心色调 (Main Colors) ---
+  --theme-primary: #ff8c42;        /* 亮橙色 (EVA 警告色/高亮色) */
+  --theme-secondary: #ffb74d;      /* 浅橙色 (次级高亮) */
+  --theme-accent: #bf360c;         /* 深红/褐红 (强调文字) */
+  
+  // --- 背景色 (Backgrounds) ---
+  --theme-bg-light: #fff3e0;       /* 暖米色 (卡片日常背景) */
+  --theme-bg-hover: #ffe0b2;       /* 悬停浅色 (过渡态) */
+  --theme-bg-tech: #000000;        /* 纯黑 (EVA 暴走/激活态背景) */
+  --theme-bg-white: #ffffff;
+  
+  // --- 纸张与纹理 (Paper & Texture - Autumn Special) ---
+  --theme-paper-inner: #fffdf5;    /* 信纸中心亮色 */
+  --theme-paper-outer: #f7f1ea;    /* 信纸边缘泛黄 */
+  --theme-paper-border: #e0dedb;   /* 陈旧纸张边框 */
+  --theme-quote-bg-end: #fffbf0;   /* 引用块渐变终点 */
+
+  // --- 文字颜色 (Typography) ---
+  --theme-text-main: #5d4037;      /* 深褐色 (日常正文) */
+  --theme-text-light: #ffffff;     /* 反白文字 (激活态) */
+  --theme-text-dim: rgba(0,0,0,0.5); 
+  
+  // --- 阴影与特效 (Effects) ---
+  --theme-shadow-soft: 0 4px 10px rgba(0,0,0,0.05);  /* 日常柔和阴影 */
+  --theme-shadow-neon: 0 0 10px rgba(255, 140, 66, 0.5); /* 霓虹辉光 */
+  --theme-shadow-solid: 5px 5px 0 var(--theme-primary); /* EVA 风格实心硬阴影 */
+  
+  // --- 字体 (Fonts) ---
+  --font-tech: 'Courier New', monospace;   /* 打字机风格 (科技/复古兼容) */
+  --font-serif: 'Noto Serif SC', 'Songti SC', serif;
+  --font-sans: 'Noto Sans SC', 'PingFang SC', sans-serif;
+  --font-art: 'Caveat', 'Long Cang', 'Yuji Mai', serif; 
+  --font-hand: 'Caveat', 'Long Cang', cursive;          /* 手写体 */
+}
+

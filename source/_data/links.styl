@@ -1,0 +1,194 @@
+/* Friend Links - EVA Style / Warm Theme / Tech Italic */
+
+:root {
+  --link-primary: var(--theme-primary);
+  --link-bg: var(--theme-bg-light);
+  --link-text: var(--theme-text-main);
+  --link-accent: var(--theme-accent);
+  --link-hover-bg: var(--theme-bg-tech);
+  --link-hover-text: var(--theme-text-light); 
+  --link-border: rgba(255, 255, 255, 0.6);
+  --link-shadow: var(--theme-shadow-soft);
+  --link-shadow-hover: var(--theme-shadow-solid);
+}
+
+.links-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 2rem;
+  padding: 10px;
+}
+
+.card {
+  background: linear-gradient(135deg, var(--theme-bg-light) 0%, var(--theme-bg-hover) 100%);
+  color: var(--link-text);
+  border: 4px solid var(--link-bg);
+  outline: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  padding: 0;
+  display: flex;
+  position: relative;
+  height: 120px;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  overflow: visible;
+  font-family: var(--font-serif);
+  text-decoration: none;
+  z-index: 1;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 140, 66, 0.05) 10px,
+    rgba(255, 140, 66, 0.05) 20px
+  );
+  z-index: 0;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.card .card-title::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.card-avatar {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  border-radius: 4px;
+  border: 2px solid var(--theme-bg-white);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 2;
+  background: var(--theme-bg-white);
+  transform: rotate(-3deg);
+}
+
+.card-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: grayscale(20%);
+}
+
+.card-info {
+  margin-left: 120px;
+  padding: 15px 15px 15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  height: 100%;
+  position: relative;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 900;
+  font-family: 'Noto Sans SC', sans-serif;
+  font-style: italic;
+  color: var(--link-accent);
+  text-decoration: none;
+  line-height: 1;
+  margin-bottom: 8px;
+  position: relative;
+  display: inline-block;
+  transform-origin: left bottom;
+  transition: all 0.3s ease;
+  text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+}
+
+.card .info-description {
+  font-size: 0.8rem;
+  margin: 0;
+  line-height: 1.3;
+  color: var(--link-text);
+  font-family: 'Noto Serif SC', serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hover State: 动漫 CUT-IN 效果 */
+.card:hover {
+  background: var(--link-hover-bg);
+  border-color: var(--link-primary);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 140, 66, 0.4);
+  z-index: 10;
+}
+
+.card:hover .card-avatar {
+  transform: scale(1.3) translateY(-15px) translateX(10px) rotate(0deg);
+  border-radius: 0;
+  border-color: none; 
+  box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.2);
+  z-index: 5;
+}
+
+.card:hover .card-avatar img {
+  filter: grayscale(0%) contrast(1.2);
+}
+
+.card:hover .card-title {
+  color: var(--theme-text-light);
+  transform: translateX(25px) scale(1.1) skewX(-10deg);
+  text-shadow: 2px 2px 0 var(--link-primary);
+}
+
+.card:hover .info-description {
+  color: var(--theme-text-light);
+  font-family: 'Noto Sans SC', sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  background: linear-gradient(90deg, rgba(255,140,66,0.15) 0%, transparent 100%);
+  padding-left: 10px;
+  transform: translateX(25px);
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.card:hover::after {
+  opacity: 1;
+  right: -10px;
+  transform: skewX(-20deg);
+}
+
+/* 手机端适配 */
+@media (max-width: 768px) {
+  .links-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    background-color: var(--link-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  .card:hover .card-title {
+    color: var(--link-accent);
+    font-family: 'Noto Serif SC', serif;
+    text-shadow: none;
+  }
+  .card:hover .info-description {
+     color: var(--link-text);
+     font-family: 'Noto Serif SC', serif;
+  }
+}

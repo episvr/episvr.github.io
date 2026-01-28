@@ -1,0 +1,75 @@
+@import "lyrics.styl";
+@import "links.styl"
+@import "fav.styl"
+@import "tagcloud.styl"
+@import "radius.styl"
+@import "archive.styl"
+
+
+:root {
+  --waline-theme-color: var(--theme-primary) !important;
+}
+
+
+/*toc*/
+.post-toc ol
+  font-size 15px
+
+.post-title-link {
+  background: linear-gradient(45deg, var(--theme-primary), #ff6b54) !important;
+  -webkit-background-clip: text !important;
+  color: transparent !important;
+  line-height: 1.4 !important;
+  padding: 0 5px !important;
+  display: inline-block !important;
+}
+
+.post-block .btn {
+  background-color: var(--theme-secondary);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 15px;
+  border: none !important;
+}
+
+.post-block .btn:hover {
+  background-color: var(--theme-primary);
+}
+
+
+/* Blockquote Style - Enhanced Sense / Classic Touch */
+blockquote {
+  border-left: 5px solid var(--theme-primary);
+  background: linear-gradient(to right, var(--theme-bg-light), #fffbf0); /* 微暖渐变 */
+  color: var(--theme-text-main);
+  border-radius: 0 12px 12px 0; /* 左侧硬朗，右侧圆润 */
+  box-shadow: var(--theme-shadow-soft);
+  margin: 25px 0;
+
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  /* 字体优化 */
+  font-family: var(--font-art);
+  font-size: 1.05em;
+  line-height: 1.8;
+  font-style: italic; /* 斜体衬线，增加文学感 */
+}
+
+/* 装饰性巨型引号水印 */
+blockquote::before {
+  content: '\201C'; /* 左双引号 */
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  font-family: 'Times New Roman', serif; /* 经典衬线体引号 */
+  font-size: 5rem;
+  color: var(--theme-primary);
+  opacity: 0.45; /* 极淡的水印质感 */
+  line-height: 1;
+  pointer-events: none;
+}
+
+
+

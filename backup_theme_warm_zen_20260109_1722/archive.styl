@@ -1,0 +1,175 @@
+
+/* Archive Page - EVA Style / Warm Tech Theme */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@900&display=swap');
+
+:root {
+  --primary-color: var(--theme-primary);
+  --secondary-color: var(--theme-bg-light);
+  --accent-color: var(--theme-accent);
+  --list-bg: var(--theme-bg-white);
+  --hover-text: var(--theme-text-light);
+  --hover-bg: var(--theme-bg-tech);
+  --tech-shadow: var(--theme-shadow-solid);
+}
+
+.posts-collapse {
+  margin-left: 0; /* Reset margin for better alignment */
+}
+
+.posts-collapse .post-content {
+  
+  /* Collection Title (Archive Header) */
+  .collection-title {
+    font-size: 2.5rem;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: var(--accent-color);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    border-left: 8px solid var(--primary-color);
+    padding-left: 15px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+  }
+
+  /* Year Headers */
+  .collection-year {
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 40px 0;
+    position: relative;
+    color: var(--primary-color);
+    letter-spacing: -0.1rem;
+    line-height: 1;
+    display: flex;
+    align-items: baseline;
+    
+    /* Decoration line */
+    &::after {
+      content: '';
+      flex: 1;
+      height: 4px;
+      background: var(--secondary-color);
+      margin-left: 20px;
+      transform: skewX(-45deg);
+    }
+
+    .collection-year-count {
+      font-size: 1rem;
+      font-family: 'Noto Serif SC', serif;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 2px 8px;
+      margin-left: 10px;
+      border-radius: 0; /* Square badge */
+      vertical-align: middle;
+      display: inline-block;
+      transform: skewX(-10deg);
+    }
+  }
+
+  /* Timeline line adjustment */
+  &::before {
+    background: var(--secondary-color);
+    width: 2px;
+    left: 15px; /* Adjust line position */
+  }
+
+  /* Individual Post Header */
+  .post-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Very subtle separator */
+    margin: 15px 0; /* Reduce margin */
+    padding: 10px 15px 10px 40px; /* Space for the node */
+    position: relative;
+    transition: all 0.2s cubic-bezier(0, 0, 0, 1); /* Hard transition */
+    
+    /* Fonts */
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    
+    /* The Timeline Node - Diamond Shape */
+    &::before {
+      content: '';
+      background: #fff;
+      border: 3px solid var(--primary-color);
+      position: absolute;
+      left: 6px; /* Position on the line */
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg); /* Diamond */
+      width: 10px;
+      height: 10px;
+      border-radius: 0; /* Sharp corners */
+      transition: all 0.2s cubic-bezier(0, 0, 0, 1);
+      box-shadow: 0 0 0 2px #fff; /* Separation from line */
+      z-index: 1;
+    }
+
+    /* Date/Meta info inside header */
+    .post-meta {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 0.8rem;
+      color: #999;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.5;
+      transition: all 0.2s;
+    }
+    
+    /* Post Title Link */
+    .post-title-link {
+        color: #333;
+        text-decoration: none;
+        background: none !important; /* Override global link styles */
+        padding: 0 !important;
+        display: inline !important;
+        transition: color 0.1s;
+    }
+
+    /* --- HOVER STATE: ACTIVATED --- */
+    &:hover {
+      background-color: var(--hover-bg); /* Black bg */
+      transform: translateX(10px) skewX(-10deg); /* Skew & Slide */
+      box-shadow: var(--tech-shadow); /* Orange solid shadow */
+      border-bottom-color: transparent;
+      z-index: 10;
+      
+      /* Node Transformation */
+      &::before {
+        background: var(--primary-color);
+        border-color: #fff;
+        transform: translateY(-50%) rotate(225deg) scale(1.4); /* Spin & Scale */
+        left: -5px; /* Move out slightly */
+      }
+      
+      /* Text Color Shift */
+      .post-title {
+         color: #fff !important; /* Force white */
+      }
+
+      .post-title-link {
+        color: var(--hover-text) !important;
+        font-family: 'Noto Sans SC', sans-serif; /* Switch to Tech font */
+        font-weight: 900; 
+        letter-spacing: 0.05em;
+        -webkit-background-clip: unset !important; /* Remove gradient text */
+      }
+      
+      .post-meta {
+        color: var(--primary-color);
+        opacity: 1;
+        font-weight: bold;
+        transform: translateY(-50%) skewX(10deg); /* Counter skew meta */
+      }
+    }
+  }
+}
+
+/* Hide original collection header details to simplify */
+.posts-collapse .collection-header small {
+    display: none; 
+}
+

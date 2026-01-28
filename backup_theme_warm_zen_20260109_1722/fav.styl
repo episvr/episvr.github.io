@@ -1,0 +1,178 @@
+/* 优化后的收藏清单样式 - 支持大量元素展示与 Markdown 列表语法 */
+/* 引入 Google Fonts */
+/* 增加 Noto Serif SC (宋体) 用于日常，Noto Sans SC (黑体) 用于暴走科技感 */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@900&display=swap');
+
+:root {
+  --fav-primary-color: var(--theme-primary);
+  --fav-secondary-color: var(--theme-bg-light);
+  --fav-hover-color: var(--theme-bg-hover);
+  --fav-text-color: var(--theme-text-main); 
+  --fav-highlight-text-color: var(--theme-accent);
+  --fav-shadow-sm: var(--theme-shadow-soft);
+  --fav-shadow-md: var(--theme-shadow-neon);
+  /* 凸版印刷效果的文字阴影: 下方白色高光 */
+  --fav-text-emboss: 0 1px 0 rgba(255, 255, 255, 0.6); 
+}
+
+/* 容器与标题 */
+.favlist h3 {
+  font-family: 'Caveat', 'Segoe Print', cursive; /* 优先使用手写体 */
+  font-size: 1.8rem;
+  color: var(--fav-highlight-text-color);
+  border-bottom: 2px dashed var(--fav-primary-color);
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
+  display: inline-block;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 0px rgba(255, 224, 178, 0.5); /* 复古重影效果 */
+}
+
+.favlist-container {
+  margin-top: 20px;
+}
+
+.favlist {
+  margin-bottom: 40px;
+}
+
+/* 状态标签 (兼容 <div class="status"> 和 Markdown 的 **Bold**) */
+.status, 
+.favlist strong {
+  color: var(--fav-primary-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+  font-family: 'Noto Serif SC', serif; /* 宋体增加人文气息 */
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  border-left: 4px solid var(--fav-primary-color);
+  padding-left: 10px;
+  line-height: 1;
+}
+.favlist strong {
+   display: block; 
+}
+
+/* 通用网格布局 - 自动适应屏幕宽度 */
+.favlist .grid,
+.favlist ul {
+  display: grid;
+  /* 核心魔法：自动填充列，每列最小宽度 140px，最大 1fr */
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 15px; /* 增加一点间隙 */
+  margin-top: 15px;
+  padding: 0;
+  list-style: none; /* 去除列表默认样式 */
+}
+
+/* 单元格样式 (兼容 .item 和 li) */
+.favlist .item,
+.favlist ul li {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--fav-text-color);
+  text-decoration: none;
+  background-color: var(--fav-secondary-color);
+  padding: 10px 15px;
+  border-radius: 12px;
+  min-height: 3.5rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.4;
+  /* 初始阴影 */
+  box-shadow: var(--fav-shadow-sm);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  
+  /* 关键修改：快速、硬朗的过渡，模拟机械切变 */
+  transition: all 0.1s cubic-bezier(0, 0, 0, 1);
+  cursor: default;
+  position: relative;
+  overflow: hidden; /* 必须隐藏溢出，营造文字被切断的充盈感 */
+  z-index: 1;
+  
+  text-shadow: var(--fav-text-emboss);
+  letter-spacing: 0.02em;
+}
+
+/* 针对 Markdown 链接的处理 */
+.favlist ul li a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.favlist ul li a:hover {
+   background: transparent; 
+}
+
+/* 悬停效果 - EVA 风格暴走模式：直角、黑底、极粗、充盈、科技斜体 */
+.favlist .item:hover,
+.favlist ul li:hover {
+  /* 1. 瞬间变黑底白字，高对比 */
+  background-color: var(--theme-bg-tech);
+  color: var(--theme-text-light);
+  border-color: var(--theme-text-light);
+  
+  /* 2. 形状突变：圆角瞬间变直角 */
+  border-radius: 0;
+  
+  /* 3. 视觉冲击：几何倾斜 (Skew) 制造速度感/科技感，配合放大 */
+  transform: scale(1.15) skewX(-12deg);
+  z-index: 100;
+  
+  /* 4. 硬朗阴影：实心色块拖影，且不跟随 skew 倾斜会导致奇怪效果，这里利用 transform 后的阴影自然也会形变 */
+  box-shadow: var(--theme-shadow-solid);
+  
+  /* 5. 消失的质感，纯粹的平面 */
+  text-shadow: none;
+  
+  /* 6. 文字充盈：切换到极粗黑体，字间距紧缩 */
+  font-family: 'Noto Sans SC', sans-serif; /* 仅在 Hover 时使用黑体 */
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: -0.05rem;
+  line-height: 1.1;
+  
+  /* 7. 英文特殊处理：如果是纯英文内容，强制大写会更像警告标识 */
+  text-transform: uppercase;
+  
+  /* 让文字尽可能填满空间 */
+  padding: 4px; 
+}
+
+
+
+/* 手机适配 */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 在小屏设备上显示2列 */
+  }
+
+  .item {
+    font-size: 0.9rem; /* 增大字体，以便更容易阅读 */
+    height: auto; /* 调整项目高度，使内容适应 */
+    padding: 12px; /* 增加内边距，避免按钮过于拥挤 */
+  }
+}
+
+/* 更小屏幕适配 */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* 在超小屏幕设备上显示1列 */
+  }
+
+  .item {
+    font-size: 1rem; /* 进一步增大字体 */
+    padding: 16px; /* 增加内边距，提升点击区域 */
+    height: auto;
+  }
+}

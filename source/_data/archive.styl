@@ -1,0 +1,251 @@
+
+/* Archive Page - EVA Style / Warm Tech Theme */
+
+:root {
+  --primary-color: var(--theme-primary);
+  --secondary-color: var(--theme-bg-light);
+  --accent-color: var(--theme-accent);
+  --list-bg: var(--theme-bg-white);
+  --hover-text: var(--theme-text-light);
+  --hover-bg: var(--theme-bg-tech);
+  --tech-shadow: var(--theme-shadow-solid);
+}
+
+.posts-collapse {
+  margin-left: 0; /* Reset margin for better alignment */
+}
+
+.posts-collapse .post-content {
+  
+  /* Collection Title (Archive Header) */
+  .collection-title {
+    font-size: 3.5rem;
+    font-family: var(--font-hand); /* 启用手写字体，营造 LifeBlog 的生活感 */
+    color: var(--theme-primary);
+    text-align: left;
+    margin: 20px 0 50px;
+    padding-left: 10px;
+    border: none;
+    font-weight: 400;
+    
+    display: flex;
+    align-items: center;
+    
+    /* 左侧装饰：# 符号 */
+    &::before {
+      content: '#'; 
+      font-family: var(--font-sans);
+      font-size: 2rem;
+      color: var(--theme-secondary);
+      margin-right: 1rem;
+      opacity: 0.5;
+      font-weight: 900;
+      
+      /* 关键：重置 Next 默认的小圆点样式 */
+      background: none;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      position: static; 
+      margin-top: 0;
+      margin-left: -40;
+    }
+    
+    &::after {
+      content: 'Writing is a way of talking without being interrupted.'; /* 自定义标语 */
+      /* 保持与父元素一致的手写字体 */
+    }
+
+    /* 隐藏 Next 默认的统计文案 (Excellent! 100 posts...) */
+    .collection-header {
+      display: none;
+    }
+  }
+
+  /* Year Headers */
+  .collection-year {
+    font-family: var(--font-hand); /* 统一使用手写体，呼应标题 */
+    font-size: 2.6rem; /* 手写体通常比标准字体显小，稍微调大 */
+    font-weight: 700; 
+    font-style: normal; /* 手写体自带倾斜感，无需强制斜体 */
+    margin: 50px 0 25px;
+    color: var(--theme-text-main);
+    
+    position: relative;
+    padding-left: 0; /* 修正缩进，使日历图标能对齐左侧时间轴 */
+    
+    display: flex;
+    align-items: center;
+    
+    /* 重置旧样式 */
+    -webkit-text-stroke: 0;
+    
+    /* 右侧延伸长线，连接时间轴感 */
+
+    &::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--theme-secondary), transparent);
+      margin-left: 20px;
+      display: block;
+      opacity: 0.3;
+    }
+    
+    /* 年份前的 Emoji 修饰 */
+    &::before {
+      content: '📆'; 
+      margin-right: 15px;
+      font-size: 1.8rem;
+      font-style: normal; /* Emoji 不斜体 */
+      
+      /* 关键：设置固定宽度并居中，确保日历中心与左侧15px的时间轴线重合 */
+      /* 30px 宽，配合 text-align: center, 就能让 emoji 居中 */
+      width: 30px; 
+      text-align: center;
+      display: inline-block;
+      
+      transform: rotate(-5deg); /* 增加一点手账贴纸的感觉 */
+      filter: sepia(0.3);
+
+      /* 重置并覆盖 Next 默认的小圆点样式 */
+      width: 30px;
+      height: auto;
+      border-radius: 4px;
+      position: static; 
+      margin-top: 0;
+      
+      /* 背景色遮挡住穿帮的虚线 */
+      background: var(--theme-bg-white);
+      position: relative;
+      z-index: 1;
+    }
+
+    .collection-year-count {
+      font-family: var(--font-hand);
+      font-size: 1.5rem; /* 手写体计数 */
+      background: none;
+      color: var(--theme-accent);
+      border: none;
+      padding: 0;
+      margin-left: 12px;
+      border-radius: 0;
+      height: auto;
+      line-height: 1;
+      
+      vertical-align: middle;
+      display: inline-block;
+      opacity: 0.8;
+      
+      /* 添加装饰括号 */
+      &::before { content: '('; margin-right: 2px; }
+      &::after { content: ')'; margin-left: 2px; }
+    }
+  }
+
+  /* Timeline line adjustment */
+  &::before {
+    background: none; /* 移除实色背景 */
+    border-left: 2px dashed var(--secondary-color); /* 改为虚线（缝纫线风格） */
+    width: 0;
+    left: 15px; /* Adjust line position */
+  }
+
+  /* Individual Post Header */
+  .post-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05); /* Very subtle separator */
+    margin: 15px 0; /* Reduce margin */
+    padding: 10px 15px 10px 40px; /* Space for the node */
+    position: relative;
+    transition: all 0.2s cubic-bezier(0, 0, 0, 1); /* Hard transition */
+    
+    /* Fonts */
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    
+    /* The Timeline Node - Diamond Shape */
+    &::before {
+      content: '';
+      background: var(--list-bg);
+      border: 3px solid var(--primary-color);
+      position: absolute;
+      left: 6px; /* Position on the line */
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg); /* Diamond */
+      width: 10px;
+      height: 10px;
+      border-radius: 0; /* Sharp corners */
+      transition: all 0.2s cubic-bezier(0, 0, 0, 1);
+      box-shadow: 0 0 0 2px var(--list-bg); /* Separation from line */
+      z-index: 1;
+    }
+
+    /* Date/Meta info inside header */
+    .post-meta {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--theme-text-main);
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.5;
+      transition: all 0.2s;
+    }
+    
+    /* Post Title Link */
+    .post-title-link {
+        color: var(--theme-text-main);
+        text-decoration: none;
+        background: none !important; /* Override global link styles */
+        padding: 0 !important;
+        display: inline !important;
+        transition: color 0.1s;
+    }
+
+    /* --- HOVER STATE: ACTIVATED --- */
+    &:hover {
+      background-color: var(--hover-bg); /* Black bg */
+      transform: translateX(10px) skewX(-10deg); /* Skew & Slide */
+      box-shadow: var(--tech-shadow); /* Orange solid shadow */
+      border-bottom-color: transparent;
+      z-index: 10;
+      
+      /* Node Transformation */
+      &::before {
+        background: var(--primary-color);
+        border-color: var(--theme-bg-white);
+        transform: translateY(-50%) rotate(225deg) scale(1.4); /* Spin & Scale */
+        left: -5px; /* Move out slightly */
+      }
+      
+      /* Text Color Shift */
+      .post-title {
+         color: var(--hover-text) !important; /* Force white */
+      }
+
+      .post-title-link {
+        color: var(--hover-text) !important;
+        font-family: var(--font-sans); /* Switch to Tech font */
+        font-weight: 900; 
+        letter-spacing: 0.05em;
+        -webkit-background-clip: unset !important; /* Remove gradient text */
+      }
+      
+      .post-meta {
+        color: var(--primary-color);
+        opacity: 1;
+        font-weight: bold;
+        transform: translateY(-50%) skewX(10deg); /* Counter skew meta */
+      }
+    }
+  }
+}
+
+/* Hide original collection header details to simplify */
+.posts-collapse .collection-header small {
+    display: none; 
+}
+

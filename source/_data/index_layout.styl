@@ -1,0 +1,192 @@
+/* --- "Design Excess" / Avant-Garde Magazine Layout --- */
+/* 核心理念：打破常规列表，采用非对称、高张力的杂志排版 */
+
+.index .main-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 40px !important;
+  width: 100% !important;
+  max-width: 1000px !important;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.index .main-inner > *:not(.post-block) {
+  width: 100%;
+}
+
+/* --- "Envelope & Letter" Style Layout --- */
+
+
+.index .post-block {
+  /* 基础尺寸 */
+  writing-mode: horizontal-tb;
+  height: auto;
+  width: 65%;
+  min-height: 220px;
+  margin: 0;
+
+  background: var(--theme-paper-inner); /* Fallback */
+  background: radial-gradient(circle at center, var(--theme-paper-inner) 0%, var(--theme-paper-outer) 100%); /* 中心亮，边缘泛黄 */
+  border: 1px solid var(--theme-paper-border);
+  
+    
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden; /* 裁剪邮戳溢出部分 */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 3. 交错对齐 (Zig-Zag Alignment) */
+
+/* 奇数项：居左，内容左对齐 */
+.index .post-block:nth-of-type(odd) {
+  align-self: flex-start;
+  margin-right: auto;
+  margin-left: 2%;
+  text-align: left;
+  align-items: flex-start; /* Flex 子元素左对齐 */
+  transform: rotate(-1.5deg);
+}
+
+/* 偶数项：居右，内容右对齐 */
+.index .post-block:nth-of-type(even) {
+  align-self: flex-end;
+  margin-left: auto;
+  margin-right: 2%;
+  text-align: right;
+  align-items: flex-end;
+  transform: rotate(1deg);
+}
+
+/* 4. 时间邮戳 (Postmark Date) */
+.index .post-meta-container {
+  position: absolute;
+  top: 25px;
+  width: 120px; /* 加大尺寸 */
+  height: 120px;
+  padding: 10px;
+  box-sizing: border-box;
+  
+  border: 4px double var(--theme-accent); /* 双线更像邮戳 */
+  border-radius: 50%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-tech);
+  font-size: 0.9rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: var(--theme-accent);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 0;
+  
+  mix-blend-mode: multiply;
+  filter: blur(0.4px) contrast(110%);
+  text-shadow: 0 0 2px rgba(191, 54, 12, 0.3);
+  mask-image: radial-gradient(#000 60%, transparent 100%);
+}
+
+.index .post-meta-item-icon { display: none; }
+.index .post-meta-item-text { display: none; }
+.index .post-meta-item time { display: block; font-weight: bold; font-size: 0.9rem; }
+
+.index .post-meta-container {
+  right: 35px;
+  top: 25px;
+  transform: rotate(20deg);
+  
+  /* 确保不随奇偶变化乱跑 */
+  left: auto !important; 
+}
+
+
+/* 5. 标题与正文 */
+
+/* 标题：手写信标题 - 增加刻蚀与错位感 */
+.index .post-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 25px 0 !important;
+  color: var(--theme-text-main); /* 接近纯黑的陈年墨色 */
+  z-index: 1;
+  position: relative;
+  letter-spacing: 1px;
+  
+  /* 核心特效：印刷错位 + 边缘渗墨 */
+  /* 错位：利用多重阴影模拟套色不准 */
+  text-shadow: 
+    2px 2px 0px rgba(0,0,0,0.05), /* 阴影错位 */
+    -1px -1px 0 rgba(255,255,255,0.6); /* 雕刻高光 */
+    
+  /* 渗墨：轻微模糊 + 高对比度 */
+  filter: blur(0.3px) contrast(150%);
+  opacity: 0.9;
+  
+  /* 墨水不均：微透明 */
+  mask-image: linear-gradient(45deg, #000 80%, rgba(0,0,0,0.8) 100%);
+}
+
+
+.index .post-body {
+  font-family: var(--font-art, serif);
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: var(--theme-text-main);
+  
+  text-shadow: 0 0 0.5px rgba(74, 59, 50, 0.1);
+  
+  opacity: 0.9; 
+  filter: none;
+  margin-bottom: 0;
+  z-index: 1;
+  max-width: 100%;
+}
+
+.index .post-button {
+  display: none !important;
+}
+
+/* --- Mobile Optimization --- */
++mobile() {
+  .index .main-inner {
+    width: auto !important;
+    padding: 20px 10px;
+  }
+  
+  .index .post-block {
+    width: 100% !important;
+    margin: 0 0 20px 0 !important;
+    transform: none !important; /* Remove rotation */
+    border-radius: 8px !important;
+  }
+  
+  .index .post-block:nth-of-type(odd),
+  .index .post-block:nth-of-type(even) {
+    align-self: center !important;
+    text-align: left !important;
+    margin: 0 !important;
+    transform: none !important;
+    align-items: flex-start !important;
+  }
+  
+  /* Simplify postmark on mobile */
+  .index .post-meta-container {
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+  }
+  
+  .index .post-meta-container time {
+    font-size: 0.7rem;
+  }
+}
