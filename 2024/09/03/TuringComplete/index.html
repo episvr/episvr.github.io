@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#bf360c"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
+  <link rel="mask-icon" href="/images/logo.jpg" color="#bf360c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://gfonts.aby.pub/css?family=Noto+Serif+CJK+SC:300,300italic,400,400italic,700,700italic%7CYellowtail:300,300italic,400,400italic,700,700italic%7CCaveat:300,300italic,400,400italic,700,700italic%7CLong+Cang:300,300italic,400,400italic,700,700italic%7CYuji+Mai:300,300italic,400,400italic,700,700italic%7CJetBrains+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#bf360c","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="传奇计算机组成原理模拟器。推荐外挂：数电教材。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《图灵完备》卡关记录 1：锁存器">
+<meta property="og:url" content="http://blog.episvr.top/2024/09/03/TuringComplete/index.html">
+<meta property="og:site_name" content="Epi&#39;s Blog">
+<meta property="og:description" content="传奇计算机组成原理模拟器。推荐外挂：数电教材。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/c896a4dd293baa1ff427de2ea693cb72.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828114134526.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240903170143545.png">
+<meta property="article:published_time" content="2024-09-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-28T10:38:52.901Z">
+<meta property="article:author" content="Epi">
+<meta property="article:tag" content="game">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png">
+
+
+<link rel="canonical" href="http://blog.episvr.top/2024/09/03/TuringComplete/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.episvr.top/2024/09/03/TuringComplete/","path":"2024/09/03/TuringComplete/","title":"《图灵完备》卡关记录 1：锁存器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>《图灵完备》卡关记录 1：锁存器 | Epi's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.episvr.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Epi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Epi's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friend"><a href="/friend/" rel="section"><i class="fa fa-link fa-fw"></i>friend</a></li><li class="menu-item menu-item-epi"><a href="/epi/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>epi</a></li><li class="menu-item menu-item-puzzle"><a href="https://puzzle.episvr.top/" rel="section" target="_blank"><i class="fa fa-puzzle-piece fa-fw"></i>puzzle</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">纠缠的门 —SR 锁存器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Flip-Flop 触发器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">D 锁存器</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Epi"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Epi</p>
+  <div class="site-description" itemprop="description">ad astra per aspera</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/episvr" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;episvr" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.episvr.top/2024/09/03/TuringComplete/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="Epi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epi's Blog">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="《图灵完备》卡关记录 1：锁存器 | Epi's Blog">
+      <meta itemprop="description" content="传奇计算机组成原理模拟器。推荐外挂：数电教材。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《图灵完备》卡关记录 1：锁存器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-03 00:00:00" itemprop="dateCreated datePublished" datetime="2024-09-03T00:00:00+08:00">2024-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-28 18:38:52" itemprop="dateModified" datetime="2026-01-28T18:38:52+08:00">2026-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Repo/" itemprop="url" rel="index"><span itemprop="name">Repo</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/2024/09/03/TuringComplete/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/09/03/TuringComplete/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">传奇计算机组成原理模拟器。推荐外挂：数电教材。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>在学《计算机科学导论》的时候，Epi 接触了门电路，但是那时候他没有过多在意</p>
+<p>在学《离散数学》的时候，Epi 狠狠吃了一记回旋镖，他决定使用真值表大法</p>
+<p>在玩《图灵完备》时，Epi 卡关了，警钟长鸣。</p>
+</blockquote>
+<p>在《图灵完备》中，过了基础逻辑之后，游戏就会分为两条路，运算（ARITHMATIC）和存储（MEMORY），运算部分在了解了全加器，移位和补码的知识就很好过（暂时），但是存储的部分着实有些摸不着头脑，Epi 依稀记得在计算机科学导论的课程里学习过 SR 锁存器，他决定复习一下</p>
+<p>观前提示，本文中对所有元件输入节点的编号均从上到下记作输入 A，B，C，D</p>
+<h1>纠缠的门 —SR 锁存器</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828103246053.png" alt="image-20240828103246053"></p>
+<p>在 SR 锁存器中，在中间形成了一个 “纠缠” 的循环链，这个循环有两种进行状态</p>
+<p>当输入 IN 的开关 A 开启时：循环以状态一运行，输出为 0</p>
+<p>当输入 IN 的开关 B 开启时：循环以状态二运行，输出为 1</p>
+<p>当输入开关都关闭时：输出由<strong>循环状态</strong>决定，可能是 1，也可能是 0</p>
+<p>特别的，开关 A，B 都开启时，由于中间产生了冲突，最好不要这么做</p>
+<p>总的来说，开关 A 置 0，开关 B 置 1，循环状态起到了存储信息的作用，这个装置就叫做 SR 锁存器</p>
+<blockquote>
+<p>注：实际上 SR 锁存器使用<strong>或非门 / 与非门</strong>构建</p>
+<p>下图展示了<strong>或非门</strong>构建的 SR 锁存器全输入 1 时，输出全为 1，称为<strong>禁止态</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/c896a4dd293baa1ff427de2ea693cb72.png" alt="在这里插入图片描述"></p>
+<p>S means Set（1）， R means reset（0）</p>
+</blockquote>
+<h1>Flip-Flop 触发器</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202024-08-28%20105157.jpeg" alt="img"></p>
+<p>看起来是跟锁存器类似的结构，不太懂（</p>
+<h1>D 锁存器</h1>
+<p>但是，SR 锁存器是由两个输入分别控制置 0 置 1 的，有些<s>不好记</s>不方便</p>
+<blockquote>
+<p>Q: 能不能设计一个这样的电路：有两个输入，输入 A 控制是否启用锁存器，若输入 A 开启，则输入 B 为 0 时置 0，输入 1 时置 1，若输入 A 关闭，B 不影响电路状态</p>
+</blockquote>
+<p>可以的！电路如下（其中的 FF 为触发器，输入 A 为 1 时置 0，输入 B 为 1 时置 1）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240828114134526.png" alt="image-20240828114134526"></p>
+<p>这样我们就完成了 D 锁存器！</p>
+<p>把这样的 8 个锁存器连接起来，就得到了<strong>寄存器</strong> ~</p>
+<p>顺带一提：发出文章的现在，epi 卡在了 <code>Caculation</code> 这关</p>
+<p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240903170143545.png" alt="image-20240903170143545"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/game/" rel="tag"><i class="fa fa-tag"></i> game</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/08/24/LuoguAlgo/" rel="prev" title="题解：[NOIP1998 提高组] 车站">
+                  <i class="fa fa-angle-left"></i> 题解：[NOIP1998 提高组] 车站
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/09/05/MissingSemester/" rel="next" title="Missing Semester 学习总结（上）">
+                  Missing Semester 学习总结（上） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Epi</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"forest"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.episvr.top/","cssUrl":"https://unpkg.com/@waline/client@v3.1.3/dist/waline.css","commentCount":true,"pageview":false,"libUrl":"https://unpkg.com/@waline/client@3.5.1/dist/waline.umd.js","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2024/09/03/TuringComplete/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3.1.3/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

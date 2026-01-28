@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#bf360c"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
+  <link rel="mask-icon" href="/images/logo.jpg" color="#bf360c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://gfonts.aby.pub/css?family=Noto+Serif+CJK+SC:300,300italic,400,400italic,700,700italic%7CYellowtail:300,300italic,400,400italic,700,700italic%7CCaveat:300,300italic,400,400italic,700,700italic%7CLong+Cang:300,300italic,400,400italic,700,700italic%7CYuji+Mai:300,300italic,400,400italic,700,700italic%7CJetBrains+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#bf360c","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文是 蛇Hunt 的 meta &quot;每逢佳节倍思&quot; 的赛后回顾">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cornsnakey Meta Writeup - 每逢佳节倍思戚">
+<meta property="og:url" content="http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/index.html">
+<meta property="og:site_name" content="Epi&#39;s Blog">
+<meta property="og:description" content="本文是 蛇Hunt 的 meta &quot;每逢佳节倍思&quot; 的赛后回顾">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.episvr.top/img/CornsnakyMetaWriteup/1.png">
+<meta property="og:image" content="http://blog.episvr.top/img/CornsnakyMetaWriteup/2.png">
+<meta property="og:image" content="http://blog.episvr.top/img/CornsnakyMetaWriteup/3.png">
+<meta property="article:published_time" content="2025-03-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-28T10:38:52.901Z">
+<meta property="article:author" content="Epi">
+<meta property="article:tag" content="random_note">
+<meta property="article:tag" content="puzzle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.episvr.top/img/CornsnakyMetaWriteup/1.png">
+
+
+<link rel="canonical" href="http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/","path":"2025/03/04/CornsnakeyMetaWriteup/","title":"Cornsnakey Meta Writeup - 每逢佳节倍思戚"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Cornsnakey Meta Writeup - 每逢佳节倍思戚 | Epi's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.episvr.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Epi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Epi's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friend"><a href="/friend/" rel="section"><i class="fa fa-link fa-fw"></i>friend</a></li><li class="menu-item menu-item-epi"><a href="/epi/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>epi</a></li><li class="menu-item menu-item-puzzle"><a href="https://puzzle.episvr.top/" rel="section" target="_blank"><i class="fa fa-puzzle-piece fa-fw"></i>puzzle</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A2%E7%B4%A2%E9%98%B6%E6%AE%B5"><span class="nav-number">1.</span> <span class="nav-text">探索阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%B7%E8%B7%AF%E6%8F%92%E6%9B%B2"><span class="nav-number">2.</span> <span class="nav-text">迷路插曲</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%94%B6%E7%BA%BF%E7%B4%A2"><span class="nav-number">3.</span> <span class="nav-text">回收线索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Epi"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Epi</p>
+  <div class="site-description" itemprop="description">ad astra per aspera</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/episvr" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;episvr" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="Epi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epi's Blog">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Cornsnakey Meta Writeup - 每逢佳节倍思戚 | Epi's Blog">
+      <meta itemprop="description" content="本文是 蛇Hunt 的 meta "每逢佳节倍思" 的赛后回顾">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cornsnakey Meta Writeup - 每逢佳节倍思戚
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2025-03-04T00:00:00+08:00">2025-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-28 18:38:52" itemprop="dateModified" datetime="2026-01-28T18:38:52+08:00">2026-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Repo/" itemprop="url" rel="index"><span itemprop="name">Repo</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/2025/03/04/CornsnakeyMetaWriteup/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/03/04/CornsnakeyMetaWriteup/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">本文是 蛇Hunt 的 meta "每逢佳节倍思" 的赛后回顾</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这里是 Epi，本文是 蛇 Hunt 的 meta《每逢佳节倍思戚》 的赛后回顾（</p>
+<hr>
+<p>我们先来回忆一下我们正赛时的题目，详细的信息可以看<a target="_blank" rel="noopener" href="https://episvr.top/2025/02/09/Repo-CornsnakeyWriteup/">这里</a>：</p>
+<p>盲道 + 摩斯：曹晟康之路</p>
+<p>文件夹嵌套 + 进制：谜途</p>
+<p>词形变化：神秘转化</p>
+<p>阳阴历转换：阳阴两隔</p>
+<p>蛇的种类：走亲戚</p>
+<p>神秘纸笔：夜观星車</p>
+<p>时钟旗语：惜时</p>
+<p>二进制：蛇梯棋</p>
+<p>好了开始解题吧！首先把文件夹下下来。</p>
+<h2 id="探索阶段">探索阶段</h2>
+<p>首先简单的在文件夹里转了转，结果发现这也太复杂了！</p>
+<p>于是用了手段把所有的信息提取出来了：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./tmp</span><br><span class="line">find -<span class="built_in">type</span> f | <span class="keyword">while</span> <span class="built_in">read</span> -r file; <span class="keyword">do</span></span><br><span class="line">    base_name=$(<span class="built_in">basename</span> <span class="string">"<span class="variable">$file</span>"</span>)</span><br><span class="line">    target=<span class="string">"./tmp/<span class="variable">$base_name</span>"</span></span><br><span class="line">    count=1</span><br><span class="line">    <span class="keyword">while</span> [[ -e <span class="string">"<span class="variable">$target</span>"</span> ]]; <span class="keyword">do</span></span><br><span class="line">        count=$((count + <span class="number">1</span>))</span><br><span class="line">        target=<span class="string">"./tmp/<span class="variable">${base_name%.*}</span>(<span class="variable">$count</span>).<span class="variable">${base_name##*.}</span>"</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    <span class="built_in">cp</span> <span class="string">"<span class="variable">$file</span>"</span> <span class="string">"<span class="variable">$target</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">├── 22222.txt</span><br><span class="line">├── 亲戚(2).png</span><br><span class="line">├── 亲戚(3).png</span><br><span class="line">├── 亲戚(4).png</span><br><span class="line">├── 亲戚(5).png</span><br><span class="line">├── 亲戚.png</span><br><span class="line">├── 偶遇的蛇.png</span><br><span class="line">├── 再走就离开这里了呢(2).txt</span><br><span class="line">├── 再走就离开这里了呢(3).txt</span><br><span class="line">├── 再走就离开这里了呢(4).txt</span><br><span class="line">├── 再走就离开这里了呢(5).txt</span><br><span class="line">├── 再走就离开这里了呢(6).txt</span><br><span class="line">├── 再走就离开这里了呢(7).txt</span><br><span class="line">├── 再走就离开这里了呢.txt</span><br><span class="line">├── 剧情(10).txt</span><br><span class="line">├── 剧情(11).txt</span><br><span class="line">├── 剧情(12).txt</span><br><span class="line">├── 剧情(13).txt</span><br><span class="line">├── 剧情(14).txt</span><br><span class="line">├── 剧情(15).txt</span><br><span class="line">├── 剧情(16).txt</span><br><span class="line">├── 剧情(17).txt</span><br><span class="line">├── 剧情(18).txt</span><br><span class="line">├── 剧情(2).txt</span><br><span class="line">├── 剧情(3).txt</span><br><span class="line">├── 剧情(4).txt</span><br><span class="line">├── 剧情(5).txt</span><br><span class="line">├── 剧情(6).txt</span><br><span class="line">├── 剧情(7).txt</span><br><span class="line">├── 剧情(8).txt</span><br><span class="line">├── 剧情(9).txt</span><br><span class="line">├── 剧情.txt</span><br><span class="line">├── 呀哈哈！.txt</span><br><span class="line">├── 玻璃碴0.png</span><br><span class="line">├── 玻璃碴1.png</span><br><span class="line">├── 玻璃碴2.png</span><br><span class="line">└── （5 8 7）</span><br></pre></td></tr></tbody></table></figure>
+<p>读一读提取出来的文件，能看到很多有趣的信息：</p>
+<ol>
+<li>出现了神秘且精确的的时间信息</li>
+<li>有一条偶遇的蛇，很神秘</li>
+<li>玻璃碴 012.png 和 22222.txt</li>
+<li> 亲戚蛇</li>
+</ol>
+<p>根据这些可以得到以下线索</p>
+<ol>
+<li>
+<p>根据剧情中大量的时间信息可以列出蛇蛇和迷龙的旅程表：结合时钟旗语的解法可以得到一个 TOGETHER</p>
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>时间</th>
+<th>地点</th>
+<th>对应时间</th>
+<th>旗语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>剧情（2）</td>
+<td>10 点</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>剧情（3）</td>
+<td></td>
+<td>东南面第一处景观 - 花坛</td>
+<td> 10：00</td>
+<td>T</td>
+</tr>
+<tr>
+<td> 剧情（3）</td>
+<td>+45min</td>
+<td> 东北面第二处景观 - 湖泊</td>
+<td> 10：45</td>
+<td>O</td>
+</tr>
+<tr>
+<td> 剧情（3）</td>
+<td>+5h45min</td>
+<td> 西面第三处景观 - 广场</td>
+<td> 16：30</td>
+<td>G</td>
+</tr>
+<tr>
+<td> 剧情（4）</td>
+<td>+1h37min</td>
+<td> 北面第四处景观 - 小区</td>
+<td> 18：07</td>
+<td>E</td>
+</tr>
+<tr>
+<td> 剧情（4）</td>
+<td>+3h53min</td>
+<td> 西北面第五处景观 - 密林</td>
+<td> 22：00</td>
+<td>T</td>
+</tr>
+<tr>
+<td> 剧情（5）</td>
+<td>次日 6 点</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>剧情（6）</td>
+<td>+1h45min</td>
+<td> 北面第六处景观 - 游乐园</td>
+<td> 7：45</td>
+<td>H</td>
+</tr>
+<tr>
+<td> 剧情（6）</td>
+<td>+5h45min</td>
+<td> 西南第七处景观 - 高楼</td>
+<td> 13：30</td>
+<td>E</td>
+</tr>
+<tr>
+<td> 剧情（10）</td>
+<td>+2h15min</td>
+<td> 最后一座景观 - 雕像</td>
+<td> 15：45</td>
+<td>R</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>偶遇的蛇识图可知是 “<strong>细盲蛇</strong>”</p>
+</li>
+<li>
+<p>玻璃碴图片 012 对应到键盘上是 “<strong>RBG</strong>”</p>
+</li>
+<li>
+<p>22222.txt 暗示了要把十字符序列分为五段。</p>
+</li>
+<li>
+<p>可以看到似曾相识的亲戚蛇的图片对应的提取字母分别是：</p>
+<blockquote>
+<p>amel (2/4) M</p>
+<p>anery (5/5) Y</p>
+<p>scaleless (2/9) C</p>
+<p>motley (1/6) M</p>
+<p>scaleless (2/9) C</p>
+</blockquote>
+</li>
+</ol>
+<p>有了这些信息，我们就来画地图吧！</p>
+<hr>
+<p>画地图有两点需要注意的：</p>
+<ul>
+<li>大小：根据初始剧情即可知道为 9*9 的方阵</li>
+<li>初始点：探索一番即可知道是右下角的点。</li>
+</ul>
+<p><em>记录着🐍、<strong>小径</strong>和<strong>石板路</strong>的地图</em></p>
+<img src="/img/CornsnakyMetaWriteup/1.png" alt="Map" style="zoom:33%;">
+<hr>
+<h2 id="迷路插曲">迷路插曲</h2>
+<blockquote>
+<p>剧情（18）</p>
+<p>蛇蛇和谜龙见到了这条蛇。<br>
+这条蛇说，他在某个岔路口拐了一下，然后往里走，不小心就迷路了，希望蛇蛇能帮他回忆一下他是怎么进来的。</p>
+</blockquote>
+<p>这里回收线索 2：“细<strong>盲</strong>蛇”，套用 “盲道 + 摩斯” 的方法即可，注意以小径作为分割。</p>
+<p>右 \ 左 \ 直 \ 右 \ 直 \ 直 \ 直 \ 左 \ 直 \ 右 \ 左 \ 右 \ 左 \ 左 \ 直 \ 右 \ 左 \ 直</p>
+<p>0010 111 010 0 0001 0 010</p>
+<p><strong>0 为点，1 为长:</strong> 可得 FOREVER</p>
+<h2 id="回收线索">回收线索</h2>
+<blockquote>
+<p>剧情（10）</p>
+<p>…… 另外，最近我们身上出现了一些奇怪的符号，你可以研究一下，是不是和我们的色有关。”</p>
+</blockquote>
+<p>回收线索 3，线索 5：<strong>颜色</strong>指的就是 C M Y，在正赛中出现的 C M Y 就是夜观星車了。</p>
+<blockquote>
+<p>Amel (2/4) M = Magenta</p>
+<p>Anery (5/5) Y = Yellow</p>
+<p>Scaleless (2/9) C = Cyan</p>
+<p>Motley (1/6) M = Magenta</p>
+<p>Scaleless (2/9) C = Cyan</p>
+</blockquote>
+<p>把地图作为盘面把🐍的位置作为次之星解纸笔可得：</p>
+<p>值得注意的是在剧情中有这样一句话，所以同色星车可以相邻</p>
+<blockquote>
+<p>剧情（2）</p>
+<p>“…… 对了，现在的邻居即使相同也可以和睦相处了</p>
+</blockquote>
+<p><em>借用一张群友画的很好看的图</em></p>
+<img src="/img/CornsnakyMetaWriteup/2.png" alt="这个图实在是太好看了就拿过来用了" style="zoom:50%;">
+<p>对角线 RGB 序列转换为：<strong>BRGBBGGRBR</strong>，</p>
+<p>R=0，B=1，G=2 可得 1021122010</p>
+<p>回收线索 4：将序列两位断开：10 21 12 20 10</p>
+<blockquote>
+<p>Epi 止步于此，太遗憾了。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>HAVE U TRY 第一条：你尝试过… 看看标题和 flavortext？</p>
+</blockquote>
+<p>标题是：每逢佳节<strong>倍思戚</strong>，<strong>倍思戚（base 7）</strong></p>
+<p>转换为 7 进制得：7 15 9 14 7</p>
+<p>即 GOING</p>
+<p>把已知答案按 （5 8 7）排列可得：GOING TOGETHER FOREVER~~（你愿意打一辈子 蛇 Hunt 吗？）~~</p>
+<h2 id="总结">总结</h2>
+<p>好点：</p>
+<ol>
+<li>盘面的重复利用，把小径当成 “曹晟康之路” 的分割很巧。</li>
+<li>在 meta 回收小题的解题方法</li>
+<li>回头来看的话难度控制其实还可以</li>
+</ol>
+<p>孬点：</p>
+<ol>
+<li>并未回收所有的点子（容易爆错误思路，但是感觉全塞进去很难…）</li>
+<li>文件夹嵌套的形式其实不是很好（苦力分布不均）</li>
+</ol>
+<p>解题工具：</p>
+<ol>
+<li>焖肉面（但是没有认真看进制信息，/(ㄒ o ㄒ)/~~）</li>
+<li><a target="_blank" rel="noopener" href="https://www.f-puzzles.com/">f-puzzles</a>：用来画地图</li>
+<li> VSCode</li>
+</ol>
+<p>碎碎念：</p>
+<ol>
+<li>
+<p>Puzzlehunt 怎么会没有 meta 呢？<s>真有了你又不高兴</s></p>
+</li>
+<li>
+<p>解题线索太多啦</p>
+<p><img src="/img/CornsnakyMetaWriteup/3.png" alt="threads"></p>
+</li>
+<li>
+<p>意识到 meta 的机制是回收小题机制的时候第一感是自己的进度好慢，还有好多题没看到</p>
+</li>
+<li>
+<p>认真研究了一些完全跑偏的思路，比如星星有没有落在小径上（蛇梯棋 idea），是否有镜像（玻璃碎片），各种三进制（左直右，RGB）…</p>
+</li>
+<li>
+<p>催一下正赛的官解，之前爆的太快了做 meta 时苦不堪言</p>
+</li>
+<li>
+<p>想回正赛网站看一下，但是密码忘记了（</p>
+</li>
+</ol>
+<p>Nutri 使用报告：并未使用 Nutri</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/random-note/" rel="tag"><i class="fa fa-tag"></i> random_note</a>
+              <a href="/tags/puzzle/" rel="tag"><i class="fa fa-tag"></i> puzzle</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/03/03/Haiku-Notes/" rel="prev" title="三月三俳句记">
+                  <i class="fa fa-angle-left"></i> 三月三俳句记
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/03/24/NeuralNetwork02/" rel="next" title="深度学习小记 (二)">
+                  深度学习小记 (二) <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Epi</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"forest"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.episvr.top/","cssUrl":"https://unpkg.com/@waline/client@v3.1.3/dist/waline.css","commentCount":true,"pageview":false,"libUrl":"https://unpkg.com/@waline/client@3.5.1/dist/waline.umd.js","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2025/03/04/CornsnakeyMetaWriteup/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3.1.3/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

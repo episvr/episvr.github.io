@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#bf360c"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
+  <link rel="mask-icon" href="/images/logo.jpg" color="#bf360c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://gfonts.aby.pub/css?family=Noto+Serif+CJK+SC:300,300italic,400,400italic,700,700italic%7CYellowtail:300,300italic,400,400italic,700,700italic%7CCaveat:300,300italic,400,400italic,700,700italic%7CLong+Cang:300,300italic,400,400italic,700,700italic%7CYuji+Mai:300,300italic,400,400italic,700,700italic%7CJetBrains+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#bf360c","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="shell命令真是...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 常用命令学习与实战">
+<meta property="og:url" content="http://blog.episvr.top/2024/06/14/Linux/index.html">
+<meta property="og:site_name" content="Epi&#39;s Blog">
+<meta property="og:description" content="shell命令真是...">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-28T10:38:52.901Z">
+<meta property="article:author" content="Epi">
+<meta property="article:tag" content="coding">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://blog.episvr.top/2024/06/14/Linux/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.episvr.top/2024/06/14/Linux/","path":"2024/06/14/Linux/","title":"Linux 常用命令学习与实战"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux 常用命令学习与实战 | Epi's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.episvr.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Epi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Epi's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friend"><a href="/friend/" rel="section"><i class="fa fa-link fa-fw"></i>friend</a></li><li class="menu-item menu-item-epi"><a href="/epi/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>epi</a></li><li class="menu-item menu-item-puzzle"><a href="https://puzzle.episvr.top/" rel="section" target="_blank"><i class="fa fa-puzzle-piece fa-fw"></i>puzzle</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">任务四</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E7%9A%84%E6%8F%90%E7%A4%BA%E7%AC%A6"><span class="nav-number">1.1.</span> <span class="nav-text">不同的提示符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E5%B7%A6%E4%BD%8E%E5%8F%B3%E9%AB%98%E7%9A%84%E6%96%9C%E6%9D%A0-%E6%9D%A5%E8%A1%A8%E7%A4%BA-Linux-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A0%B9%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">用左低右高的斜杠 &#x2F; 来表示 Linux 文件系统的根目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tree-%E7%9A%84%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9"><span class="nav-number">1.3.</span> <span class="nav-text">tree 的命令选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">1.4.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84-%E4%B8%8E-%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84"><span class="nav-number">1.5.</span> <span class="nav-text">绝对路径 与 相对路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6-%E7%9B%AE%E5%BD%95-%E5%90%8D%E7%9A%84%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9C%89%E4%B8%A4%E4%B8%AA%EF%BC%88%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%A3%80%E7%B4%A2%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">文件 (目录) 名的通配符有两个（正则表达式检索）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9A%84%E4%B8%BB%E7%9B%AE%E5%BD%95"><span class="nav-number">1.7.</span> <span class="nav-text">用户的主目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-%E5%91%BD%E4%BB%A4-list"><span class="nav-number">1.8.</span> <span class="nav-text">ls 命令 list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mkdir%E5%91%BD%E4%BB%A4-make-directory"><span class="nav-number">1.9.</span> <span class="nav-text">mkdir 命令 make directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rmdir%E5%91%BD%E4%BB%A4-remove-directory"><span class="nav-number">1.10.</span> <span class="nav-text">rmdir 命令 remove directory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#du%E5%91%BD%E4%BB%A4-disk-using"><span class="nav-number">1.11.</span> <span class="nav-text">du 命令 disk using</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#touch%E5%91%BD%E4%BB%A4-touch"><span class="nav-number">1.12.</span> <span class="nav-text">touch 命令 touch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cp%E5%91%BD%E4%BB%A4-copy"><span class="nav-number">1.13.</span> <span class="nav-text">cp 命令 copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ln-%E5%91%BD%E4%BB%A4-link"><span class="nav-number">1.14.</span> <span class="nav-text">ln 命令 link</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mv%E5%91%BD%E4%BB%A4-move"><span class="nav-number">1.15.</span> <span class="nav-text">mv 命令 move</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rm%E5%91%BD%E4%BB%A4-remove"><span class="nav-number">1.16.</span> <span class="nav-text">rm 命令 remove</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cat%E5%91%BD%E4%BB%A4-concatenate"><span class="nav-number">1.17.</span> <span class="nav-text">cat 命令 concatenate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#more%E5%91%BD%E4%BB%A4-more"><span class="nav-number">1.18.</span> <span class="nav-text">more 命令 more</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#head%E5%91%BD%E4%BB%A4-head"><span class="nav-number">1.19.</span> <span class="nav-text">head 命令 head</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tail%E5%91%BD%E4%BB%A4-tail"><span class="nav-number">1.20.</span> <span class="nav-text">tail 命令 tail</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#file%E5%91%BD%E4%BB%A4-file"><span class="nav-number">1.21.</span> <span class="nav-text">file 命令 file</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep%E5%91%BD%E4%BB%A4-global-regular-expression"><span class="nav-number">1.22.</span> <span class="nav-text">grep 命令 global regular expression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#diff%E5%91%BD%E4%BB%A4-different"><span class="nav-number">1.23.</span> <span class="nav-text">diff 命令 different</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find%E5%91%BD%E4%BB%A4-find"><span class="nav-number">1.24.</span> <span class="nav-text">find 命令 find</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wc%E5%91%BD%E4%BB%A4-Word-Count"><span class="nav-number">1.25.</span> <span class="nav-text">wc 命令 Word Count</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#whereis%E5%91%BD%E4%BB%A4-where-is"><span class="nav-number">1.26.</span> <span class="nav-text">whereis 命令 where is</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#which%E5%91%BD%E4%BB%A4-which"><span class="nav-number">1.27.</span> <span class="nav-text">which 命令 which</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#locate-%E5%91%BD%E4%BB%A4-locate"><span class="nav-number">1.28.</span> <span class="nav-text">locate 命令 # locate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sort-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.29.</span> <span class="nav-text">sort 命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">任务五 文件和目录权限管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#chmod-%E5%91%BD%E4%BB%A4-change-mode"><span class="nav-number">2.1.</span> <span class="nav-text">chmod 命令 change mode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chown-%E5%91%BD%E4%BB%A4-change-owner"><span class="nav-number">2.2.</span> <span class="nav-text">chown 命令 change owner</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">任务六 进程管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ps-%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">ps 命令：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pstree-%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">pstree 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kill-%E5%91%BD%E4%BB%A4"><span class="nav-number">3.3.</span> <span class="nav-text">kill 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pgrep-%E5%91%BD%E4%BB%A4"><span class="nav-number">3.4.</span> <span class="nav-text">pgrep 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#killall-%E5%91%BD%E4%BB%A4"><span class="nav-number">3.5.</span> <span class="nav-text">killall 命令</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Epi"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Epi</p>
+  <div class="site-description" itemprop="description">ad astra per aspera</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/episvr" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;episvr" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.episvr.top/2024/06/14/Linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="Epi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epi's Blog">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux 常用命令学习与实战 | Epi's Blog">
+      <meta itemprop="description" content="shell命令真是...">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux 常用命令学习与实战
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-06-14 00:00:00" itemprop="dateCreated datePublished" datetime="2024-06-14T00:00:00+08:00">2024-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-28 18:38:52" itemprop="dateModified" datetime="2026-01-28T18:38:52+08:00">2026-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Learning/" itemprop="url" rel="index"><span itemprop="name">Learning</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/2024/06/14/Linux/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2024/06/14/Linux/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">shell命令真是...</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>🚩<strong>对应《华为 Openeuler 开源操作系统》的 实战任务 4~ 任务 8</strong></p>
+<hr>
+<h1>任务四</h1>
+<h2 id="不同的提示符">不同的提示符</h2>
+<p>超级用户 root 的 Shell 提示符是<code>#</code><br>
+普通用户 的 Shell 提示符是美元货币符 <code>$</code></p>
+<h2 id="用左低右高的斜杠-来表示-Linux-文件系统的根目录">用左低右高的斜杠 <code>/</code> 来表示 Linux 文件系统的根目录</h2>
+<p>注意，在 <strong>UNIX/Linux</strong> 中表示根目录时，使用的是左低右高的斜杠 <code>/</code><br>
+而在 <strong>Windows</strong> 中表示根目录时，使用的是左高右低的斜杠 <code>\</code></p>
+<h2 id="tree-的命令选项">tree 的命令选项</h2>
+<p><code>-u</code> 选项表示显示用户名或者 （UID）<br>
+<code>-d</code> 选项表示只显示目录（directory）<br>
+<code>-L</code> 选项表示显示目录的层级（layer）</p>
+<h2 id="注释">注释</h2>
+<p><code>#</code>后面的内容是 Shell 的注释</p>
+<h2 id="绝对路径-与-相对路径">绝对路径 与 相对路径</h2>
+<p>绝对路径是从 Linux 文件系统目录树的根 <code>/</code> 开始，经过一些目录，最后到达目标目录或者目标文件<br>
+当前的工作路径也称<strong>当前目录</strong><code>.</code><br>
+两个点号<code>..</code> 用来表示当前目录的上一级目录，或者称为<strong>父目录</strong><br>
+使用 Linux 命令 <code>pwd</code> 可以打印当前的工作路径<br>
+如果使用了用来表示当前目录的<code>.</code> 和用来表示当前目录的父目录的<code>..</code>，那么就说采用了<strong>相对路径</strong>来命名目录和文件。</p>
+<span id="more"></span>
+<h2 id="文件-目录-名的通配符有两个（正则表达式检索）">文件 (目录) 名的通配符有两个（正则表达式检索）</h2>
+<p>星号 <code>*</code> 表示 0 个或者多个字符。<br>
+问号 <code>?</code> 表示一个字符。</p>
+<h2 id="用户的主目录">用户的主目录</h2>
+<p>Linux 用户首次登录系统后所处的目录称为主目录 (Home Directory)<br>
+这个目录一般位于 /home/UserName</p>
+<ul>
+<li>例如用户 omm，它的主目录在 /home/omm 下。</li>
+</ul>
+<p>Linux 上的用户一般只对自己的主目录有完全的读写控制权，这种安排可以保证 Linux 操作系统中用户数据的安全。</p>
+<h2 id="ls-命令-list">ls 命令 <em><strong>list</strong></em></h2>
+<p><strong>列出目录和文件的信息</strong></p>
+<p>ls 命令的语法如下:<code>ls [OPTION] … [FILE] …</code></p>
+<ul>
+<li>没有任何选项的 ls 命令<br>
+当前目录文件名与子文件名</li>
+<li> ls 命令的 -a 选项（<em>all</em>）当前目录下所有的文件名和目录名（包括隐藏文件，隐藏目录）</li>
+<li>ls 命令的 - l 选项（<em>long</em>）, 显示文件或目录的详细信息</li>
+<li>组合命令 - al 等</li>
+<li> ls 命令的 - F 选项（<em>flag</em>）</li>
+</ul>
+<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> 表示可执行文件</span><br><span class="line">/ 表示目录</span><br><span class="line">@ 表示文件符号链接</span><br><span class="line">| 表示文件是管道文件</span><br><span class="line">= 表示文件是套接字</span><br><span class="line"><span class="quote">&gt; 表示进程间的通信设备</span></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>ls 命令的 - d 选项（<em>directory</em>）只显示目录本身的信息</li>
+<li> ls 命令的 - R 选项 （<em>recursive</em>）递归地显示目录及其所有子目录中的文件信息</li>
+<li> ls 命令的 - i 选项（<em>index</em>）显示文件或者目录的索引节点号</li>
+</ul>
+<h2 id="mkdir命令-make-directory">mkdir 命令 <em><strong>make directory</strong></em></h2>
+<p><strong>在文件系统目录树上创建新的目录</strong></p>
+<p>命令语法：<code>mkdir [options] DirectoryName</code></p>
+<ul>
+<li>没有选项的 mkdir 命令</li>
+<li> mkdir 命令的 - p 选项 (<em>parents</em>) 创建多层目录</li>
+</ul>
+<h2 id="rmdir命令-remove-directory">rmdir 命令 <em><strong>remove directory</strong></em></h2>
+<p>删除一个空目录</p>
+<h2 id="du命令-disk-using">du 命令 <em><strong>disk using</strong></em></h2>
+<p>查看磁盘存储空间占用情况</p>
+<p>语法:<code>du [options] DirectoryName</code></p>
+<ul>
+<li>-s 选项 (<em>size</em>): 只显示目录的总计大小，不显示该目录下子目录的大小</li>
+<li> -k 选项：以 KB 为单位显示大小</li>
+<li> -m 选项：以 MB 为单位显示大小</li>
+<li> -h 选项 (<em>human</em>) : 以人类可读的方式显示大小</li>
+</ul>
+<h2 id="touch命令-touch">touch 命令 <em><strong>touch</strong></em></h2>
+<p>作用 1: 变更最后修改时间，达到重新编译的目的</p>
+<p>作用 2: 创建新的空文件</p>
+<h2 id="cp命令-copy">cp 命令 <em><strong>copy</strong></em></h2>
+<p><strong>复制文件和目录</strong></p>
+<p>语法：<code>cp [options] SourceFile DestinationFile</code></p>
+<ul>
+<li>没有选项的 cp 命令：只能用来复制文件</li>
+<li> cp 命令的 - r 选项 (recursive): 复制一个目录及子目录下的所有文件</li>
+<li> cp 命令的 - p 选项（preserve）: 保留原文件的文件属性</li>
+</ul>
+<h2 id="ln-命令-link">ln 命令 <em><strong>link</strong></em></h2>
+<p><strong>创建文件和目录的链接</strong></p>
+<p>文件和目录的链接有两种：硬链接 和 软链接</p>
+<p>语法：→<code>ln [options]file-existed file-linked</code></p>
+<ul>
+<li>
+<p>硬链接</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln file-existed file-linked</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>硬链接不能跨越文件系统。因为文件名不是文件的属性，因此可以在同一个文件系统下让某个文件只存储一个副本，但是该副本具有与原文件不同的名字。这可以通过使用 ln 命令为文件创建硬链接来实现。</li>
+<li>索引节点一致，只是文件名不同</li>
+</ul>
+</li>
+<li>
+<p>软链接</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s file-existed file-linked</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>当需要在两个不同的文件系统之间创建链接时，只能创建软链接</li>
+<li>索引节点不同，是两个文件</li>
+</ul>
+</li>
+</ul>
+<h2 id="mv命令-move">mv 命令 <em><strong>move</strong></em></h2>
+<p>语法 <code>mv OldfileName NewFileName</code></p>
+<h2 id="rm命令-remove">rm 命令 <em><strong>remove</strong></em></h2>
+<p>语法 <code>rm [option] file-or-directory-list</code></p>
+<ul>
+<li>没有选项的 rm 命令 仅能删除目录</li>
+<li> rm 命令的 - r 选项 (<em>recursive</em>) 删除非空目录</li>
+<li> rm 命令的 - i 选项 (<em>interactive</em>) 交互式确认</li>
+<li> rm 命令的 - f 选项 (<em>force</em>) 屏蔽提醒</li>
+</ul>
+<h2 id="cat命令-concatenate">cat 命令 <em><strong>concatenate</strong></em></h2>
+<p><strong>显示小于一页文件的内容</strong></p>
+<p>语法 <code>cat FileList</code></p>
+<p>新文件 <code>cat &gt;fileB &lt;&lt;EOF</code></p>
+<h2 id="more命令-more">more 命令 <em><strong>more</strong></em></h2>
+<p><strong>查看多页文件的内容</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">more FileName</span><br><span class="line"> Enter 下一行</span><br><span class="line"> b     上一页</span><br><span class="line"> 空格  下一页</span><br><span class="line"> q     结束命令</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="head命令-head">head 命令 <em><strong>head</strong></em></h2>
+<p><strong>显示文件前几行的内容</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head [option] file</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>没有选项的 head 命令
+<ul>
+<li>默认前 10 行</li>
+</ul>
+</li>
+<li> head 命令的 - n 选项
+<ul>
+<li><code>head -n num</code> 表示显示前 num 行</li>
+</ul>
+</li>
+</ul>
+<h2 id="tail命令-tail">tail 命令 <em><strong>tail</strong></em></h2>
+<p>语法 <code>tail [option] file</code></p>
+<ul>
+<li>没有选项的 tail 命令</li>
+<li> tail 命令的 - n 选项</li>
+</ul>
+<h2 id="file命令-file">file 命令 <em><strong>file</strong></em></h2>
+<p><strong>查看文件的类型</strong></p>
+<h2 id="grep命令-global-regular-expression">grep 命令 <em><strong>global regular expression</strong></em></h2>
+<p><strong>搜索文件中的某一字符串</strong></p>
+<p>语法→<code>grep [option] pattern FileList</code></p>
+<ul>
+<li>没有选项的 grep 命令</li>
+<li> grep 命令的 - n 选项
+<ul>
+<li>显示行号</li>
+</ul>
+</li>
+<li> grep 命令的 - v 选项
+<ul>
+<li>反向搜索（不包含搜索模式的行）</li>
+</ul>
+</li>
+</ul>
+<h2 id="diff命令-different">diff 命令 <em><strong>different</strong></em></h2>
+<h2 id="find命令-find">find 命令 <em><strong>find</strong></em></h2>
+<p><strong>搜索指定名字的文件</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find Pathname -option [-print] [-exec command{} ;]`</span><br><span class="line">`find Pathname -option [-print] [-ok command{} ;]</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>find 命令的 - name 选项
+<ul>
+<li>查找指定名字的文件</li>
+</ul>
+</li>
+<li> find 命令的 - exec 选项
+<ul>
+<li>查找指定名字的文件执行 linux 命令</li>
+</ul>
+</li>
+<li> find 命令的 - ok 选项
+<ul>
+<li>在 - exec 选项的基础上，加入确认环节</li>
+</ul>
+</li>
+</ul>
+<h2 id="wc命令-Word-Count">wc 命令 <em><strong>Word Count</strong></em></h2>
+<p><strong>统计文件的行数，单词数，字符数</strong></p>
+<p>语法 <code>wc [options] file</code></p>
+<ul>
+<li>[options] 的常用项 </li>
+</ul>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-l  显示行数</span></span><br><span class="line"><span class="deletion">-w  显示单词数</span></span><br><span class="line"><span class="deletion">-c  字符数</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="whereis命令-where-is">whereis 命令 <em><strong>where is</strong></em></h2>
+<p><strong>在特定目录查找符合特定条件的文件</strong></p>
+<p>语法 <code>whereis [options] [-B DirList][-M DirList][-S DirList] Filelist</code></p>
+<ul>
+<li>[options] 的常用项 </li>
+</ul>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-b                                          只查找二进制文件</span></span><br><span class="line"><span class="deletion">-f                                           不显示文件名的前的路径名称</span></span><br><span class="line"><span class="deletion">-m                                         仅查找man手册文件</span></span><br><span class="line"><span class="deletion">-s                                           仅查找源代码文件</span></span><br><span class="line"><span class="deletion">-u                                           反向查找</span></span><br><span class="line"><span class="deletion">-B DirList                               在设置的目录下查找二进制文件</span></span><br><span class="line"><span class="deletion">-M DirList                              在设置的目录下查找man手册文件</span></span><br><span class="line"><span class="deletion">-S DirList                               在设置的目录下查找源代码文件        </span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="which命令-which">which 命令 <em><strong>which</strong></em></h2>
+<p><strong>查找指定程序的文件在哪个文件下</strong></p>
+<p>语法→<code>which Command</code></p>
+<h2 id="locate-命令-locate">locate 命令 # locate</h2>
+<p><strong>根据名字来查找文件</strong></p>
+<p>语法→<code>locate [options] FileName</code></p>
+<ul>
+<li>[options] 的常用选项 </li>
+</ul>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-h                                          帮助 # help </span></span><br><span class="line"><span class="deletion">-V                                          版本信息  # version </span></span><br><span class="line"><span class="deletion">-q                                          安静模式，不显示错误信息 # quiet </span></span><br><span class="line"><span class="deletion">-i                                           忽略大小写  # ignore </span></span><br><span class="line"><span class="deletion">-c                                          仅输出指定的数量 # count </span></span><br><span class="line"><span class="deletion">-l num                                  最多输出num个条目</span></span><br><span class="line"><span class="deletion">-n num                                 最多显示n个输出</span></span><br><span class="line"><span class="deletion">-d DBPATH                           使用DBPATH指定的数据库 </span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="sort-命令">sort 命令</h2>
+<p><strong>对文件内容进行排序</strong><br>
+<code>sort [options] FileName</code></p>
+<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-n : 数字值排序</span></span><br><span class="line"><span class="deletion">-M ：识别三字符月份，按时间排序</span></span><br><span class="line"><span class="deletion">-r ：反向排序</span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h1>任务五 文件和目录权限管理</h1>
+<p><strong>属主，属组，其他用户</strong><br>
+<strong>r（read）4 ，w（write）2， x（execute）1</strong><br>
+eg：rwxr----- 对应的是 740</p>
+<h2 id="chmod-命令-change-mode">chmod 命令 <em><strong>change mode</strong></em></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [options] Mode file-or directory</span><br></pre></td></tr></tbody></table></figure>
+<p>eg：<code>chmod 750 filename</code></p>
+<h2 id="chown-命令-change-owner">chown 命令 <em><strong>change owner</strong></em></h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown [options] owner file-or directory</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h1>任务六 进程管理</h1>
+<p><strong>父进程，子进程，天生进程，兄弟进程，孤儿进程，僵尸进程</strong></p>
+<h2 id="ps-命令：">ps 命令：</h2>
+<p><code>ps [options]</code> <strong>（process status）</strong></p>
+<ul>
+<li>无参 ps</li>
+<li>-ef 命令 <em>every full</em></li>
+<li>-elf 命令 <em>every long full</em></li>
+<li>-aux 命令</li>
+</ul>
+<h2 id="pstree-命令">pstree 命令</h2>
+<p><strong>打印家族树信息</strong></p>
+<ul>
+<li>-p</li>
+<li>-u</li>
+<li>-pu</li>
+</ul>
+<h2 id="kill-命令">kill 命令</h2>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill [options] PID</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>-l</li>
+<li>PID</li>
+<li>-9 PID</li>
+<li>-HUP PID</li>
+</ul>
+<h2 id="pgrep-命令">pgrep 命令</h2>
+<p><strong>搜索进程</strong></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pgrep [options] &lt;pattern&gt;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>-o</li>
+<li>-n</li>
+<li>-l</li>
+<li>-P</li>
+<li>-g</li>
+<li>-t</li>
+<li>-u</li>
+</ul>
+<h2 id="killall-命令">killall 命令</h2>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/coding/" rel="tag"><i class="fa fa-tag"></i> coding</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/14/Prime/" rel="prev" title="质数判断与质数筛">
+                  <i class="fa fa-angle-left"></i> 质数判断与质数筛
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/06/22/RayCast/" rel="next" title="光线投射算法">
+                  光线投射算法 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Epi</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"forest"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.episvr.top/","cssUrl":"https://unpkg.com/@waline/client@v3.1.3/dist/waline.css","commentCount":true,"pageview":false,"libUrl":"https://unpkg.com/@waline/client@3.5.1/dist/waline.umd.js","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2024/06/14/Linux/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3.1.3/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

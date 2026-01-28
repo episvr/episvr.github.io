@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#bf360c"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
+  <link rel="mask-icon" href="/images/logo.jpg" color="#bf360c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://gfonts.aby.pub/css?family=Noto+Serif+CJK+SC:300,300italic,400,400italic,700,700italic%7CYellowtail:300,300italic,400,400italic,700,700italic%7CCaveat:300,300italic,400,400italic,700,700italic%7CLong+Cang:300,300italic,400,400italic,700,700italic%7CYuji+Mai:300,300italic,400,400italic,700,700italic%7CJetBrains+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#bf360c","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Puzzle hunt是一种高度综合性的解谜活动。FDU Puzzle Hunt是复旦大学推理协会谜题分部策划的puzzle hunt解谜活动，面向校内同学与社会公众。此篇文章是对其的赛后回顾。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第八日的谜：FDUPHWriteup">
+<meta property="og:url" content="http://blog.episvr.top/2025/04/27/FDUPHWriteup/index.html">
+<meta property="og:site_name" content="Epi&#39;s Blog">
+<meta property="og:description" content="Puzzle hunt是一种高度综合性的解谜活动。FDU Puzzle Hunt是复旦大学推理协会谜题分部策划的puzzle hunt解谜活动，面向校内同学与社会公众。此篇文章是对其的赛后回顾。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.episvr.top/img/FDUPHwriteup/puzzlesolvingpaper01.jpg">
+<meta property="og:image" content="http://blog.episvr.top/img/FDUPHwriteup/puzzlesolvingpaper02.jpg">
+<meta property="og:image" content="http://blog.episvr.top/img/FDUPHwriteup/pyq01.jpg">
+<meta property="og:image" content="http://blog.episvr.top/img/FDUPHwriteup/comment01.png">
+<meta property="og:image" content="http://blog.episvr.top/img/FDUPHwriteup/mail01.png">
+<meta property="article:published_time" content="2025-04-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-28T10:38:52.901Z">
+<meta property="article:author" content="Epi">
+<meta property="article:tag" content="random_note">
+<meta property="article:tag" content="puzzle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.episvr.top/img/FDUPHwriteup/puzzlesolvingpaper01.jpg">
+
+
+<link rel="canonical" href="http://blog.episvr.top/2025/04/27/FDUPHWriteup/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.episvr.top/2025/04/27/FDUPHWriteup/","path":"2025/04/27/FDUPHWriteup/","title":"第八日的谜：FDUPHWriteup"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>第八日的谜：FDUPHWriteup | Epi's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.episvr.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Epi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Epi's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friend"><a href="/friend/" rel="section"><i class="fa fa-link fa-fw"></i>friend</a></li><li class="menu-item menu-item-epi"><a href="/epi/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>epi</a></li><li class="menu-item menu-item-puzzle"><a href="https://puzzle.episvr.top/" rel="section" target="_blank"><i class="fa fa-puzzle-piece fa-fw"></i>puzzle</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%97%A5"><span class="nav-number">1.</span> <span class="nav-text">第一日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%9B%E5%89%8D-17-03"><span class="nav-number">1.1.</span> <span class="nav-text">赛前 - 17:03</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8E%E6%98%AF%EF%BC%8C%E5%B0%9D%E8%AF%95%E4%BA%86%E5%8F%A4%E6%B3%95%E8%A7%A3%E8%B0%9C-20-20"><span class="nav-number">1.2.</span> <span class="nav-text">于是，尝试了古法解谜 - 20:20</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E7%9A%84%E6%97%85%E8%A1%8C%E4%BC%99%E4%BC%B4%E5%8A%A0%E5%85%A5%E4%BA%86-22-45"><span class="nav-number">1.3.</span> <span class="nav-text">新的旅行伙伴加入了 - 22:45</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%97%A5"><span class="nav-number">2.</span> <span class="nav-text">第二日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E6%AD%A3%E5%9C%A8%E7%9D%A1%E8%A7%89%E7%9A%84%E6%97%B6%E9%97%B4"><span class="nav-number">2.1.</span> <span class="nav-text">我正在睡觉的时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A5%E4%BA%86%E6%9D%A5%E4%BA%86"><span class="nav-number">2.2.</span> <span class="nav-text">来了来了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%97%A5"><span class="nav-number">3.</span> <span class="nav-text">第三日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E7%BA%BF"><span class="nav-number">3.1.</span> <span class="nav-text">上线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8A%82%E5%A5%8F%E6%B8%B8%E6%88%8F%EF%BC%8C%E8%B0%9C%E4%B8%8E%E5%AE%9E%E9%AA%8C%E7%9A%84%E5%A4%9C"><span class="nav-number">3.2.</span> <span class="nav-text">节奏游戏，谜与实验的夜</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%97%A5"><span class="nav-number">4.</span> <span class="nav-text">第四日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E7%A0%B4%E9%A2%98%E4%BB%80%E4%B9%88%E7%A0%B4%E7%AD%94%E6%A1%88%E4%BB%80%E4%B9%88%E7%A0%B4%E6%8F%90%E5%8F%96"><span class="nav-number">4.1.</span> <span class="nav-text">什么破题什么破答案什么破提取</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%97%A5"><span class="nav-number">5.</span> <span class="nav-text">第五日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B1%E5%90%8C%E5%90%88%E4%BD%9C%E7%9A%84%E8%A7%A3%E8%B0%9C%E7%9C%9F%E6%98%AF%E5%A4%AA%E5%A5%BD%E4%BA%86"><span class="nav-number">5.1.</span> <span class="nav-text">共同合作的解谜真是太好了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E5%A4%B1%E9%80%BB%E8%BE%91%E8%80%85%E7%9A%84%E6%9C%AB%E8%B7%AF"><span class="nav-number">5.2.</span> <span class="nav-text">缺失逻辑者的末路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%97%A5"><span class="nav-number">6.</span> <span class="nav-text">第六日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E6%9C%AA%E5%AE%8C%E6%88%90%E7%9A%84%E5%B7%A5%E4%BD%9C"><span class="nav-number">6.1.</span> <span class="nav-text">清理未完成的工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%81%93%E5%A5%BD%E9%A2%98"><span class="nav-number">6.2.</span> <span class="nav-text">两道好题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E6%97%A5"><span class="nav-number">7.</span> <span class="nav-text">第七日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%99%E9%87%8C%E8%AF%A5%E5%86%99%E4%BB%80%E4%B9%88%E5%B0%8F%E6%A0%87%E9%A2%98"><span class="nav-number">7.1.</span> <span class="nav-text">不知道这里该写什么小标题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E6%97%A5"><span class="nav-number">8.</span> <span class="nav-text">第八日</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%AA%E6%83%B3%E9%AA%82%E7%9A%84%E9%A2%98"><span class="nav-number">8.1.</span> <span class="nav-text">第二个想骂的题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B6%E5%B0%BE"><span class="nav-number">8.2.</span> <span class="nav-text">收尾</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Epi"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Epi</p>
+  <div class="site-description" itemprop="description">ad astra per aspera</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/episvr" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;episvr" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.episvr.top/2025/04/27/FDUPHWriteup/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="Epi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epi's Blog">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="第八日的谜：FDUPHWriteup | Epi's Blog">
+      <meta itemprop="description" content="Puzzle hunt是一种高度综合性的解谜活动。FDU Puzzle Hunt是复旦大学推理协会谜题分部策划的puzzle hunt解谜活动，面向校内同学与社会公众。此篇文章是对其的赛后回顾。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          第八日的谜：FDUPHWriteup
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2025-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2025-04-27T00:00:00+08:00">2025-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-01-28 18:38:52" itemprop="dateModified" datetime="2026-01-28T18:38:52+08:00">2026-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Repo/" itemprop="url" rel="index"><span itemprop="name">Repo</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/2025/04/27/FDUPHWriteup/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2025/04/27/FDUPHWriteup/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">Puzzle hunt是一种高度综合性的解谜活动。FDU Puzzle Hunt是复旦大学推理协会谜题分部策划的puzzle hunt解谜活动，面向校内同学与社会公众。此篇文章是对其的赛后回顾。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>因为已经具体针对每一题写过 writeup 了，所以这里贴一个<a target="_blank" rel="noopener" href="https://docs.qq.com/doc/DQnZvSWZKa3d3S1ds">传送门</a>，然后我在这篇文章更加会从体验等方面写一些流水账。前面的时间记得比较清楚，后面解题解得神志不清就没记，大体上是按时间顺序的。</p>
+<p>欢迎参观我们的共享表格<a target="_blank" rel="noopener" href="https://docs.qq.com/sheet/DQkxXcmZmRWtEWGZD">传送门</a></p>
+<blockquote>
+<p>在文章中，每道题都会以<code>题目（主题）</code>的形式列出，有兴趣请前往<a target="_blank" rel="noopener" href="https://fduph25.fdupuzzle.fun/">网站</a>查看</p>
+</blockquote>
+<p>大家好啊我们是：<em><u>【已深度思考】以下是几个长队名设计，结合了流行文化梗、谐音梗和夸张修辞： 重生之我在银河系敲退堂鼓表演艺术家联合地表最强熬夜冠军与猝死赛跑协会驻人间搞笑办事处五年修仙三年渡劫但今天外卖还没到之天庭在逃弼马温联名地狱首席摸鱼师共建反内卷战略同盟甲方需求毁灭者与乙方尊严守护者の禁忌の恋・这个需求做不了一点特别行动组穿越异世界却加载了 Excel 系统の社畜勇者说下班后魔王也要遵守劳动法之福报研究工作室</u></em> 队。</p>
+<p>（当然这个名字是 Deepseek 生成的）</p>
+<h2 id="第一日">第一日</h2>
+<p>战绩：</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>先进命名法</td>
+<td> 4 月 18 日 20:20</td>
+<td>1h0m</td>
+</tr>
+<tr>
+<td> 季姬击鸡记</td>
+<td> 4 月 18 日 21:20</td>
+<td>27m27s</td>
+</tr>
+<tr>
+<td> 五角大楼</td>
+<td> 4 月 18 日 20:20</td>
+<td>2h27m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="赛前-17-03">赛前 - 17:03</h3>
+<p>因为最近各种第八周结的课开始上压力，所以本来是不打算高强度打的，开赛那天迟迟的填了表格但是却发现没有招人的队伍了<s>没大腿抱了</s>，于是决定传统晚八点开赛，然后看看题就走但是当晚有一些截止的作业（谁家作业周五截止啊😣）所以晚了一点，忙完已经晚了 20min 了，FDUHUNT，启动！</p>
+<h3 id="于是，尝试了古法解谜-20-20">于是，尝试了古法解谜 - 20:20</h3>
+<p>单刷的好处就是想怎么做就怎么做，于是抽了两张（正面用过的） A4 纸就开始动笔慢悠悠的做了：</p>
+<p><img src="/img/FDUPHwriteup/puzzlesolvingpaper01.jpg" alt="puzzlesolvingpaper01"></p>
+<p><img src="/img/FDUPHwriteup/puzzlesolvingpaper02.jpg" alt="puzzlesolvingpaper02"></p>
+<ul>
+<li>首先对上眼的是<strong>一剪梅</strong>（象形），瞪了一会看出大部分字母然后脑爆词交了</li>
+<li>之后的不久理解了<strong>先进命名法</strong>（台风名称变化）的机制然后 Nutri 爆了。</li>
+<li>随后解锁了<strong>季姬击鸡记</strong>（汉字读音），属于思路比较正统的谜题，解题流程很顺利。感觉我一个喜欢音韵学的朋友会喜欢，之后试着推给他 w</li>
+<li> 然后突然理解了<strong>五角大楼</strong>（四角号码）的意思，之前一直以为是 "五角形去掉一个角还剩几个角" 这样的神秘问题，重复套用缺失号码的点子也顺利通过了，但是没认出 "矶" 这个字而提出了 “沿桥配地图” 的答案，然后以为是我最害怕的地理题搜了一会没什么头绪就跑去问提示了。</li>
+</ul>
+<h3 id="新的旅行伙伴加入了-22-45">新的旅行伙伴加入了 - 22:45</h3>
+<ul>
+<li>学长（后文称他为 <strong>tes223</strong> ）来到了地下室，这时候我在做<strong>不畏浮云遮望眼</strong>（图寻）等提示，正好学长最近在做图寻所以就请求场外援助了，结果就拉入解谜坑了？总之从这里不是单刷了！</li>
+<li>等的提示来了，死活没看懂什么是（3 2 2），倒腾了什么 LA，然后 tes223 交了 <code>Map of LA</code>, 这答案也挺神人的</li>
+<li>最后看懂了<strong>查重率 100%</strong>（校训）的机制，但是太困了就停止解谜健康生活了。</li>
+</ul>
+<h2 id="第二日">第二日</h2>
+<p>战绩：</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不畏浮云遮望眼</td>
+<td> 4 月 18 日 21:01</td>
+<td>14h1m</td>
+</tr>
+<tr>
+<td> 查重率 100%</td>
+<td>4 月 18 日 22:48</td>
+<td>23h10m</td>
+</tr>
+<tr>
+<td>Meta 必须统一的标准</td>
+<td> 4 月 19 日 11:03</td>
+<td>11h6m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="我正在睡觉的时间">我正在睡觉的时间</h3>
+<ul>
+<li>tes223 解完了图寻题，帅 tes223 帅</li>
+</ul>
+<h3 id="来了来了">来了来了</h3>
+<ul>
+<li>
+<p>活过来了，把昨天没推进的校训题做完了，这个混淆性强，对着维基 <code>CtrlF</code> 找还找错了好几个（</p>
+</li>
+<li>
+<p>秒了 <strong>Meta 必须统一的标准</strong>（国际单位制），本来有机会成为最速题的但是中午在睡觉，下午又有事出门了（</p>
+</li>
+<li>
+<p>做了几个<strong>解密</strong>（密码大杂烩）的小题</p>
+</li>
+<li>
+<p>填了一些<strong>五行棋</strong>（偏旁 + 棋盘）的 clue</p>
+</li>
+</ul>
+<h2 id="第三日">第三日</h2>
+<p>战绩：</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解密</td>
+<td> 4 月 19 日 22:09</td>
+<td>13h17m</td>
+</tr>
+<tr>
+<td>Crosslink</td>
+<td>4 月 20 日 11:26</td>
+<td>33m55s</td>
+</tr>
+<tr>
+<td> 五行棋</td>
+<td> 4 月 19 日 22:09</td>
+<td>17h51m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="上线">上线</h3>
+<ul>
+<li>基于昨天解出的小题完成了<strong>解密</strong>的对角线提取</li>
+<li>基于解出的 clue 完成了<strong>五行棋</strong>的棋盘密码提取</li>
+<li>然后看出来 <strong>Crosslink</strong>（纸笔）的开头几个字母是 <code>answer</code>，半 trial 半 trial 的做完了。</li>
+</ul>
+<h3 id="节奏游戏，谜与实验的夜">节奏游戏，谜与实验的夜</h3>
+<ul>
+<li>
+<p><strong>xr 在玩 Arcaea</strong>（Arcaea 的排名公式）感觉要干些什么但是没什么头绪拖到了晚上，tes223 解出了 BV 号然后完成了数据整理分析（太伟大了），但是没什么发现。要了提示后才搞懂要 Lost 转大 P 算失分，我照葫芦画瓢的写公式完成了最后的小部分计算。</p>
+</li>
+<li>
+<p>完成了部分<strong>奇怪的旅程</strong>（国家货币）的 clue。</p>
+</li>
+<li>
+<p>此时已是 23:00 多，因为明天（周一）有实验验收，所以及时收手做实验了，结果我高估了自己做实验的速度，完成的时候已经是凌晨了，发了一条朋友圈。</p>
+</li>
+</ul>
+<p><img src="/img/FDUPHwriteup/pyq01.jpg" alt="pyq01"></p>
+<h2 id="第四日">第四日</h2>
+<p>战绩：</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>奇怪的旅程</td>
+<td> 4 月 20 日 16:01</td>
+<td>28h32m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="什么破题什么破答案什么破提取">什么破题什么破答案什么破提取</h3>
+<ul>
+<li>填了大部分国家货币题的 clue，得到了类似 <code>takAexArAletAerA</code> 的爆破表达式，但是反复爆破都不对。</li>
+<li>请求提示进行了检查，发现原来不是 extra，然后开始做国家的 ISO 提取，但是还是提取不出来什么，期间又进行了大量的爆破。</li>
+<li>再次请求提示，原来是国家和货币都要提取，原来还有顺序排的，做了一会得到了中间答案 <code>half a dollar in rap</code>，但此时只剩一次提交机会了，怎么办呢？</li>
+<li>交！<code>FIFTYCENTS</code>！然后炸了。</li>
+</ul>
+<p><img src="/img/FDUPHwriteup/comment01.png" alt="comment01"></p>
+<p><img src="/img/FDUPHwriteup/mail01.png" alt="mail01"></p>
+<ul>
+<li>解完感觉精神状态有待下降，为了维持生存去休息了。</li>
+</ul>
+<h2 id="第五日">第五日</h2>
+<p>战绩：</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>褪色的填字游戏</td>
+<td> 4 月 21 日 20:33</td>
+<td>18h22m</td>
+</tr>
+<tr>
+<td> 破碎词句</td>
+<td> 4 月 20 日 12:00</td>
+<td>53h30m</td>
+</tr>
+<tr>
+<td> 必须处理的数据</td>
+<td> 4 月 22 日 17:31</td>
+<td>2h42m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="共同合作的解谜真是太好了">共同合作的解谜真是太好了</h3>
+<ul>
+<li>上线后发现 tes223 把<strong>褪色的填字游戏</strong>（中文 Crossword）的 clue 填完了，于是拼了拼盘面确定了提取是摩斯，但是没注意到要提取空白，后来 tes223 回来提取交了</li>
+<li><strong>破碎词句</strong>（叠字诗句拼音）实在是看不出来机制要了提示，然后断断续续的填到现在，然后提取意外顺利，早知道早提取了</li>
+<li><strong> Meta 必须处理的数据</strong>（科学计数法）看了一会还是不明白 <code>ten=???=10</code> 是什么意思，还以为是什么 <code>ten=shi</code> 但是小题答案也没藏拼音，跑去要了提示才明白是什么意思。</li>
+</ul>
+<h3 id="缺失逻辑者的末路">缺失逻辑者的末路</h3>
+<ul>
+<li>深夜做 <strong>Self-Reference</strong> （推理题），首先一眼了 12，然后找到了 <strong>5→9→14</strong> 一条链，然后不行的把 25-5 算成了 21，然后可悲的在 16-5=9 的支线上越推越错，要了提示请 staff 检查只对了两个（，好不容易重新推完了 25-5=20 这条线结果是 <code>repeat with pinyin</code>，两眼一黑明天再做。</li>
+<li>tes233 收集了<strong>谜神</strong>（抽卡题）并进行了初步的统计，发现了一部分规律但是不懂。</li>
+</ul>
+<h2 id="第六日">第六日</h2>
+<p>战绩</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> Self-Reference</td>
+<td>4 月 22 日 20:13</td>
+<td>13h35m</td>
+</tr>
+<tr>
+<td> 消消消乐</td>
+<td> 4 月 23 日 09:49</td>
+<td>2h10m</td>
+</tr>
+<tr>
+<td> 谜神</td>
+<td> 4 月 22 日 20:13</td>
+<td>19h36m</td>
+</tr>
+<tr>
+<td> 找啊找朋友</td>
+<td> 4 月 23 日 12:00</td>
+<td>11h53m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="清理未完成的工作">清理未完成的工作</h3>
+<ul>
+<li>做了会推理题没绷住，又跑去问提示了，结果发现 ans XXX edition 就是最开始猜测的 16-9=5 的那条越推越奇怪的支线，哈哈我真傻真的</li>
+<li>问提示懂了谜神，但是既然要精确统计为什么限制抽卡次数呢？不懂</li>
+</ul>
+<h3 id="两道好题">两道好题</h3>
+<ul>
+<li><strong>消消消乐</strong>（成语消除轨迹象形）好玩，上课把消除过程搞懂了下课写写画画推完了，好题好玩</li>
+<li><strong>找啊找朋友</strong>（词语分类），没看出来字典序，知道是分类也不懂，甚至怀疑像是 C15 那样叠起来或者像 JUSTHUNT 某神题叠起来（或者在哪）。问完了提示才堪堪登出来 <code>GAMMA BLACK</code> 之类的词，在最后搞懂了一直没瞪出来的四字母词，交了一发 TRADE 爽爽走人，好玩。</li>
+<li>完成了若干<strong>本题不使用任何 metadata 小题</strong> (有很多小题的一道题)。</li>
+</ul>
+<h2 id="第七日">第七日</h2>
+<p>战绩</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>盛开的百合花</td>
+<td> 4 月 23 日 23:53</td>
+<td>16h21m</td>
+</tr>
+<tr>
+<td> 纽约时报天天玩</td>
+<td> 4 月 23 日 15:50</td>
+<td>29h3m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="不知道这里该写什么小标题">不知道这里该写什么小标题</h3>
+<ul>
+<li>
+<p><strong>盛开的百合花</strong>（二次元题，唉百合）是我做的苦力，后期提示富足起来了开始挥霍于是请 Staff 帮忙检查了一下，然后从看出了 <code>new year</code> 猜了 <code>new years march</code> 竟然对了，事后才明白提取逻辑，最后是找到歌完成了提取，萌娘百科卡卡卡</p>
+</li>
+<li>
+<p><strong>纽约时报天天玩</strong>（每日小游戏）只有 wordle 是顺利的，剩下的俩都或多或少的卡题了，问了提示才过的。不过这道题的提取很精彩，感觉是很精妙的小题。</p>
+</li>
+<li>
+<p>完成了若干<strong>本题不使用任何 metadata 小题</strong>。</p>
+</li>
+<li>
+<p>这时候感觉还有五月份，是不是完不了赛了呢，无论如何明天冲一下吧，抱着这样的想法迎来了最后一天。</p>
+</li>
+</ul>
+<h2 id="第八日">第八日</h2>
+<p>战绩</p>
+<table>
+<thead>
+<tr>
+<th>谜题</th>
+<th>解锁</th>
+<th>用时</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本题不使用任何 metadata</td>
+<td>4 月 23 日 15:50</td>
+<td>46h26m</td>
+</tr>
+<tr>
+<td> 忆往昔</td>
+<td> 4 月 25 日 14:16</td>
+<td>33m23s</td>
+</tr>
+<tr>
+<td> 洪水</td>
+<td> 4 月 22 日 20:13</td>
+<td>67h35m</td>
+</tr>
+<tr>
+<td> 阳关三叠</td>
+<td> 4 月 24 日 16:15</td>
+<td>24h40m</td>
+</tr>
+<tr>
+<td> 必须修改的结论</td>
+<td> 4 月 25 日 14:50</td>
+<td>3h18m</td>
+</tr>
+<tr>
+<td> 致谢</td>
+<td> 4 月 25 日 18:09</td>
+<td>3h16m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="第二个想骂的题">第二个想骂的题</h3>
+<ul>
+<li>
+<p><strong>本题不使用任何 metadata</strong> 卡的太久了感觉不能再拖下去了就开始疯狂提示了，解了大部分的题后能看出 <code>sAx Aleven AAAteen</code>，然后瞪出来了 <code>six eleven fifteen</code>，然后呢？注意到了有一些重复的答案，不会所有的答案都有重复吧，看长度也对不上啊？不得再要一次小题的提示，解完 15 题确定是 <code>field</code> , 爆破了一些没解出来的答案后对中间答案更迷茫了，什么是 <code>field field field</code> ？三场，难道是？</p>
+<blockquote>
+<p>《明史・选举志二》：“初设科举时，初场试经义二道，四书义一道；二场论一道；<strong>三场</strong>策一道。”</p>
+<p>《西游记》第九回：“不拘军民人等，但有读书儒流，文义明畅，<strong>三场</strong>精通者，前赴长安应试。</p>
+</blockquote>
+<p>事实上并不是。于是又要了提示。</p>
+<p>这次说注意 six eleven fifteen 提示了共同点的<strong>深度</strong>，但我还是不懂，当然是深度啊那不然为什么叫第六 / 十一 / 十五题啊？</p>
+<p>于是又要了提示，看到 <code>_____ of field</code> 时。</p>
+<blockquote>
+<p>。。。？á？🤬</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="收尾">收尾</h3>
+<ul>
+<li>
+<p>超级快的意识到了 <strong>忆往昔</strong>（复旦毕业 mv）是校园文化题，然后我爽搜，tes223 飞快提取的过了</p>
+</li>
+<li>
+<p>见到了 <strong>META 必须修改的结论</strong>（去日加偏旁），一开始没懂题干叙述也没看到已经解出的小题有什么特别的，于是问了提示知道了核心机制，之后发现解出的小题可能不够用，瞪了瞪瞪出一个 “旱” 字，那<strong>洪水</strong>（超级奇怪的一大堆数的题目）的答案是什么好难猜啊～</p>
+</li>
+<li>
+<p>爆完<strong>洪水</strong>后，觉得还是做做<strong>阳关三叠</strong>（变形数桥）吧于是要了最后一个有关提取的提示就一心扎进纸笔了，看出了 <code>syAAabAA</code> 就懂了。</p>
+</li>
+<li>
+<p>然后把 META 的绝大部分的信息填完了，但是没看出成环排序又要了一个提示。</p>
+</li>
+<li>
+<p>欸欸欸欸？FINALMETA 了？没有五月啊（松一口气）然后就是填信息，但是因为我们没解出来的题比较微妙所以我没看出什么奇怪的东西，等到 tes223 上线瞪了一会瞪出来了 3*3 的重复结构，要了提示验证最后 tes223 完成了 <code>fmymart</code> 的脑电波对接。帅 tes223 帅</p>
+</li>
+</ul>
+<h2 id="总结">总结</h2>
+<blockquote>
+<p>总的来说 FDU 的题目还是非常令人惊喜的，很扎实很有传统 puzzlehunt 的味道，电波也有，苦力也有，二次元也有，宝可梦也有，纸笔也有，开赛崩网站也有，做的很满足（虽然部分答案还是很拟人但是总之我想表达的是我喜欢它，这次和 tes233 一起做题达成了和队友线下联机做 hunt 的成就，满足。— Epi</p>
+</blockquote>
+<hr>
+<p>惯例放一首歌：</p>
+<div class="lyrics-container">
+    <div class="song-info">
+        <p class="song-title"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z"></path>
+            </svg>名探偵連続殺人事件</p>
+    </div>
+    <div class="lyrics-display">
+    <div class="lyric-item">
+        <div class="original-lyric">悪漢ベヰカーストリヰト雷雨　七つ道具は質屋へ</div>
+        <div class="translated-lyric">恶棍 贝克街雷雨　把七种道具都拿到当铺当掉</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">悪路井戸落とされ探偵がまた一人姿を消したといふ</div>
+        <div class="translated-lyric">破烂的道路 水井掉下去了 侦探又把另一个人的身影给消去了</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">綾なす辻の Alice 側　横溝掃除は江戸川か</div>
+        <div class="translated-lyric">绫辻行人的 Alice 的一侧　横沟扫除是江户川吗</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">神田最弱探偵さん　こんなんどう？　居ると思う？</div>
+        <div class="translated-lyric">神田最弱探侦先生　你觉得这样？ 会有什么？</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">ナンマンダブ　ステップ踏み　脳髄は密室なりや</div>
+        <div class="translated-lyric">Numb'n'dub　踏着节拍　脑髓即是密室</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">グーとチーで合った人　愚と智で分かれましょう</div>
+        <div class="translated-lyric">石头和剪刀匹配上的人　愚蠢与智慧分出胜负吧</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">謎解きはこれから</div>
+        <div class="translated-lyric">谜题解开便从此开始</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">「犯人はあなたですね」</div>
+        <div class="translated-lyric">「犯人就是你呢」</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">列車トリック　発火トリック　難事件</div>
+        <div class="translated-lyric">列车诡计　点火招数　疑难事件</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">推理作家の先生さん　『阿破破』</div>
+        <div class="translated-lyric">推理作家先生啊　『阿破破』</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">うーだらぱーだら云わないで</div>
+        <div class="translated-lyric">唔哒啦啪嗒啦不要说出来</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">ああもう頭がこんがらがってきたけれど</div>
+        <div class="translated-lyric">啊啊虽然头脑已经变得极其混乱了</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">どっとはらい　どっと混む　熱茶々々々 巴里巴里</div>
+        <div class="translated-lyric">结束了真是祝贺祝贺　哄然混乱　热茶茶茶茶 巴里巴里</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">海鷂魚 鰤　場で椀子蕎麦 「謎はおやつに入りません」</div>
+        <div class="translated-lyric">海鹞鱼　𫚕　地方的荞麦面 「谜题不会进入点心里面」</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">どっとはらい　どっと混む　熱茶々々々 丼舎利貪舎利</div>
+        <div class="translated-lyric">结束了祝贺祝贺　哄然混乱　热茶茶茶茶 丼舎利貪舎利</div>
+    </div>
+    <div class="lyric-item">
+        <div class="original-lyric">エブリバディアリバイないないない</div>
+        <div class="translated-lyric">Everybody 不在场证明 没有没有没有</div>
+    </div>
+</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/random-note/" rel="tag"><i class="fa fa-tag"></i> random_note</a>
+              <a href="/tags/puzzle/" rel="tag"><i class="fa fa-tag"></i> puzzle</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/04/09/SelfexprCodes01/" rel="prev" title="自表达的代码（命名篇）">
+                  <i class="fa fa-angle-left"></i> 自表达的代码（命名篇）
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/08/28/UpwardSpiral/" rel="next" title="回归原点，然后继续转动">
+                  回归原点，然后继续转动 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Epi</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"forest"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.episvr.top/","cssUrl":"https://unpkg.com/@waline/client@v3.1.3/dist/waline.css","commentCount":true,"pageview":false,"libUrl":"https://unpkg.com/@waline/client@3.5.1/dist/waline.umd.js","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2025/04/27/FDUPHWriteup/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3.1.3/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
