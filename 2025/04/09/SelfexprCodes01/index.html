@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#bf360c"><meta name="generator" content="Hexo 7.3.0">
+<meta name="theme-color" content="#bf360c"><meta name="generator" content="Hexo 8.1.1">
 
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
@@ -28,8 +28,8 @@
 <meta property="article:published_time" content="2025-04-08T16:00:00.000Z">
 <meta property="article:modified_time" content="2026-01-28T10:38:52.901Z">
 <meta property="article:author" content="Epi">
-<meta property="article:tag" content="random_note">
 <meta property="article:tag" content="coding">
+<meta property="article:tag" content="random_note">
 <meta name="twitter:card" content="summary">
 
 
@@ -265,7 +265,7 @@
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">getStudentsCount</span>();</span><br><span class="line"><span class="built_in">countStudents</span>();</span><br><span class="line">students.<span class="built_in">size</span>();</span><br><span class="line"><span class="built_in">size</span>();</span><br><span class="line"><span class="built_in">studentsCount</span>();</span><br></pre></td></tr></tbody></table></figure>
 <p>看起来好像都不错，不过仔细分析的话 ——</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grade.<span class="built_in">getStudentsCount</span>(); <span class="comment">// get 是多余的</span></span><br><span class="line">grade.<span class="built_in">countStudents</span>();    <span class="comment">// 感觉是动态计数</span></span><br><span class="line">grade.students.<span class="built_in">size</span>();    <span class="comment">// 还行？</span></span><br><span class="line">grade.<span class="built_in">size</span>();             <span class="comment">// 歧义</span></span><br><span class="line">grade.<span class="built_in">studentsCount</span>();    <span class="comment">// 最佳！</span></span><br></pre></td></tr></tbody></table></figure>
-<p>对比之下 <code>studentCount()</code> 的命名最直观易懂。</p>
+<p>对比之下<code>studentCount()</code>的命名最直观易懂。</p>
 <p>阅读下面的两段代码：</p>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (keyCode) {</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_SPACE:</span><br><span class="line">        <span class="comment">// 处理空格键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_LEFT:</span><br><span class="line">        <span class="comment">// 处理左箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_RIGHT:</span><br><span class="line">        <span class="comment">// 处理右箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_UP:</span><br><span class="line">        <span class="comment">// 处理上箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_DOWN:</span><br><span class="line">        <span class="comment">// 处理下箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON1:</span><br><span class="line">        <span class="comment">// 处理按钮 1</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON2:</span><br><span class="line">        <span class="comment">// 处理按钮 2</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON3:</span><br><span class="line">        <span class="comment">// 处理按钮 3</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON4:</span><br><span class="line">        <span class="comment">// 处理按钮 4</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">// 处理其他按键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">onKeyDown</span><span class="params">(<span class="type">int</span> keyCode, <span class="type">const</span> KeyEvent&amp; event)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="built_in">isPrintingKey</span>()) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">appendInput</span>(keyCode);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isArrowKey</span>(keyCode)) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">moveCursor</span>(keyCode);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isChannelKey</span>(keyCode)) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">appendInput</span>(<span class="built_in">convertChannelToNumber</span>(keyCode));</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isFunctionalKey</span>(keyCode)) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">processFunctionalKey</span>(keyCode);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
@@ -277,8 +277,8 @@
 <li>不仅要考虑声明和定义的情况，还要考虑代码被调用的情况</li>
 <li>尽量使用合适易懂无歧义的英文名命名，辅以数字和下划线
 <ul>
-<li>比如 <code>EISU_KANA</code>(英数かな) 就不如 <code>ALPHABET_NUMBER_KANA</code></li>
-<li>比如 <code>fasten</code> 就不如 <code>accelerate</code>，<code>reSearch</code> 就不如 <code>searchAgain</code></li>
+<li>比如<code>EISU_KANA</code> (英数かな) 就不如<code>ALPHABET_NUMBER_KANA</code></li>
+<li>比如<code>fasten</code>就不如<code>accelerate</code>，<code>reSearch</code>就不如<code>searchAgain</code></li>
 </ul>
 </li>
 <li>虽然有代码补全，但是名称长度不要过长</li>
@@ -289,7 +289,7 @@
 </li>
 <li>单词间要有合适的分割
 <ul>
-<li>如 <code>fireWall</code>,<code>created_person</code></li>
+<li>如<code>fireWall</code>,<code>created_person</code></li>
 </ul>
 </li>
 <li>除常量外，大小写混合拼写
@@ -301,42 +301,42 @@
 </ul>
 <h3 id="接口的命名原则：">接口的命名原则：</h3>
 <ul>
-<li>不要用 <code>I</code> 开头</li>
-<li>以 <code>able</code> 结尾表示具备某种能力，但并不是所有的接口都能以 <code>able</code> 结尾。</li>
+<li>不要用<code>I</code>开头</li>
+<li>以<code>able</code>结尾表示具备某种能力，但并不是所有的接口都能以<code>able</code>结尾。</li>
 </ul>
 <h3 id="类的命名">类的命名</h3>
 <ul>
-<li>基类不用 <code>Base</code> 开头或结尾，这并没有意义，使用更有意义的 <code>Model, View, Control</code> 等</li>
+<li>基类不用<code>Base</code>开头或结尾，这并没有意义，使用更有意义的<code>Model, View, Control</code>等</li>
 <li>子类的命名最好与父类建立起某种推测关系</li>
-<li>抽象类可以增加 <code>Abstract</code> 开头，但是如果类本身就够抽象就不用加</li>
+<li>抽象类可以增加<code>Abstract</code>开头，但是如果类本身就够抽象就不用加</li>
 <li>兄弟类要有明显的区别词语</li>
 </ul>
 <h3 id="方法的命名">方法的命名</h3>
 <ul>
 <li>动名型：动词是方法的灵魂要选的合适，把条件移到参数中会让代码更具有扩展性。
 <ul>
-<li>比如 <code>filterStudents(subject)</code> 就比 <code>listMathStudents(),listGeoStudents()</code> 要合适。</li>
+<li>比如<code>filterStudents(subject)</code> 就比 <code>listMathStudents(),listGeoStudents()</code>要合适。</li>
 </ul>
 </li>
 <li>与返回值的联系：
 <ul>
 <li>返回值是列表就尽量用复数名词</li>
-<li>返回值是真假就用 <code>is，has</code> 等词开头</li>
-<li>如果返回值不确定，就用 <code>Object</code> 或者其父类名称</li>
+<li>返回值是真假就用<code>is，has</code>等词开头</li>
+<li>如果返回值不确定，就用<code>Object</code>或者其父类名称</li>
 <li>如果是 Getter，就使用 get 的对象作为名词</li>
 </ul>
 </li>
 <li>考虑被调用时的样子</li>
-<li>执行类动词的使用：<code>do,process,execute,run</code> 等名词很抽象，最好选用其他的词来代替。除非这是一个抽象类的实现方法，之后会被子类实现。
+<li>执行类动词的使用：<code>do,process,execute,run</code>等名词很抽象，最好选用其他的词来代替。除非这是一个抽象类的实现方法，之后会被子类实现。
 <ul>
-<li>比如 <code>doLogin</code> 就是 <code>authenticate</code>，<code>doRegister</code> 就是 <code>createUser</code></li>
+<li>比如<code>doLogin</code>就是<code>authenticate</code>，<code>doRegister</code>就是<code>createUser</code></li>
 </ul>
 </li>
 <li>适当使用介词会提高可读性</li>
 <li>不要加下划线</li>
 <li>不要夹带无意义的临时字符
 <ul>
-<li>比如不要因为域变量名称为 <code>mAbortKey</code> 就把方法命名成 <code>getMAbortKey</code></li>
+<li>比如不要因为域变量名称为<code>mAbortKey</code>就把方法命名成<code>getMAbortKey</code></li>
 </ul>
 </li>
 </ul>
@@ -344,19 +344,19 @@
 <ul>
 <li>域变量：可以适当加前缀但是不要无脑加
 <ul>
-<li>比如 <code>pos.x, pos.y</code> 很清楚，写成 <code>pos.mX, pos.mY</code> 就有点如鲠在喉的感觉。</li>
+<li>比如<code>pos.x, pos.y</code>很清楚，写成<code>pos.mX, pos.mY</code>就有点如鲠在喉的感觉。</li>
 </ul>
 </li>
 <li>参数变量：避免与域变量相同造成混淆</li>
-<li>循环变量：下标循环用 <code>ijk</code>，<code>forEach</code> 循环采用元素内容命名。</li>
-<li>局部变量：不要使用 <code>temp</code>,<code>tmp</code>,<code>result</code>,<code>list</code>,<code>map</code> 等意义不明的词，采用其真实意思命名。</li>
+<li>循环变量：下标循环用<code>ijk</code>，<code>forEach</code>循环采用元素内容命名。</li>
+<li>局部变量：不要使用<code>temp</code>,<code>tmp</code>,<code>result</code>,<code>list</code>,<code>map</code>等意义不明的词，采用其真实意思命名。</li>
 </ul>
 <h3 id="常量的命名">常量的命名</h3>
 <ul>
 <li>全大写命名，多单词采用下划线分割</li>
 <li>不要序号式命名，要利用开头词进行分组
 <ul>
-<li>比如 <code>LAYER_ROMAJI, LAYER_HIRAGANA,LAYER_KANJI</code> 显然比 <code>LAYER_0, LAYER_1, LAYER_2</code> 更好</li>
+<li>比如<code>LAYER_ROMAJI, LAYER_HIRAGANA,LAYER_KANJI</code>显然比<code>LAYER_0, LAYER_1, LAYER_2</code>更好</li>
 </ul>
 </li>
 </ul>
@@ -364,11 +364,11 @@
 <ul>
 <li>类和内容的重复：包装的容器和包装的内容重名，寻找合适的集合名词。
 <ul>
-<li>比如 <code>Questionaire</code> 比 <code>Questions</code> 更好</li>
+<li>比如 <code>Questionaire</code>比 <code>Questions</code> 更好</li>
 </ul>
 </li>
-<li>整体和部分：只有量的差异导致的重名，可以通过前缀 <code>matched,grouped</code> 区分。</li>
-<li>类型转换：可以通过连续的调用略去中间变量，如 <code>list.ketSet().iterator()</code></li>
+<li>整体和部分：只有量的差异导致的重名，可以通过前缀<code>matched,grouped</code>区分。</li>
+<li>类型转换：可以通过连续的调用略去中间变量，如<code>list.ketSet().iterator()</code></li>
 </ul>
 <hr>
 <p>ok 暂时就说到这，这个话题还有不少东西可以说，比如注释的风格，代码风格，代码结构，设计模式，测试代码，甚至英语能力。之后可能会继续更新（挖坑）~</p>
@@ -438,7 +438,7 @@
     </div>
 </div>
 <hr>
-<p>感谢你的阅读～</p>
+<p>感谢你的阅读~</p>
 
     </div>
 
