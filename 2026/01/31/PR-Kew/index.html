@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#bf360c"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
+  <link rel="mask-icon" href="/images/logo.jpg" color="#bf360c">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://gfonts.aby.pub/css?family=Noto+Serif+CJK+SC:300,300italic,400,400italic,700,700italic%7CYellowtail:300,300italic,400,400italic,700,700italic%7CCaveat:300,300italic,400,400italic,700,700italic%7CLong+Cang:300,300italic,400,400italic,700,700italic%7CYuji+Mai:300,300italic,400,400italic,700,700italic%7CJetBrains+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#bf360c","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="这大概是我第一次认真地向一个开源项目提交 PR。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="a PR for kew">
+<meta property="og:url" content="http://blog.episvr.top/2026/01/31/PR-Kew/index.html">
+<meta property="og:site_name" content="Epi&#39;s Blog">
+<meta property="og:description" content="这大概是我第一次认真地向一个开源项目提交 PR。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.episvr.top/2026/01/31/PR-Kew/image-20260131113936148.png">
+<meta property="article:published_time" content="2026-01-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-31T09:16:15.736Z">
+<meta property="article:author" content="Epi">
+<meta property="article:tag" content="open source">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.episvr.top/2026/01/31/PR-Kew/image-20260131113936148.png">
+
+
+<link rel="canonical" href="http://blog.episvr.top/2026/01/31/PR-Kew/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.episvr.top/2026/01/31/PR-Kew/","path":"2026/01/31/PR-Kew/","title":"a PR for kew"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>a PR for kew | Epi's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.episvr.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Epi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Epi's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friend"><a href="/friend/" rel="section"><i class="fa fa-link fa-fw"></i>friend</a></li><li class="menu-item menu-item-epi"><a href="/epi/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>epi</a></li><li class="menu-item menu-item-puzzle"><a href="https://puzzle.episvr.top/" rel="section" target="_blank"><i class="fa fa-puzzle-piece fa-fw"></i>puzzle</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E4%B8%8D%E7%AE%97%E5%AE%8F%E5%A4%A7%E7%9A%84%E5%BC%80%E7%AB%AF"><span class="nav-number">1.</span> <span class="nav-text">并不算宏大的开端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%9D%A5%E4%BB%A5%E4%B8%BA%E4%BC%9A%E5%BE%88%E7%AE%80%E5%8D%95"><span class="nav-number">2.</span> <span class="nav-text">本来以为会很简单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8E%E6%98%AF%E6%88%91%E5%BC%80%E5%A7%8B%E6%B5%8B%E8%AF%95"><span class="nav-number">2.1.</span> <span class="nav-text">于是我开始测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E6%89%8B%E7%9A%84%E4%BA%8B"><span class="nav-number">2.2.</span> <span class="nav-text">顺手的事</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E7%9A%84%E8%AF%B1%E6%83%91"><span class="nav-number">3.</span> <span class="nav-text">格式化的诱惑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review-%E6%9D%A5%E5%BE%97%E5%BE%88%E5%BF%AB"><span class="nav-number">4.</span> <span class="nav-text">Review 来得很快</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9CThis-is-truly-joyous-%E2%80%9D"><span class="nav-number">4.1.</span> <span class="nav-text">“This is truly joyous!”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E7%9A%84%E5%BB%B6%E7%BB%AD"><span class="nav-number">5.</span> <span class="nav-text">重构的延续</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%8A%E5%BF%83%E6%83%85%E8%AE%B0%E5%BD%95%E4%B8%8B%E6%9D%A5"><span class="nav-number">6.</span> <span class="nav-text">把心情记录下来</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Epi"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Epi</p>
+  <div class="site-description" itemprop="description">ad astra per aspera</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/episvr" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;episvr" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.episvr.top/2026/01/31/PR-Kew/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="Epi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epi's Blog">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="a PR for kew | Epi's Blog">
+      <meta itemprop="description" content="这大概是我第一次认真地向一个开源项目提交 PR。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          a PR for kew
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2026-01-31 00:00:00 / Modified: 17:16:15" itemprop="dateCreated datePublished" datetime="2026-01-31T00:00:00+08:00">2026-01-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Diary/" itemprop="url" rel="index"><span itemprop="name">Diary</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/2026/01/31/PR-Kew/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2026/01/31/PR-Kew/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">这大概是我第一次认真地向一个开源项目提交 PR。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这大概是我第一次认真地向一个开源项目提交 PR。<br>
+在上篇博客里我提到，我装上了 Debian。<br>
+如果你注意过那张截图的右侧，会看到一个运行在终端里的音乐播放器 ——<strong>kew</strong>。</p>
+<p><img src="/2026/01/31/PR-Kew/image-20260131113936148.png" alt="album"></p>
+<p>这次的故事，就从它开始。</p>
+<h2 id="并不算宏大的开端">并不算宏大的开端</h2>
+<p>起初我对它很满意。运行很轻巧，界面也干净，几乎没有多余的东西。</p>
+<p>但用着用着，我还是察觉到了一点不太舒服的地方。</p>
+<p>在听歌的时候，有些文件名看起来有点奇怪 —— 数字被去掉了，而它们本来就是歌名的一部分。</p>
+<p>比如，像 <code>25時の情熱.mp3</code>，  会被显示成 <code>時の情熱.mp3</code>。</p>
+<p>除此之外，还有歌词滚动偶尔不同步的问题。</p>
+<p>当然，我也可以只提一个 Issue，然后等待。<br>
+但那天我多看了一眼，发现这是一个几乎纯 C / C++ 的项目。</p>
+<p>于是我想，或许可以自己试一试。<br>
+说不定事情并不复杂呢。</p>
+<hr>
+<h2 id="本来以为会很简单">本来以为会很简单</h2>
+<p>最开始我真的以为，这只是一个 if 的问题。<br>
+顶多加几层判断，把逻辑包起来，大概就好了。</p>
+<p>但很快我意识到，事情并没有这么简单。</p>
+<p>这个播放器有一个自动去除编号显示的功能。可以把一些命名格式统一的文件的编号去除，同时保留顺序。</p>
+<p>但是<strong>我们其实并不知道，一个数字到底是不是 “曲目编号”。</strong></p>
+<p><code>1 test.flac</code> 的<code>1</code>看起来像编号。  那<code>1s intro.mp3</code> 呢。<br>
+那 <code>2002.mp3</code> 呢？<br>
+<code>1999_07_09Prince.mp3</code> 呢？</p>
+<p>歌名本身是没有罪的。</p>
+<hr>
+<h3 id="于是我开始测试">于是我开始测试</h3>
+<p>我试图搞清楚目前处理到什么情况。</p>
+<p>我把那个负责处理文件名的函数单独拎出来，<br>
+写了一堆输入，一行一行地看它们的输出结果。</p>
+<figure class="highlight txt"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">===============================================================</span><br><span class="line">stripTrackNumbers=1            | Original Song Filename        </span><br><span class="line">------------------------------ | ------------------------------</span><br><span class="line">test.flac                      | 1 test.flac</span><br><span class="line">Song.mp3                       | 01-Song.mp3</span><br><span class="line">Track.wav                      | 02. Track.wav</span><br><span class="line">Under Score.ogg                | 3_Under_Score.ogg</span><br><span class="line">Review.mp3                     | 5-Review.mp3</span><br><span class="line">,Comma.mp3                     | 6,Comma.mp3</span><br><span class="line">Dot.mp3                        | 7.Dot.mp3</span><br><span class="line">Test.mp3                       | 8 Test.mp3</span><br><span class="line">Another.mp3                    | 9.1 Another.mp3</span><br><span class="line">1s intro.mp3                   | 1s intro.mp3</span><br><span class="line">mp3                            | 2002.mp3</span><br><span class="line">7 09Prince.mp3                 | 1999_07_09Prince.mp3</span><br><span class="line">.mp3                           | 10-100.mp3</span><br><span class="line">66-90=2.flac                   | 8.32.666-90=2.flac</span><br><span class="line">=0.mp3                         | 50-50=0.mp3</span><br><span class="line">+2=5.gugugaga                  | .2+2=5.gugugaga</span><br><span class="line">NoNumber.mp3                   | NoNumber.mp3</span><br><span class="line">Percent.mp3                    | _90 Percent.mp3</span><br><span class="line">is the universe.mp3            | 42 is the universe.mp3</span><br><span class="line">===============================================================</span><br></pre></td></tr></tbody></table></figure>
+<p>所谓的 “自动修正”，本身其实是有风险的。<br>
+它会在你毫无察觉的时候，替你做出决定。</p>
+<p>我停下来，看了很久。然后又想了一会儿，</p>
+<p>我觉得这件事可能是一个过度设计，或许就不该由播放器来处理这个。<br>
+曲目编号是否需要隐藏，应该是用户自己的烦恼。</p>
+<p>于是我加了一个开关，把这个 feature 收了起来。</p>
+<hr>
+<h3 id="顺手的事">顺手的事</h3>
+<p>另一边，我也在处理歌词不同步的问题。</p>
+<p>我发现原来的解析逻辑是用一串正则完成的，只能识别 <code>[mm:ss.xx]</code> 这样的格式，<br>
+却无法正确处理 <code>[mm:ss.xxx]</code> 的情况。</p>
+<p>这显然是问题的源头。</p>
+<p>于是我用上了好久没碰过的指针，重新写了一段解析逻辑。<br>
+出乎意料的是，一次就跑通了。</p>
+<p>而且效果异常地好。</p>
+<h2 id="格式化的诱惑">格式化的诱惑</h2>
+<p>在折腾歌词同步功能的时候，还发生了一个小插曲。</p>
+<p>当我改完代码，看着满屏风格各异的缩进和括号，手里的 <code>clang-format</code> 蠢蠢欲动。<br>
+我想着：“既然改都改了，不如顺手把源码都格式化一遍，让它变得清爽一点？”</p>
+<p>这个念头诱人极了，我几乎没怎么犹豫，就带着一种 “我来帮你打扫干净” 的豪迈感，在项目根目录运行了全量格式化命令。<br>
+瞬间，成百上千个文件被修改，<code>git status</code> 的输出像失控的瀑布一样冲刷下来。成百上千个文件被标记为已修改。Diff 里的绿色行数爆炸式增长，滚动条瞬间变得细不可见。</p>
+<p>看着那壮观的变更列表，我不得不意识到：<br>
+这简直就是<strong>灾难</strong>。</p>
+<p><strong>协作不是个人秀。</strong> 保持最小的改动范围，是对维护者和其他协作者最大的尊重。</p>
+<p>于是，我默默执行了 <code>git checkout .</code>，乖乖地撤销了所有修改。<br>
+重新只改了逻辑部分，然后小心翼翼地只格式化我修改的那些行。<br>
+世界清静了，Diff 也清静了。</p>
+<p>不过由于我在一些代码块的外面套了一层 if 的壳，VS Code 的 Git Diff 显示因为缩进变化，就跟智障一样无法识别出原本一致的代码，我只能用 <code>git diff -w</code> 来查，评论区求一个更好的处理策略。</p>
+<p>这算是留下的一点教训。当然，我学到了随便‘不要格式化整个仓库’。不多更重要的领悟是在写作过程中，每个人都应该‘记得格式化自己的代码’。一个项目的整洁，终究要靠每个 contributor 的自觉。</p>
+<hr>
+<h2 id="Review-来得很快">Review 来得很快</h2>
+<p>维护者很快测试了这个 PR。<br>
+歌词解析的改动没有问题，而且测试者似乎很满意现在的同步效果（因为他打了两个感叹号 w）</p>
+<p><strong>但是他同时指出，那个新增的开关似乎失效了。</strong></p>
+<p>这是一个很敏锐的反馈。</p>
+<p>我也吓了一跳。明明我在本地测试时是好的？</p>
+<p>于是我又花了一些时间，顺着 <code>settings.c</code> 里那些层层叠叠的初始化函数，终于抓到了 bug。<br>
+原来是读取偏好设置的逻辑，不仅覆盖了用户的设置，还因为初始化的顺序问题，把我的开关 “吃掉” 了。</p>
+<p>bug 本身并不难修。<br>
+但在修好它之后，看着那些测试用例里被误伤的 <code>2002.mp3</code>，<br>
+看着那些被切断的年份和乱掉的歌名。</p>
+<p>即使开关修好了，这个功能本身可能也是一把双刃剑。</p>
+<p>我没有试图把逻辑修完。那需要整改整个文件名处理的架构，对于目前的我来说，动静太大了。</p>
+<p>我在代码里留了一个 TODO， 也写了一个 Issue，把那些奇怪的边界情况记录下来。</p>
+<p>也许有些问题，不适合匆忙解决。</p>
+<hr>
+<h3 id="“This-is-truly-joyous-”">“This is truly joyous!”</h3>
+<p>最后的回复只有一句话：</p>
+<blockquote>
+<p>This is truly joyous! I have no more issues with this PR!</p>
+</blockquote>
+<p>我盯着这个算是 “LGTM” 的句子看了几秒钟。</p>
+<p>这是一次很小的 PR。  没有新功能，也没有炫目的改动。</p>
+<p>但它让我清楚地感觉到：<br>
+<strong>开源真的是一件很有趣的事情</strong></p>
+<hr>
+<h2 id="重构的延续">重构的延续</h2>
+<p>PR 合并后，我并没有就此停下。那个被我暂时搁置的 "过度设计" 问题，一直在脑海里挥之不去。</p>
+<p>我注意到代码中还存在一些耦合问题。比如 *<code>format_filename</code>* 函数，它直接访问全局的 <em><code>appstate</code></em> 来获取用户设置：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (get_app_state()-&gt;uiSettings.stripTrackNumbers) {</span><br><span class="line">    <span class="comment">// 剥离轨道号的逻辑</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>于是我做了一个小小的 follow-up 重构：<br>
+把状态判断移到调用层，通过参数传递。</p>
+<p>首先修改 <code>format_filename</code> 函数：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改前</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">format_filename</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改后  </span></span><br><span class="line"><span class="type">void</span> <span class="title function_">format_filename</span><span class="params">(<span class="type">char</span> *str, <span class="type">bool</span> strip_track_numbers)</span></span><br></pre></td></tr></tbody></table></figure>
+<p>然后更新所有调用点。在 <code>common_ui.c</code> 中：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// process_name 函数内</span></span><br><span class="line">format_filename(output, strip_track_numbers);</span><br><span class="line"></span><br><span class="line"><span class="comment">// process_name_scroll 函数内</span></span><br><span class="line">format_filename(output, strip_track_numbers);</span><br></pre></td></tr></tbody></table></figure>
+<p>在 UI 层调用时，需要从 <code>ui-&gt;stripTrackNumbers</code> 获取设置：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// playlist_ui.c 中</span></span><br><span class="line">process_name(buffer, filename, max_name_width, ui-&gt;stripTrackNumbers, <span class="literal">true</span>);</span><br><span class="line">process_name_scroll(buffer, filename, max_name_width, is_same_name_as_last_time, ui-&gt;stripTrackNumbers);</span><br></pre></td></tr></tbody></table></figure>
+<p>这个把逻辑向 calling function 迁移的方法论，就是<strong>依赖注入 (Dependency Injection)</strong>。</p>
+<p>重构后函数变得更纯，也更清晰。</p>
+<p>不过，维护者选择了一个更简单的实现方式，并亲自补上了代码。算是一个简单的后日谈</p>
+<hr>
+<h2 id="把心情记录下来">把心情记录下来</h2>
+<p>我不知道以后还会不会继续给这个项目提交代码。<br>
+但我还是想把这次经历记下来。</p>
+<p>不是为了证明什么，<br>
+而是提醒自己：</p>
+<p><strong>我曾经认真地对待过这样一件事。而且，意外地做得不错？</strong></p>
+<p>今天放一首纯音乐，据说其对应了一封 4 月 10 日的信件。我很喜欢其中的这句。</p>
+<blockquote>
+<p>我即將踏上人生最後的旅程，帶著最低限度的行李、相機、用來寫信的筆和墨水。</p>
+</blockquote>
+<div class="lyrics-container">
+    <div class="song-info">
+        <p class="song-title"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z"></path>
+            </svg>4/10</p>
+    </div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/open-source/" rel="tag"><i class="fa fa-tag"></i> open source</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/01/28/Thinkpad-T420/" rel="prev" title="Install Debian on ThinkPad-T420">
+                  <i class="fa fa-angle-left"></i> Install Debian on ThinkPad-T420
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Epi</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"forest"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.episvr.top/","cssUrl":"https://unpkg.com/@waline/client@v3.1.3/dist/waline.css","commentCount":true,"pageview":false,"libUrl":"https://unpkg.com/@waline/client@3.5.1/dist/waline.umd.js","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2026/01/31/PR-Kew/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v3.1.3/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>
