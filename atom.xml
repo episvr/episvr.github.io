@@ -6,7 +6,7 @@
   <link href="http://blog.episvr.top/atom.xml" rel="self"/>
   
   <link href="http://blog.episvr.top/"/>
-  <updated>2026-01-31T09:16:15.736Z</updated>
+  <updated>2026-02-12T04:03:12.412Z</updated>
   <id>http://blog.episvr.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二〇二五年的终末</title>
+    <link href="http://blog.episvr.top/2026/02/12/My2025/"/>
+    <id>http://blog.episvr.top/2026/02/12/My2025/</id>
+    <published>2026-02-11T16:00:00.000Z</published>
+    <updated>2026-02-12T04:03:12.412Z</updated>
+    
+    
+    <summary type="html">为二〇二五年的自己画上句号。</summary>
+    
+    
+    
+    <category term="Conclusion" scheme="http://blog.episvr.top/categories/Conclusion/"/>
+    
+    
+    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
+    
+  </entry>
   
   <entry>
     <title>a PR for kew</title>
@@ -48,25 +67,6 @@
     
     
     <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
-    
-    
-    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>回归原点，然后继续转动</title>
-    <link href="http://blog.episvr.top/2025/08/28/UpwardSpiral/"/>
-    <id>http://blog.episvr.top/2025/08/28/UpwardSpiral/</id>
-    <published>2025-08-27T16:00:00.000Z</published>
-    <updated>2026-01-29T02:49:52.239Z</updated>
-    
-    
-    <summary type="html">经历了一段时间的沉淀，我觉得自己又有了些许变化，有了一些新的故事和感悟。就算最终仍是在两个不同的轨迹上震荡，但在指针旋转的道路上，也许 Z 轴会前进的更远吧。</summary>
-    
-    
-    
-    <category term="Conclusion" scheme="http://blog.episvr.top/categories/Conclusion/"/>
     
     
     <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
