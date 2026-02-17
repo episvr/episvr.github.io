@@ -6,7 +6,7 @@
   <link href="http://blog.episvr.top/atom.xml" rel="self"/>
   
   <link href="http://blog.episvr.top/"/>
-  <updated>2026-02-12T04:03:12.412Z</updated>
+  <updated>2026-02-17T09:51:20.548Z</updated>
   <id>http://blog.episvr.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>谁杀死了拉尔夫</title>
+    <link href="http://blog.episvr.top/2026/02/17/Ralph/"/>
+    <id>http://blog.episvr.top/2026/02/17/Ralph/</id>
+    <published>2026-02-16T16:00:00.000Z</published>
+    <updated>2026-02-17T09:51:20.548Z</updated>
+    
+    
+    <summary type="html">由四个句子碎片扩写构成的原创短篇故事。</summary>
+    
+    
+    
+    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    
+    
+    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
+    
+  </entry>
   
   <entry>
     <title>二〇二五年的终末</title>
@@ -51,25 +70,6 @@
     
     
     <category term="open source" scheme="http://blog.episvr.top/tags/open-source/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Install Debian on ThinkPad-T420</title>
-    <link href="http://blog.episvr.top/2026/01/28/Thinkpad-T420/"/>
-    <id>http://blog.episvr.top/2026/01/28/Thinkpad-T420/</id>
-    <published>2026-01-27T16:00:00.000Z</published>
-    <updated>2026-01-29T03:33:00.315Z</updated>
-    
-    
-    <summary type="html">我一直想收一台二手笔记本玩玩 Linux，终于下手了，本篇文章是记录这件事的部分流程</summary>
-    
-    
-    
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
-    
-    
-    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
     
   </entry>
   
