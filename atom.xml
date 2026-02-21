@@ -6,7 +6,7 @@
   <link href="http://blog.episvr.top/atom.xml" rel="self"/>
   
   <link href="http://blog.episvr.top/"/>
-  <updated>2026-02-17T09:51:20.548Z</updated>
+  <updated>2026-02-21T06:53:32.421Z</updated>
   <id>http://blog.episvr.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一切荒诞的、与瑞瓦肖和龙舌兰日落</title>
+    <link href="http://blog.episvr.top/2026/02/21/DiscoElysium/"/>
+    <id>http://blog.episvr.top/2026/02/21/DiscoElysium/</id>
+    <published>2026-02-20T16:00:00.000Z</published>
+    <updated>2026-02-21T06:53:32.421Z</updated>
+    
+    
+    <summary type="html">我知道、德洛莉丝·黛不会回头。(中度剧透 酌情观看)</summary>
+    
+    
+    
+    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    
+    
+    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
+    
+  </entry>
   
   <entry>
     <title>谁杀死了拉尔夫</title>
@@ -51,25 +70,6 @@
     
     
     <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>a PR for kew</title>
-    <link href="http://blog.episvr.top/2026/01/31/PR-Kew/"/>
-    <id>http://blog.episvr.top/2026/01/31/PR-Kew/</id>
-    <published>2026-01-30T16:00:00.000Z</published>
-    <updated>2026-01-31T09:16:15.736Z</updated>
-    
-    
-    <summary type="html">这大概是我第一次认真地向一个开源项目提交 PR。</summary>
-    
-    
-    
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
-    
-    
-    <category term="open source" scheme="http://blog.episvr.top/tags/open-source/"/>
     
   </entry>
   
