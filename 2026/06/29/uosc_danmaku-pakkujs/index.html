@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#00acc1"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
+  <link rel="mask-icon" href="/images/logo.jpg" color="#00acc1">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://gfonts.aby.pub/css?family=Noto+Serif+CJK+SC:300,300italic,400,400italic,700,700italic%7CYellowtail:300,300italic,400,400italic,700,700italic%7CCaveat:300,300italic,400,400italic,700,700italic%7CLong+Cang:300,300italic,400,400italic,700,700italic%7CYuji+Mai:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#bf360c","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录如何将 pakku.js 的弹幕合并算法移植到 mpv Lua 插件 uosc_danmaku 中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 uosc_danmaku 中集成 pakkujs 弹幕合并算法">
+<meta property="og:url" content="http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/index.html">
+<meta property="og:site_name" content="Epi&#39;s Blog">
+<meta property="og:description" content="记录如何将 pakku.js 的弹幕合并算法移植到 mpv Lua 插件 uosc_danmaku 中">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://blog.episvr.top/img/uosc_danmaku/pakkujs-demo.png">
+<meta property="article:published_time" content="2026-06-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-06-29T08:52:05.767Z">
+<meta property="article:author" content="Epi">
+<meta property="article:tag" content="mpv">
+<meta property="article:tag" content="danmaku">
+<meta property="article:tag" content="pakku">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.episvr.top/img/uosc_danmaku/pakkujs-demo.png">
+
+
+<link rel="canonical" href="http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/","path":"2026/06/29/uosc_danmaku-pakkujs/","title":"在 uosc_danmaku 中集成 pakkujs 弹幕合并算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在 uosc_danmaku 中集成 pakkujs 弹幕合并算法 | Epi's Blog</title>
+  
+
+
+
+
+
+
+
+<link rel="dns-prefetch" href="https://comment.episvr.top/">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="Epi's Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Epi's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-friend"><a href="/friend/" rel="section"><i class="fa fa-link fa-fw"></i>friend</a></li><li class="menu-item menu-item-epi"><a href="/epi/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>epi</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li><li class="menu-item menu-item-puzzle"><a href="https://puzzle.episvr.top/" rel="section" target="_blank"><i class="fa fa-puzzle-piece fa-fw"></i>puzzle</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uosc-danmaku-%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">uosc_danmaku 的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lua%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BD%BB%E9%87%8F%E7%BA%A7%E7%9A%84%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80"><span class="nav-number">3.</span> <span class="nav-text">Lua：一个轻量级的脚本语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%B9%E5%B9%95%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7"><span class="nav-number">4.</span> <span class="nav-text">弹幕长什么样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pakkujs-%E7%9A%84%E5%90%88%E5%B9%B6%E5%8E%9F%E7%90%86%E5%A4%8D%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">pakkujs 的合并原理复现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">5.1.</span> <span class="nav-text">文本预处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB%EF%BC%9A%E5%AD%97%E7%AC%A6%E9%A2%91%E7%8E%87%E8%BF%91%E4%BC%BC%E6%B3%95"><span class="nav-number">5.2.</span> <span class="nav-text">编辑距离：字符频率近似法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%BC%E9%9F%B3%E8%B7%9D%E7%A6%BB"><span class="nav-number">5.3.</span> <span class="nav-text">拼音距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E5%BA%A6%EF%BC%88Bigram%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">余弦相似度（Bigram）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E8%81%9A%E7%B1%BB"><span class="nav-number">5.5.</span> <span class="nav-text">滑动窗口聚类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%86%E5%BA%A6%E8%B0%83%E6%8E%A7"><span class="nav-number">5.6.</span> <span class="nav-text">密度调控</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E6%95%88%E6%9E%9C"><span class="nav-number">6.</span> <span class="nav-text">实际效果</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Epi"
+      src="/images/logo.jpg">
+  <p class="site-author-name" itemprop="name">Epi</p>
+  <div class="site-description" itemprop="description">ad astra per aspera</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/episvr" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;episvr" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/logo.jpg">
+      <meta itemprop="name" content="Epi">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Epi's Blog">
+      <meta itemprop="description" content="ad astra per aspera">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在 uosc_danmaku 中集成 pakkujs 弹幕合并算法 | Epi's Blog">
+      <meta itemprop="description" content="记录如何将 pakku.js 的弹幕合并算法移植到 mpv Lua 插件 uosc_danmaku 中">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在 uosc_danmaku 中集成 pakkujs 弹幕合并算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2026-06-29 00:00:00 / Modified: 16:52:05" itemprop="dateCreated datePublished" datetime="2026-06-29T00:00:00+08:00">2026-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Repo/" itemprop="url" rel="index"><span itemprop="name">Repo</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline: </span>
+  
+    <a title="waline" href="/2026/06/29/uosc_danmaku-pakkujs/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2026/06/29/uosc_danmaku-pakkujs/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+            <div class="post-description">记录如何将 pakku.js 的弹幕合并算法移植到 mpv Lua 插件 uosc_danmaku 中</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言">前言</h2>
+<p>最近搭建了一个 Openlist 站点，存了很多番剧，于是便开始爽爽看番了。</p>
+<p>但是出现了一个小问题。</p>
+<p>我是用 mpv 看番的，然后装了很有名的插件 uosc_danmaku，这样就可以在 mpv 里集成弹幕来提升<s>影响</s>自己的观感。但是由于刷屏的人有点烦，所以我想到了另一个 B 站网页版很有名的扩展 pakkujs。pakkujs 是一个专门用来合并弹幕的插件，但是它只支持网页版 b 站。那么一边是可以集成弹幕的插件，一边是可以合并弹幕的插件，于是<s>我一拍即合</s>，决定在 uosc_danmaku 里实现 pakkujs 的合并逻辑。</p>
+<h2 id="uosc-danmaku-的原理">uosc_danmaku 的原理</h2>
+<p><a target="_blank" rel="noopener" href="https://github.com/Tony15246/uosc_danmaku">uosc_danmaku</a> 是 mpv 播放器的弹幕插件，核心工作流程如下：</p>
+<ol>
+<li><strong>数据获取</strong>：通过 <a target="_blank" rel="noopener" href="https://doc.dandanplay.com/open/">弹弹 play API</a> 查询番剧信息，获取弹幕数据</li>
+<li><strong>弹幕解析</strong>：将获取到的弹幕解析为内部数据结构，包含时间戳、文本、类型（滚动 / 固定 / 顶部）、颜色、字号等</li>
+<li><strong>渲染显示</strong>：基于 uosc UI 框架，在 mpv 的 OSD 层绘制弹幕，按时间戳触发，模拟滚动 / 固定效果</li>
+<li><strong>交互控制</strong>：通过 uosc 的 control bar 提供弹幕搜索、开关、样式调整等图形化操作</li>
+</ol>
+<p>实际上 uosc_danmaku 已有了基础的合并功能（<code>merge_tolerance</code>），但其只能做<strong>精确匹配</strong>，而 pakku 可以检查谐音和文本编辑距离合并相似弹幕，所以迁移还是有意义的。（创新点说是）</p>
+<h2 id="Lua：一个轻量级的脚本语言">Lua：一个轻量级的脚本语言</h2>
+<p>在开始讲移植之前，先简单聊聊 <a target="_blank" rel="noopener" href="https://www.lua.org/">Lua</a>。我之前对 Lua 的唯一印象就是 nvim 的配置文件，一直以为它就是个配置语言。直到这次移植 pakku 才发现，Lua 其实是一门正经的脚本语言。</p>
+<p>几个有意思的特点：</p>
+<ul>
+<li><strong>table</strong>：数组是 table，字典也是 table，甚至面向对象都是用 table 模拟的。</li>
+<li><strong>多返回值</strong>：函数可以同时返回多个值，比如 <code>string.find</code> 直接返回匹配的起止位置（Can you C do that ?）</li>
+<li><strong>1-based 索引</strong>：数组下标从 1 开始. (人类可以统一一个标准吗，我觉得从 - 1 开始也挺好的)</li>
+</ul>
+<p>mpv 的脚本系统基于 Lua，所以 uosc_danmaku 整个项目都是 Lua 写的。</p>
+<p>然后我就有一个疑问，就是脚本语言怎么会拿来给 nvim，mpv 这类东西写配置，不会拖慢性能吗？</p>
+<p>这与 Lua 的运行方式有关。实际上有个叫 <a target="_blank" rel="noopener" href="https://luajit.org/">LuaJIT</a> 的东西，它是 Lua 的一个替代实现，性能极其恐怖。核心在于<strong>基于追踪的即时编译</strong>：解释器会监控代码运行，发现<strong>热循环</strong>后把整个执行路径编译成高度优化的本地机器码，热点路径的性能接近手写 C。</p>
+<p>而 mpv 内置的弹幕渲染是 C 写的，而 Lua 脚本层只负责数据处理和逻辑调度。即使弹幕数据量很大，LuaJIT 也能把关键路径编译成原生代码，所以用 Lua 写插件并不会成为瓶颈。</p>
+<p>lua 的语法和 C 很像，大概长这样：</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> dict = {</span><br><span class="line">  <span class="string">"Hello"</span>,      <span class="comment">-- (1-based)</span></span><br><span class="line">  <span class="string">"world"</span>, 		<span class="comment">-- (2-based)</span></span><br><span class="line">    			<span class="comment">-- (ipair stop here cuz no index 3)</span></span><br><span class="line">  owner = <span class="string">"episvr"</span>,   <span class="comment">-- 键值对 </span></span><br><span class="line">  count = <span class="number">2</span>  <span class="comment">-- 键值对 </span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">lookup</span><span class="params">(t, name)</span></span></span><br><span class="line">  <span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">ipairs</span>(t) <span class="keyword">do</span>   <span class="comment">-- 带 index 的 foreach，do…end</span></span><br><span class="line">    <span class="keyword">if</span> v == name <span class="keyword">then</span></span><br><span class="line">      <span class="keyword">return</span> i, v, <span class="literal">true</span>      <span class="comment">-- 多返回值</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">nil</span>, <span class="literal">nil</span>, <span class="literal">false</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">local</span> word = <span class="string">"Hello"</span></span><br><span class="line"><span class="keyword">local</span> idx, val, ok = lookup(dict, word)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ok <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Task ["</span> .. val .. <span class="string">"] is #"</span> .. idx .. <span class="string">" (1-based!)"</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">"Task not found."</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 混合遍历</span></span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> <span class="built_in">pairs</span>(dict) <span class="keyword">do</span></span><br><span class="line">  <span class="built_in">print</span>(k, v)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="弹幕长什么样">弹幕长什么样</h2>
+<p>弹幕数据的结构。uosc_danmaku 支持两种来源的弹幕格式：</p>
+<ol>
+<li>最常见的弹幕文件格式是 xml，每条弹幕是一个 <code>&lt;d&gt;</code> 标签：</li>
+</ol>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">d</span> <span class="attr">p</span>=<span class="string">"12.345,1,25,16777215,1234567890"</span>&gt;</span>我是一条弹幕<span class="tag">&lt;/<span class="name">d</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p><code>p</code> （for parameter）是一个逗号分隔的列表，依次是：<code>时间, 类型, 字号, 颜色, 时间戳</code>。比如上面那条弹幕：在 12.345 秒出现、滚动弹幕（type=1）、25px 字号、白色（0xFFFFFF）。</p>
+<ol start="2">
+<li>弹弹 play API 返回的格式是 json，字段顺序稍有不同：</li>
+</ol>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span><span class="attr">"c"</span><span class="punctuation">:</span> <span class="string">"12.345,16777215,1,25"</span><span class="punctuation">,</span> <span class="attr">"m"</span><span class="punctuation">:</span> <span class="string">"我是一条弹幕"</span><span class="punctuation">}</span></span><br></pre></td></tr></tbody></table></figure>
+<p>两种格式最终都会被解析为统一的 Lua table：</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">    <span class="built_in">time</span> = <span class="number">12.345</span>, </span><br><span class="line">    <span class="built_in">type</span> = <span class="number">1</span>,</span><br><span class="line">    size = <span class="number">25</span>,</span><br><span class="line">    color = <span class="number">0xFFFFFF</span>,</span><br><span class="line">    text = <span class="string">"我是一条弹幕"</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>解析逻辑在 <code>modules/parse.lua:331</code> 的 <code>parse_xml_danmaku</code> 和 <code>parse_json_danmaku</code> 中。有了统一的数据结构，后面的合并算法就不需要关心数据来源了。</p>
+<hr>
+<h2 id="pakkujs-的合并原理复现">pakkujs 的合并原理复现</h2>
+<p>将 pakku.js 的合并算法移植到 Lua 时，主要做了以下工作：</p>
+<h3 id="文本预处理">文本预处理</h3>
+<p>这一步在于去除 “完结撒花” 和 “完结撒花！！！” 之间的区别。</p>
+<p>在比较之前，先对弹幕文本做标准化处理（<code>modules/pakku.lua:436</code> ）：</p>
+<ul>
+<li>去除尾部标点（<code>。</code> <code>，</code> <code>！</code> <code>~</code> 等）</li>
+<li>全角转半角（<code>１</code> → <code>1</code>）</li>
+<li>合并多余空格</li>
+<li>支持自定义正则替换规则（<code>forcelist</code>）</li>
+</ul>
+<p>预处理后，就基本削除了打字习惯的差异，能大幅提升后续相似度判定的准确率。</p>
+<h3 id="编辑距离：字符频率近似法">编辑距离：字符频率近似法</h3>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Levenshtein_distance">经典 Levenshtein 算法</a>是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="5.832ex" height="2.452ex" role="img" focusable="false" viewBox="0 -833.9 2577.6 1083.9"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="msup" transform="translate(1152,0)"><g data-mml-node="mi"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mn" transform="translate(633,363) scale(0.707)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g></g><g data-mml-node="mo" transform="translate(2188.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container> 的，对于弹幕这种短文本密集类型完全没必要。pakkujs 用<strong>字符频率差异</strong>来近似（<code>modules/pakku.lua:488</code>）：</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M.edit_distance</span><span class="params">(s1, s2)</span></span></span><br><span class="line">    <span class="keyword">local</span> f1 = char_freq(s1)</span><br><span class="line">    <span class="keyword">local</span> f2 = char_freq(s2)</span><br><span class="line">    <span class="keyword">local</span> dist = <span class="number">0</span></span><br><span class="line">    <span class="keyword">local</span> seen = {}</span><br><span class="line">    <span class="keyword">for</span> c, v <span class="keyword">in</span> <span class="built_in">pairs</span>(f1) <span class="keyword">do</span></span><br><span class="line">        dist = dist + <span class="built_in">math</span>.<span class="built_in">abs</span>(v - (f2[c] <span class="keyword">or</span> <span class="number">0</span>))</span><br><span class="line">        seen[c] = <span class="literal">true</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">for</span> c, v <span class="keyword">in</span> <span class="built_in">pairs</span>(f2) <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> seen[c] <span class="keyword">then</span> dist = dist + v <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<p>统计每个字符出现的次数，然后比较两组频率的 L1 距离。这样复杂度降到 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="4.844ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 2141 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D442" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path></g><g data-mml-node="mo" transform="translate(763,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(1152,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(1752,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container>，而且对弹幕场景足够准确 ——“哈哈哈” 和 “哈哈哈啊” 的差异就体现在多了一个 <code>啊</code>。</p>
+<h3 id="拼音距离">拼音距离</h3>
+<p>我内置了一个数千汉字的拼音字典 <code>PINYIN_DICT</code>（<code>modules/pakku.lua:16</code>），将每个汉字映射为拼音，并做了一定压缩，再用同样的字符频率方法比较。这样 "好看" 和 "好看啊" 即使字面不同，拼音层面也很接近，这样也顺遍解决了一些谐音替代的问题。</p>
+<h3 id="余弦相似度（Bigram）">余弦相似度（Bigram）</h3>
+<p>将文本拆成 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Bigram">相邻字符对</a> 构成向量，计算余弦相似度（<code>modules/pakku.lua:522</code>）：</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">M.cosine_similarity</span><span class="params">(s1, s2)</span></span></span><br><span class="line">    <span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">make_bigrams</span><span class="params">(s)</span></span></span><br><span class="line">        <span class="keyword">local</span> grams = {}</span><br><span class="line">        <span class="keyword">local</span> chars = utf8_chars(s)</span><br><span class="line">        <span class="keyword">for</span> j = <span class="number">1</span>, #chars - <span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">            <span class="keyword">local</span> g = chars[j] .. chars[j+<span class="number">1</span>]</span><br><span class="line">            grams[g] = (grams[g] <span class="keyword">or</span> <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">return</span> grams</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">local</span> g1 = make_bigrams(s1)</span><br><span class="line">    <span class="keyword">local</span> g2 = make_bigrams(s2)</span><br><span class="line">    <span class="keyword">local</span> dot, norm1, norm2 = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> g, v <span class="keyword">in</span> <span class="built_in">pairs</span>(g1) <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">local</span> v2 = g2[g] <span class="keyword">or</span> <span class="number">0</span></span><br><span class="line">        dot = dot + v * v2; norm1 = norm1 + v * v</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">for</span> _, v <span class="keyword">in</span> <span class="built_in">pairs</span>(g2) <span class="keyword">do</span> norm2 = norm2 + v * v <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">if</span> norm1 &lt;= <span class="number">0</span> <span class="keyword">or</span> norm2 &lt;= <span class="number">0</span> <span class="keyword">then</span> <span class="keyword">return</span> <span class="number">0</span> <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">math</span>.<span class="built_in">floor</span>(dot * dot / norm1 / norm2 * <span class="number">100</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<p>bigram 的好处是能捕获局部结构 ——"弹幕" 和 "弹幕啊" 共享 <code>弹幕</code> 这个 bigram，相似度很高。</p>
+<h3 id="滑动窗口聚类">滑动窗口聚类</h3>
+<p>核心逻辑在 <code>cluster</code> 函数（<code>modules/pakku.lua:578</code>）中，用一个 <code>nearby</code> 数组维护当前窗口内的候选组：</p>
+<figure class="highlight lua"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _, ir <span class="keyword">in</span> <span class="built_in">ipairs</span>(irs) <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">local</span> dm_time_ms = (ir.dm.<span class="built_in">time</span> <span class="keyword">or</span> <span class="number">0</span>) * <span class="number">1000</span></span><br><span class="line">    <span class="comment">-- 移除过期的候选组</span></span><br><span class="line">    <span class="keyword">while</span> #nearby &gt; <span class="number">0</span> <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> dm_time_ms - nearby[<span class="number">1</span>].time_ms &gt; threshold_ms <span class="keyword">then</span></span><br><span class="line">            clusters[#clusters + <span class="number">1</span>] = nearby[<span class="number">1</span>]</span><br><span class="line">            <span class="built_in">table</span>.<span class="built_in">remove</span>(nearby, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">break</span> <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="comment">-- 从后往前扫描，找到相似的就归入</span></span><br><span class="line">    <span class="keyword">local</span> matched = <span class="literal">false</span></span><br><span class="line">    <span class="keyword">for</span> ci = #nearby, <span class="number">1</span>, <span class="number">-1</span> <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">local</span> <span class="built_in">rep</span> = nearby[ci].irs_list[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> check_similar(ir.str, ir.mode, <span class="built_in">rep</span>.str, <span class="built_in">rep</span>.mode, cfg) <span class="keyword">then</span></span><br><span class="line">            nearby[ci].irs_list[#nearby[ci].irs_list + <span class="number">1</span>] = ir</span><br><span class="line">            matched = <span class="literal">true</span>; <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> matched <span class="keyword">then</span></span><br><span class="line">        nearby[#nearby + <span class="number">1</span>] = { irs_list = { ir }, time_ms = dm_time_ms }</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="密度调控">密度调控</h3>
+<p>合并后的弹幕会被打上 <code>[xN]</code> 标记，同时根据屏幕显示密度动态调整。</p>
+<p><strong>字号放大</strong>：合并数越多的弹幕，字号越大，让热门弹幕更醒目。放大系数是合并数的对数，上限为 2 倍：<br>
+<mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -0.566ex;" xmlns="http://www.w3.org/2000/svg" width="25.736ex" height="2.262ex" role="img" focusable="false" viewBox="0 -750 11375.1 1000"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D45F" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(728.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="mo" transform="translate(1784.6,0)"><path data-c="6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path data-c="69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z" transform="translate(833,0)"></path><path data-c="6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z" transform="translate(1111,0)"></path></g><g data-mml-node="mo" transform="translate(3451.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(3840.6,0)"><path data-c="6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path data-c="6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z" transform="translate(278,0)"></path><path data-c="67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z" transform="translate(778,0)"></path></g><g data-mml-node="mo" transform="translate(5118.6,0)"><path data-c="2061" d=""></path></g><g data-mml-node="mi" transform="translate(5285.2,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(5885.2,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mo" transform="translate(6329.9,0)"><path data-c="2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path></g><g data-mml-node="mn" transform="translate(6774.6,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mo" transform="translate(7274.6,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g><g data-mml-node="mo" transform="translate(7663.6,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mi" transform="translate(8052.6,0)"><path data-c="1D45B" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></g><g data-mml-node="mo" transform="translate(8930.3,0)"><path data-c="3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path></g><g data-mml-node="mn" transform="translate(9986.1,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path></g><g data-mml-node="mo" transform="translate(10986.1,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></svg></mjx-container></p>
+<p>10 条以内的合并不会放大字号，超过 10 条后按对数增长，最大 2 倍。合并 100 条的弹幕字号翻倍，合并 1000 条也是 2 倍。</p>
+<p><strong>密度计算</strong>：屏幕上的显示密度与文本长度的平方根成正比，与字号的 1.5 次方成正比：<br>
+<mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -2.148ex;" xmlns="http://www.w3.org/2000/svg" width="15.611ex" height="5.876ex" role="img" focusable="false" viewBox="0 -1647.5 6900.2 2597"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D70C" d="M58 -216Q25 -216 23 -186Q23 -176 73 26T127 234Q143 289 182 341Q252 427 341 441Q343 441 349 441T359 442Q432 442 471 394T510 276Q510 219 486 165T425 74T345 13T266 -10H255H248Q197 -10 165 35L160 41L133 -71Q108 -168 104 -181T92 -202Q76 -216 58 -216ZM424 322Q424 359 407 382T357 405Q322 405 287 376T231 300Q217 269 193 170L176 102Q193 26 260 26Q298 26 334 62Q367 92 389 158T418 266T424 322Z"></path></g><g data-mml-node="mo" transform="translate(794.8,0)"><path data-c="3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path></g><g data-mml-node="msqrt" transform="translate(1850.6,0)"><g transform="translate(853,0)"><g data-mml-node="mi"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path></g></g><g data-mml-node="mo" transform="translate(0,156.7)"><path data-c="221A" d="M95 178Q89 178 81 186T72 200T103 230T169 280T207 309Q209 311 212 311H213Q219 311 227 294T281 177Q300 134 312 108L397 -77Q398 -77 501 136T707 565T814 786Q820 800 834 800Q841 800 846 794T853 782V776L620 293L385 -193Q381 -200 366 -200Q357 -200 354 -197Q352 -195 256 15L160 225L144 214Q129 202 113 190T95 178Z"></path></g><rect width="298" height="60" x="853" y="896.7"></rect></g><g data-mml-node="msup" transform="translate(3001.6,0)"><g data-mml-node="mrow"><g data-mml-node="mo" transform="translate(0 -0.5)"><path data-c="28" d="M701 -940Q701 -943 695 -949H664Q662 -947 636 -922T591 -879T537 -818T475 -737T412 -636T350 -511T295 -362T250 -186T221 17T209 251Q209 962 573 1361Q596 1386 616 1405T649 1437T664 1450H695Q701 1444 701 1441Q701 1436 681 1415T629 1356T557 1261T476 1118T400 927T340 675T308 359Q306 321 306 250Q306 -139 400 -430T690 -924Q701 -936 701 -940Z"></path></g><g data-mml-node="mfrac" transform="translate(736,0)"><g data-mml-node="mi" transform="translate(460,676)"><path data-c="1D451" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path></g><g data-mml-node="mn" transform="translate(220,-686)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(500,0)"></path></g><rect width="1200" height="60" x="120" y="220"></rect></g><g data-mml-node="mo" transform="translate(2176,0) translate(0 -0.5)"><path data-c="29" d="M34 1438Q34 1446 37 1448T50 1450H56H71Q73 1448 99 1423T144 1380T198 1319T260 1238T323 1137T385 1013T440 864T485 688T514 485T526 251Q526 134 519 53Q472 -519 162 -860Q139 -885 119 -904T86 -936T71 -949H56Q43 -949 39 -947T34 -937Q88 -883 140 -813Q428 -430 428 251Q428 453 402 628T338 922T245 1146T145 1309T46 1425Q44 1427 42 1429T39 1433T36 1436L34 1438Z"></path></g></g><g data-mml-node="TeXAtom" transform="translate(2945,1176.6) scale(0.707)" data-mjx-texclass="ORD"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(500,0)"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(778,0)"></path></g></g></g></g></g></svg></mjx-container></p>
+<p>当屏幕上累积的 display value 超过阈值时，会触发 ** 缩小（shrink）<strong>或</strong>丢弃（drop）** 策略 —— 密度超限时整体缩小字号，超限严重时直接跳过低优先级弹幕不渲染。</p>
+<h2 id="实际效果">实际效果</h2>
+<p><img src="/img/uosc_danmaku/pakkujs-demo.png" alt="弹幕合并效果"></p>
+<p>还不错吧！</p>
+<hr>
+<div class="lyrics-container">
+    <div class="song-info">
+        <p class="song-title"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z"></path>
+            </svg> 刹那，夏日悄然落幕</p>
+    </div>
+    <div class="lyrics-display">
+        <div class="lyric-item">
+            <div class="original-lyric">その髪、指先に触れたら</div>
+            <div class="translated-lyric">若指尖能触碰你那发丝的话</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">世界が明日で終わってもいいさ</div>
+            <div class="translated-lyric">即使世界明天终结也无妨吧</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">この道すがら 嵐が吹けど</div>
+            <div class="translated-lyric">纵使前路有狂风暴雨肆虐</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">全てを越え あなたに会いにゆく</div>
+            <div class="translated-lyric">也要跨越一切 前去与你相会</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">その先に何が、何が私を待つんだ</div>
+            <div class="translated-lyric">在那前方究竟有什么 有什么在等待着我</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">得るのは自分の満足か、刹那に去る快楽か</div>
+            <div class="translated-lyric">得到的只是自我满足 还是转瞬即逝的娱乐</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">道の先で陽炎がゆらゆら揺れている</div>
+            <div class="translated-lyric">道路前方升腾的热浪正摇摇曳曳的晃动</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">今でも心がふらふら揺れている</div>
+            <div class="translated-lyric">时至今日我的心依然摇摇晃晃不能安定</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">あなたを思えば思うほどに揺る</div>
+            <div class="translated-lyric">越是思念着 心越是动摇</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">それは愛か弱さなのか、刹那</div>
+            <div class="translated-lyric">那究竟是爱？还是软弱呢？刹那之间</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">夏が終わっていく</div>
+            <div class="translated-lyric">夏天悄然落幕</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">あなたを愛して 私を愛している</div>
+            <div class="translated-lyric">我爱着你 也爱着此刻的自己</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">いつまでこうしている？</div>
+            <div class="translated-lyric">还要这样持续到何时？</div>
+        </div>
+        <div class="lyric-item">
+            <div class="original-lyric">夏が終わっていく</div>
+            <div class="translated-lyric">夏天走向终结</div>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mpv/" rel="tag"><i class="fa fa-tag"></i> mpv</a>
+              <a href="/tags/danmaku/" rel="tag"><i class="fa fa-tag"></i> danmaku</a>
+              <a href="/tags/pakku/" rel="tag"><i class="fa fa-tag"></i> pakku</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/02/21/DiscoElysium/" rel="prev" title="一切荒诞的、与瑞瓦肖和龙舌兰日落">
+                  <i class="fa fa-angle-left"></i> 一切荒诞的、与瑞瓦肖和龙舌兰日落
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Epi</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/episvr" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"forest","dark":"forest"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"https://comment.episvr.top/","libUrl":"https://unpkg.com/@waline/client@3.15.2/dist/waline.umd.js","cssUrl":"https://unpkg.com/@waline/client@3.15.2/dist/waline.css","emoji":["https://github.elemecdn.com/@waline/emojis@1.2.0/tieba/","https://github.elemecdn.com/@waline/emojis@1.2.0/bilibili/","https://github.elemecdn.com/@waline/emojis@1.2.0/qq/","https://github.elemecdn.com/@waline/emojis@1.1.0/weibo","https://cdn.jsdelivr.net/gh/norevi/blob-emoji-for-waline@2.0/blobs-gif"],"locale":{"nick":"昵称","mail":"邮箱","link":"网址","placeholder":"你的评论是我最大的动力","anonymous":"匿匠","login":"登录"},"search":false,"reaction":["/img/comment/reaction1.gif","/img/comment/reaction2.gif","/img/comment/reaction3.gif","/img/comment/reaction4.gif","/img/comment/reaction5.gif","/img/comment/reaction6.gif"],"avatar":"mp","pageSize":10,"visitor":false,"comment_count":false,"requiredFields":[],"el":"#waline","comment":true,"path":"/2026/06/29/uosc_danmaku-pakkujs/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@3.15.2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

@@ -4,7 +4,23 @@
   <link href="http://blog.episvr.top/atom.xml" rel="self"/>
   <link href="http://blog.episvr.top/"/>
   <id>http://blog.episvr.top/</id>
-  <updated>2026-06-29T06:55:09.678Z</updated>
+  <updated>2026-06-29T08:54:13.647Z</updated>
+  <entry>
+    <title>在 uosc_danmaku 中集成 pakkujs 弹幕合并算法</title>
+    <link href="http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/"/>
+    <id>http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/</id>
+    <published>2026-06-28T16:00:00.000Z</published>
+    <updated>2026-06-29T08:52:05.767Z</updated>
+    <summary type="html"><![CDATA[记录如何将 pakku.js 的弹幕合并算法移植到 mpv Lua 插件 uosc_danmaku 中]]></summary>
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>最近搭建了一个 Openlist 站点，存了很多番剧，于是便开始爽爽看番了。</p>
+<p>但是出现了一个小问题。</p>
+<p>我是用 mpv 看番的，然后装了很有名的插件 uosc_danmaku，这样就可以在 mpv]]></content>
+    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    <category term="mpv" scheme="http://blog.episvr.top/tags/mpv/"/>
+    <category term="danmaku" scheme="http://blog.episvr.top/tags/danmaku/"/>
+    <category term="pakku" scheme="http://blog.episvr.top/tags/pakku/"/>
+  </entry>
   <entry>
     <title>a PR for kew</title>
     <link href="http://blog.episvr.top/2026/01/31/PR-Kew/"/>
@@ -30,17 +46,5 @@
 <p><img]]></content>
     <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
     <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
-  </entry>
-  <entry>
-    <title>第八日的谜：FDUPHWriteup</title>
-    <link href="http://blog.episvr.top/2025/04/27/FDUPHWriteup/"/>
-    <id>http://blog.episvr.top/2025/04/27/FDUPHWriteup/</id>
-    <published>2025-04-26T16:00:00.000Z</published>
-    <updated>2026-01-28T07:23:56.840Z</updated>
-    <summary type="html"><![CDATA[Puzzle hunt是一种高度综合性的解谜活动。FDU Puzzle Hunt是复旦大学推理协会谜题分部策划的puzzle hunt解谜活动，面向校内同学与社会公众。此篇文章是对其的赛后回顾。]]></summary>
-    <content type="html"><![CDATA[<p>因为已经具体针对每一题写过 writeup 了，所以这里贴一个<a]]></content>
-    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
-    <category term="random_note" scheme="http://blog.episvr.top/tags/random-note/"/>
-    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
   </entry>
 </feed>
