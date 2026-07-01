@@ -1460,7 +1460,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f059bd;
+    background: #ffff01;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2982,7 +2982,7 @@ header.header {
     padding: 10px 12px;
   }
 }
-@import url("https://fonts.loli.net/css2?family=Caveat:wght@400;600;700&family=Long+Cang&family=Yuji+Mai&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@900&family=Yellowtail&family=JetBrains+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Long+Cang&family=Yuji+Mai&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@900&family=Yellowtail&family=JetBrains+Mono:wght@400;700&display=swap");
 :root {
   --theme-primary: #00acc1;
   --theme-secondary: #4dd0e1;
