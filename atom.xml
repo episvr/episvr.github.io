@@ -1,51 +1,409 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Epi's Blog</title>
+  <title>Epi&#39;s Blog</title>
+  
+  
   <link href="http://blog.episvr.top/atom.xml" rel="self"/>
+  
   <link href="http://blog.episvr.top/"/>
+  <updated>2026-06-29T15:35:17.506Z</updated>
   <id>http://blog.episvr.top/</id>
-  <updated>2026-07-03T08:31:01.165Z</updated>
+  
+  <author>
+    <name>Epi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
   <entry>
     <title>一次关于 Thinkpad T420 的升级</title>
     <link href="http://blog.episvr.top/2026/06/29/Thinkpad-T420-Upgrade/"/>
     <id>http://blog.episvr.top/2026/06/29/Thinkpad-T420-Upgrade/</id>
     <published>2026-06-29T13:13:00.000Z</published>
     <updated>2026-06-29T15:35:17.506Z</updated>
-    <summary type="html"><![CDATA[对 ThinkPad T420 进行 CPU、内存、散热、C壳 的全面升级改造记录]]></summary>
-    <content type="html"><![CDATA[<p>前情提要：Install Debian on ThinkPad-T420</p>
-<p>之前估计的运行强度好像低了一点，实际用这台笔记本工作的时候总觉得不太跟手，加上第一次清灰的时候 <s>不小心</s>]]></content>
+    
+    
+    <summary type="html">对 ThinkPad T420 进行 CPU、内存、散热、C壳 的全面升级改造记录</summary>
+    
+    
+    
     <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    
+    
     <category term="linux" scheme="http://blog.episvr.top/tags/linux/"/>
+    
     <category term="thinkpad" scheme="http://blog.episvr.top/tags/thinkpad/"/>
+    
   </entry>
+  
   <entry>
     <title>在 uosc_danmaku 中集成 pakkujs 弹幕合并算法</title>
     <link href="http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/"/>
     <id>http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/</id>
     <published>2026-06-28T16:00:00.000Z</published>
     <updated>2026-06-29T08:52:05.767Z</updated>
-    <summary type="html"><![CDATA[记录如何将 pakku.js 的弹幕合并算法移植到 mpv Lua 插件 uosc_danmaku 中]]></summary>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2>
-<p>最近搭建了一个 Openlist 站点，存了很多番剧，于是便开始爽爽看番了。</p>
-<p>但是出现了一个小问题。</p>
-<p>我是用 mpv 看番的，然后装了很有名的插件 uosc_danmaku，这样就可以在 mpv]]></content>
+    
+    
+    <summary type="html">记录如何将 pakku.js 的弹幕合并算法移植到 mpv Lua 插件 uosc_danmaku 中</summary>
+    
+    
+    
     <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    
+    
     <category term="mpv" scheme="http://blog.episvr.top/tags/mpv/"/>
+    
     <category term="danmaku" scheme="http://blog.episvr.top/tags/danmaku/"/>
+    
     <category term="pakku" scheme="http://blog.episvr.top/tags/pakku/"/>
+    
   </entry>
+  
   <entry>
     <title>a PR for kew</title>
     <link href="http://blog.episvr.top/2026/01/31/PR-Kew/"/>
     <id>http://blog.episvr.top/2026/01/31/PR-Kew/</id>
     <published>2026-01-30T16:00:00.000Z</published>
     <updated>2026-06-29T15:35:50.118Z</updated>
-    <summary type="html"><![CDATA[这大概是我第一次认真地向一个开源项目提交 PR。]]></summary>
-    <content type="html"><![CDATA[<p>这大概是我第一次认真地向一个开源项目提交 PR。<br>
-在上篇博客里我提到，我装上了 Debian。<br>
-如果你注意过那张截图的右侧，会看到一个运行在终端里的音乐播放器 ——<strong>kew</strong> 。</p>
-<p><img]]></content>
+    
+    
+    <summary type="html">这大概是我第一次认真地向一个开源项目提交 PR。</summary>
+    
+    
+    
     <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    
+    
     <category term="open-source" scheme="http://blog.episvr.top/tags/open-source/"/>
+    
   </entry>
+  
+  <entry>
+    <title>Install Debian on ThinkPad-T420</title>
+    <link href="http://blog.episvr.top/2026/01/28/Thinkpad-T420/"/>
+    <id>http://blog.episvr.top/2026/01/28/Thinkpad-T420/</id>
+    <published>2026-01-27T16:00:00.000Z</published>
+    <updated>2026-06-29T15:35:16.204Z</updated>
+    
+    
+    <summary type="html">我一直想收一台二手笔记本玩玩 Linux，终于下手了，本篇文章是记录这件事的部分流程</summary>
+    
+    
+    
+    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    
+    
+    <category term="linux" scheme="http://blog.episvr.top/tags/linux/"/>
+    
+    <category term="thinkpad" scheme="http://blog.episvr.top/tags/thinkpad/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第八日的谜：FDUPHWriteup</title>
+    <link href="http://blog.episvr.top/2025/04/27/FDUPHWriteup/"/>
+    <id>http://blog.episvr.top/2025/04/27/FDUPHWriteup/</id>
+    <published>2025-04-26T16:00:00.000Z</published>
+    <updated>2026-06-29T15:36:06.211Z</updated>
+    
+    
+    <summary type="html">Puzzle hunt是一种高度综合性的解谜活动。FDU Puzzle Hunt是复旦大学推理协会谜题分部策划的puzzle hunt解谜活动，面向校内同学与社会公众。此篇文章是对其的赛后回顾。</summary>
+    
+    
+    
+    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    
+    
+    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自表达的代码（命名篇）</title>
+    <link href="http://blog.episvr.top/2025/04/09/SelfexprCodes01/"/>
+    <id>http://blog.episvr.top/2025/04/09/SelfexprCodes01/</id>
+    <published>2025-04-08T16:00:00.000Z</published>
+    <updated>2026-06-29T15:35:52.453Z</updated>
+    
+    
+    <summary type="html">课上不会教但是感觉必须要会的又一座大山。众所周知：组织得好的代码可以省去大量写文档注释的时间，看着赏心悦目，而且便于调 Bug。那么怎么写出这种并非“非人类”的代码呢？</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习小记 (二)</title>
+    <link href="http://blog.episvr.top/2025/03/24/NeuralNetwork02/"/>
+    <id>http://blog.episvr.top/2025/03/24/NeuralNetwork02/</id>
+    <published>2025-03-23T16:00:00.000Z</published>
+    <updated>2026-01-28T07:25:36.182Z</updated>
+    
+    
+    <summary type="html">在上一篇博客中，我们共同了解了神经网络的基本原理，这一次将聚焦于代码层次讨论如何“写”出一个神经网络。</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cornsnakey Meta Writeup - 每逢佳节倍思戚</title>
+    <link href="http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/"/>
+    <id>http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/</id>
+    <published>2025-03-03T16:00:00.000Z</published>
+    <updated>2026-06-29T15:36:04.171Z</updated>
+    
+    
+    <summary type="html">本文是 蛇Hunt 的 meta &quot;每逢佳节倍思&quot; 的赛后回顾</summary>
+    
+    
+    
+    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    
+    
+    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>三月三俳句记</title>
+    <link href="http://blog.episvr.top/2025/03/03/Haiku-Notes/"/>
+    <id>http://blog.episvr.top/2025/03/03/Haiku-Notes/</id>
+    <published>2025-03-02T16:00:00.000Z</published>
+    <updated>2026-06-29T15:35:46.878Z</updated>
+    
+    
+    <summary type="html">朋友过 20 岁生日，根据他朋友圈写的自庆诗即兴写了俳句。这里做个小记录。</summary>
+    
+    
+    
+    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    
+    
+    <category term="poetry" scheme="http://blog.episvr.top/tags/poetry/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习小记 (一)</title>
+    <link href="http://blog.episvr.top/2025/02/28/NeuralNetwork01/"/>
+    <id>http://blog.episvr.top/2025/02/28/NeuralNetwork01/</id>
+    <published>2025-02-27T16:00:00.000Z</published>
+    <updated>2026-01-28T07:25:36.112Z</updated>
+    
+    
+    <summary type="html">你说的对，但是【神经网络】是由【沃伦·麦卡洛克】和【沃尔特·皮茨】研发的开放世界推理游戏。在这款游戏中，玩家将被赋予【高等数学】和【线性代数】的武器，编不下去了…</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新年第一 hunt：Cornsnaky write up</title>
+    <link href="http://blog.episvr.top/2025/02/09/CornsnakeyWriteup/"/>
+    <id>http://blog.episvr.top/2025/02/09/CornsnakeyWriteup/</id>
+    <published>2025-02-08T16:00:00.000Z</published>
+    <updated>2026-06-29T15:36:05.107Z</updated>
+    
+    
+    <summary type="html">Writeup for Cornsnakey hunt！</summary>
+    
+    
+    
+    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    
+    
+    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>有惊无险的数据抢救</title>
+    <link href="http://blog.episvr.top/2025/02/07/Data-Recovery-Log/"/>
+    <id>http://blog.episvr.top/2025/02/07/Data-Recovery-Log/</id>
+    <published>2025-02-06T16:00:00.000Z</published>
+    <updated>2026-06-29T15:35:45.872Z</updated>
+    
+    
+    <summary type="html">一次摔跤引发的一场绞尽脑汁地数据转移战。</summary>
+    
+    
+    
+    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    
+    
+    <category term="tech" scheme="http://blog.episvr.top/tags/tech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>This is a test</title>
+    <link href="http://blog.episvr.top/2025/02/02/Test-Lyrics-and-Mahjong/"/>
+    <id>http://blog.episvr.top/2025/02/02/Test-Lyrics-and-Mahjong/</id>
+    <published>2025-02-01T16:00:00.000Z</published>
+    <updated>2026-06-29T15:35:49.069Z</updated>
+    
+    
+    <summary type="html">歌词样式的测试，顺便塞了记了记我老家的麻将规则</summary>
+    
+    
+    
+    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    
+    
+    <category term="poetry" scheme="http://blog.episvr.top/tags/poetry/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Epi 的组合数学笔记</title>
+    <link href="http://blog.episvr.top/2025/01/07/Combinatorics/"/>
+    <id>http://blog.episvr.top/2025/01/07/Combinatorics/</id>
+    <published>2025-01-06T16:00:00.000Z</published>
+    <updated>2026-06-29T15:35:44.429Z</updated>
+    
+    
+    <summary type="html">组合数学 第4版 (卢开澄，卢华明编著) 第一，二章的内容。</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="math" scheme="http://blog.episvr.top/tags/math/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Puzzlers&#39; Day 2024@BJ 总结</title>
+    <link href="http://blog.episvr.top/2024/12/30/Pzdaybj2024/"/>
+    <id>http://blog.episvr.top/2024/12/30/Pzdaybj2024/</id>
+    <published>2024-12-29T16:00:00.000Z</published>
+    <updated>2026-06-29T15:36:00.249Z</updated>
+    
+    
+    <summary type="html">哇，是Puzzlers&#39; Day 2024@BJ！文末有谜题！</summary>
+    
+    
+    
+    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    
+    
+    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Missing Semester 学习总结（上）</title>
+    <link href="http://blog.episvr.top/2024/09/05/MissingSemester/"/>
+    <id>http://blog.episvr.top/2024/09/05/MissingSemester/</id>
+    <published>2024-09-04T16:00:00.000Z</published>
+    <updated>2026-01-28T07:25:11.249Z</updated>
+    
+    
+    <summary type="html">传奇课程missing semester，威大，无需多验</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《图灵完备》卡关记录 1：锁存器</title>
+    <link href="http://blog.episvr.top/2024/09/03/TuringComplete/"/>
+    <id>http://blog.episvr.top/2024/09/03/TuringComplete/</id>
+    <published>2024-09-02T16:00:00.000Z</published>
+    <updated>2026-06-29T15:35:51.228Z</updated>
+    
+    
+    <summary type="html">传奇计算机组成原理模拟器。推荐外挂：数电教材。</summary>
+    
+    
+    
+    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+    <category term="game" scheme="http://blog.episvr.top/tags/game/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>题解：[NOIP1998 提高组] 车站</title>
+    <link href="http://blog.episvr.top/2024/08/24/LuoguAlgo/"/>
+    <id>http://blog.episvr.top/2024/08/24/LuoguAlgo/</id>
+    <published>2024-08-23T16:00:00.000Z</published>
+    <updated>2026-01-28T07:25:11.228Z</updated>
+    
+    
+    <summary type="html">认真分析就能避免爆破</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>光线投射算法</title>
+    <link href="http://blog.episvr.top/2024/06/22/RayCast/"/>
+    <id>http://blog.episvr.top/2024/06/22/RayCast/</id>
+    <published>2024-06-21T16:00:00.000Z</published>
+    <updated>2026-01-28T07:25:11.167Z</updated>
+    
+    
+    <summary type="html">伪3D?会高中数学就能做到！</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 常用命令学习与实战</title>
+    <link href="http://blog.episvr.top/2024/06/14/Linux/"/>
+    <id>http://blog.episvr.top/2024/06/14/Linux/</id>
+    <published>2024-06-13T16:00:00.000Z</published>
+    <updated>2026-01-28T07:25:10.996Z</updated>
+    
+    
+    <summary type="html">shell命令真是...</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    
+  </entry>
+  
 </feed>
