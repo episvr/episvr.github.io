@@ -1335,7 +1335,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #3299ff;
+    background: #ffff3b;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2813,6 +2813,42 @@ header.header {
   }
 }
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Long+Cang&family=Yuji+Mai&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@900&family=Yellowtail&family=JetBrains+Mono:wght@400;700&display=swap");
+@font-face {
+  font-family: 'Latin Modern Roman';
+  src: url("/fonts/lm/lmroman10-regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Latin Modern Roman';
+  src: url("/fonts/lm/lmroman10-italic.otf") format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Latin Modern Roman';
+  src: url("/fonts/lm/lmroman10-bold.otf") format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Latin Modern Roman';
+  src: url("/fonts/lm/lmroman10-bolditalic.otf") format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Latin Modern Mono';
+  src: url("/fonts/lm/lmmono10-regular.otf") format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Latin Modern Mono';
+  src: url("/fonts/lm/lmmono10-italic.otf") format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
 :root {
   --theme-primary: #00acc1;
   --theme-secondary: #4dd0e1;
@@ -2857,6 +2893,189 @@ header.header {
     --theme-shadow-neon: 0 0 12px rgba(77,208,225,0.4);
     --theme-shadow-solid: 5px 5px 0 var(--theme-primary);
   }
+}
+.post-body {
+  font-family: 'Latin Modern Roman', 'Noto Serif SC', 'Songti SC', 'SimSun', serif !important;
+  font-size: 15.5px;
+  line-height: 1.618;
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  font-weight: 700;
+  font-family: 'Latin Modern Roman', 'Noto Serif SC', 'STHeiti', 'SimSun', serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+.post-body h1 .header-anchor,
+.post-body h2 .header-anchor,
+.post-body h3 .header-anchor,
+.post-body h4 .header-anchor,
+.post-body h5 .header-anchor,
+.post-body h6 .header-anchor,
+.post-body h1 .headerlink,
+.post-body h2 .headerlink,
+.post-body h3 .headerlink,
+.post-body h4 .headerlink,
+.post-body h5 .headerlink,
+.post-body h6 .headerlink {
+  float: left !important;
+  margin-left: 0;
+  margin-right: 8px;
+}
+.post-body h1 {
+  text-align: center;
+  font-size: 1.9em;
+  margin-top: 0.5em;
+}
+.post-body h2 {
+  font-size: 1.5em;
+  counter-increment: h2-counter;
+  counter-reset: h3-counter h4-counter h5-counter h6-counter;
+}
+.post-body h2::before {
+  content: counter(h2-counter) " ";
+  margin-right: 0.6em;
+}
+.post-body h3 {
+  font-size: 1.25em;
+  counter-increment: h3-counter;
+  counter-reset: h4-counter h5-counter h6-counter;
+}
+.post-body h3::before {
+  content: counter(h2-counter) "." counter(h3-counter) " ";
+  margin-right: 0.6em;
+}
+.post-body h4 {
+  font-size: 1.15em;
+  counter-increment: h4-counter;
+  counter-reset: h5-counter h6-counter;
+}
+.post-body h4::before {
+  content: counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) " ";
+  margin-right: 0.6em;
+}
+.post-body h5 {
+  font-size: 1.1em;
+  counter-increment: h5-counter;
+  counter-reset: h6-counter;
+}
+.post-body h5::before {
+  content: counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) "." counter(h5-counter) " ";
+  margin-right: 0.6em;
+}
+.post-body h6 {
+  font-size: 1.05em;
+  counter-increment: h6-counter;
+}
+.post-body h6::before {
+  content: counter(h2-counter) "." counter(h3-counter) "." counter(h4-counter) "." counter(h5-counter) "." counter(h6-counter) " ";
+  margin-right: 0.6em;
+}
+.post-body p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.618;
+}
+.post-body blockquote {
+  font-style: normal;
+  border-left: 4px solid #b3b3b3;
+  background: transparent;
+  padding-left: calc(2em - 4px);
+  padding-right: 2em;
+  margin-left: 0;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  box-shadow: none;
+  border-radius: 0;
+  color: inherit;
+  overflow: visible;
+  font-family: 'Latin Modern Roman', 'STFangsong', 'FangSong', serif;
+  font-size: 1.05em;
+  line-height: 1.618;
+}
+.post-body blockquote::before {
+  display: none;
+}
+.post-body blockquote blockquote {
+  font-size: inherit;
+  padding-right: 0;
+}
+.post-body code {
+  color: #3c70c6;
+  background-color: #fefefe;
+  box-shadow: 0 0 1px 1px #c8d3df;
+  font-family: 'Latin Modern Mono', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  margin: 0 2px;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.post-body pre {
+  font-family: 'Latin Modern Mono', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 0.85em;
+}
+.post-body pre code {
+  box-shadow: none;
+  color: inherit;
+  background: inherit;
+}
+.post-body table {
+  border-top: 1.2pt solid;
+  border-bottom: 1.2pt solid;
+  text-align: center;
+  width: auto;
+  margin: 0 auto;
+  border-spacing: 6px;
+  border-left: none;
+  border-right: none;
+}
+.post-body table thead {
+  border-bottom: 0.5pt solid;
+  font-weight: 700;
+}
+.post-body table th,
+.post-body table td {
+  border: none;
+  padding: 2px 6px;
+}
+.post-body hr {
+  border-top: solid 1px #ddd;
+  margin-top: 1.8em;
+  margin-bottom: 1.8em;
+}
+.post-body ul {
+  list-style: disc;
+}
+.post-body ul ul {
+  list-style: "–   ";
+}
+.post-body ol {
+  list-style: decimal;
+}
+.post-body ol ol {
+  counter-reset: liist;
+  list-style: none;
+}
+.post-body ol ol > li {
+  counter-increment: liist;
+  position: relative;
+}
+.post-body ol ol > li::before {
+  content: "(" counter(liist, lower-alpha) ")";
+  position: absolute;
+  left: -1.8em;
+}
+.post-body img {
+  break-inside: avoid-page;
+}
+.post-body .post-toc {
+  font-size: 0.95em;
+}
+.post {
+  counter-reset: h2-counter;
 }
 .lyrics-container {
   background-repeat: no-repeat;
