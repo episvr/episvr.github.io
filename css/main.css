@@ -1335,7 +1335,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffff3b;
+    background: #ff836e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3013,15 +3013,6 @@ header.header {
   padding: 0 2px;
   border-radius: 2px;
 }
-.post-body pre {
-  font-family: 'Latin Modern Mono', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
-  font-size: 0.85em;
-}
-.post-body pre code {
-  box-shadow: none;
-  color: inherit;
-  background: inherit;
-}
 .post-body table {
   border-top: 1.2pt solid;
   border-bottom: 1.2pt solid;
@@ -3040,6 +3031,24 @@ header.header {
 .post-body table td {
   border: none;
   padding: 2px 6px;
+}
+.post-body pre,
+.post-body figure.highlight {
+  margin: 0 0 20px 0;
+  font-family: 'Latin Modern Mono', 'JetBrains Mono', 'Consolas', 'Courier New', monospace;
+  font-size: 0.85em;
+}
+.post-body pre code,
+.post-body figure.highlight code {
+  box-shadow: none;
+  color: inherit;
+  background: inherit;
+}
+.post-body figure.highlight table {
+  border: 0;
+  margin: 0;
+  width: auto;
+  text-align: left;
 }
 .post-body hr {
   border-top: solid 1px #ddd;
