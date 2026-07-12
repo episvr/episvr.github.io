@@ -270,8 +270,7 @@
 <p>这样，hash 值可以充当内容的指针，这对于 Git 核心的跳转功能至关重要。</p>
 <h3 id="抽象出的四种对象">抽象出的四种对象</h3>
 <p>Git 有四种对象类型。</p>
-<p>首先，作为一个文件系统，它抽象出了 <code>blob</code>（<strong>文件内容</strong>）[^1] 和 <code>tree</code>（<strong>文件结构</strong>），通过这两个对象，我们就很容易地复现一个时刻的文件系统。</p>
-<p>[^1]: 顺便一提，blob 的全称是 Binary Large Object。</p>
+<p>首先，作为一个文件系统，它抽象出了 <code>blob</code>（<strong>文件内容</strong>）<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 和 <code>tree</code>（<strong>文件结构</strong>），通过这两个对象，我们就很容易地复现一个时刻的文件系统。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">blob {</span><br><span class="line">    data: <span class="built_in">bytes</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tree {</span><br><span class="line">    entries: [</span><br><span class="line">        { mode: <span class="built_in">str</span>, name: <span class="built_in">str</span>, <span class="built_in">hash</span>: <span class="built_in">str</span> },</span><br><span class="line">        ...</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>为了能实现 Git 的 commit 功能，我们需要一个记录相关信息的数据结构，命名当然就是 <code>commit</code>。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">commit {</span><br><span class="line">    tree: <span class="built_in">hash</span>,          </span><br><span class="line">    parents: [<span class="built_in">hash</span>, ...],</span><br><span class="line">    author: <span class="built_in">str</span>,</span><br><span class="line">    committer: <span class="built_in">str</span>,</span><br><span class="line">    message: <span class="built_in">str</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
@@ -310,9 +309,8 @@
 <p>这里有一个层次需要区分清楚：</p>
 <ul>
 <li><strong>对象层</strong>：每个 commit 记录的是完整快照，不存在跨版本的 diff。这是 Git 的逻辑模型。</li>
-<li><strong>存储层</strong>：松散对象是逐个独立存储的；而打包对象 [^2] 为了压缩体积，会在多个相似对象之间做压缩。这是一种透明的物理优化，不影响对象层的语义。</li>
+<li><strong>存储层</strong>：松散对象是逐个独立存储的；而打包对象 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> 为了压缩体积，会在多个相似对象之间做压缩。这是一种透明的物理优化，不影响对象层的语义。</li>
 </ul>
-<p>[^2]: 关于打包对象，见 3.4 节</p>
 <p>换句话说，当你通过 <code>git cat-file</code> 读取一个 blob 时，无论它底层是松散对象还是 打包对象，你拿到的永远是完整的内容。delta 压缩只是节省磁盘空间的手段，Git 的对象模型本身并不感知它的存在。</p>
 <p>这里有一个常见的误解需要澄清：Git 并不是 "擅长存文本文件，不能存二进制文件"。实际上 Git 对所有文件都一视同仁，把它们都当作完整的 blob 存储。无论修改一个文本文件还是修改一个 docx，都会生成一个完整的新 blob。</p>
 <p>两者的区别不在于 Git 的存储方式，而在于：</p>
@@ -361,9 +359,8 @@
 <p>path：<code>.git/index</code></p>
 <p>前面讲过 Git 有三个工作区域：工作区、暂存区、仓库。</p>
 <p>暂存区在磁盘上的对应物就是 <code>.git/index</code> 这个二进制文件。其记录着文件和哈希的联系，也记录着文件的元信息（修改时间，文件模式，文件路径等等）。这也是它叫 index 的原因。</p>
-<p>可以用 <code>git ls-files --stage</code> 查看 index 的内容，其记录了文件模式，哈希值，文件状态 [^3]，文件名等信息：</p>
+<p>可以用 <code>git ls-files --stage</code> 查看 index 的内容，其记录了文件模式，哈希值，文件状态 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，文件名等信息：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git ls-files --stage</span><br><span class="line"><span class="comment"># 100644 196f02f0*   0        foo.txt</span></span><br><span class="line"><span class="comment"># [mode] [blob hash] [stage]  [name]</span></span><br></pre></td></tr></tbody></table></figure>
-<p>[^3]: stage 用于处理合并冲突。正常情况下所有文件都是 stage 0。</p>
 <p>至此，我们就大概能猜到 <code>git status</code> 的判断逻辑了：</p>
 <ol>
 <li>比较<strong>工作区</strong>和 <code>.git/index</code>：文件有没有改？</li>
@@ -456,9 +453,21 @@
 </ol>
 <p>一般来说不需要手动运行 <code>git gc</code>，Git 在某些操作（如 <code>push</code>、<code>merge</code>）后会自动触发。这也意味着几乎所有的操作都可以被撤销 —— 误删的文件、误删的分支，只要 gc 还没跑，就能用 <code>git fsck</code> 找回。</p>
 <h2 id="结语">结语</h2>
-<p>重新看 Git，它的实现其实非常地简洁，在搞清楚原理后，其基本上就等价于一个 BTC [^4] 管理系统。然而，其对于文件寻址哈希的巧妙设计和整体的得当设计着实令人折服。</p>
+<p>重新看 Git，它的实现其实非常地简洁，在搞清楚原理后，其基本上就等价于一个 BTC<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup> 管理系统。然而，其对于文件寻址哈希的巧妙设计和整体的得当设计着实令人折服。</p>
 <p>这也是我在读完 Git 源码后最大的感受：好的系统不是把功能堆上去，而是在最底层就把问题建模对了。一旦模型对了，后面的一切 —— 分支、合并、变基 —— 都只是在这个数据结构上的不同遍历方式而已。</p>
-<p>[^4]: 笑点解析：B for blob，T for tree，C for commit，BTC for bitcoin。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>顺便一提，blob 的全称是 Binary Large Object。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>关于打包对象，见 3.4 节 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>stage 用于处理合并冲突。正常情况下所有文件都是 stage 0。 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>笑点解析：B for blob，T for tree，C for commit，BTC for bitcoin。 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 
     </div>
 
