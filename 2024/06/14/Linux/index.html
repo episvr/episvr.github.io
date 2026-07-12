@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="shell命令真是...">
 <meta property="og:type" content="article">
@@ -305,7 +305,12 @@
 <li>组合命令 - al 等</li>
 <li> ls 命令的 - F 选项（<em>flag</em>）</li>
 </ul>
-<figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">*</span> 表示可执行文件</span><br><span class="line">/ 表示目录</span><br><span class="line">@ 表示文件符号链接</span><br><span class="line">| 表示文件是管道文件</span><br><span class="line">= 表示文件是套接字</span><br><span class="line"><span class="quote">&gt; 表示进程间的通信设备</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight markdown"><span class="bullet">*</span> 表示可执行文件
+/ 表示目录
+@ 表示文件符号链接
+| 表示文件是管道文件
+= 表示文件是套接字
+<span class="quote">&gt; 表示进程间的通信设备</span></code></pre>
 <ul>
 <li>ls 命令的 - d 选项（<em>directory</em>）只显示目录本身的信息</li>
 <li> ls 命令的 - R 选项 （<em>recursive</em>）递归地显示目录及其所有子目录中的文件信息</li>
@@ -347,7 +352,7 @@
 <ul>
 <li>
 <p>硬链接</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln file-existed file-linked</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">ln file-existed file-linked</code></pre>
 <ul>
 <li>硬链接不能跨越文件系统。因为文件名不是文件的属性，因此可以在同一个文件系统下让某个文件只存储一个副本，但是该副本具有与原文件不同的名字。这可以通过使用 ln 命令为文件创建硬链接来实现。</li>
 <li>索引节点一致，只是文件名不同</li>
@@ -355,7 +360,7 @@
 </li>
 <li>
 <p>软链接</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s file-existed file-linked</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">ln -s file-existed file-linked</code></pre>
 <ul>
 <li>当需要在两个不同的文件系统之间创建链接时，只能创建软链接</li>
 <li>索引节点不同，是两个文件</li>
@@ -378,10 +383,14 @@
 <p>新文件 <code>cat &gt;fileB &lt;&lt;EOF</code></p>
 <h2 id="more命令-more">more 命令 <em><strong>more</strong></em></h2>
 <p><strong>查看多页文件的内容</strong></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">more FileName</span><br><span class="line"> Enter 下一行</span><br><span class="line"> b     上一页</span><br><span class="line"> 空格  下一页</span><br><span class="line"> q     结束命令</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">more FileName
+ Enter 下一行
+ b     上一页
+ 空格  下一页
+ q     结束命令</code></pre>
 <h2 id="head命令-head">head 命令 <em><strong>head</strong></em></h2>
 <p><strong>显示文件前几行的内容</strong></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head [option] file</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">head [option] file</code></pre>
 <ul>
 <li>没有选项的 head 命令
 <ul>
@@ -421,7 +430,8 @@
 <h2 id="diff命令-different">diff 命令 <em><strong>different</strong></em></h2>
 <h2 id="find命令-find">find 命令 <em><strong>find</strong></em></h2>
 <p><strong>搜索指定名字的文件</strong></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find Pathname -option [-print] [-exec command{} ;]`</span><br><span class="line">`find Pathname -option [-print] [-ok command{} ;]</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">find Pathname -option [-print] [-exec command{} ;]`
+`find Pathname -option [-print] [-ok command{} ;]</code></pre>
 <ul>
 <li>find 命令的 - name 选项
 <ul>
@@ -445,14 +455,23 @@
 <ul>
 <li>[options] 的常用项 </li>
 </ul>
-<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-l  显示行数</span></span><br><span class="line"><span class="deletion">-w  显示单词数</span></span><br><span class="line"><span class="deletion">-c  字符数</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight diff"><span class="deletion">-l  显示行数</span>
+<span class="deletion">-w  显示单词数</span>
+<span class="deletion">-c  字符数</span></code></pre>
 <h2 id="whereis命令-where-is">whereis 命令 <em><strong>where is</strong></em></h2>
 <p><strong>在特定目录查找符合特定条件的文件</strong></p>
 <p>语法 <code>whereis [options] [-B DirList][-M DirList][-S DirList] Filelist</code></p>
 <ul>
 <li>[options] 的常用项 </li>
 </ul>
-<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-b                                          只查找二进制文件</span></span><br><span class="line"><span class="deletion">-f                                           不显示文件名的前的路径名称</span></span><br><span class="line"><span class="deletion">-m                                         仅查找man手册文件</span></span><br><span class="line"><span class="deletion">-s                                           仅查找源代码文件</span></span><br><span class="line"><span class="deletion">-u                                           反向查找</span></span><br><span class="line"><span class="deletion">-B DirList                               在设置的目录下查找二进制文件</span></span><br><span class="line"><span class="deletion">-M DirList                              在设置的目录下查找man手册文件</span></span><br><span class="line"><span class="deletion">-S DirList                               在设置的目录下查找源代码文件        </span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight diff"><span class="deletion">-b                                          只查找二进制文件</span>
+<span class="deletion">-f                                           不显示文件名的前的路径名称</span>
+<span class="deletion">-m                                         仅查找man手册文件</span>
+<span class="deletion">-s                                           仅查找源代码文件</span>
+<span class="deletion">-u                                           反向查找</span>
+<span class="deletion">-B DirList                               在设置的目录下查找二进制文件</span>
+<span class="deletion">-M DirList                              在设置的目录下查找man手册文件</span>
+<span class="deletion">-S DirList                               在设置的目录下查找源代码文件        </span></code></pre>
 <h2 id="which命令-which">which 命令 <em><strong>which</strong></em></h2>
 <p><strong>查找指定程序的文件在哪个文件下</strong></p>
 <p>语法→<code>which Command</code></p>
@@ -462,21 +481,30 @@
 <ul>
 <li>[options] 的常用选项 </li>
 </ul>
-<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-h                                          帮助 # help </span></span><br><span class="line"><span class="deletion">-V                                          版本信息  # version </span></span><br><span class="line"><span class="deletion">-q                                          安静模式，不显示错误信息 # quiet </span></span><br><span class="line"><span class="deletion">-i                                           忽略大小写  # ignore </span></span><br><span class="line"><span class="deletion">-c                                          仅输出指定的数量 # count </span></span><br><span class="line"><span class="deletion">-l num                                  最多输出num个条目</span></span><br><span class="line"><span class="deletion">-n num                                 最多显示n个输出</span></span><br><span class="line"><span class="deletion">-d DBPATH                           使用DBPATH指定的数据库 </span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight diff"><span class="deletion">-h                                          帮助 # help </span>
+<span class="deletion">-V                                          版本信息  # version </span>
+<span class="deletion">-q                                          安静模式，不显示错误信息 # quiet </span>
+<span class="deletion">-i                                           忽略大小写  # ignore </span>
+<span class="deletion">-c                                          仅输出指定的数量 # count </span>
+<span class="deletion">-l num                                  最多输出num个条目</span>
+<span class="deletion">-n num                                 最多显示n个输出</span>
+<span class="deletion">-d DBPATH                           使用DBPATH指定的数据库 </span></code></pre>
 <h2 id="sort-命令">sort 命令</h2>
 <p><strong>对文件内容进行排序</strong><br>
 <code>sort [options] FileName</code></p>
-<figure class="highlight diff"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-n : 数字值排序</span></span><br><span class="line"><span class="deletion">-M ：识别三字符月份，按时间排序</span></span><br><span class="line"><span class="deletion">-r ：反向排序</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight diff"><span class="deletion">-n : 数字值排序</span>
+<span class="deletion">-M ：识别三字符月份，按时间排序</span>
+<span class="deletion">-r ：反向排序</span></code></pre>
 <hr>
 <h1>任务五 文件和目录权限管理</h1>
 <p><strong>属主，属组，其他用户</strong><br>
 <strong>r（read）4 ，w（write）2， x（execute）1</strong><br>
 eg：rwxr----- 对应的是 740</p>
 <h2 id="chmod-命令-change-mode">chmod 命令 <em><strong>change mode</strong></em></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod [options] Mode file-or directory</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">chmod [options] Mode file-or directory</code></pre>
 <p>eg：<code>chmod 750 filename</code></p>
 <h2 id="chown-命令-change-owner">chown 命令 <em><strong>change owner</strong></em></h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chown [options] owner file-or directory</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">chown [options] owner file-or directory</code></pre>
 <hr>
 <h1>任务六 进程管理</h1>
 <p><strong>父进程，子进程，天生进程，兄弟进程，孤儿进程，僵尸进程</strong></p>
@@ -496,7 +524,7 @@ eg：rwxr----- 对应的是 740</p>
 <li>-pu</li>
 </ul>
 <h2 id="kill-命令">kill 命令</h2>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill [options] PID</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">kill [options] PID</code></pre>
 <ul>
 <li>-l</li>
 <li>PID</li>
@@ -505,7 +533,7 @@ eg：rwxr----- 对应的是 740</p>
 </ul>
 <h2 id="pgrep-命令">pgrep 命令</h2>
 <p><strong>搜索进程</strong></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pgrep [options] &lt;pattern&gt;</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">pgrep [options] &lt;pattern&gt;</code></pre>
 <ul>
 <li>-o</li>
 <li>-n</li>

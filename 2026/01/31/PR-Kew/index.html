@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="这大概是我第一次认真地向一个开源项目提交 PR。">
 <meta property="og:type" content="article">
@@ -295,7 +295,29 @@
 <p>我试图搞清楚目前处理到什么情况。</p>
 <p>我把那个负责处理文件名的函数单独拎出来，<br>
 写了一堆输入，一行一行地看它们的输出结果。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">===============================================================</span><br><span class="line">stripTrackNumbers=1            | Original Song Filename</span><br><span class="line">------------------------------ | ------------------------------</span><br><span class="line">test.flac                      | 1 test.flac</span><br><span class="line">Song.mp3                       | 01-Song.mp3</span><br><span class="line">Track.wav                      | 02. Track.wav</span><br><span class="line">Under Score.ogg                | 3_Under_Score.ogg</span><br><span class="line">Review.mp3                     | 5-Review.mp3</span><br><span class="line">,Comma.mp3                     | 6,Comma.mp3</span><br><span class="line">Dot.mp3                        | 7.Dot.mp3</span><br><span class="line">Test.mp3                       | 8 Test.mp3</span><br><span class="line">Another.mp3                    | 9.1 Another.mp3</span><br><span class="line">1s intro.mp3                   | 1s intro.mp3</span><br><span class="line">mp3                            | 2002.mp3</span><br><span class="line">7 09Prince.mp3                 | 1999_07_09Prince.mp3</span><br><span class="line">.mp3                           | 10-100.mp3</span><br><span class="line">66-90=2.flac                   | 8.32.666-90=2.flac</span><br><span class="line">=0.mp3                         | 50-50=0.mp3</span><br><span class="line">+2=5.gugugaga                  | .2+2=5.gugugaga</span><br><span class="line">NoNumber.mp3                   | NoNumber.mp3</span><br><span class="line">Percent.mp3                    | _90 Percent.mp3</span><br><span class="line">is the universe.mp3            | 42 is the universe.mp3</span><br><span class="line">===============================================================</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">===============================================================
+stripTrackNumbers=1            | Original Song Filename
+------------------------------ | ------------------------------
+test.flac                      | 1 test.flac
+Song.mp3                       | 01-Song.mp3
+Track.wav                      | 02. Track.wav
+Under Score.ogg                | 3_Under_Score.ogg
+Review.mp3                     | 5-Review.mp3
+,Comma.mp3                     | 6,Comma.mp3
+Dot.mp3                        | 7.Dot.mp3
+Test.mp3                       | 8 Test.mp3
+Another.mp3                    | 9.1 Another.mp3
+1s intro.mp3                   | 1s intro.mp3
+mp3                            | 2002.mp3
+7 09Prince.mp3                 | 1999_07_09Prince.mp3
+.mp3                           | 10-100.mp3
+66-90=2.flac                   | 8.32.666-90=2.flac
+=0.mp3                         | 50-50=0.mp3
++2=5.gugugaga                  | .2+2=5.gugugaga
+NoNumber.mp3                   | NoNumber.mp3
+Percent.mp3                    | _90 Percent.mp3
+is the universe.mp3            | 42 is the universe.mp3
+===============================================================</code></pre>
 <p>所谓的 “自动修正”，本身其实是有风险的。<br>
 它会在你毫无察觉的时候，替你做出决定。</p>
 <p>我停下来，看了很久。然后又想了一会儿，</p>
@@ -355,15 +377,27 @@
 <h2 id="重构的延续">重构的延续</h2>
 <p>PR 合并后，我并没有就此停下。那个被我暂时搁置的 “过度设计” 问题，一直在脑海里挥之不去。</p>
 <p>我注意到代码中还存在一些耦合问题。比如 <em><code>format_filename</code></em> 函数，它直接访问全局的 <em><code>appstate</code></em> 来获取用户设置：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (get_app_state()-&gt;uiSettings.stripTrackNumbers) {</span><br><span class="line">    <span class="comment">// 剥离轨道号的逻辑</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight c"><span class="keyword">if</span> (get_app_state()-&gt;uiSettings.stripTrackNumbers) {
+    <span class="comment">// 剥离轨道号的逻辑</span>
+}</code></pre>
 <p>于是我做了一个小小的 follow-up 重构：<br>
 把状态判断移到调用层，通过参数传递。</p>
 <p>首先修改 <code>format_filename</code> 函数：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改前</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">format_filename</span><span class="params">(<span class="type">char</span> *str)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改后</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">format_filename</span><span class="params">(<span class="type">char</span> *str, <span class="type">bool</span> strip_track_numbers)</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight c"><span class="comment">// 修改前</span>
+<span class="type">void</span> <span class="title function_">format_filename</span><span class="params">(<span class="type">char</span> *str)</span>
+
+<span class="comment">// 修改后</span>
+<span class="type">void</span> <span class="title function_">format_filename</span><span class="params">(<span class="type">char</span> *str, <span class="type">bool</span> strip_track_numbers)</span></code></pre>
 <p>然后更新所有调用点。在 <code>common_ui.c</code> 中：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// process_name 函数内</span></span><br><span class="line">format_filename(output, strip_track_numbers);</span><br><span class="line"></span><br><span class="line"><span class="comment">// process_name_scroll 函数内</span></span><br><span class="line">format_filename(output, strip_track_numbers);</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight c"><span class="comment">// process_name 函数内</span>
+format_filename(output, strip_track_numbers);
+
+<span class="comment">// process_name_scroll 函数内</span>
+format_filename(output, strip_track_numbers);</code></pre>
 <p>在 UI 层调用时，需要从 <code>ui-&gt;stripTrackNumbers</code> 获取设置：</p>
-<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// playlist_ui.c 中</span></span><br><span class="line">process_name(buffer, filename, max_name_width, ui-&gt;stripTrackNumbers, <span class="literal">true</span>);</span><br><span class="line">process_name_scroll(buffer, filename, max_name_width, is_same_name_as_last_time, ui-&gt;stripTrackNumbers);</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight c"><span class="comment">// playlist_ui.c 中</span>
+process_name(buffer, filename, max_name_width, ui-&gt;stripTrackNumbers, <span class="literal">true</span>);
+process_name_scroll(buffer, filename, max_name_width, is_same_name_as_last_time, ui-&gt;stripTrackNumbers);</code></pre>
 <p>这个把逻辑向 calling function 迁移的方法论，就是<strong>依赖注入 (Dependency Injection)</strong> 。</p>
 <p>重构后函数变得更纯，也更清晰。</p>
 <p>不过，维护者选择了一个更简单的实现方式，并亲自补上了代码。算是一个简单的后日谈</p>

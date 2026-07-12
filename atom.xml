@@ -6,7 +6,7 @@
   <link href="http://blog.episvr.top/atom.xml" rel="self"/>
   
   <link href="http://blog.episvr.top/"/>
-  <updated>2026-07-12T11:21:39.993Z</updated>
+  <updated>2026-07-12T11:37:44.182Z</updated>
   <id>http://blog.episvr.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://blog.episvr.top/2026/07/12/git-exploration/"/>
     <id>http://blog.episvr.top/2026/07/12/git-exploration/</id>
     <published>2026-07-11T16:00:00.000Z</published>
-    <updated>2026-07-12T11:21:39.993Z</updated>
+    <updated>2026-07-12T11:37:44.182Z</updated>
     
     
     <summary type="html">深入探讨Git的原理和底层机制，包括对象模型、存储实现和垃圾回收等。</summary>

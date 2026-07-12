@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="课上不会教但是感觉必须要会的又一座大山。众所周知：组织得好的代码可以省去大量写文档注释的时间，看着赏心悦目，而且便于调 Bug。那么怎么写出这种并非“非人类”的代码呢？">
 <meta property="og:type" content="article">
@@ -281,13 +281,66 @@
 <p>所以说：文档也要写，代码也要干净，这样才叫健全。</p>
 <h2 id="WHAT">WHAT</h2>
 <p>想一想：如果要建立一个班级 <code>Grade</code> 类，那么获取学生数量的方法怎么命名才算合适呢？</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">getStudentsCount</span>();</span><br><span class="line"><span class="built_in">countStudents</span>();</span><br><span class="line">students.<span class="built_in">size</span>();</span><br><span class="line"><span class="built_in">size</span>();</span><br><span class="line"><span class="built_in">studentsCount</span>();</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight cpp"><span class="built_in">getStudentsCount</span>();
+<span class="built_in">countStudents</span>();
+students.<span class="built_in">size</span>();
+<span class="built_in">size</span>();
+<span class="built_in">studentsCount</span>();</code></pre>
 <p>看起来好像都不错，不过仔细分析的话 ——</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grade.<span class="built_in">getStudentsCount</span>(); <span class="comment">// get 是多余的</span></span><br><span class="line">grade.<span class="built_in">countStudents</span>();    <span class="comment">// 感觉是动态计数</span></span><br><span class="line">grade.students.<span class="built_in">size</span>();    <span class="comment">// 还行？</span></span><br><span class="line">grade.<span class="built_in">size</span>();             <span class="comment">// 歧义</span></span><br><span class="line">grade.<span class="built_in">studentsCount</span>();    <span class="comment">// 最佳！</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight cpp">grade.<span class="built_in">getStudentsCount</span>(); <span class="comment">// get 是多余的</span>
+grade.<span class="built_in">countStudents</span>();    <span class="comment">// 感觉是动态计数</span>
+grade.students.<span class="built_in">size</span>();    <span class="comment">// 还行？</span>
+grade.<span class="built_in">size</span>();             <span class="comment">// 歧义</span>
+grade.<span class="built_in">studentsCount</span>();    <span class="comment">// 最佳！</span></code></pre>
 <p>对比之下 <code>studentCount()</code> 的命名最直观易懂。</p>
 <p>阅读下面的两段代码：</p>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (keyCode) {</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_SPACE:</span><br><span class="line">        <span class="comment">// 处理空格键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_LEFT:</span><br><span class="line">        <span class="comment">// 处理左箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_RIGHT:</span><br><span class="line">        <span class="comment">// 处理右箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_UP:</span><br><span class="line">        <span class="comment">// 处理上箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_DOWN:</span><br><span class="line">        <span class="comment">// 处理下箭头键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON1:</span><br><span class="line">        <span class="comment">// 处理按钮 1</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON2:</span><br><span class="line">        <span class="comment">// 处理按钮 2</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON3:</span><br><span class="line">        <span class="comment">// 处理按钮 3</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> KEYCODE_BUTTON4:</span><br><span class="line">        <span class="comment">// 处理按钮 4</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="comment">// 处理其他按键</span></span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">onKeyDown</span><span class="params">(<span class="type">int</span> keyCode, <span class="type">const</span> KeyEvent&amp; event)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (event.<span class="built_in">isPrintingKey</span>()) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">appendInput</span>(keyCode);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isArrowKey</span>(keyCode)) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">moveCursor</span>(keyCode);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isChannelKey</span>(keyCode)) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">appendInput</span>(<span class="built_in">convertChannelToNumber</span>(keyCode));</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isFunctionalKey</span>(keyCode)) {</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">processFunctionalKey</span>(keyCode);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight cpp"><span class="keyword">switch</span> (keyCode) {
+    <span class="keyword">case</span> KEYCODE_SPACE:
+        <span class="comment">// 处理空格键</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_LEFT:
+        <span class="comment">// 处理左箭头键</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_RIGHT:
+        <span class="comment">// 处理右箭头键</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_UP:
+        <span class="comment">// 处理上箭头键</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_DOWN:
+        <span class="comment">// 处理下箭头键</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_BUTTON1:
+        <span class="comment">// 处理按钮 1</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_BUTTON2:
+        <span class="comment">// 处理按钮 2</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_BUTTON3:
+        <span class="comment">// 处理按钮 3</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> KEYCODE_BUTTON4:
+        <span class="comment">// 处理按钮 4</span>
+        <span class="keyword">break</span>;
+    <span class="keyword">default</span>:
+        <span class="comment">// 处理其他按键</span>
+        <span class="keyword">break</span>;
+}</code></pre>
+<pre><code class="highlight cpp"><span class="function"><span class="type">bool</span> <span class="title">onKeyDown</span><span class="params">(<span class="type">int</span> keyCode, <span class="type">const</span> KeyEvent&amp; event)</span> </span>{
+    <span class="keyword">if</span> (event.<span class="built_in">isPrintingKey</span>()) {
+        <span class="keyword">return</span> <span class="built_in">appendInput</span>(keyCode);
+    }
+    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isArrowKey</span>(keyCode)) {
+        <span class="keyword">return</span> <span class="built_in">moveCursor</span>(keyCode);
+    }
+    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isChannelKey</span>(keyCode)) {
+        <span class="keyword">return</span> <span class="built_in">appendInput</span>(<span class="built_in">convertChannelToNumber</span>(keyCode));
+    }
+    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isFunctionalKey</span>(keyCode)) {
+        <span class="keyword">return</span> <span class="built_in">processFunctionalKey</span>(keyCode);
+    }
+    <span class="keyword">return</span> <span class="literal">false</span>;
+}</code></pre>
 <p>虽然第一种代码有很完整的注释，但是似乎还是第二种代码更好读一点，这就是自表达代码的优秀之处。</p>
 <h2 id="HOW">HOW</h2>
 <p>首先能做到的就是命名的改进了。</p>

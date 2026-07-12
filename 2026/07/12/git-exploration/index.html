@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="深入探讨Git的原理和底层机制，包括对象模型、存储实现和垃圾回收等。">
 <meta property="og:type" content="article">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://blog.episvr.top/img/git-exploration/oh-my-git-game.png">
 <meta property="og:image" content="http://blog.episvr.top/img/git-exploration/git-object-decode.png">
 <meta property="article:published_time" content="2026-07-11T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-07-12T11:21:39.993Z">
+<meta property="article:modified_time" content="2026-07-12T11:37:44.182Z">
 <meta property="article:author" content="Epi">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -223,7 +223,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2026-07-12 00:00:00 / Modified: 19:21:39" itemprop="dateCreated datePublished" datetime="2026-07-12T00:00:00+08:00">2026-07-12</time>
+      <time title="Created: 2026-07-12 00:00:00 / Modified: 19:37:44" itemprop="dateCreated datePublished" datetime="2026-07-12T00:00:00+08:00">2026-07-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,22 +265,52 @@
 <h2 id="Git-的数据结构抽象">Git 的数据结构抽象</h2>
 <p>总的来说，Git 是一个附加了提交信息的文件系统。</p>
 <h3 id="存储是一个哈希表">存储是一个哈希表</h3>
-<p>首先，==Git 的存储可以看作一个内容寻址的 <strong>哈希表</strong> ==：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># object：type + " " + length + "\0" + content</span></span><br><span class="line"><span class="comment"># hash：sha1(object)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">store</span>(<span class="params"><span class="built_in">type</span>, content</span>):</span><br><span class="line">    obj = <span class="string">f"<span class="subst">{<span class="built_in">type</span>}</span> <span class="subst">{<span class="built_in">len</span>(content)}</span>\0<span class="subst">{content}</span>"</span></span><br><span class="line">    <span class="built_in">hash</span> = sha1(obj)</span><br><span class="line">    <span class="built_in">map</span>[<span class="built_in">hash</span>] = zlib.compress(obj)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">hash</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load</span>(<span class="params"><span class="built_in">hash</span></span>):</span><br><span class="line">    <span class="keyword">return</span> zlib.decompress(<span class="built_in">map</span>[<span class="built_in">hash</span>])</span><br></pre></td></tr></tbody></table></figure>
+<p>首先，Git 的存储可以看作一个内容寻址的 <strong>哈希表</strong>：</p>
+<pre><code class="highlight python"><span class="comment"># object：type + " " + length + "\0" + content</span>
+<span class="comment"># hash：sha1(object)</span>
+<span class="keyword">def</span> <span class="title function_">store</span>(<span class="params"><span class="built_in">type</span>, content</span>):
+    obj = <span class="string">f"<span class="subst">{<span class="built_in">type</span>}</span> <span class="subst">{<span class="built_in">len</span>(content)}</span>\0<span class="subst">{content}</span>"</span>
+    <span class="built_in">hash</span> = sha1(obj)
+    <span class="built_in">map</span>[<span class="built_in">hash</span>] = zlib.compress(obj)
+    <span class="keyword">return</span> <span class="built_in">hash</span>
+
+<span class="keyword">def</span> <span class="title function_">load</span>(<span class="params"><span class="built_in">hash</span></span>):
+    <span class="keyword">return</span> zlib.decompress(<span class="built_in">map</span>[<span class="built_in">hash</span>])</code></pre>
 <p>这样，hash 值可以充当内容的指针，这对于 Git 核心的跳转功能至关重要。</p>
 <h3 id="抽象出的四种对象">抽象出的四种对象</h3>
 <p>Git 有四种对象类型。</p>
 <p>首先，作为一个文件系统，它抽象出了 <code>blob</code>（<strong>文件内容</strong>）<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 和 <code>tree</code>（<strong>文件结构</strong>），通过这两个对象，我们就很容易地复现一个时刻的文件系统。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">blob {</span><br><span class="line">    data: <span class="built_in">bytes</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">tree {</span><br><span class="line">    entries: [</span><br><span class="line">        { mode: <span class="built_in">str</span>, name: <span class="built_in">str</span>, <span class="built_in">hash</span>: <span class="built_in">str</span> },</span><br><span class="line">        ...</span><br><span class="line">    ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight python">blob {
+    data: <span class="built_in">bytes</span>
+}
+
+tree {
+    entries: [
+        { mode: <span class="built_in">str</span>, name: <span class="built_in">str</span>, <span class="built_in">hash</span>: <span class="built_in">str</span> },
+        ...
+    ]
+}</code></pre>
 <p>为了能实现 Git 的 commit 功能，我们需要一个记录相关信息的数据结构，命名当然就是 <code>commit</code>。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">commit {</span><br><span class="line">    tree: <span class="built_in">hash</span>,          </span><br><span class="line">    parents: [<span class="built_in">hash</span>, ...],</span><br><span class="line">    author: <span class="built_in">str</span>,</span><br><span class="line">    committer: <span class="built_in">str</span>,</span><br><span class="line">    message: <span class="built_in">str</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight python">commit {
+    tree: <span class="built_in">hash</span>,          
+    parents: [<span class="built_in">hash</span>, ...],
+    author: <span class="built_in">str</span>,
+    committer: <span class="built_in">str</span>,
+    message: <span class="built_in">str</span>
+}</code></pre>
 <p>Git 的另一大特色是其能在各个 commit 间跳转。你可能熟知的有：<code>branch</code>、<code>HEAD</code> 等等。抽象地来看，它们都是 <code>ref</code>（<strong>引用</strong>）的一种。</p>
 <p>最后还有一种特殊的对象 —— <strong>附注标签（annotated tag）</strong>。它本质上也是指向某个 commit，但会额外保存标签名、创建者、备注等信息。轻量标签则只是一个 ref，不生成对象。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">tag {</span><br><span class="line">    <span class="built_in">object</span>: <span class="built_in">hash</span>,</span><br><span class="line">    <span class="built_in">type</span>: <span class="built_in">str</span>,</span><br><span class="line">    tag: <span class="built_in">str</span>,</span><br><span class="line">    tagger: <span class="built_in">str</span>,</span><br><span class="line">    message: <span class="built_in">str</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight python">tag {
+    <span class="built_in">object</span>: <span class="built_in">hash</span>,
+    <span class="built_in">type</span>: <span class="built_in">str</span>,
+    tag: <span class="built_in">str</span>,
+    tagger: <span class="built_in">str</span>,
+    message: <span class="built_in">str</span>
+}</code></pre>
 <p>至此，我们大致就有了如下的建模方式。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ref -&gt; commit -&gt; tree -&gt; (tree | blob)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight python">ref -&gt; commit -&gt; tree -&gt; (tree | blob)</code></pre>
 <p>值得注意的是，在这四种对象中，<strong>只有 <code>blob</code> 真正存储数据</strong>；<code>tree</code>、<code>commit</code>、<code>tag</code> 存储的都是指向其他对象的 hash（再加上一些元信息）。<code>ref</code> 则位于对象层之外，是一个命名指针。</p>
-<p>==blob 和 tree 构成了文件系统结构；commit 保存提交历史与元信息；ref 是指向某个 commit 的指针。==</p>
+<p>blob 和 tree 构成了文件系统结构；commit 保存提交历史与元信息；ref 是指向某个 commit 的指针。</p>
 <p>这就是 Git 对版本管理做出的抽象。</p>
 <h3 id="历史是有向无环图">历史是有向无环图</h3>
 <p>不难想到，所有的 commit 通过 <code>parents</code> 指针连接在一起，会形成一张<strong>有向无环图</strong>。它具有这些性质：</p>
@@ -336,23 +366,49 @@
 <li><strong>HEAD</strong>：符号引用，指向当前所在的分支或 commit</li>
 <li><strong> 远程跟踪分支</strong>：如 <code>origin/main</code>，记录最后一次看到的远程状态</li>
 </ul>
-<p>== <strong>分支并不是历史的一部分</strong> ==，它只是一个动态移动的标签。Ref 的具体实现我们会在后面的实现部分讲到。</p>
+<p><strong>分支并不是历史的一部分</strong>，它只是一个动态移动的标签。Ref 的具体实现我们会在后面的实现部分讲到。</p>
 <h2 id="Git-做出的实现">Git 做出的实现</h2>
 <p>当我们讲完了抽象，我们可以具体看看这些思想在 <code>.git</code> 目录中的落地。</p>
 <p>下面的脚本在目录下创建了一个简单的 Git 仓库，并用 Git 命令完成了一次提交：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="built_in">mkdir</span> myrepo &amp;&amp; <span class="built_in">cd</span> myrepo</span><br><span class="line">git init</span><br><span class="line"><span class="built_in">touch</span> foo.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello from foo"</span> &gt; foo.txt</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash"><span class="meta">#!/bin/bash</span>
+<span class="built_in">set</span> -e
+<span class="built_in">mkdir</span> myrepo &amp;&amp; <span class="built_in">cd</span> myrepo
+git init
+<span class="built_in">touch</span> foo.txt
+<span class="built_in">echo</span> <span class="string">"hello from foo"</span> &gt; foo.txt
+git add .
+git commit -m <span class="string">"first commit"</span></code></pre>
 <p>跑完这个脚本，我们可以观察到 <code>.git</code> 下出现了这样的目录结构（已做简化）。</p>
-<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">├── HEAD              ← 当前分支指向</span><br><span class="line">├── index             ← 暂存区</span><br><span class="line">├── objects/</span><br><span class="line">│   ├── 19/6f02f...   ← foo.txt 的 blob</span><br><span class="line">│   ├── 18/24eb6...   ← tree 对象</span><br><span class="line">│   ├── 38/e220d...   ← commit 对象</span><br><span class="line">│   └── pack/</span><br><span class="line">└── refs/</span><br><span class="line">    └── heads/</span><br><span class="line">        └── master    ← master 分支指针</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight text">├── HEAD              ← 当前分支指向
+├── index             ← 暂存区
+├── objects/
+│   ├── 19/6f02f...   ← foo.txt 的 blob
+│   ├── 18/24eb6...   ← tree 对象
+│   ├── 38/e220d...   ← commit 对象
+│   └── pack/
+└── refs/
+    └── heads/
+        └── master    ← master 分支指针</code></pre>
 <h3 id="对象存储">对象存储</h3>
 <p>path: <code>.git/objects/</code></p>
 <p>前面我们抽象出了 <code>blob</code>、<code>tree</code>、<code>commit</code>、<code>tag</code> 四种对象，现在来看看它们在磁盘上到底长什么样。所有对象都存放在 <code>.git/objects/</code> 目录下，Git 把每个对象单独存储为一个文件，称为<strong>松散对象</strong>，每个对象都有一个 40 位的哈希值：</p>
 <p>文件路径为 <code>.git/objects/aa/bbccddeeff...</code>，其中前两位 <code>aa</code> 是目录名，后面 38 位是文件名。</p>
 <p>文件内容的格式和我们之前伪代码里写的一样：</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原始内容</span></span><br><span class="line">obj = <span class="string">f"<span class="subst">{<span class="built_in">type</span>}</span> <span class="subst">{<span class="built_in">len</span>(content)}</span>\0<span class="subst">{content}</span>"</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight python"><span class="comment"># 原始内容</span>
+obj = <span class="string">f"<span class="subst">{<span class="built_in">type</span>}</span> <span class="subst">{<span class="built_in">len</span>(content)}</span>\0<span class="subst">{content}</span>"</span></code></pre>
 <p>先是对象类型（blob/tree/commit/tag），加一个空格，然后是内容长度，加一个 <code>\0</code> 分隔符，最后是实际内容。写入磁盘时，整个对象经过 zlib 压缩，通过 <code>file</code> 可以验证这一点：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file .git/objects/19/6f02*</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash">file .git/objects/19/6f02*</code></pre>
 <p>由于用 <code>git cat-file</code> 有点自证的意味，我们可以借助 python 来帮助我们试着解码一下三个文件的内容。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> zlib</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> path <span class="keyword">in</span> sys.argv[<span class="number">1</span>:]:</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(path, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        raw = f.read()</span><br><span class="line">    decompressed = zlib.decompress(raw)</span><br><span class="line">    header, content = decompressed.split(<span class="string">b"\0"</span>, <span class="number">1</span>)</span><br><span class="line">    sys.stdout.buffer.write(content)</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight python"><span class="comment">#!/usr/bin/env python3</span>
+<span class="keyword">import</span> zlib
+<span class="keyword">import</span> sys
+
+<span class="keyword">for</span> path <span class="keyword">in</span> sys.argv[<span class="number">1</span>:]:
+    <span class="keyword">with</span> <span class="built_in">open</span>(path, <span class="string">"rb"</span>) <span class="keyword">as</span> f:
+        raw = f.read()
+    decompressed = zlib.decompress(raw)
+    header, content = decompressed.split(<span class="string">b"\0"</span>, <span class="number">1</span>)
+    sys.stdout.buffer.write(content)</code></pre>
 <p><img src="/img/git-exploration/git-object-decode.png" alt="git-object-decode"></p>
 <p>不难验证可读性，我们还可以观察到 tree 文件中存储了对应 blob 文件的哈希（196f02…）</p>
 <h3 id="索引文件">索引文件</h3>
@@ -360,7 +416,9 @@
 <p>前面讲过 Git 有三个工作区域：工作区、暂存区、仓库。</p>
 <p>暂存区在磁盘上的对应物就是 <code>.git/index</code> 这个二进制文件。其记录着文件和哈希的联系，也记录着文件的元信息（修改时间，文件模式，文件路径等等）。这也是它叫 index 的原因。</p>
 <p>可以用 <code>git ls-files --stage</code> 查看 index 的内容，其记录了文件模式，哈希值，文件状态 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>，文件名等信息：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git ls-files --stage</span><br><span class="line"><span class="comment"># 100644 196f02f0*   0        foo.txt</span></span><br><span class="line"><span class="comment"># [mode] [blob hash] [stage]  [name]</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash">git ls-files --stage
+<span class="comment"># 100644 196f02f0*   0        foo.txt</span>
+<span class="comment"># [mode] [blob hash] [stage]  [name]</span></code></pre>
 <p>至此，我们就大概能猜到 <code>git status</code> 的判断逻辑了：</p>
 <ol>
 <li>比较<strong>工作区</strong>和 <code>.git/index</code>：文件有没有改？</li>
@@ -369,7 +427,8 @@
 <h3 id="引用存储">引用存储</h3>
 <p>前面在抽象层说过，ref 是指向某个对象的命名指针。现在来看看它们在磁盘上是什么样的。</p>
 <p>ref 本质上就是一个个<strong>纯文本文件</strong>，里面只存了一个 40 位的 hash。比如：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> .git/refs/heads/master</span><br><span class="line"><span class="comment"># 38e220d858dd396559239871ec9bcc6ac4d31552</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash"><span class="built_in">cat</span> .git/refs/heads/master
+<span class="comment"># 38e220d858dd396559239871ec9bcc6ac4d31552</span></code></pre>
 <p>就是这么简单 —— 一个文件名是 <code>master</code>，内容是某个 commit 的 hash。</p>
 <p>Git 的引用分散在 <code>.git</code> 目录中：</p>
 <table>
@@ -399,10 +458,12 @@
 </tbody>
 </table>
 <p><code>.git/HEAD</code> 比较特殊，它存的不是 hash，而是一个符号引用：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> .git/HEAD</span><br><span class="line"><span class="comment"># ref: refs/heads/master</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash"><span class="built_in">cat</span> .git/HEAD
+<span class="comment"># ref: refs/heads/master</span></code></pre>
 <p>意思是 " 当前 HEAD 指向 <code>master</code> 分支 "。当你 <code>git checkout feature</code> 时，Git 只需要把这个文件改成 <code>ref: refs/heads/feature</code> 就完成了分支切换。</p>
 <p>可以用 <code>git show-ref</code> 查看所有引用：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git show-ref</span><br><span class="line"><span class="comment"># 38e220d... refs/heads/master</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash">git show-ref
+<span class="comment"># 38e220d... refs/heads/master</span></code></pre>
 <p>由此观之，分支的 "自动前进" 也不神秘，只是改了一个文件里的一行文本。</p>
 <h3 id="打包文件">打包文件</h3>
 <p>path：<code>.git/objects/pack/</code></p>
@@ -421,7 +482,9 @@
 <li>将所有对象写入一个 <code>.pack</code> 文件，同时生成一个 <code>.idx</code> 索引文件用于快速查找</li>
 </ol>
 <p>打包后的文件存放在 <code>.git/objects/pack/</code> 下：</p>
-<figure class="highlight text"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.git/objects/pack/</span><br><span class="line">├── pack-abc123...-.pack   ← 包含所有对象数据</span><br><span class="line">└── pack-abc123...-.idx    ← 哈希到 pack 内偏移量的索引</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight text">.git/objects/pack/
+├── pack-abc123...-.pack   ← 包含所有对象数据
+└── pack-abc123...-.idx    ← 哈希到 pack 内偏移量的索引</code></pre>
 <h4 id="Delta-压缩">Delta 压缩</h4>
 <p>Delta 压缩是 packfile 节省空间的核心。假设你修改了一个 1000 行的文件，只改了 1 行：</p>
 <ul>
@@ -433,7 +496,12 @@
 <p>两种格式共存于同一个仓库中。新创建的对象总是先以松散对象写入，当数量达到阈值，Git 会自动触发打包。打包完成后，原有的松散对象会被删除。</p>
 <p>读取对象时，Git 会先查松散对象，再查 packfile。对使用者来说，这两种存储方式完全透明，不影响任何操作。</p>
 <p>可以通过 <code>git count-objects -v</code> 查看当前仓库的存储状况：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git count-objects -v</span><br><span class="line"><span class="comment"># count: 0          ← 松散对象数量</span></span><br><span class="line"><span class="comment"># size: 0           ← 松散对象总大小（KB）</span></span><br><span class="line"><span class="comment"># in-pack: 42       ← pack 中的对象数量</span></span><br><span class="line"><span class="comment"># packs: 1          ← pack 文件数量</span></span><br><span class="line"><span class="comment"># size-pack: 16     ← pack 文件大小（KB）</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash">git count-objects -v
+<span class="comment"># count: 0          ← 松散对象数量</span>
+<span class="comment"># size: 0           ← 松散对象总大小（KB）</span>
+<span class="comment"># in-pack: 42       ← pack 中的对象数量</span>
+<span class="comment"># packs: 1          ← pack 文件数量</span>
+<span class="comment"># size-pack: 16     ← pack 文件大小（KB）</span></code></pre>
 <p>如果 <code>count</code> 很大而 <code>in-pack</code> 很小，说明仓库中有大量松散对象尚未打包，可以手动运行 <code>git gc</code> 进行整理。</p>
 <h3 id="垃圾回收">垃圾回收</h3>
 <p>对象一旦创建就不会被修改，但会被 "遗弃"。当一个对象不再被任何 ref（分支、标签、HEAD）指向时，它就变成了<strong>孤立对象</strong>，仍然留在 <code>.git/objects/</code> 里，不会立即删除。</p>
@@ -444,7 +512,9 @@
 <li><code>git rebase</code>：变基会创建新的 commit 链，旧链上的 commit 可能失去 ref 指向</li>
 </ul>
 <p>可以用 <code>git fsck</code>（file system check）查看孤立对象：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fsck</span><br><span class="line"><span class="comment"># dangling commit abc123...</span></span><br><span class="line"><span class="comment"># dangling blob def456...</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight bash">git fsck
+<span class="comment"># dangling commit abc123...</span>
+<span class="comment"># dangling blob def456...</span></code></pre>
 <p><code>dangling</code> 就是 "悬空的"，即没有被任何 ref 指向。</p>
 <p>真正的清理由 <code>git gc</code>（garbage collection）完成，它会：</p>
 <ol>

@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#00ACC1","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="本文是 蛇Hunt 的 meta &quot;每逢佳节倍思&quot; 的赛后回顾">
 <meta property="og:type" content="article">
@@ -281,9 +281,56 @@
 <h2 id="探索阶段">探索阶段</h2>
 <p>首先简单的在文件夹里转了转，结果发现这也太复杂了！</p>
 <p>于是用了手段把所有的信息提取出来了：</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">mkdir</span> -p ./tmp</span><br><span class="line">find -<span class="built_in">type</span> f | <span class="keyword">while</span> <span class="built_in">read</span> -r file; <span class="keyword">do</span></span><br><span class="line">    base_name=$(<span class="built_in">basename</span> <span class="string">"<span class="variable">$file</span>"</span>)</span><br><span class="line">    target=<span class="string">"./tmp/<span class="variable">$base_name</span>"</span></span><br><span class="line">    count=1</span><br><span class="line">    <span class="keyword">while</span> [[ -e <span class="string">"<span class="variable">$target</span>"</span> ]]; <span class="keyword">do</span></span><br><span class="line">        count=$((count + <span class="number">1</span>))</span><br><span class="line">        target=<span class="string">"./tmp/<span class="variable">${base_name%.*}</span>(<span class="variable">$count</span>).<span class="variable">${base_name##*.}</span>"</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    <span class="built_in">cp</span> <span class="string">"<span class="variable">$file</span>"</span> <span class="string">"<span class="variable">$target</span>"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight sh"><span class="meta">#!/bin/bash</span>
+<span class="built_in">mkdir</span> -p ./tmp
+find -<span class="built_in">type</span> f | <span class="keyword">while</span> <span class="built_in">read</span> -r file; <span class="keyword">do</span>
+    base_name=$(<span class="built_in">basename</span> <span class="string">"<span class="variable">$file</span>"</span>)
+    target=<span class="string">"./tmp/<span class="variable">$base_name</span>"</span>
+    count=1
+    <span class="keyword">while</span> [[ -e <span class="string">"<span class="variable">$target</span>"</span> ]]; <span class="keyword">do</span>
+        count=$((count + <span class="number">1</span>))
+        target=<span class="string">"./tmp/<span class="variable">${base_name%.*}</span>(<span class="variable">$count</span>).<span class="variable">${base_name##*.}</span>"</span>
+    <span class="keyword">done</span>
+    <span class="built_in">cp</span> <span class="string">"<span class="variable">$file</span>"</span> <span class="string">"<span class="variable">$target</span>"</span>
+<span class="keyword">done</span></code></pre>
 <p>运行结果：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">├── 22222.txt</span><br><span class="line">├── 亲戚(2).png</span><br><span class="line">├── 亲戚(3).png</span><br><span class="line">├── 亲戚(4).png</span><br><span class="line">├── 亲戚(5).png</span><br><span class="line">├── 亲戚.png</span><br><span class="line">├── 偶遇的蛇.png</span><br><span class="line">├── 再走就离开这里了呢(2).txt</span><br><span class="line">├── 再走就离开这里了呢(3).txt</span><br><span class="line">├── 再走就离开这里了呢(4).txt</span><br><span class="line">├── 再走就离开这里了呢(5).txt</span><br><span class="line">├── 再走就离开这里了呢(6).txt</span><br><span class="line">├── 再走就离开这里了呢(7).txt</span><br><span class="line">├── 再走就离开这里了呢.txt</span><br><span class="line">├── 剧情(10).txt</span><br><span class="line">├── 剧情(11).txt</span><br><span class="line">├── 剧情(12).txt</span><br><span class="line">├── 剧情(13).txt</span><br><span class="line">├── 剧情(14).txt</span><br><span class="line">├── 剧情(15).txt</span><br><span class="line">├── 剧情(16).txt</span><br><span class="line">├── 剧情(17).txt</span><br><span class="line">├── 剧情(18).txt</span><br><span class="line">├── 剧情(2).txt</span><br><span class="line">├── 剧情(3).txt</span><br><span class="line">├── 剧情(4).txt</span><br><span class="line">├── 剧情(5).txt</span><br><span class="line">├── 剧情(6).txt</span><br><span class="line">├── 剧情(7).txt</span><br><span class="line">├── 剧情(8).txt</span><br><span class="line">├── 剧情(9).txt</span><br><span class="line">├── 剧情.txt</span><br><span class="line">├── 呀哈哈！.txt</span><br><span class="line">├── 玻璃碴0.png</span><br><span class="line">├── 玻璃碴1.png</span><br><span class="line">├── 玻璃碴2.png</span><br><span class="line">└── （5 8 7）</span><br></pre></td></tr></tbody></table></figure>
+<pre><code class="highlight plaintext">├── 22222.txt
+├── 亲戚(2).png
+├── 亲戚(3).png
+├── 亲戚(4).png
+├── 亲戚(5).png
+├── 亲戚.png
+├── 偶遇的蛇.png
+├── 再走就离开这里了呢(2).txt
+├── 再走就离开这里了呢(3).txt
+├── 再走就离开这里了呢(4).txt
+├── 再走就离开这里了呢(5).txt
+├── 再走就离开这里了呢(6).txt
+├── 再走就离开这里了呢(7).txt
+├── 再走就离开这里了呢.txt
+├── 剧情(10).txt
+├── 剧情(11).txt
+├── 剧情(12).txt
+├── 剧情(13).txt
+├── 剧情(14).txt
+├── 剧情(15).txt
+├── 剧情(16).txt
+├── 剧情(17).txt
+├── 剧情(18).txt
+├── 剧情(2).txt
+├── 剧情(3).txt
+├── 剧情(4).txt
+├── 剧情(5).txt
+├── 剧情(6).txt
+├── 剧情(7).txt
+├── 剧情(8).txt
+├── 剧情(9).txt
+├── 剧情.txt
+├── 呀哈哈！.txt
+├── 玻璃碴0.png
+├── 玻璃碴1.png
+├── 玻璃碴2.png
+└── （5 8 7）</code></pre>
 <p>读一读提取出来的文件，能看到很多有趣的信息：</p>
 <ol>
 <li>出现了神秘且精确的的时间信息</li>
