@@ -6,7 +6,7 @@
   <link href="http://blog.episvr.top/atom.xml" rel="self"/>
   
   <link href="http://blog.episvr.top/"/>
-  <updated>2026-07-04T15:57:36.595Z</updated>
+  <updated>2026-07-12T11:21:39.993Z</updated>
   <id>http://blog.episvr.top/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git 是怎么工作的</title>
+    <link href="http://blog.episvr.top/2026/07/12/git-exploration/"/>
+    <id>http://blog.episvr.top/2026/07/12/git-exploration/</id>
+    <published>2026-07-11T16:00:00.000Z</published>
+    <updated>2026-07-12T11:21:39.993Z</updated>
+    
+    
+    <summary type="html">深入探讨Git的原理和底层机制，包括对象模型、存储实现和垃圾回收等。</summary>
+    
+    
+    
+    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    
+    
+    <category term="git" scheme="http://blog.episvr.top/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>怎么为一个陌生的项目添加功能</title>
@@ -377,25 +396,6 @@
     
     
     <summary type="html">认真分析就能避免爆破</summary>
-    
-    
-    
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
-    
-    
-    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>光线投射算法</title>
-    <link href="http://blog.episvr.top/2024/06/22/RayCast/"/>
-    <id>http://blog.episvr.top/2024/06/22/RayCast/</id>
-    <published>2024-06-21T16:00:00.000Z</published>
-    <updated>2026-01-28T07:25:11.167Z</updated>
-    
-    
-    <summary type="html">伪3D?会高中数学就能做到！</summary>
     
     
     
