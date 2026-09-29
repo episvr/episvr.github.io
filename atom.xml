@@ -3,11 +3,11 @@
   <title>Epi&#39;s Blog</title>
   
   
-  <link href="http://blog.episvr.top/atom.xml" rel="self"/>
+  <link href="https://blog.episvr.top/atom.xml" rel="self"/>
   
-  <link href="http://blog.episvr.top/"/>
+  <link href="https://blog.episvr.top/"/>
   <updated>2026-09-24T08:30:41.116Z</updated>
-  <id>http://blog.episvr.top/</id>
+  <id>https://blog.episvr.top/</id>
   
   <author>
     <name>Epi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>我与我的保研回忆</title>
-    <link href="http://blog.episvr.top/2026/09/22/baoyan/"/>
-    <id>http://blog.episvr.top/2026/09/22/baoyan/</id>
+    <link href="https://blog.episvr.top/2026/09/22/baoyan/"/>
+    <id>https://blog.episvr.top/2026/09/22/baoyan/</id>
     <published>2026-09-21T16:00:00.000Z</published>
     <updated>2026-09-24T08:30:41.116Z</updated>
     
@@ -28,17 +28,17 @@
     
     
     
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    <category term="Diary" scheme="https://blog.episvr.top/categories/Diary/"/>
     
     
-    <category term="baoyan" scheme="http://blog.episvr.top/tags/baoyan/"/>
+    <category term="baoyan" scheme="https://blog.episvr.top/tags/baoyan/"/>
     
   </entry>
   
   <entry>
     <title>Git 是怎么工作的</title>
-    <link href="http://blog.episvr.top/2026/07/12/git-exploration/"/>
-    <id>http://blog.episvr.top/2026/07/12/git-exploration/</id>
+    <link href="https://blog.episvr.top/2026/07/12/git-exploration/"/>
+    <id>https://blog.episvr.top/2026/07/12/git-exploration/</id>
     <published>2026-07-11T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.803Z</updated>
     
@@ -47,17 +47,17 @@
     
     
     
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    <category term="Learning" scheme="https://blog.episvr.top/categories/Learning/"/>
     
     
-    <category term="git" scheme="http://blog.episvr.top/tags/git/"/>
+    <category term="git" scheme="https://blog.episvr.top/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>怎么为一个陌生的项目添加功能</title>
-    <link href="http://blog.episvr.top/2026/07/04/WorkWithUnfamiliarCode/"/>
-    <id>http://blog.episvr.top/2026/07/04/WorkWithUnfamiliarCode/</id>
+    <link href="https://blog.episvr.top/2026/07/04/WorkWithUnfamiliarCode/"/>
+    <id>https://blog.episvr.top/2026/07/04/WorkWithUnfamiliarCode/</id>
     <published>2026-07-03T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.786Z</updated>
     
@@ -66,17 +66,17 @@
     
     
     
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    <category term="Learning" scheme="https://blog.episvr.top/categories/Learning/"/>
     
     
-    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    <category term="coding" scheme="https://blog.episvr.top/tags/coding/"/>
     
   </entry>
   
   <entry>
     <title>一次关于 Thinkpad T420 的升级</title>
-    <link href="http://blog.episvr.top/2026/06/29/Thinkpad-T420-Upgrade/"/>
-    <id>http://blog.episvr.top/2026/06/29/Thinkpad-T420-Upgrade/</id>
+    <link href="https://blog.episvr.top/2026/06/29/Thinkpad-T420-Upgrade/"/>
+    <id>https://blog.episvr.top/2026/06/29/Thinkpad-T420-Upgrade/</id>
     <published>2026-06-29T13:13:00.000Z</published>
     <updated>2026-09-04T15:02:56.749Z</updated>
     
@@ -85,19 +85,19 @@
     
     
     
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    <category term="Diary" scheme="https://blog.episvr.top/categories/Diary/"/>
     
     
-    <category term="linux" scheme="http://blog.episvr.top/tags/linux/"/>
+    <category term="linux" scheme="https://blog.episvr.top/tags/linux/"/>
     
-    <category term="thinkpad" scheme="http://blog.episvr.top/tags/thinkpad/"/>
+    <category term="thinkpad" scheme="https://blog.episvr.top/tags/thinkpad/"/>
     
   </entry>
   
   <entry>
     <title>在 uosc_danmaku 中集成 pakkujs 弹幕合并算法</title>
-    <link href="http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/"/>
-    <id>http://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/</id>
+    <link href="https://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/"/>
+    <id>https://blog.episvr.top/2026/06/29/uosc_danmaku-pakkujs/</id>
     <published>2026-06-28T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.857Z</updated>
     
@@ -106,21 +106,21 @@
     
     
     
-    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    <category term="Repo" scheme="https://blog.episvr.top/categories/Repo/"/>
     
     
-    <category term="mpv" scheme="http://blog.episvr.top/tags/mpv/"/>
+    <category term="mpv" scheme="https://blog.episvr.top/tags/mpv/"/>
     
-    <category term="danmaku" scheme="http://blog.episvr.top/tags/danmaku/"/>
+    <category term="danmaku" scheme="https://blog.episvr.top/tags/danmaku/"/>
     
-    <category term="pakku" scheme="http://blog.episvr.top/tags/pakku/"/>
+    <category term="pakku" scheme="https://blog.episvr.top/tags/pakku/"/>
     
   </entry>
   
   <entry>
     <title>a PR for kew</title>
-    <link href="http://blog.episvr.top/2026/01/31/PR-Kew/"/>
-    <id>http://blog.episvr.top/2026/01/31/PR-Kew/</id>
+    <link href="https://blog.episvr.top/2026/01/31/PR-Kew/"/>
+    <id>https://blog.episvr.top/2026/01/31/PR-Kew/</id>
     <published>2026-01-30T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.735Z</updated>
     
@@ -129,17 +129,17 @@
     
     
     
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    <category term="Diary" scheme="https://blog.episvr.top/categories/Diary/"/>
     
     
-    <category term="open-source" scheme="http://blog.episvr.top/tags/open-source/"/>
+    <category term="open-source" scheme="https://blog.episvr.top/tags/open-source/"/>
     
   </entry>
   
   <entry>
     <title>Install Debian on ThinkPad-T420</title>
-    <link href="http://blog.episvr.top/2026/01/28/Thinkpad-T420/"/>
-    <id>http://blog.episvr.top/2026/01/28/Thinkpad-T420/</id>
+    <link href="https://blog.episvr.top/2026/01/28/Thinkpad-T420/"/>
+    <id>https://blog.episvr.top/2026/01/28/Thinkpad-T420/</id>
     <published>2026-01-27T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.756Z</updated>
     
@@ -148,19 +148,19 @@
     
     
     
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    <category term="Diary" scheme="https://blog.episvr.top/categories/Diary/"/>
     
     
-    <category term="linux" scheme="http://blog.episvr.top/tags/linux/"/>
+    <category term="linux" scheme="https://blog.episvr.top/tags/linux/"/>
     
-    <category term="thinkpad" scheme="http://blog.episvr.top/tags/thinkpad/"/>
+    <category term="thinkpad" scheme="https://blog.episvr.top/tags/thinkpad/"/>
     
   </entry>
   
   <entry>
     <title>第八日的谜：FDUPHWriteup</title>
-    <link href="http://blog.episvr.top/2025/04/27/FDUPHWriteup/"/>
-    <id>http://blog.episvr.top/2025/04/27/FDUPHWriteup/</id>
+    <link href="https://blog.episvr.top/2025/04/27/FDUPHWriteup/"/>
+    <id>https://blog.episvr.top/2025/04/27/FDUPHWriteup/</id>
     <published>2025-04-26T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.841Z</updated>
     
@@ -169,17 +169,17 @@
     
     
     
-    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    <category term="Repo" scheme="https://blog.episvr.top/categories/Repo/"/>
     
     
-    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    <category term="puzzle" scheme="https://blog.episvr.top/tags/puzzle/"/>
     
   </entry>
   
   <entry>
     <title>自表达的代码（命名篇）</title>
-    <link href="http://blog.episvr.top/2025/04/09/SelfexprCodes01/"/>
-    <id>http://blog.episvr.top/2025/04/09/SelfexprCodes01/</id>
+    <link href="https://blog.episvr.top/2025/04/09/SelfexprCodes01/"/>
+    <id>https://blog.episvr.top/2025/04/09/SelfexprCodes01/</id>
     <published>2025-04-08T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.778Z</updated>
     
@@ -188,17 +188,17 @@
     
     
     
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    <category term="Learning" scheme="https://blog.episvr.top/categories/Learning/"/>
     
     
-    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    <category term="coding" scheme="https://blog.episvr.top/tags/coding/"/>
     
   </entry>
   
   <entry>
     <title>深度学习小记 (二)</title>
-    <link href="http://blog.episvr.top/2025/03/24/NeuralNetwork02/"/>
-    <id>http://blog.episvr.top/2025/03/24/NeuralNetwork02/</id>
+    <link href="https://blog.episvr.top/2025/03/24/NeuralNetwork02/"/>
+    <id>https://blog.episvr.top/2025/03/24/NeuralNetwork02/</id>
     <published>2025-03-23T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.771Z</updated>
     
@@ -207,17 +207,17 @@
     
     
     
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    <category term="Learning" scheme="https://blog.episvr.top/categories/Learning/"/>
     
     
-    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    <category term="coding" scheme="https://blog.episvr.top/tags/coding/"/>
     
   </entry>
   
   <entry>
     <title>Cornsnakey Meta Writeup - 每逢佳节倍思戚</title>
-    <link href="http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/"/>
-    <id>http://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/</id>
+    <link href="https://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/"/>
+    <id>https://blog.episvr.top/2025/03/04/CornsnakeyMetaWriteup/</id>
     <published>2025-03-03T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.825Z</updated>
     
@@ -226,17 +226,17 @@
     
     
     
-    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    <category term="Repo" scheme="https://blog.episvr.top/categories/Repo/"/>
     
     
-    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    <category term="puzzle" scheme="https://blog.episvr.top/tags/puzzle/"/>
     
   </entry>
   
   <entry>
     <title>三月三俳句记</title>
-    <link href="http://blog.episvr.top/2025/03/03/Haiku-Notes/"/>
-    <id>http://blog.episvr.top/2025/03/03/Haiku-Notes/</id>
+    <link href="https://blog.episvr.top/2025/03/03/Haiku-Notes/"/>
+    <id>https://blog.episvr.top/2025/03/03/Haiku-Notes/</id>
     <published>2025-03-02T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.704Z</updated>
     
@@ -245,17 +245,17 @@
     
     
     
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    <category term="Diary" scheme="https://blog.episvr.top/categories/Diary/"/>
     
     
-    <category term="poetry" scheme="http://blog.episvr.top/tags/poetry/"/>
+    <category term="poetry" scheme="https://blog.episvr.top/tags/poetry/"/>
     
   </entry>
   
   <entry>
     <title>深度学习小记 (一)</title>
-    <link href="http://blog.episvr.top/2025/02/28/NeuralNetwork01/"/>
-    <id>http://blog.episvr.top/2025/02/28/NeuralNetwork01/</id>
+    <link href="https://blog.episvr.top/2025/02/28/NeuralNetwork01/"/>
+    <id>https://blog.episvr.top/2025/02/28/NeuralNetwork01/</id>
     <published>2025-02-27T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.771Z</updated>
     
@@ -264,17 +264,17 @@
     
     
     
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    <category term="Learning" scheme="https://blog.episvr.top/categories/Learning/"/>
     
     
-    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    <category term="coding" scheme="https://blog.episvr.top/tags/coding/"/>
     
   </entry>
   
   <entry>
     <title>新年第一 hunt：Cornsnaky write up</title>
-    <link href="http://blog.episvr.top/2025/02/09/CornsnakeyWriteup/"/>
-    <id>http://blog.episvr.top/2025/02/09/CornsnakeyWriteup/</id>
+    <link href="https://blog.episvr.top/2025/02/09/CornsnakeyWriteup/"/>
+    <id>https://blog.episvr.top/2025/02/09/CornsnakeyWriteup/</id>
     <published>2025-02-08T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.833Z</updated>
     
@@ -283,17 +283,17 @@
     
     
     
-    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    <category term="Repo" scheme="https://blog.episvr.top/categories/Repo/"/>
     
     
-    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    <category term="puzzle" scheme="https://blog.episvr.top/tags/puzzle/"/>
     
   </entry>
   
   <entry>
     <title>有惊无险的数据抢救</title>
-    <link href="http://blog.episvr.top/2025/02/07/Data-Recovery-Log/"/>
-    <id>http://blog.episvr.top/2025/02/07/Data-Recovery-Log/</id>
+    <link href="https://blog.episvr.top/2025/02/07/Data-Recovery-Log/"/>
+    <id>https://blog.episvr.top/2025/02/07/Data-Recovery-Log/</id>
     <published>2025-02-06T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.689Z</updated>
     
@@ -302,17 +302,17 @@
     
     
     
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    <category term="Diary" scheme="https://blog.episvr.top/categories/Diary/"/>
     
     
-    <category term="tech" scheme="http://blog.episvr.top/tags/tech/"/>
+    <category term="tech" scheme="https://blog.episvr.top/tags/tech/"/>
     
   </entry>
   
   <entry>
     <title>This is a test</title>
-    <link href="http://blog.episvr.top/2025/02/02/Test-Lyrics-and-Mahjong/"/>
-    <id>http://blog.episvr.top/2025/02/02/Test-Lyrics-and-Mahjong/</id>
+    <link href="https://blog.episvr.top/2025/02/02/Test-Lyrics-and-Mahjong/"/>
+    <id>https://blog.episvr.top/2025/02/02/Test-Lyrics-and-Mahjong/</id>
     <published>2025-02-01T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.728Z</updated>
     
@@ -321,17 +321,17 @@
     
     
     
-    <category term="Diary" scheme="http://blog.episvr.top/categories/Diary/"/>
+    <category term="Diary" scheme="https://blog.episvr.top/categories/Diary/"/>
     
     
-    <category term="poetry" scheme="http://blog.episvr.top/tags/poetry/"/>
+    <category term="poetry" scheme="https://blog.episvr.top/tags/poetry/"/>
     
   </entry>
   
   <entry>
     <title>Epi 的组合数学笔记</title>
-    <link href="http://blog.episvr.top/2025/01/07/Combinatorics/"/>
-    <id>http://blog.episvr.top/2025/01/07/Combinatorics/</id>
+    <link href="https://blog.episvr.top/2025/01/07/Combinatorics/"/>
+    <id>https://blog.episvr.top/2025/01/07/Combinatorics/</id>
     <published>2025-01-06T16:00:00.000Z</published>
     <updated>2026-09-05T02:53:59.441Z</updated>
     
@@ -340,17 +340,17 @@
     
     
     
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    <category term="Learning" scheme="https://blog.episvr.top/categories/Learning/"/>
     
     
-    <category term="math" scheme="http://blog.episvr.top/tags/math/"/>
+    <category term="math" scheme="https://blog.episvr.top/tags/math/"/>
     
   </entry>
   
   <entry>
     <title>Puzzlers&#39; Day 2024@BJ 总结</title>
-    <link href="http://blog.episvr.top/2024/12/30/Pzdaybj2024/"/>
-    <id>http://blog.episvr.top/2024/12/30/Pzdaybj2024/</id>
+    <link href="https://blog.episvr.top/2024/12/30/Pzdaybj2024/"/>
+    <id>https://blog.episvr.top/2024/12/30/Pzdaybj2024/</id>
     <published>2024-12-29T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.810Z</updated>
     
@@ -359,17 +359,17 @@
     
     
     
-    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    <category term="Repo" scheme="https://blog.episvr.top/categories/Repo/"/>
     
     
-    <category term="puzzle" scheme="http://blog.episvr.top/tags/puzzle/"/>
+    <category term="puzzle" scheme="https://blog.episvr.top/tags/puzzle/"/>
     
   </entry>
   
   <entry>
     <title>Missing Semester 学习总结（上）</title>
-    <link href="http://blog.episvr.top/2024/09/05/MissingSemester/"/>
-    <id>http://blog.episvr.top/2024/09/05/MissingSemester/</id>
+    <link href="https://blog.episvr.top/2024/09/05/MissingSemester/"/>
+    <id>https://blog.episvr.top/2024/09/05/MissingSemester/</id>
     <published>2024-09-04T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.758Z</updated>
     
@@ -378,17 +378,17 @@
     
     
     
-    <category term="Learning" scheme="http://blog.episvr.top/categories/Learning/"/>
+    <category term="Learning" scheme="https://blog.episvr.top/categories/Learning/"/>
     
     
-    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    <category term="coding" scheme="https://blog.episvr.top/tags/coding/"/>
     
   </entry>
   
   <entry>
     <title>《图灵完备》卡关记录 1：锁存器</title>
-    <link href="http://blog.episvr.top/2024/09/03/TuringComplete/"/>
-    <id>http://blog.episvr.top/2024/09/03/TuringComplete/</id>
+    <link href="https://blog.episvr.top/2024/09/03/TuringComplete/"/>
+    <id>https://blog.episvr.top/2024/09/03/TuringComplete/</id>
     <published>2024-09-02T16:00:00.000Z</published>
     <updated>2026-09-04T15:02:56.815Z</updated>
     
@@ -397,12 +397,12 @@
     
     
     
-    <category term="Repo" scheme="http://blog.episvr.top/categories/Repo/"/>
+    <category term="Repo" scheme="https://blog.episvr.top/categories/Repo/"/>
     
     
-    <category term="coding" scheme="http://blog.episvr.top/tags/coding/"/>
+    <category term="coding" scheme="https://blog.episvr.top/tags/coding/"/>
     
-    <category term="game" scheme="http://blog.episvr.top/tags/game/"/>
+    <category term="game" scheme="https://blog.episvr.top/tags/game/"/>
     
   </entry>
   
