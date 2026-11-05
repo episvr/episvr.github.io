@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#FF8C42"><meta name="generator" content="Hexo 8.1.2">
-
+  <link rel="preload" href="/css/main.css" as="style">
+<link rel="preconnect" href="https://gfonts.aby.pub" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
@@ -14,10 +16,10 @@
 
 <link rel="stylesheet" href="https://gfonts.aby.pub/css2?family=Noto+Serif+CJK+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yellowtail:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Long+Cang:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yuji+Mai:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="课上不会教但是感觉必须要会的又一座大山。众所周知：组织得好的代码可以省去大量写文档注释的时间，看着赏心悦目，而且便于调 Bug。那么怎么写出这种并非“非人类”的代码呢？">
 <meta property="og:type" content="article">
@@ -50,9 +52,9 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -70,7 +72,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.21/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.18.4/katex.min.css" integrity="sha256-GAwtd9Q019pR1mJcUKlk1P1v29ubyHlqCgFsMMSZMfs=" crossorigin="anonymous">
 
 
 <link rel="dns-prefetch" href="https://comment.episvr.top/">
@@ -86,12 +88,7 @@
   <main class="main">
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+  <div class="site-nav-search popup-trigger" aria-label="Search" role="button">
   </div>
 
   <div class="site-meta">
@@ -103,9 +100,8 @@
     </a>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
+  <div class="site-nav-toggle" aria-label="Toggle navigation bar" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
@@ -280,9 +276,9 @@
 <h2 id="WHY">WHY</h2>
 <p>写注释写文档自然是一种不错的解决办法，但是最近跑论文代码的 Epi 发现了一个事实：跟着 README 一步一步配置环境有 95% 的可能性会在某一布因为莫名其妙的错误崩掉。</p>
 <blockquote>
-<p>注释，文档，README 都会骗人，只有代码不会骗人。</p>
+<p>注释，文档，README都会骗人，只有代码不会骗人。</p>
 </blockquote>
-<p>因为只有代码是最新的最有时效的，一旦代码更新后没有及时更新文档和注释，结果就是灾难的。更何况文档可没有 debug 功能，读的时候甚至会觉得很对。</p>
+<p>因为只有代码是最新的最有时效的，一旦代码更新后没有及时更新文档和注释，结果就是灾难的。更何况文档可没有debug功能，读的时候甚至会觉得很对。</p>
 <p>所以说：文档也要写，代码也要干净，这样才叫健全。</p>
 <h2 id="WHAT">WHAT</h2>
 <p>想一想：如果要建立一个班级 <code>Grade</code> 类，那么获取学生数量的方法怎么命名才算合适呢？</p>
@@ -291,15 +287,15 @@
 students.<span class="built_in">size</span>();
 <span class="built_in">size</span>();
 <span class="built_in">studentsCount</span>();</code></pre>
-<p>看起来好像都不错，不过仔细分析的话 ——</p>
+<p>看起来好像都不错，不过仔细分析的话——</p>
 <pre><code class="highlight cpp">grade.<span class="built_in">getStudentsCount</span>(); <span class="comment">// get 是多余的</span>
 grade.<span class="built_in">countStudents</span>();    <span class="comment">// 感觉是动态计数</span>
 grade.students.<span class="built_in">size</span>();    <span class="comment">// 还行？</span>
 grade.<span class="built_in">size</span>();             <span class="comment">// 歧义</span>
 grade.<span class="built_in">studentsCount</span>();    <span class="comment">// 最佳！</span></code></pre>
-<p>对比之下 <code>studentCount()</code> 的命名最直观易懂。</p>
+<p>对比之下<code>studentCount()</code>的命名最直观易懂。</p>
 <p>阅读下面的两段代码：</p>
-<pre><code class="highlight cpp"><span class="keyword">switch</span> (keyCode) {
+<pre><code class="highlight cpp"><span class="keyword">switch</span> (keyCode) &#123;
     <span class="keyword">case</span> KEYCODE_SPACE:
         <span class="comment">// 处理空格键</span>
         <span class="keyword">break</span>;
@@ -330,22 +326,22 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
     <span class="keyword">default</span>:
         <span class="comment">// 处理其他按键</span>
         <span class="keyword">break</span>;
-}</code></pre>
-<pre><code class="highlight cpp"><span class="function"><span class="type">bool</span> <span class="title">onKeyDown</span><span class="params">(<span class="type">int</span> keyCode, <span class="type">const</span> KeyEvent&amp; event)</span> </span>{
-    <span class="keyword">if</span> (event.<span class="built_in">isPrintingKey</span>()) {
+&#125;</code></pre>
+<pre><code class="highlight cpp"><span class="function"><span class="type">bool</span> <span class="title">onKeyDown</span><span class="params">(<span class="type">int</span> keyCode, <span class="type">const</span> KeyEvent&amp; event)</span> </span>&#123;
+    <span class="keyword">if</span> (event.<span class="built_in">isPrintingKey</span>()) &#123;
         <span class="keyword">return</span> <span class="built_in">appendInput</span>(keyCode);
-    }
-    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isArrowKey</span>(keyCode)) {
+    &#125;
+    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isArrowKey</span>(keyCode)) &#123;
         <span class="keyword">return</span> <span class="built_in">moveCursor</span>(keyCode);
-    }
-    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isChannelKey</span>(keyCode)) {
+    &#125;
+    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isChannelKey</span>(keyCode)) &#123;
         <span class="keyword">return</span> <span class="built_in">appendInput</span>(<span class="built_in">convertChannelToNumber</span>(keyCode));
-    }
-    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isFunctionalKey</span>(keyCode)) {
+    &#125;
+    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isFunctionalKey</span>(keyCode)) &#123;
         <span class="keyword">return</span> <span class="built_in">processFunctionalKey</span>(keyCode);
-    }
+    &#125;
     <span class="keyword">return</span> <span class="literal">false</span>;
-}</code></pre>
+&#125;</code></pre>
 <p>虽然第一种代码有很完整的注释，但是似乎还是第二种代码更好读一点，这就是自表达代码的优秀之处。</p>
 <h2 id="HOW">HOW</h2>
 <p>首先能做到的就是命名的改进了。</p>
@@ -354,8 +350,8 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
 <li>不仅要考虑声明和定义的情况，还要考虑代码被调用的情况</li>
 <li>尽量使用合适易懂无歧义的英文名命名，辅以数字和下划线
 <ul>
-<li>比如 <code>EISU_KANA</code>(英数かな) 就不如 <code>ALPHABET_NUMBER_KANA</code></li>
-<li>比如 <code>fasten</code> 就不如 <code>accelerate</code>，<code>reSearch</code> 就不如 <code>searchAgain</code></li>
+<li>比如<code>EISU_KANA</code>(英数かな)就不如<code>ALPHABET_NUMBER_KANA</code></li>
+<li>比如<code>fasten</code>就不如<code>accelerate</code>，<code>reSearch</code>就不如<code>searchAgain</code></li>
 </ul>
 </li>
 <li>虽然有代码补全，但是名称长度不要过长</li>
@@ -366,7 +362,7 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
 </li>
 <li>单词间要有合适的分割
 <ul>
-<li>如 <code>fireWall</code>,<code>created_person</code></li>
+<li>如<code>fireWall</code>,<code>created_person</code></li>
 </ul>
 </li>
 <li>除常量外，大小写混合拼写
@@ -378,42 +374,42 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
 </ul>
 <h3 id="接口的命名原则：">接口的命名原则：</h3>
 <ul>
-<li>不要用 <code>I</code> 开头</li>
-<li>以 <code>able</code> 结尾表示具备某种能力，但并不是所有的接口都能以 <code>able</code> 结尾。</li>
+<li>不要用<code>I</code>开头</li>
+<li>以<code>able</code>结尾表示具备某种能力，但并不是所有的接口都能以<code>able</code>结尾。</li>
 </ul>
 <h3 id="类的命名">类的命名</h3>
 <ul>
-<li>基类不用 <code>Base</code> 开头或结尾，这并没有意义，使用更有意义的 <code>Model, View, Control</code> 等</li>
+<li>基类不用<code>Base</code>开头或结尾，这并没有意义，使用更有意义的<code>Model, View, Control</code>等</li>
 <li>子类的命名最好与父类建立起某种推测关系</li>
-<li>抽象类可以增加 <code>Abstract</code> 开头，但是如果类本身就够抽象就不用加</li>
+<li>抽象类可以增加<code>Abstract</code>开头，但是如果类本身就够抽象就不用加</li>
 <li>兄弟类要有明显的区别词语</li>
 </ul>
 <h3 id="方法的命名">方法的命名</h3>
 <ul>
 <li>动名型：动词是方法的灵魂要选的合适，把条件移到参数中会让代码更具有扩展性。
 <ul>
-<li>比如 <code>filterStudents(subject)</code> 就比 <code>listMathStudents(),listGeoStudents()</code> 要合适。</li>
+<li>比如<code>filterStudents(subject)</code> 就比 <code>listMathStudents(),listGeoStudents()</code>要合适。</li>
 </ul>
 </li>
 <li>与返回值的联系：
 <ul>
 <li>返回值是列表就尽量用复数名词</li>
-<li>返回值是真假就用 <code>is，has</code> 等词开头</li>
-<li>如果返回值不确定，就用 <code>Object</code> 或者其父类名称</li>
-<li>如果是 Getter，就使用 get 的对象作为名词</li>
+<li>返回值是真假就用<code>is，has</code>等词开头</li>
+<li>如果返回值不确定，就用<code>Object</code>或者其父类名称</li>
+<li>如果是Getter，就使用get的对象作为名词</li>
 </ul>
 </li>
 <li>考虑被调用时的样子</li>
-<li>执行类动词的使用：<code>do,process,execute,run</code> 等名词很抽象，最好选用其他的词来代替。除非这是一个抽象类的实现方法，之后会被子类实现。
+<li>执行类动词的使用：<code>do,process,execute,run</code>等名词很抽象，最好选用其他的词来代替。除非这是一个抽象类的实现方法，之后会被子类实现。
 <ul>
-<li>比如 <code>doLogin</code> 就是 <code>authenticate</code>，<code>doRegister</code> 就是 <code>createUser</code></li>
+<li>比如<code>doLogin</code>就是<code>authenticate</code>，<code>doRegister</code>就是<code>createUser</code></li>
 </ul>
 </li>
 <li>适当使用介词会提高可读性</li>
 <li>不要加下划线</li>
 <li>不要夹带无意义的临时字符
 <ul>
-<li>比如不要因为域变量名称为 <code>mAbortKey</code> 就把方法命名成 <code>getMAbortKey</code></li>
+<li>比如不要因为域变量名称为<code>mAbortKey</code>就把方法命名成<code>getMAbortKey</code></li>
 </ul>
 </li>
 </ul>
@@ -421,19 +417,19 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
 <ul>
 <li>域变量：可以适当加前缀但是不要无脑加
 <ul>
-<li>比如 <code>pos.x, pos.y</code> 很清楚，写成 <code>pos.mX, pos.mY</code> 就有点如鲠在喉的感觉。</li>
+<li>比如<code>pos.x, pos.y</code>很清楚，写成<code>pos.mX, pos.mY</code>就有点如鲠在喉的感觉。</li>
 </ul>
 </li>
 <li>参数变量：避免与域变量相同造成混淆</li>
-<li>循环变量：下标循环用 <code>ijk</code>，<code>forEach</code> 循环采用元素内容命名。</li>
-<li>局部变量：不要使用 <code>temp</code>,<code>tmp</code>,<code>result</code>,<code>list</code>,<code>map</code> 等意义不明的词，采用其真实意思命名。</li>
+<li>循环变量：下标循环用<code>ijk</code>，<code>forEach</code>循环采用元素内容命名。</li>
+<li>局部变量：不要使用<code>temp</code>,<code>tmp</code>,<code>result</code>,<code>list</code>,<code>map</code>等意义不明的词，采用其真实意思命名。</li>
 </ul>
 <h3 id="常量的命名">常量的命名</h3>
 <ul>
 <li>全大写命名，多单词采用下划线分割</li>
 <li>不要序号式命名，要利用开头词进行分组
 <ul>
-<li>比如 <code>LAYER_ROMAJI, LAYER_HIRAGANA,LAYER_KANJI</code> 显然比 <code>LAYER_0, LAYER_1, LAYER_2</code> 更好</li>
+<li>比如<code>LAYER_ROMAJI, LAYER_HIRAGANA,LAYER_KANJI</code>显然比<code>LAYER_0, LAYER_1, LAYER_2</code>更好</li>
 </ul>
 </li>
 </ul>
@@ -441,14 +437,14 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
 <ul>
 <li>类和内容的重复：包装的容器和包装的内容重名，寻找合适的集合名词。
 <ul>
-<li>比如 <code>Questionaire</code> 比 <code>Questions</code> 更好</li>
+<li>比如 <code>Questionaire</code>比 <code>Questions</code> 更好</li>
 </ul>
 </li>
-<li>整体和部分：只有量的差异导致的重名，可以通过前缀 <code>matched,grouped</code> 区分。</li>
-<li>类型转换：可以通过连续的调用略去中间变量，如 <code>list.ketSet().iterator()</code></li>
+<li>整体和部分：只有量的差异导致的重名，可以通过前缀<code>matched,grouped</code>区分。</li>
+<li>类型转换：可以通过连续的调用略去中间变量，如<code>list.ketSet().iterator()</code></li>
 </ul>
 <hr>
-<p>ok 暂时就说到这，这个话题还有不少东西可以说，比如注释的风格，代码风格，代码结构，设计模式，测试代码，甚至英语能力。之后可能会继续更新（挖坑）~</p>
+<p>ok暂时就说到这，这个话题还有不少东西可以说，比如注释的风格，代码风格，代码结构，设计模式，测试代码，甚至英语能力。之后可能会继续更新（挖坑）~</p>
 <hr>
 <blockquote>
 <p>先生、人生相談です。</p>
@@ -457,8 +453,10 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
 <div class="lyrics-container">
     <div class="song-info">
         <p class="song-title">
-            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z"></path>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                 height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z"/>
             </svg>
             ヒッチコック
         </p>
@@ -515,7 +513,7 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
     </div>
 </div>
 <hr>
-<p>感谢你的阅读～</p>
+<p>感谢你的阅读~</p>
 
     </div>
 
@@ -578,7 +576,6 @@ grade.<span class="built_in">studentsCount</span>();    <span class="comment">//
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>

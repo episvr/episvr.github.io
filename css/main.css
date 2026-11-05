@@ -1105,10 +1105,8 @@ pre code {
 .site-brand-container {
   display: flex;
   flex-shrink: 0;
-  padding: 0 10px;
 }
-.use-motion .column,
-.use-motion .site-brand-container .toggle {
+.use-motion .column {
   opacity: 0;
 }
 .site-meta {
@@ -1157,27 +1155,25 @@ pre code {
   top: -10px;
 }
 .site-nav-toggle,
-.site-nav-right {
+.site-nav-search {
+  color: var(--text-color);
   display: none;
+  padding: 0 10px;
+}
+.site-nav-toggle .fa,
+.site-nav-search .fa {
+  transition: transform 0.5s;
 }
 @media (max-width: 767px) {
   .site-nav-toggle,
-  .site-nav-right {
+  .site-nav-search {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 }
-.site-nav-toggle .toggle,
-.site-nav-right .toggle {
-  color: var(--text-color);
-  padding: 10px;
-  width: 22px;
-}
-.site-nav-toggle .toggle .toggle-line,
-.site-nav-right .toggle .toggle-line {
-  background: var(--text-color);
-  border-radius: 1px;
+.site-nav-on .site-nav-toggle .fa {
+  transform: rotate(-90deg);
 }
 @media (max-width: 767px) {
   .site-nav {
@@ -1314,7 +1310,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #405bff;
+    background: #f7c487;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2261,12 +2257,24 @@ pre code {
   max-width: 100%;
   width: 180px;
 }
-@keyframes next-roll {
-  from {
-    transform: rotateZ(30deg);
+@keyframes next-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
   }
-  to {
-    transform: rotateZ(-30deg);
+  12% {
+    transform: translateY(0) scale(1.04, 0.96);
+  }
+  36% {
+    transform: translateY(-7px) scale(0.98, 1.02);
+  }
+  58% {
+    transform: translateY(0) scale(1.03, 0.97);
+  }
+  72% {
+    transform: translateY(-2px) scale(1);
+  }
+  84% {
+    transform: translateY(0) scale(1);
   }
 }
 .category-all-page .category-all-title {
@@ -2546,21 +2554,17 @@ header.header {
 .site-meta {
   padding: 20px 0;
 }
+.site-nav-toggle,
+.site-nav-search {
+  color: #fff;
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav-toggle,
-  .site-nav-right {
+  .site-nav-search {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-}
-.site-nav-toggle .toggle,
-.site-nav-right .toggle {
-  color: #fff;
-}
-.site-nav-toggle .toggle .toggle-line,
-.site-nav-right .toggle .toggle-line {
-  background: #fff;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .site-nav {
@@ -2791,40 +2795,40 @@ header.header {
     padding: 10px 12px;
   }
 }
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Long+Cang&family=Yuji+Mai&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@900&family=Yellowtail&family=JetBrains+Mono:wght@400;700&display=swap");
+@import url("https://google-fonts.mirrors.sjtug.sjtu.edu.cn/css2?family=Caveat:wght@400;600;700&family=Long+Cang&family=Yuji+Mai&family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@900&family=Yellowtail&family=JetBrains+Mono:wght@400;700&display=swap");
 @font-face {
   font-family: 'Latin Modern Roman';
-  src: url("/fonts/lm/lmroman10-regular.otf") format('opentype');
+  src: url("/fonts/lm/lmroman10-regular.woff2") format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Latin Modern Roman';
-  src: url("/fonts/lm/lmroman10-italic.otf") format('opentype');
+  src: url("/fonts/lm/lmroman10-italic.woff2") format('woff2');
   font-weight: 400;
   font-style: italic;
 }
 @font-face {
   font-family: 'Latin Modern Roman';
-  src: url("/fonts/lm/lmroman10-bold.otf") format('opentype');
+  src: url("/fonts/lm/lmroman10-bold.woff2") format('woff2');
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
   font-family: 'Latin Modern Roman';
-  src: url("/fonts/lm/lmroman10-bolditalic.otf") format('opentype');
+  src: url("/fonts/lm/lmroman10-bolditalic.woff2") format('woff2');
   font-weight: 700;
   font-style: italic;
 }
 @font-face {
   font-family: 'Latin Modern Mono';
-  src: url("/fonts/lm/lmmono10-regular.otf") format('opentype');
+  src: url("/fonts/lm/lmmono10-regular.woff2") format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: 'Latin Modern Mono';
-  src: url("/fonts/lm/lmmono10-italic.otf") format('opentype');
+  src: url("/fonts/lm/lmmono10-italic.woff2") format('woff2');
   font-weight: 400;
   font-style: italic;
 }

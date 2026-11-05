@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#FF8C42"><meta name="generator" content="Hexo 8.1.2">
-
+  <link rel="preload" href="/css/main.css" as="style">
+<link rel="preconnect" href="https://gfonts.aby.pub" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
@@ -14,10 +16,10 @@
 
 <link rel="stylesheet" href="https://gfonts.aby.pub/css2?family=Noto+Serif+CJK+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yellowtail:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Long+Cang:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yuji+Mai:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="经历了一段时间的沉淀，我觉得自己又有了些许变化，有了一些新的故事和感悟。就算最终仍是在两个不同的轨迹上震荡，但在指针旋转的道路上，也许 Z 轴会前进的更远吧。">
 <meta property="og:type" content="article">
@@ -55,9 +57,9 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -75,7 +77,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.21/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.18.4/katex.min.css" integrity="sha256-GAwtd9Q019pR1mJcUKlk1P1v29ubyHlqCgFsMMSZMfs=" crossorigin="anonymous">
 
 
 <link rel="dns-prefetch" href="https://comment.episvr.top/">
@@ -91,12 +93,7 @@
   <main class="main">
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+  <div class="site-nav-search popup-trigger" aria-label="Search" role="button">
   </div>
 
   <div class="site-meta">
@@ -108,9 +105,8 @@
     </a>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
+  <div class="site-nav-toggle" aria-label="Toggle navigation bar" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
@@ -274,7 +270,7 @@
     
     <div class="post-body" itemprop="articleBody"><p>经历了一段时间的沉淀，我觉得自己又有了些许变化，有了一些新的故事和感悟。这篇博客我想尽量的没有错别字也不做任何的重点修饰，回归到普通的纯文本，试试看能不能用文字本身的节奏进行叙事。那就从上篇博客的四月说起。<br>
 四月是忙碌的月份，那时候最让我焦头烂额的就是操作系统了，面对一个完全没有认知的概念我能想到的最好办法就是：听课理解或实际动手写一个。因为对自己写一个操作系统实在是没什么信心，于是我选择了前者。听的课是南大蒋炎岩老师的 OS 课，风格充实有趣，例子鲜明可见，学完确实是受益匪浅。本想直接用在南大 OS Lab 顶替掉学校的实验课的，但是因为这个课没有对外开放的 OJ 没法自证所以无奈作罢。然后是做实验的期间忙着和 tes223 打 FDUPH，就是纯粹的娱乐性赛事（怪不得做不完实验呢），没什么特别的，那时候我是这么想的。对四月的记忆大概是这样。</p>
-<p>感想：一起打 hunt 是我和 tes223 结识的一种契机吧，很多跟我熟识的人对我的评价都是 “一开始以为是 X 的，后来没想到原来是 Y” 的模式，也许是因为 hunt 过程中不经意流露出来了某种要素 Y 了吧。</p>
+<p>感想：一起打 hunt 是我和 tes223 结识的一种契机吧，很多跟我熟识的人对我的评价都是“一开始以为是 X 的，后来没想到原来是 Y”的模式，也许是因为 hunt 过程中不经意流露出来了某种要素 Y 了吧。</p>
 <p>配图：四月六日途径万秀拍下的恐怖图片。<br>
 <img src="/img/UpwardSpiral/1.jpg" alt="dir"></p>
 <hr>
@@ -287,12 +283,12 @@
 感觉创作（without imitating*）真的是特别难的事情，无论定理，旋律，文句，器物。意识到这点后才发现看一些名篇旧作是多么惬意享受甚至幸福的事。<br>
 *：Well actually，100 percent originally 的创作是不可能的。<br>
 五月三十一日，因为是动漫社的幽灵社员所以去看了动漫音乐节演出，酣畅淋漓。</p>
-<p>感想：虽然很老套，但我坚信 “努力终有回报”。另外以此为契机，开始了一些对创作的思考，之后在看一些视频的时候有意无意的会留意一些 “这个文字效果是怎么实现的”，“这里的转折是怎么衔接的这么顺畅的” 之类的问题。<br>
+<p>感想：虽然很老套，但我坚信“努力终有回报”。另外以此为契机，开始了一些对创作的思考，之后在看一些视频的时候有意无意的会留意一些“这个文字效果是怎么实现的”，“这里的转折是怎么衔接的这么顺畅的”之类的问题。<br>
 配图：五月十九日凌晨。<br>
 <img src="/img/UpwardSpiral/2.jpg" alt="dir"></p>
 <hr>
 <p>六月初看了群友分享的一张 2024 年为止的游戏总结，一大半都是《蔚蓝》，好奇心作祟开始玩了，结果种种方面都很对胃口一发不可收拾的沉迷进去了。我不算一个平台跳跃的老手所以花了 15000 次死亡才到达 7a 山顶，而且爬山的过程意外的和之前准备考试的经历共振起来给了我一次独特的情感冲击。另外还在继续读小说，这个月读了绫辻行人的钟表馆事件，新本格推理，凄美的结局给我留下了很深刻的印象。六月二十三日过了生日（阴历的五月二十八），跟朋友出去搓了一顿，很久没过过这种生日了所以有点仪式感还挺满足的。当天结束后不知怎的想重测一遍 MBTI，发现从 INFJ 回滚到 INFP 了。另外我的一门选修课（C-Sharp）也在六月末迎来了小组合作的展示答辩环节，是类似 Koodo Reader 的一个多端 epub 格式的阅读器，最终完成度还不错，组长帮大忙了。</p>
-<p>感想：蔚蓝太好玩了，“拥抱自己的不完美” 的主题也很喜欢。然后就是更重视自己了吧，这时候更注重了有关于 “自我” 的一些课题。虽然学习这一块一直在推进但是这个月还是扎进了读书和个人爱好中了。<br>
+<p>感想：蔚蓝太好玩了，“拥抱自己的不完美”的主题也很喜欢。然后就是更重视自己了吧，这时候更注重了有关于“自我”的一些课题。虽然学习这一块一直在推进但是这个月还是扎进了读书和个人爱好中了。<br>
 配图：生日谜<br>
 <img src="/img/UpwardSpiral/3.jpg" alt="dir"></p>
 <hr>
@@ -347,7 +343,7 @@ body{background:var(--bg);}
   <p>我一直以为，我是个喜欢夏天的人。喜欢阳光明亮地洒下来，晒得空气干爽、像是透亮的旋律。可我也喜欢雨天，尤其是阴凉的那种，这时候最适合小憩，雨点的白噪会悄无声息地将躁动压平，只剩下云层底下梦的安宁。</p>
   <p>可是雨，又开始下了</p>
   <p>不是倾盆，不是断线，星星点点的，走几步就不小心撞上一滴。撑伞变得矫情，干脆不遮了吧，就让雨点挂住衣角、渗入发梢。我不抗拒，但也不再迎接。让雨，淋得刚好。</p>
-  <p>等到白天，阳光终于现身，却不是你想象的清爽。水滴慢慢退去了，留下的是比雨更缠人的东西 —— 一种黏腻的闷热，湿气蔓延在空气中，潜入每一个毛孔。像那些指责的文字，它们没有声响地蒸发，最后变成一种无处不在的沉默。有时候我分不清，湿气是夏天的错，还是雨天的错；自己到底喜欢的是夏天，还是雨天。</p>
+  <p>等到白天，阳光终于现身，却不是你想象的清爽。水滴慢慢退去了，留下的是比雨更缠人的东西——一种黏腻的闷热，湿气蔓延在空气中，潜入每一个毛孔。像那些指责的文字，它们没有声响地蒸发，最后变成一种无处不在的沉默。有时候我分不清，湿气是夏天的错，还是雨天的错；自己到底喜欢的是夏天，还是雨天。</p>
 </div>
 <p>七月十三日，小学期专选小组展示答辩结束，主题是大模型幻觉，还算熟悉所以突突的干完了。<br>
 七月十九日，离开北京。</p>
@@ -355,20 +351,22 @@ body{background:var(--bg);}
 配图：北京站<br>
 <img src="/img/UpwardSpiral/4.jpg" alt="dir"></p>
 <hr>
-<p>七月二十日 - 七月二十七日，打 puzzlehunt：金牌解谜（<a target="_blank" rel="noopener" href="https://docs.qq.com/aio/DQnBwQmRLaUhpVWZv?p=MP9rhvZzV4TmbVaC2i1Nq5">Writeup</a>）<br>
+<p>七月二十日-七月二十七日，打 puzzlehunt：金牌解谜（<a target="_blank" rel="noopener" href="https://docs.qq.com/aio/DQnBwQmRLaUhpVWZv?p=MP9rhvZzV4TmbVaC2i1Nq5">Writeup</a>）<br>
 八月六日，出门逛街，发现一家书店，买了《眼球堂谜案》和《ABC 谋杀案》，前者读完了，宏大的建筑诡计很不错。<br>
-八月八日 - 八月十七日，打 puzzlehunt：CCBC 16（<a target="_blank" rel="noopener" href="https://docs.qq.com/aio/DQnJKQWNiYkdQdmFL?p=BS5epEOzkRp3wVoNFHdsRX">Writeup</a>）</p>
-<p>在家这段时间，我能自由做自己喜欢的事：剪视频、给后期配音、开解谜直播、爽唱术力口…… 情绪有了更多出口，也多了静下来思考未来的时间。</p>
-<p>回到 “未来”。五月那会儿我有点执拗，想把一切与学习无关的事都切断：换一部功能更弱的手机，卸载可能分散注意力的信息源。理由很直接 —— 精力有限，要专注就得断舍离，信息越少，人或许越纯粹。我照搬 “戒手游” 的招数，刻意提高使用门槛 —— 把解谜群从首页藏起来、给 B 站加上密码 —— 让每一次点开都多一道缓冲，好给自己一个 “再想想” 的机会。这些措施，有的坚持至今，有的改了形式，总体确实有效。</p>
+八月八日-八月十七日，打 puzzlehunt：CCBC 16（<a target="_blank" rel="noopener" href="https://docs.qq.com/aio/DQnJKQWNiYkdQdmFL?p=BS5epEOzkRp3wVoNFHdsRX">Writeup</a>）</p>
+<p>在家这段时间，我能自由做自己喜欢的事：剪视频、给后期配音、开解谜直播、爽唱术力口……情绪有了更多出口，也多了静下来思考未来的时间。</p>
+<p>回到“未来”。五月那会儿我有点执拗，想把一切与学习无关的事都切断：换一部功能更弱的手机，卸载可能分散注意力的信息源。理由很直接——精力有限，要专注就得断舍离，信息越少，人或许越纯粹。我照搬“戒手游”的招数，刻意提高使用门槛——把解谜群从首页藏起来、给 B 站加上密码——让每一次点开都多一道缓冲，好给自己一个“再想想”的机会。这些措施，有的坚持至今，有的改了形式，总体确实有效。</p>
 <p>但最近，我有了些不同的看法。我想先丢个看似滑稽的问题：你有多久没玩过捉迷藏了？</p>
-<p>大概至少一年，甚至未来五十年都不太可能再玩了吧 —— 也就是，我们长期失去了那种可能性。我也一样。第一次登上《蔚蓝》山顶的悸动、第一次完赛 CCBC 的兴奋，注定不可复刻；童年时期去游乐场或是水上乐园的感受，更是从未有过。某些体验是独特且限时的，一旦错过，就再难凭描述抵达其本身。因此，我想在当下这团由无数可能交织的 “量子云” 里，尽量抓住更多真实的体验，让人生在叙事意义上更饱满、更像一个完整的故事。</p>
-<p>至于路径选择，我仍犹豫：该深度优先，沿一条路钻到底，还是广度优先，探究所有的可能版图。也许答案是某种自适应的混合策略，所以无论如何，我想要保留一点 “可玩性”。就算最终仍是在两个不同的轨迹上震荡，但在指针旋转的道路上，也许 Z 轴会前进的更远吧。</p>
+<p>大概至少一年，甚至未来五十年都不太可能再玩了吧——也就是，我们长期失去了那种可能性。我也一样。第一次登上《蔚蓝》山顶的悸动、第一次完赛 CCBC 的兴奋，注定不可复刻；童年时期去游乐场或是水上乐园的感受，更是从未有过。某些体验是独特且限时的，一旦错过，就再难凭描述抵达其本身。因此，我想在当下这团由无数可能交织的“量子云”里，尽量抓住更多真实的体验，让人生在叙事意义上更饱满、更像一个完整的故事。</p>
+<p>至于路径选择，我仍犹豫：该深度优先，沿一条路钻到底，还是广度优先，探究所有的可能版图。也许答案是某种自适应的混合策略，所以无论如何，我想要保留一点“可玩性”。就算最终仍是在两个不同的轨迹上震荡，但在指针旋转的道路上，也许 Z 轴会前进的更远吧。</p>
 <p>配图：暂无<br>
 配乐：《世末积雨云》，又喜欢上中 V 了。</p>
 <div class="lyrics-container">
     <div class="song-info">
-        <p class="song-title"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z"></path>
+        <p class="song-title"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                   height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path
+                  d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z" />
             </svg>世末积雨云</p>
     </div>
     <div class="lyrics-display">
@@ -449,7 +447,7 @@ body{background:var(--bg);}
     </div>
 </div>
 </div>
-
+</div>
 
     </div>
 
@@ -512,7 +510,6 @@ body{background:var(--bg);}
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>

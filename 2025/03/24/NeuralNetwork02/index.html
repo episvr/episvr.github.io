@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#FF8C42"><meta name="generator" content="Hexo 8.1.2">
-
+  <link rel="preload" href="/css/main.css" as="style">
+<link rel="preconnect" href="https://gfonts.aby.pub" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
@@ -14,14 +16,14 @@
 
 <link rel="stylesheet" href="https://gfonts.aby.pub/css2?family=Noto+Serif+CJK+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yellowtail:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Long+Cang:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yuji+Mai:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="在上一篇博客中，我们共同了解了神经网络的基本原理，这一次将聚焦于代码层次讨论如何“写”出一个神经网络。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度学习小记 (二)">
+<meta property="og:title" content="深度学习小记(二)">
 <meta property="og:url" content="https://blog.episvr.top/2025/03/24/NeuralNetwork02/index.html">
 <meta property="og:site_name" content="Epi&#39;s Blog">
 <meta property="og:description" content="在上一篇博客中，我们共同了解了神经网络的基本原理，这一次将聚焦于代码层次讨论如何“写”出一个神经网络。">
@@ -36,10 +38,10 @@
 <link rel="canonical" href="https://blog.episvr.top/2025/03/24/NeuralNetwork02/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.episvr.top/2025/03/24/NeuralNetwork02/","path":"2025/03/24/NeuralNetwork02/","title":"深度学习小记 (二)"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://blog.episvr.top/2025/03/24/NeuralNetwork02/","path":"2025/03/24/NeuralNetwork02/","title":"深度学习小记(二)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>深度学习小记 (二) | Epi's Blog</title>
+<title>深度学习小记(二) | Epi's Blog</title>
   
 
 
@@ -50,9 +52,9 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -70,7 +72,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.21/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.18.4/katex.min.css" integrity="sha256-GAwtd9Q019pR1mJcUKlk1P1v29ubyHlqCgFsMMSZMfs=" crossorigin="anonymous">
 
 
 <link rel="dns-prefetch" href="https://comment.episvr.top/">
@@ -86,12 +88,7 @@
   <main class="main">
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+  <div class="site-nav-search popup-trigger" aria-label="Search" role="button">
   </div>
 
   <div class="site-meta">
@@ -103,9 +100,8 @@
     </a>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
+  <div class="site-nav-toggle" aria-label="Toggle navigation bar" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
@@ -208,12 +204,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="深度学习小记 (二) | Epi's Blog">
+      <meta itemprop="name" content="深度学习小记(二) | Epi's Blog">
       <meta itemprop="description" content="在上一篇博客中，我们共同了解了神经网络的基本原理，这一次将聚焦于代码层次讨论如何“写”出一个神经网络。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          深度学习小记 (二)
+          深度学习小记(二)
         </h1>
 
         <div class="post-meta-container">
@@ -272,26 +268,26 @@
 <pre><code class="highlight python">data = X
 network.initialize()
 <span class="keyword">for</span>(epoches)
-{
+&#123;
 	network.forward(X)
 	network.backward()
-}
+&#125;
 network.<span class="built_in">print</span>()</code></pre>
 <h3 id="Forward">Forward</h3>
 <p>注意：</p>
 <ol>
 <li>保存所有的 L</li>
-<li> 保存所有的 Z</li>
+<li>保存所有的 Z</li>
 </ol>
 <pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">X</span>):
 	z_i = dot(L_i,w_i)
-	L_{i+<span class="number">1</span>} = sigmoid(z_i)
-	<span class="keyword">return</span> <span class="variable language_">self</span>.L_{final}</code></pre>
+	L_&#123;i+<span class="number">1</span>&#125; = sigmoid(z_i)
+	<span class="keyword">return</span> <span class="variable language_">self</span>.L_&#123;final&#125;</code></pre>
 <h3 id="Backward">Backward</h3>
 <p>注意：</p>
 <ol>
-<li>计算所有的 delta：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>C</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">d</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}C/ \mathrm{d}L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathrm">d</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord mathrm">d</span><span class="mord mathnormal">L</span></span></span></span></li>
-<li> 计算所有的 delta_error：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>C</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">d</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}C/ \mathrm{d}z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathrm">d</span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span><span class="mord">/</span><span class="mord mathrm">d</span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span></li>
+<li>计算所有的 delta：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>C</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">d</mi><mi>L</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}C/ \mathrm{d}L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathrm">d</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mord">/</span><span class="mord mathrm">d</span><span class="mord mathnormal">L</span></span></span></span></li>
+<li>计算所有的 delta_error：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">d</mi><mi>C</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">d</mi><mi>z</mi></mrow><annotation encoding="application/x-tex">\mathrm{d}C/ \mathrm{d}z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathrm">d</span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span><span class="mord">/</span><span class="mord mathrm">d</span><span class="mord mathnormal" style="margin-right:0.044em;">z</span></span></span></span></li>
 </ol>
 <pre><code class="highlight python"><span class="keyword">def</span> <span class="title function_">backward</span>(<span class="params">X, y, learning_rate</span>):
         <span class="comment"># X -&gt; A1 -&gt; H -&gt; A2 -&gt; Y_hat</span>
@@ -315,7 +311,7 @@ network.<span class="built_in">print</span>()</code></pre>
 <p>注意其中的 <code>sigmoid_derivative</code>，它的输入并不是我们认为的自变量 <code>x</code>， 而是函数值 <code>y</code>。（即用 y 表示 y 的导数）。</p>
 <blockquote>
 <p>Sigmoid 激活函数：</p>
-<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>x</mi></mrow></msup></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\sigma(x)=\dfrac{1}{1+e^{-x}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">σ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0908em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6973em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mstyle scriptlevel="0" displaystyle="true"><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>x</mi></mrow></msup></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">\sigma(x)=\dfrac{1}{1+e^{-x}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.0359em;">σ</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0908em;vertical-align:-0.7693em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3214em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6973em;"><span style="top:-2.989em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mathnormal mtight">x</span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
 </blockquote>
 <h3 id="把一切综合起来">把一切综合起来</h3>
 <pre><code class="highlight python"><span class="keyword">import</span> numpy <span class="keyword">as</span> np
@@ -352,7 +348,7 @@ network.<span class="built_in">print</span>()</code></pre>
         <span class="variable language_">self</span>.w2 += <span class="variable language_">self</span>.H.T.dot(output_delta) * learning_rate <span class="comment">#dC/dw2</span>
         <span class="variable language_">self</span>.w1 += X.T.dot(hidden_delta) * learning_rate <span class="comment">#dC/dw1</span>
         
-<span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:
+<span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:
     <span class="comment"># 输入数据（4个样本，每个样本2个特征）</span>
     X = np.array([[<span class="number">0</span>, <span class="number">0</span>],
                   [<span class="number">0</span>, <span class="number">1</span>],
@@ -369,15 +365,15 @@ network.<span class="built_in">print</span>()</code></pre>
         nn.forward(X)
         nn.backward(X, y, learning_rate)
     <span class="comment"># 测试结果</span>
-    <span class="built_in">print</span>(<span class="string">"Final Output after training:"</span>)
+    <span class="built_in">print</span>(<span class="string">&quot;Final Output after training:&quot;</span>)
     <span class="built_in">print</span>(nn.forward(X))</code></pre>
 <h2 id="Part-02：封装结构的掉包侠">Part 02：封装结构的掉包侠</h2>
-<p>你一定觉得这么写很麻烦，尤其是反向传播的导数部分，我也是这么觉得的！我们可以借助 pytorch 中提供的工具！</p>
+<p>你一定觉得这么写很麻烦，尤其是反向传播的导数部分，我也是这么觉得的！我们可以借助pytorch中提供的工具！</p>
 <table>
 <thead>
 <tr>
 <th>PyTorch API</th>
-<th> 作用</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody>
@@ -415,7 +411,7 @@ network.<span class="built_in">print</span>()</code></pre>
 </tr>
 <tr>
 <td><code>step()</code></td>
-<td>更新权重 </td>
+<td>更新权重</td>
 </tr>
 </tbody>
 </table>
@@ -456,10 +452,10 @@ epochs = <span class="number">10000</span>
     optimizer.step()
 
 <span class="comment"># 测试结果</span>
-<span class="built_in">print</span>(<span class="string">"Final Output after training:"</span>)
+<span class="built_in">print</span>(<span class="string">&quot;Final Output after training:&quot;</span>)
 <span class="built_in">print</span>(model(X).detach().numpy())</code></pre>
 <p>是不是非常简单！（虽然造轮子也很有趣就是了）</p>
-<p>定义模型和前向传播函数，创建损失函数和优化器，最后根据模板写训练，这三板斧就是绝大多数前向神经网络的写法了，接下来我们用轮子来写一个 CNN 试试。</p>
+<p>定义模型和前向传播函数，创建损失函数和优化器，最后根据模板写训练，这三板斧就是绝大多数前向神经网络的写法了，接下来我们用轮子来写一个CNN试试。</p>
 <h3 id="定义模型">定义模型</h3>
 <p>卷积神经网络利用卷积层（<em><strong>conv</strong></em>）提取局部特征，这一操作会缩小图片大小故通常会在外面补齐 padding</p>
 <p>而卷积后使用最大池化层（<em><strong>Max pool</strong></em>）来在保留特征基础上缩小参数量。</p>
@@ -506,7 +502,7 @@ optimizer = optim.Adam(model.parameters(), lr=<span class="number">0.001</span>)
 
 <span class="comment"># 1️⃣ 载入 MNIST 数据集（从 .data 目录）</span>
 transform = transforms.Compose([transforms.ToTensor()])
-trainset = torchvision.datasets.MNIST(root=<span class="string">'./data'</span>, train=<span class="literal">True</span>, download=<span class="literal">False</span>, transform=transform)
+trainset = torchvision.datasets.MNIST(root=<span class="string">&#x27;./data&#x27;</span>, train=<span class="literal">True</span>, download=<span class="literal">False</span>, transform=transform)
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=<span class="number">64</span>, shuffle=<span class="literal">True</span>)
 
 <span class="comment"># 2️⃣ 定义 CNN 模型</span>
@@ -529,7 +525,7 @@ trainloader = torch.utils.data.DataLoader(trainset, batch_size=<span class="numb
         <span class="keyword">return</span> x
 
 <span class="comment"># 3️⃣ 选取损失函数和优化器</span>
-device = torch.device(<span class="string">"cuda"</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">"cpu"</span>)
+device = torch.device(<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)
 model = CNN().to(device)
 
 criterion = nn.CrossEntropyLoss()
@@ -550,12 +546,12 @@ epochs = <span class="number">10</span>
 
         running_loss += loss.item()
         <span class="keyword">if</span> batch_idx % <span class="number">100</span> == <span class="number">0</span>:  <span class="comment"># 每 100 个 batch 打印一次损失</span>
-            <span class="built_in">print</span>(<span class="string">f"Epoch [<span class="subst">{epoch+<span class="number">1</span>}</span>/<span class="subst">{epochs}</span>], Batch [<span class="subst">{batch_idx}</span>/<span class="subst">{<span class="built_in">len</span>(trainloader)}</span>], Loss: <span class="subst">{loss.item():<span class="number">.4</span>f}</span>"</span>)
+            <span class="built_in">print</span>(<span class="string">f&quot;Epoch [<span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span>/<span class="subst">&#123;epochs&#125;</span>], Batch [<span class="subst">&#123;batch_idx&#125;</span>/<span class="subst">&#123;<span class="built_in">len</span>(trainloader)&#125;</span>], Loss: <span class="subst">&#123;loss.item():<span class="number">.4</span>f&#125;</span>&quot;</span>)
 
     scheduler.step()  <span class="comment"># 更新学习率</span>
-    <span class="built_in">print</span>(<span class="string">f"🔹 Epoch <span class="subst">{epoch+<span class="number">1</span>}</span> 完成，当前学习率: <span class="subst">{scheduler.get_last_lr()[<span class="number">0</span>]:<span class="number">.6</span>f}</span>, 平均损失: <span class="subst">{running_loss/<span class="built_in">len</span>(trainloader):<span class="number">.4</span>f}</span>"</span>)
+    <span class="built_in">print</span>(<span class="string">f&quot;🔹 Epoch <span class="subst">&#123;epoch+<span class="number">1</span>&#125;</span> 完成，当前学习率: <span class="subst">&#123;scheduler.get_last_lr()[<span class="number">0</span>]:<span class="number">.6</span>f&#125;</span>, 平均损失: <span class="subst">&#123;running_loss/<span class="built_in">len</span>(trainloader):<span class="number">.4</span>f&#125;</span>&quot;</span>)
 
-<span class="built_in">print</span>(<span class="string">"✅ CNN 训练完成！🎉"</span>)</code></pre>
+<span class="built_in">print</span>(<span class="string">&quot;✅ CNN 训练完成！🎉&quot;</span>)</code></pre>
 <p>总之就是：</p>
 <blockquote>
 <p><em><strong>定义模型后</strong></em><br>
@@ -569,7 +565,7 @@ epochs = <span class="number">10</span>
     <div class="song-info">
         <p class="song-title">
             <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z"></path>
+                <path d="M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z" />
             </svg>
             夜明けと蛍
         </p>
@@ -593,7 +589,7 @@ epochs = <span class="number">10</span>
         </div>
     </div>
 </div>
-<p>感谢你的阅读～</p>
+<p>感谢你的阅读~</p>
 
     </div>
 
@@ -610,8 +606,8 @@ epochs = <span class="number">10</span>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2025/03/04/CornsnakeyMetaWriteup/" rel="prev" title="Cornsnakey Meta Writeup - 每逢佳节倍思戚">
-                  <i class="fa fa-angle-left"></i> Cornsnakey Meta Writeup - 每逢佳节倍思戚
+                <a href="/2025/03/04/CornsnakeyMetaWriteup/" rel="prev" title="Cornsnakey Meta Writeup-每逢佳节倍思戚">
+                  <i class="fa fa-angle-left"></i> Cornsnakey Meta Writeup-每逢佳节倍思戚
                 </a>
             </div>
             <div class="post-nav-item">
@@ -656,7 +652,6 @@ epochs = <span class="number">10</span>
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>

@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#FF8C42"><meta name="generator" content="Hexo 8.1.2">
-
+  <link rel="preload" href="/css/main.css" as="style">
+<link rel="preconnect" href="https://gfonts.aby.pub" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
@@ -14,10 +16,10 @@
 
 <link rel="stylesheet" href="https://gfonts.aby.pub/css2?family=Noto+Serif+CJK+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yellowtail:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Long+Cang:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yuji+Mai:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="为二〇二五年的自己画上句号。">
 <meta property="og:type" content="article">
@@ -53,9 +55,9 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -73,7 +75,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.21/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.18.4/katex.min.css" integrity="sha256-GAwtd9Q019pR1mJcUKlk1P1v29ubyHlqCgFsMMSZMfs=" crossorigin="anonymous">
 
 
 <link rel="dns-prefetch" href="https://comment.episvr.top/">
@@ -89,12 +91,7 @@
   <main class="main">
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+  <div class="site-nav-search popup-trigger" aria-label="Search" role="button">
   </div>
 
   <div class="site-meta">
@@ -106,9 +103,8 @@
     </a>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
+  <div class="site-nav-toggle" aria-label="Toggle navigation bar" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
@@ -284,7 +280,7 @@
 <p>虽然现在我也偶尔幻想一两个戏剧性的剧情能不能也降临在我的身上，不过大部分时间我已经不对其抱有期待了。</p>
 <p>我一直觉得至少我所接触的大部分人的心理都是相似的，所以也许，我妄自揣测着，每个人都会有 “来个人来救赎我吧” 这样的想法，我这样妄自揣测着。所以这一切也就是一群个体的循环等待罢了。所以总得有人应该先付诸行动不是吗。也许这么做至少也许在一个小范围内能泛起一片涟漪吧。直白明快一点来说的话：我正在试图把自己拥有那个 soul mate 的某种特质，去自我完成一个缺口的补完。这又何尝不是一种移花接木？我是这么想的。</p>
 <p>天呐这段话简直太混乱了。</p>
-<p>这件事表面上的展现一个是我对 “朋友” 的定义下降到了 “互相认识的人”（事实上我的博客中的大多数表述为 “朋友” 的人都属于这类），之前我对 “朋友” 的概念会高到 “互相熟知的人”（事实上这个要求太高了，所以现在我把他放到了 “好朋友 " 的语境地位）</p>
+<p>这件事表面上的展现一个是我对 “朋友” 的定义下降到了 “互相认识的人”（事实上我的博客中的大多数表述为 “朋友” 的人都属于这类），之前我对 “朋友” 的概念会高到 “互相熟知的人”（事实上这个要求太高了，所以现在我把他放到了 “好朋友 &quot; 的语境地位）</p>
 <p>另一个就是我对于人际关系的交往与维持不太上心了，某人发的微信或者 qq 我甚至可能就直接挂着然后去忙自己的事情然后晾着不管了，在停顿很长很长时间之后再给出回复，这对于之前的我是不可想象的失礼。</p>
 <p>也许我是个恋旧的人，所以对于初高中同学有一种莫名的滤镜，也许我也觉得能和他们聊上几句把酒言欢也算是一件叙事意义上的不错的故事，不过没有，基本上我们没什么联系了。不过我还是幻想着能够和他们聊上几句，不过我想象不出我们会有什么话题，或者我已经对他们中的大多数的名字甚至记忆都已经遗失了吧。</p>
 <p>不过我还抱有另一种期待，就是这件事并没有那么复杂，只要我敢于迈出一步破冰，就能重新拾回旧日的关系，也许对面也是这么想的呢（</p>
@@ -347,76 +343,78 @@
 <p><strong>承認欲求</strong> とは、「他者から認められたい、自分を価値ある存在として認めたい」という願望であり、「尊敬・自尊の欲求」とも呼ばれる</p>
 <p><strong>承认欲求</strong> ，就是渴望被他人认可，并认可自己是有价值的人，也称为渴望获得尊重和自尊。</p>
 </blockquote>
-<div class="”lyrics-container”">
-    <div class="”song-info”">
-        <p class="”song-title”"><svg class="”w-6" h-6="" text-gray-800="" dark:text-white”="" aria-hidden="”true”" xmlns="”http://www.w3.org/2000/svg”" width="”24”" height="”24”" fill="”currentColor”" viewBox="”0" 0="" 24="" 24”="">
-            <path d="”M18.6216" 3.21667c.2391.1897.3784.47817.3784.78334v15.6667c0="" .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115="" 0="" 1.6569-1.3431="" 3-3="" 3s-3-1.3431-3-3="" 1.3431-3="" 3-3c.3506="" .6872.0602="" 1="" .1707v9.2602l-8="" 1.8667v18l-.00001.0032c8.99824="" 19.6586="" 7.65577="" 21="" 6="" 21c-1.65685="" 0-3-1.3431-3-3s1.34315-3="" 3-3c.35064="" .68722.0602="" .1707v6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487z”=""></path>
+<div class=”lyrics-container”>
+    <div class=”song-info”>
+        <p class=”song-title”><svg class=”w-6 h-6 text-gray-800 dark:text-white” aria-hidden=”true” xmlns=”http://www.w3.org/2000/svg” width=”24”
+                                   height=”24” fill=”currentColor” viewBox=”0 0 24 24”>
+            <path
+                  d=”M18.6216 3.21667c.2391.1897.3784.47817.3784.78334V15.6667c0 .0412-.0025.0818-.0073.1218.0048.0698.0073.1404.0073.2115 0 1.6569-1.3431 3-3 3s-3-1.3431-3-3 1.3431-3 3-3c.3506 0 .6872.0602 1 .1707V9.2602l-8 1.8667V18l-.00001.0032C8.99824 19.6586 7.65577 21 6 21c-1.65685 0-3-1.3431-3-3s1.34315-3 3-3c.35064 0 .68722.0602 1 .1707V6.33334c0-.46474.32018-.86823.77277-.97384l9.99953-2.33321c.1486-.03477.3012-.03465.4467-.00201.1427.03202.2783.09532.3964.18752.0021.00162.0041.00324.0062.00487Z” />
             </svg>承認欲求</p>
     </div>
-    <div class="”lyrics-display”">
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">メリーゴーランドみたいに回る 愛と本能の中で</div>
-        <div class="”translated-lyric”">像旋轉木馬一樣 來迴轉的愛和本能之中</div>
+    <div class=”lyrics-display”>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>メリーゴーランドみたいに回る 愛と本能の中で</div>
+        <div class=”translated-lyric”>像旋轉木馬一樣 來迴轉的愛和本能之中</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">わかり合ったって 本当の気持ちは言えない</div>
-        <div class="”translated-lyric”">即使彼此有了瞭解 還是說不出真心話</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>わかり合ったって 本当の気持ちは言えない</div>
+        <div class=”translated-lyric”>即使彼此有了瞭解 還是說不出真心話</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">そんなこと わかってんだけれど</div>
-        <div class="”translated-lyric”">這種道理我當然知道</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>そんなこと わかってんだけれど</div>
+        <div class=”translated-lyric”>這種道理我當然知道</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">つぶやいて 消えたい</div>
-        <div class="”translated-lyric”">可我還是想在低聲細語之中 打消隔閡</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>つぶやいて 消えたい</div>
+        <div class=”translated-lyric”>可我還是想在低聲細語之中 打消隔閡</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">愛されたいの 誰か 私だけ 見つめていてよ</div>
-        <div class="”translated-lyric”">我想被愛 有誰能只看我一人嗎</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>愛されたいの 誰か 私だけ 見つめていてよ</div>
+        <div class=”translated-lyric”>我想被愛 有誰能只看我一人嗎</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">(抱きしめて)</div>
-        <div class="”translated-lyric”">（抱著我）</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>(抱きしめて)</div>
+        <div class=”translated-lyric”>（抱著我）</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">あなたに褒めてほしいだけ</div>
-        <div class="”translated-lyric”">我只願意被你褒獎</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>あなたに褒めてほしいだけ</div>
+        <div class=”translated-lyric”>我只願意被你褒獎</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">イルミネーション みたいに 輝いて ドラマチックな</div>
-        <div class="”translated-lyric”">就像華光一樣燦爛的戲劇性一般的</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>イルミネーション みたいに 輝いて ドラマチックな</div>
+        <div class=”translated-lyric”>就像華光一樣燦爛的戲劇性一般的</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">(あの街で)</div>
-        <div class="”translated-lyric”">（那條街上）</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>(あの街で)</div>
+        <div class=”translated-lyric”>（那條街上）</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">今日も あなたを待つ</div>
-        <div class="”translated-lyric”">今天 依然等著你</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>今日も あなたを待つ</div>
+        <div class=”translated-lyric”>今天 依然等著你</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">超高層階の窓を 泳ぐ様に 揺れるネオンが</div>
-        <div class="”translated-lyric”">在摩天大樓的窗邊 遊動的霓虹燈光</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>超高層階の窓を 泳ぐ様に 揺れるネオンが</div>
+        <div class=”translated-lyric”>在摩天大樓的窗邊 遊動的霓虹燈光</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">(真夜中に)</div>
-        <div class="”translated-lyric”">（深夜裡）</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>(真夜中に)</div>
+        <div class=”translated-lyric”>（深夜裡）</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">止まらない街を映してる</div>
-        <div class="”translated-lyric”">映出依舊車水馬龍的大街</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>止まらない街を映してる</div>
+        <div class=”translated-lyric”>映出依舊車水馬龍的大街</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">「もうどうしようもないよ 世界は 私だけ 誰もいないよ」</div>
-        <div class="”translated-lyric”">「沒辦法 世界除了我沒有別人啊」</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>「もうどうしようもないよ 世界は 私だけ 誰もいないよ」</div>
+        <div class=”translated-lyric”>「沒辦法 世界除了我沒有別人啊」</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">(求めてる)</div>
-        <div class="”translated-lyric”">（想找個伴）</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>(求めてる)</div>
+        <div class=”translated-lyric”>（想找個伴）</div>
     </div>
-    <div class="”lyric-item”">
-        <div class="”original-lyric”">って、くだらない “戱言” です。</div>
-        <div class="”translated-lyric”">這種話 不過是無聊的「蠢話」罷了</div>
+    <div class=”lyric-item”>
+        <div class=”original-lyric”>って、くだらない “戱言” です。</div>
+        <div class=”translated-lyric”>這種話 不過是無聊的「蠢話」罷了</div>
     </div>
 </div>
 </div>
@@ -482,7 +480,6 @@
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>

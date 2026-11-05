@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#FF8C42"><meta name="generator" content="Hexo 8.1.2">
-
+  <link rel="preload" href="/css/main.css" as="style">
+<link rel="preconnect" href="https://gfonts.aby.pub" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
@@ -14,10 +16,10 @@
 
 <link rel="stylesheet" href="https://gfonts.aby.pub/css2?family=Noto+Serif+CJK+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yellowtail:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Long+Cang:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yuji+Mai:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="对 ThinkPad T420 进行 CPU、内存、散热、C壳 的全面升级改造记录">
 <meta property="og:type" content="article">
@@ -26,14 +28,14 @@
 <meta property="og:site_name" content="Epi&#39;s Blog">
 <meta property="og:description" content="对 ThinkPad T420 进行 CPU、内存、散热、C壳 的全面升级改造记录">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://blog.episvr.top/img/Thinkpad-T420-Upgrade/Screenshot_2026-06-29_11-12-58.png">
+<meta property="og:image" content="https://blog.episvr.top/img/Thinkpad-T420-Upgrade/Screenshot_2026-06-29_11-12-58.webp">
 <meta property="article:published_time" content="2026-06-29T13:13:00.000Z">
-<meta property="article:modified_time" content="2026-09-04T15:02:56.749Z">
+<meta property="article:modified_time" content="2026-11-05T17:06:21.032Z">
 <meta property="article:author" content="Epi">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="thinkpad">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.episvr.top/img/Thinkpad-T420-Upgrade/Screenshot_2026-06-29_11-12-58.png">
+<meta name="twitter:image" content="https://blog.episvr.top/img/Thinkpad-T420-Upgrade/Screenshot_2026-06-29_11-12-58.webp">
 
 
 <link rel="canonical" href="https://blog.episvr.top/2026/06/29/Thinkpad-T420-Upgrade/">
@@ -53,9 +55,9 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -73,7 +75,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.21/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.18.4/katex.min.css" integrity="sha256-GAwtd9Q019pR1mJcUKlk1P1v29ubyHlqCgFsMMSZMfs=" crossorigin="anonymous">
 
 
 <link rel="dns-prefetch" href="https://comment.episvr.top/">
@@ -89,12 +91,7 @@
   <main class="main">
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+  <div class="site-nav-search popup-trigger" aria-label="Search" role="button">
   </div>
 
   <div class="site-meta">
@@ -106,9 +103,8 @@
     </a>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
+  <div class="site-nav-toggle" aria-label="Toggle navigation bar" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
@@ -234,7 +230,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-04 23:02:56" itemprop="dateModified" datetime="2026-09-04T23:02:56+08:00">2026-09-04</time>
+      <time title="Modified: 2026-11-06 01:06:21" itemprop="dateModified" datetime="2026-11-06T01:06:21+08:00">2026-11-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -272,18 +268,18 @@
     
     <div class="post-body" itemprop="articleBody"><p>前情提要：Install Debian on ThinkPad-T420</p>
 <p>之前估计的运行强度好像低了一点，实际用这台笔记本工作的时候总觉得不太跟手，加上第一次清灰的时候 <s>不小心</s> 搞坏了导热泡棉，于是在长达四个月的思想斗争后，终于找到了契机（借口），下定决心做一次升级改造。</p>
-<p>但是最主要的原因是撕开了 C 壳的一个无关紧要的小口，好难看受不了了。</p>
+<p>但是最主要的原因是撕开了C壳的一个无关紧要的小口，好难看受不了了。</p>
 <h2 id="购买的东西">购买的东西</h2>
 <ul>
-<li>带指纹模块的 C 壳（原来这个也是模块化的！）</li>
+<li>带指纹模块的C壳（原来这个也是模块化的！）</li>
 <li>一个更强力的三铜管散热</li>
-<li> i7-2720qm cpu</li>
-<li> 两块 8G 三星 DDR3L 1600 低压内存</li>
+<li>i7-2720qm cpu</li>
+<li>两块 8G 三星 DDR3L 1600低压内存</li>
 </ul>
 <p>现在是 2026.05.06 15:29，就让我期待一下所有的东西吧</p>
-<p>现在是 2026.05.13 15:29，很不幸的是，我购买的 C 壳的触摸板坏掉了，尽可能找了商家重发。</p>
+<p>现在是2026.05.13 15:29，很不幸的是，我购买的C壳的触摸板坏掉了，尽可能找了商家重发。</p>
 <p>【然后就忙的没时间写了，乐】</p>
-<p>现在是 2026.06.29 21:13，我终于想起来还有这么一回事，我决定把这篇文章写完。</p>
+<p>现在是2026.06.29 21:13，我终于想起来还有这么一回事，我决定把这篇文章写完。</p>
 <h2 id="拆机">拆机</h2>
 <p>说简单也简单，说麻烦也麻烦。T420 的拆机流程是这样的：</p>
 <ol>
@@ -295,10 +291,10 @@
 </ol>
 <h2 id="升级">升级</h2>
 <p>内存的升级很简单，一块在背板，一块在 C 壳的下面。拆完安上就行。</p>
-<p>CPU 的升级也还行，把散热模组的螺丝拧下来就可以看到被固定住的 CPU 了，之后拧开右侧的限位螺丝就行。</p>
-<p>指纹模块被安装在 C 壳的背面，简单安装一下排线即可。</p>
+<p>CPU的升级也还行，把散热模组的螺丝拧下来就可以看到被固定住的 CPU 了，之后拧开右侧的限位螺丝就行。</p>
+<p>指纹模块被安装在C壳的背面，简单安装一下排线即可。</p>
 <p>然后就是反着做一遍上述流程就行，皆大欢喜，皆大欢喜。</p>
-<p>这…… 当然是不可能的。</p>
+<p>这……当然是不可能的。</p>
 <h2 id="教训">教训</h2>
 <ol>
 <li>在升级 CPU 后，第一件事就是无法在没电池的情况下开机，这是因为官配的 65W 电源带不动 CPU，需要换成 90W 的电源。</li>
@@ -309,9 +305,9 @@
 </ol>
 <h2 id="附录">附录</h2>
 <p>总之还是千辛万苦地和 Claude 鏖战了几个晚上才调完触控板的协议，力竭了。</p>
-<p><s>我说直接禁用触控板快进到纯键盘 vim 逻辑有没有懂的</s></p>
+<p><s>我说直接禁用触控板快进到纯键盘vim逻辑有没有懂的</s></p>
 <p>btw 最近从 plasma 换到 Xfce 了，晒张图（</p>
-<p><img src="/img/Thinkpad-T420-Upgrade/Screenshot_2026-06-29_11-12-58.png" alt="Screenshot_2026-06-29_11-12-58"></p>
+<p><img src="/img/Thinkpad-T420-Upgrade/Screenshot_2026-06-29_11-12-58.webp" alt="Screenshot_2026-06-29_11-12-58"></p>
 
     </div>
 
@@ -375,7 +371,6 @@
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>

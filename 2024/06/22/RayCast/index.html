@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#FF8C42"><meta name="generator" content="Hexo 8.1.2">
-
+  <link rel="preload" href="/css/main.css" as="style">
+<link rel="preconnect" href="https://gfonts.aby.pub" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
@@ -14,10 +16,10 @@
 
 <link rel="stylesheet" href="https://gfonts.aby.pub/css2?family=Noto+Serif+CJK+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yellowtail:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Caveat:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Long+Cang:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Yuji+Mai:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.episvr.top","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"codeblock":{"theme":{"light":"a11y-light","dark":"stackoverflow-dark"},"prism":{"light":"prism-solarizedlight","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#FF8C42","save":"auto"},"mediumzoom":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="伪3D?会高中数学就能做到！">
 <meta property="og:type" content="article">
@@ -31,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240622152433355.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240622155912649.png">
 <meta property="article:published_time" content="2024-06-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-09-04T15:23:26.040Z">
+<meta property="article:modified_time" content="2026-11-05T17:16:36.580Z">
 <meta property="article:author" content="Epi">
 <meta property="article:tag" content="coding">
 <meta name="twitter:card" content="summary">
@@ -55,9 +57,9 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.1/pangu.umd.js" integrity="sha256-kRsxecBnwG6mULFPe2E6UKnNm8XfDOuDwCOprjLZuX8=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -75,7 +77,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.21/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.18.4/katex.min.css" integrity="sha256-GAwtd9Q019pR1mJcUKlk1P1v29ubyHlqCgFsMMSZMfs=" crossorigin="anonymous">
 
 
 <link rel="dns-prefetch" href="https://comment.episvr.top/">
@@ -91,12 +93,7 @@
   <main class="main">
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+  <div class="site-nav-search popup-trigger" aria-label="Search" role="button">
   </div>
 
   <div class="site-meta">
@@ -108,9 +105,8 @@
     </a>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
+  <div class="site-nav-toggle" aria-label="Toggle navigation bar" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
@@ -142,7 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%EF%BC%9A%E5%AE%9E%E7%8E%B0%E4%BC%AA3D%E6%95%88%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">目标：实现伪 3D 效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%EF%BC%9A%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">核心：光线投射算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E8%A7%92%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.1.</span> <span class="nav-text">视角的确定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E5%BA%A6%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.2.</span> <span class="nav-text">高度的确定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E7%9A%84%E6%B5%8B%E5%AE%9A"><span class="nav-number">2.3.</span> <span class="nav-text">距离的测定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E5%88%A4%E6%96%AD"><span class="nav-number">2.4.</span> <span class="nav-text">碰撞的判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A%E7%89%87%E6%AE%B5%E5%B0%8F%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text">代码：片段小记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug-Fun-stuff"><span class="nav-number">4.</span> <span class="nav-text">Bug &amp; Fun-stuff</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%EF%BC%9A%E5%AE%9E%E7%8E%B0%E4%BC%AA3D%E6%95%88%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">目标：实现伪3D效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%EF%BC%9A%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">核心：光线投射算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E8%A7%92%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.1.</span> <span class="nav-text">视角的确定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E5%BA%A6%E7%9A%84%E7%A1%AE%E5%AE%9A"><span class="nav-number">2.2.</span> <span class="nav-text">高度的确定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%9D%E7%A6%BB%E7%9A%84%E6%B5%8B%E5%AE%9A"><span class="nav-number">2.3.</span> <span class="nav-text">距离的测定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E%E7%9A%84%E5%88%A4%E6%96%AD"><span class="nav-number">2.4.</span> <span class="nav-text">碰撞的判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A%E7%89%87%E6%AE%B5%E5%B0%8F%E8%AE%B0"><span class="nav-number">3.</span> <span class="nav-text">代码：片段小记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug-Fun-stuff"><span class="nav-number">4.</span> <span class="nav-text">Bug &amp; Fun-stuff</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -236,7 +232,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-09-04 23:23:26" itemprop="dateModified" datetime="2026-09-04T23:23:26+08:00">2026-09-04</time>
+      <time title="Modified: 2026-11-06 01:16:36" itemprop="dateModified" datetime="2026-11-06T01:16:36+08:00">2026-11-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,39 +269,39 @@
     
     
     <div class="post-body" itemprop="articleBody"><blockquote>
-<p>epi 在经过大一的洗礼后发现自己的技术严重不足，于是他决定去 Github，油管，b 站之类的地方找找项目来抄</p>
+<p>epi在经过大一的洗礼后发现自己的技术严重不足，于是他决定去Github，油管，b站之类的地方找找项目来抄</p>
 </blockquote>
-<h2 id="目标：实现伪3D效果">目标：实现伪 3D 效果</h2>
-<p>好了，什么是 <strong>伪 3D 效果</strong>呢？大概如下</p>
-<img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/Simple_raycasting_with_fisheye_correction.gif" style="zoom:67%;">
+<h2 id="目标：实现伪3D效果">目标：实现伪3D效果</h2>
+<p>好了，什么是 <strong>伪3D效果</strong>呢？大概如下</p>
+<img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/Simple_raycasting_with_fisheye_correction.gif" style="zoom:67%;" />
 <blockquote>
-<p>根据已知的右侧的二维地图（可以用二维数组存储），在控制台中显示伪 3D 图像，人物可 wasd 移动，但是没有跳跃和下蹲（即没有 <strong>z 轴</strong>的概念）</p>
+<p>根据已知的右侧的二维地图（可以用二维数组存储），在控制台中显示伪3D图像，人物可wasd移动，但是没有跳跃和下蹲（即没有<strong>z轴</strong>的概念）</p>
 </blockquote>
 <p>呃，看起来很复杂，姑且先做做看！</p>
-<p>如果想要了解更多与伪 3D 有关的故事，请移步差评君的这期<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nV4y1F7zX/">视频</a></p>
+<p>如果想要了解更多与伪3D有关的故事，请移步差评君的这期<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nV4y1F7zX/">视频</a></p>
 <p>代码参考：<a target="_blank" rel="noopener" href="https://github.com/OneLoneCoder/CommandLineFPS">https://github.com/OneLoneCoder/CommandLineFPS</a></p>
 <h2 id="核心：光线投射算法">核心：光线投射算法</h2>
 <h3 id="视角的确定">视角的确定</h3>
-<p>伪 3D 的实现离不开透视，而透视离不开视角</p>
+<p>伪3D的实现离不开透视，而透视离不开视角</p>
 <p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240622151030490.png" alt="image-20240622151030490"></p>
 <p>我们可以看到视角的范围内的每一条线都可以对应到二维图上的一个边界点（或者无边界）</p>
-<p>设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span> 为视野范围角，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span></span> 为屏幕宽度 ，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> 为当前屏幕像素的 x 坐标</p>
-<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">∠</mi><mi>R</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>P</mi><mo>−</mo><mfrac><mrow><mi mathvariant="normal">∠</mi><mi>V</mi></mrow><mn>2</mn></mfrac><mo>+</mo><mfrac><mi>x</mi><mi>W</mi></mfrac><mi mathvariant="normal">∠</mi><mi>V</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext> 视线角</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo> =</mo><mtext> 主视角</mtext><mo>−</mo><mtext>半视域</mtext><mo> +</mo><mtext> 视角偏移</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex"> \begin {aligned}
-\angle R &amp;= \angle P - \frac {\angle V}{2} + \frac {x}{W} \angle V \\\\
-视线角 &amp;= 主视角 - 半视域 + 视角偏移
-\end {aligned}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:5.3552em;vertical-align:-2.4276em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9276em;"><span style="top:-4.9276em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.00773em;">R</span></span></span><span style="top:-3.1016em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"></span></span><span style="top:-1.6016em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord cjk_fallback"> 视线角</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4276em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9276em;"><span style="top:-4.9276em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3692em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">W</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span><span style="top:-1.6016em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback"> 主视角</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">半视域</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin"> +</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback"> 视角偏移</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4276em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span></span></span></span> 为视野范围角，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>W</mi></mrow><annotation encoding="application/x-tex">W</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.1389em;">W</span></span></span></span> 为屏幕宽度 ，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> 为当前屏幕像素的 x 坐标</p>
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi mathvariant="normal">∠</mi><mi>R</mi></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi mathvariant="normal">∠</mi><mi>P</mi><mo>−</mo><mfrac><mrow><mi mathvariant="normal">∠</mi><mi>V</mi></mrow><mn>2</mn></mfrac><mo>+</mo><mfrac><mi>x</mi><mi>W</mi></mfrac><mi mathvariant="normal">∠</mi><mi>V</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>视线角</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mtext>主视角</mtext><mo>−</mo><mtext>半视域</mtext><mo>+</mo><mtext>视角偏移</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+\angle R &amp;= \angle P - \frac{\angle V}{2} + \frac{x}{W} \angle V \\\\
+\text{视线角} &amp;= \text{主视角} - \text{半视域} + \text{视角偏移}
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:5.0552em;vertical-align:-2.2776em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.7776em;"><span style="top:-4.7776em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.0077em;">R</span></span></span><span style="top:-2.9516em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"></span></span><span style="top:-1.4516em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">视线角</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.2776em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.7776em;"><span style="top:-4.7776em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3692em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.1076em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.1389em;">W</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">∠</span><span class="mord mathnormal" style="margin-right:0.2222em;">V</span></span></span><span style="top:-1.4516em;"><span class="pstrut" style="height:3.3692em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord cjk_fallback">主视角</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord cjk_fallback">半视域</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord cjk_fallback">视角偏移</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.2776em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
 <pre><code class="highlight cpp"><span class="type">double</span> RayAngle = (PlayerA - FOV/<span class="number">2</span>) + (<span class="built_in">double</span>(x)/ScreenWidth) * FOV;</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/episvr/IMG_Cloud/image-20240622152433355.png" alt="image-20240622152433355"></p>
 <h3 id="高度的确定">高度的确定</h3>
 <p>每一条视线都对应一列像素，它们在二维平面上的顶部的高度遵循透视原理， 近小远大</p>
-<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>C</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mi>H</mi><mn>2</mn></mfrac><mo>−</mo><mfrac><mi>H</mi><mi>d</mi></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext> 天花板线</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo> =</mo><mtext> 中线高度</mtext><mo>−</mo><mtext>透视差</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi> D</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>H</mi><mo>−</mo><mi>C</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext> 地板线</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo> =</mo><mtext> 总高度</mtext><mo>−</mo><mtext>天花板线</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex"> \begin {aligned}
-C &amp;= \frac {H}{2} - \frac {H}{d}  \\\\
-天花板线 &amp;=  中线高度 - 透视差 \\\\
+<p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.25em" columnalign="right left" columnspacing="0em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>C</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mfrac><mi>H</mi><mn>2</mn></mfrac><mo>−</mo><mfrac><mi>H</mi><mi>d</mi></mfrac></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>天花板线</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mtext>中线高度</mtext><mo>−</mo><mtext>透视差</mtext></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mi>D</mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mi>H</mi><mo>−</mo><mi>C</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>地板线</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow></mrow><mo>=</mo><mtext>总高度</mtext><mo>−</mo><mtext>天花板线</mtext></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
+C &amp;= \frac{H}{2} - \frac{H}{d}  \\\\
+\text{天花板线} &amp;= \text{中线高度} - \text{透视差} \\\\
 D &amp;= H-C \\\\
-地板线 &amp;= 总高度 - 天花板线
-\end {aligned}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:11.3463em;vertical-align:-5.4232em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:5.9232em;"><span style="top:-7.9232em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span><span style="top:-6.0972em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"></span></span><span style="top:-4.5972em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord cjk_fallback"> 天花板线</span></span></span><span style="top:-3.0972em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"></span></span><span style="top:-1.5972em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02778em;"> D</span></span></span><span style="top:-0.0972em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"></span></span><span style="top:1.4028em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord cjk_fallback"> 地板线</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.4232em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:5.9232em;"><span style="top:-7.9232em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-4.5972em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback"> 中线高度</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">透视差</span></span></span><span style="top:-1.5972em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel"> =</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span><span style="top:1.4028em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord cjk_fallback"> 总高度</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">天花板线</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.4232em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+\text{地板线} &amp;= \text{总高度} - \text{天花板线}
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:11.0463em;vertical-align:-5.2732em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:5.7732em;"><span style="top:-7.7732em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0715em;">C</span></span></span><span style="top:-5.9472em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"></span></span><span style="top:-4.4472em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">天花板线</span></span></span></span><span style="top:-2.9472em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"></span></span><span style="top:-1.4472em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em;">D</span></span></span><span style="top:0.0528em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"></span></span><span style="top:1.5528em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord text"><span class="mord cjk_fallback">地板线</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.2732em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:5.7732em;"><span style="top:-7.7732em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0813em;">H</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0813em;">H</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span><span style="top:-4.4472em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord cjk_fallback">中线高度</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord cjk_fallback">透视差</span></span></span></span><span style="top:-1.4472em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord mathnormal" style="margin-right:0.0813em;">H</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord mathnormal" style="margin-right:0.0715em;">C</span></span></span><span style="top:1.5528em;"><span class="pstrut" style="height:3.3603em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord text"><span class="mord cjk_fallback">总高度</span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord text"><span class="mord cjk_fallback">天花板线</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:5.2732em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
 <pre><code class="highlight cpp"><span class="type">int</span> nCeiling = (<span class="type">float</span>)(nScreenHeight / <span class="number">2.0</span>) - nScreenHeight / ((<span class="type">float</span>)fDistanceToWall);
             <span class="type">int</span> nFloor = nScreenHeight - nCeiling;</code></pre>
 <blockquote>
@@ -315,14 +311,14 @@ D &amp;= H-C \\\\
 <h3 id="距离的测定">距离的测定</h3>
 <p>我们使用如下策略测得距离</p>
 <pre><code class="highlight plaintext">while (未撞墙&amp;&amp;未越界)
-{
+&#123;
     移动一小步
     if(越界)
     else if (撞墙)
-    {
+    &#123;
         记录当前距离
-    }
-}</code></pre>
+    &#125;
+&#125;</code></pre>
 <p>简单来说，如果没有检测到边界，就向该方向移动一小步，知道检测到边界或者超过最大检测范围</p>
 <h3 id="碰撞的判断">碰撞的判断</h3>
 <p>因为墙面的坐标都是整数，而我们的测试坐标都是小数，所以距离的测定我们采用一种较为特殊的办法</p>
@@ -334,39 +330,39 @@ D &amp;= H-C \\\\
 -1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
 -7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
-c-16-25.333-24-45-24-59z"></path></svg></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9663em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1522em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9663em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1522em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
 3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
 10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
 -1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
 -7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
-c-16-25.333-24-45-24-59z"></path></svg></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">cos</span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span></span></span></span>  (当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>A</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9663em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0966em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">cos</span><span class="mord mathnormal" style="margin-right:0.0278em;">θ</span></span></span></span>  (当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>A</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9663em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0966em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
 3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
 10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
 -1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
 -7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
-c-16-25.333-24-45-24-59z"></path></svg></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>B</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9663em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1522em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>B</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.9663em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1522em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
 3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
 10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
 -1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
 -7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
-c-16-25.333-24-45-24-59z"></path></svg></span></span></span></span></span></span></span></span></span></span> 均为单位向量时)</p>
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span></span></span></span> 均为单位向量时)</p>
 </blockquote>
-<p>于是我们可以计算<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi> a</mi><mi>r</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo>⃗</mo></mover><mo>⋅</mo><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">arccos(\vec A ⋅ \vec B)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2163em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal">rccos</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0966em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+<p>于是我们可以计算<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>r</mi><mi>c</mi><mi>c</mi><mi>o</mi><mi>s</mi><mo stretchy="false">(</mo><mover accent="true"><mi>A</mi><mo>⃗</mo></mover><mo>⋅</mo><mover accent="true"><mi>B</mi><mo>⃗</mo></mover><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">arccos(\vec A ⋅ \vec B)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2163em;vertical-align:-0.25em;"></span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mord mathnormal">ccos</span><span class="mopen">(</span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal">A</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.0966em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
 3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
 10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
 -1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
 -7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
-c-16-25.333-24-45-24-59z"></path></svg></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2163em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1522em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1.2163em;vertical-align:-0.25em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9663em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.0502em;">B</span></span><span style="top:-3.2523em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.1522em;"><span class="overlay" style="height:0.714em;width:0.471em;"><svg xmlns="http://www.w3.org/2000/svg" width="0.471em" height="0.714em" style="width:0.471em" viewBox="0 0 471 714" preserveAspectRatio="xMinYMin"><path d="M377 20c0-5.333 1.833-10 5.5-14S391 0 397 0c4.667 0 8.667 1.667 12 5
 3.333 2.667 6.667 9 10 19 6.667 24.667 20.333 43.667 41 57 7.333 4.667 11
 10.667 11 18 0 6-1 10-3 12s-6.667 5-14 9c-28.667 14.667-53.667 35.667-75 63
 -1.333 1.333-3.167 3.5-5.5 6.5s-4 4.833-5 5.5c-1 .667-2.5 1.333-4.5 2s-4.333 1
 -7 1c-4.667 0-9.167-1.833-13.5-5.5S337 184 337 178c0-12.667 15.667-32.333 47-59
 H213l-171-1c-8.667-6-13-12.333-13-19 0-4.667 4.333-11.333 13-20h359
-c-16-25.333-24-45-24-59z"></path></svg></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 以进一步判断射线是否接近墙的边缘，这有助于在渲染时处理边界效应</p>
+c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 以进一步判断射线是否接近墙的边缘，这有助于在渲染时处理边界效应</p>
 <h2 id="代码：片段小记">代码：片段小记</h2>
 <p>安全声明：下列代码因方便个人理解有些许改动（如省略了部分强制类型转换），若需要能实现的代码，请移步本文开头的代码参考。</p>
 <blockquote>
@@ -376,8 +372,8 @@ HANDLE hConsole = <span class="built_in">CreateConsoleScreenBuffer</span>(GENERI
 <span class="built_in">SetConsoleActiveScreenBuffer</span>(hConsole);
 DWORD dwBytesWritten = <span class="number">0</span>;
 
-screen[W * H - <span class="number">1</span>] = <span class="string">'\0'</span>;
-<span class="built_in">WriteConsoleOutputCharacterW</span>(hConsole, screen, W * H, {<span class="number">0</span>, <span class="number">0</span>}, &amp;dwBytesWritten);</code></pre>
+screen[W * H - <span class="number">1</span>] = <span class="string">&#x27;\0&#x27;</span>;
+<span class="built_in">WriteConsoleOutputCharacterW</span>(hConsole, screen, W * H, &#123;<span class="number">0</span>, <span class="number">0</span>&#125;, &amp;dwBytesWritten);</code></pre>
 </blockquote>
 <blockquote>
 <p><strong>比较流畅的移动</strong></p>
@@ -385,45 +381,45 @@ screen[W * H - <span class="number">1</span>] = <span class="string">'\0'</span>
 <span class="keyword">auto</span> tp2 = chrono::system_clock::<span class="built_in">now</span>();
 
 <span class="keyword">while</span> (<span class="number">1</span>)
-{
+&#123;
     tp2 = chrono::system_clock::<span class="built_in">now</span>();
     chrono::duration&lt;<span class="type">float</span>&gt; elapsedTime = tp2 - tp1;
     tp1 = tp2;
     <span class="type">float</span> Time = elapsedTime.<span class="built_in">count</span>();
 
-    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">'A'</span>) &amp; <span class="number">0x8000</span>)
+    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">&#x27;A&#x27;</span>) &amp; <span class="number">0x8000</span>)
         A -= (Speed * <span class="number">0.75</span>) * Time;
 
-    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">'D'</span>) &amp; <span class="number">0x8000</span>)
+    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">&#x27;D&#x27;</span>) &amp; <span class="number">0x8000</span>)
         A += (Speed * <span class="number">0.75</span>) * Time;
 
-    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">'W'</span>) &amp; <span class="number">0x8000</span>)
-    {
+    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">&#x27;W&#x27;</span>) &amp; <span class="number">0x8000</span>)
+    &#123;
         X += <span class="built_in">sin</span>(A) * Speed * Time;
         Y += <span class="built_in">cos</span>(A) * Speed * Time;
-        <span class="keyword">if</span> (map[X * W + Y] == <span class="string">'#'</span>)
-        {
+        <span class="keyword">if</span> (map[X * W + Y] == <span class="string">&#x27;#&#x27;</span>)
+        &#123;
                 X -= <span class="built_in">sin</span>(A) * Speed * Time;
                 Y -= <span class="built_in">cos</span>(A) * Speed * Time;
-        }
-    }
+        &#125;
+    &#125;
 
-    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">'S'</span>) &amp; <span class="number">0x8000</span>)
-    {
+    <span class="keyword">if</span> (<span class="built_in">GetAsyncKeyState</span>((<span class="type">unsigned</span> <span class="type">short</span>)<span class="string">&#x27;S&#x27;</span>) &amp; <span class="number">0x8000</span>)
+    &#123;
          X -= <span class="built_in">sin</span>(A) * Speed * Time;
          Y -= <span class="built_in">cos</span>(A) * Speed * Time;
-         <span class="keyword">if</span> (map[X * W + Y] == <span class="string">'#'</span>)
-         {
+         <span class="keyword">if</span> (map[X * W + Y] == <span class="string">&#x27;#&#x27;</span>)
+         &#123;
              X += <span class="built_in">sin</span>(A) * Speed * Time;
              Y += <span class="built_in">cos</span>(A) * Speed * Time;
-         }
-    }
-}</code></pre>
+         &#125;
+    &#125;
+&#125;</code></pre>
 </blockquote>
 <blockquote>
 <p><strong>光线投射算法</strong></p>
 <pre><code class="highlight cpp"><span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; nScreenWidth; x++)
-{
+&#123;
      <span class="type">float</span> RA = (A - FOV / <span class="number">2</span>) + (x / W) * FOV;
      <span class="type">float</span> Step = <span class="number">0.05</span>;
      <span class="type">float</span> Distance = <span class="number">0</span>;
@@ -433,32 +429,32 @@ screen[W * H - <span class="number">1</span>] = <span class="string">'\0'</span>
      <span class="type">float</span> EyeY = <span class="built_in">cos</span>(RA);
     
      <span class="keyword">while</span> (!HitWall &amp;&amp; Distance &lt; Depth)
-     {
+     &#123;
          Distance += Step;
          <span class="type">int</span> TestX = (<span class="type">int</span>)(X + EyeX * Distance);
          <span class="type">int</span> TestY = (<span class="type">int</span>)(Y + EyeY * Distance);
 		 <span class="keyword">if</span> (TestX &lt; <span class="number">0</span> || TestX &gt;= W || TestY &lt; <span class="number">0</span> || TestY &gt;= H)
-         {
+         &#123;
               HitWall = <span class="literal">true</span>;
               Distance = fDepth;
-         }
+         &#125;
          <span class="keyword">else</span>
-         {
-              <span class="keyword">if</span> (map[TestX * W + TestY] == <span class="string">'#'</span>)
-              {
+         &#123;
+              <span class="keyword">if</span> (map[TestX * W + TestY] == <span class="string">&#x27;#&#x27;</span>)
+              &#123;
                   HitWall = <span class="literal">true</span>;
 				  vector&lt;pair&lt;<span class="type">float</span>, <span class="type">float</span>&gt;&gt; p;
 				  <span class="keyword">for</span> (<span class="type">int</span> tx = <span class="number">0</span>; tx &lt; <span class="number">2</span>; tx++)
                   <span class="keyword">for</span> (<span class="type">int</span> ty = <span class="number">0</span>; ty &lt; <span class="number">2</span>; ty++)
-                  {
+                  &#123;
                        <span class="type">float</span> vy = (<span class="type">float</span>)TestY + ty - Y;
                        <span class="type">float</span> vx = (<span class="type">float</span>)TestX + tx - X;
                        <span class="type">float</span> d = <span class="built_in">sqrt</span>(vx * vx + vy * vy);
                        <span class="type">float</span> dot = (EyeX * vx / d) + (EyeY * vy / d);
                       <span class="comment">// &lt;EyeX,EyeY&gt;·&lt;vx/d,vy/d&gt;</span>
                        p.<span class="built_in">push_back</span>(<span class="built_in">make_pair</span>(d, dot));
-                  }
-				  <span class="built_in">sort</span>(p.<span class="built_in">begin</span>(), p.<span class="built_in">end</span>(), [](<span class="type">const</span> pair&lt;<span class="type">float</span>, <span class="type">float</span>&gt; &amp;left, <span class="type">const</span> pair&lt;<span class="type">float</span>, <span class="type">float</span>&gt; &amp;right) { <span class="keyword">return</span> left.first &lt; right.first; });
+                  &#125;
+				  <span class="built_in">sort</span>(p.<span class="built_in">begin</span>(), p.<span class="built_in">end</span>(), [](<span class="type">const</span> pair&lt;<span class="type">float</span>, <span class="type">float</span>&gt; &amp;left, <span class="type">const</span> pair&lt;<span class="type">float</span>, <span class="type">float</span>&gt; &amp;right) &#123; <span class="keyword">return</span> left.first &lt; right.first; &#125;);
                   <span class="type">float</span> fBound = <span class="number">0.01</span>;
                   <span class="keyword">if</span> (<span class="built_in">acos</span>(p.<span class="built_in">at</span>(<span class="number">0</span>).second) &lt; fBound)
                        Boundary = <span class="literal">true</span>;
@@ -466,17 +462,17 @@ screen[W * H - <span class="number">1</span>] = <span class="string">'\0'</span>
                        Boundary = <span class="literal">true</span>;
                   <span class="keyword">if</span> (<span class="built_in">acos</span>(p.<span class="built_in">at</span>(<span class="number">2</span>).second) &lt; fBound)
                        Boundary = <span class="literal">true</span>;
-                  }
-              }
-          }
-	 }
+                  &#125;
+              &#125;
+          &#125;
+	 &#125;
 	 <span class="type">int</span> Ceiling = (<span class="type">float</span>)(H / <span class="number">2.0</span>) - H / W);
      <span class="type">int</span> Floor = H - Ceiling;
-}</code></pre>
+&#125;</code></pre>
 </blockquote>
 <blockquote>
 <p><strong>渲染</strong></p>
-<pre><code class="highlight cpp"><span class="type">short</span> nShade = <span class="string">' '</span>;
+<pre><code class="highlight cpp"><span class="type">short</span> nShade = <span class="string">&#x27; &#x27;</span>;
 <span class="keyword">if</span> (Distance &lt;= Depth / <span class="number">4.0</span>)
 	nShade = <span class="number">0x2588</span>;
 <span class="keyword">else</span> <span class="keyword">if</span> (Distance &lt; Depth / <span class="number">3.0</span>)
@@ -486,51 +482,51 @@ screen[W * H - <span class="number">1</span>] = <span class="string">'\0'</span>
 <span class="keyword">else</span> <span class="keyword">if</span> (Distance &lt; Depth)
 	nShade = <span class="number">0x2591</span>;
 <span class="keyword">else</span>
-	nShade = <span class="string">' '</span>;
+	nShade = <span class="string">&#x27; &#x27;</span>;
 
 <span class="keyword">if</span> (Boundary)
-	nShade = <span class="string">' '</span>;
+	nShade = <span class="string">&#x27; &#x27;</span>;
 
 <span class="keyword">for</span> (<span class="type">int</span> y = <span class="number">0</span>; y &lt; H; y++)
-{
+&#123;
 	<span class="keyword">if</span> (y &lt;= Ceiling)
-		screen[y * W + x] = <span class="string">' '</span>;
+		screen[y * W + x] = <span class="string">&#x27; &#x27;</span>;
 	<span class="keyword">else</span> <span class="keyword">if</span> (y &gt; Ceiling &amp;&amp; y &lt;= Floor)
 		screen[y * W + x] = nShade;
 	<span class="keyword">else</span>
-	{
+	&#123;
 		<span class="type">float</span> b = <span class="number">1.0f</span> - (((<span class="type">float</span>)y - H / <span class="number">2.0f</span>) / ((<span class="type">float</span>)H / <span class="number">2.0f</span>));
 		<span class="keyword">if</span> (b &lt; <span class="number">0.25</span>)
-			nShade = <span class="string">'#'</span>;
+			nShade = <span class="string">&#x27;#&#x27;</span>;
 		<span class="keyword">else</span> <span class="keyword">if</span> (b &lt; <span class="number">0.5</span>)
-			nShade = <span class="string">'x'</span>;
+			nShade = <span class="string">&#x27;x&#x27;</span>;
 		<span class="keyword">else</span> <span class="keyword">if</span> (b &lt; <span class="number">0.75</span>)
-			nShade = <span class="string">'.'</span>;
+			nShade = <span class="string">&#x27;.&#x27;</span>;
 		<span class="keyword">else</span> <span class="keyword">if</span> (b &lt; <span class="number">0.9</span>)
-			nShade = <span class="string">'-'</span>;
+			nShade = <span class="string">&#x27;-&#x27;</span>;
 		<span class="keyword">else</span>
-			nShade = <span class="string">' '</span>;
+			nShade = <span class="string">&#x27; &#x27;</span>;
 		screen[y * W + x] = nShade;
-	}
+	&#125;
 </code></pre>
 </blockquote>
 <blockquote>
 <p><strong>显示坐标和小地图</strong></p>
-<pre><code class="highlight cpp"><span class="built_in">swprintf_s</span>(screen, <span class="number">40</span>, <span class="string">L"X=%3.2f, Y=%3.2f, A=%3.2f FPS=%3.2f "</span>, X, Y, A);
+<pre><code class="highlight cpp"><span class="built_in">swprintf_s</span>(screen, <span class="number">40</span>, <span class="string">L&quot;X=%3.2f, Y=%3.2f, A=%3.2f FPS=%3.2f &quot;</span>, X, Y, A);
 <span class="keyword">for</span> (<span class="type">int</span> nx = <span class="number">0</span>; nx &lt; W; nx++)
     <span class="keyword">for</span> (<span class="type">int</span> ny = <span class="number">0</span>; ny &lt; H; ny++)
-    {
+    &#123;
          screen[(ny + <span class="number">1</span>) * W + nx] = map[ny * W + nx];
-    }
-screen[((<span class="type">int</span>)X + <span class="number">1</span>) * W + (<span class="type">int</span>)Y] = <span class="string">'P'</span>;</code></pre>
+    &#125;
+screen[((<span class="type">int</span>)X + <span class="number">1</span>) * W + (<span class="type">int</span>)Y] = <span class="string">&#x27;P&#x27;</span>;</code></pre>
 </blockquote>
 <h2 id="Bug-Fun-stuff">Bug &amp; Fun-stuff</h2>
 <ol>
 <li>把地图的长和宽设置成相同值会省去很多麻烦</li>
-<li>你跑本文开头提到的代码报错了，请记得把 <code>WriteConsoleOutputCharacter</code> 改为 <code>WriteConsoleOutputCharacterW</code></li>
-<li>参考视频（油管：xW8skO7MFYw）而幽默的是该视频把光线投射算法叫做 Potter Algorithm，导致我一头雾水</li>
-<li> 1992 年 5 月 5 日发行的 <strong>《德军总部 3D》</strong> 运用的也是该算法</li>
-<li>致敬传奇人物 约翰・卡马克</li>
+<li>你跑本文开头提到的代码报错了，请记得把<code>WriteConsoleOutputCharacter</code>改为<code>WriteConsoleOutputCharacterW</code></li>
+<li>参考视频（油管：xW8skO7MFYw）而幽默的是该视频把光线投射算法叫做Potter Algorithm，导致我一头雾水</li>
+<li>1992年5月5日发行的 <strong>《德军总部3D》</strong> 运用的也是该算法</li>
+<li>致敬传奇人物 约翰·卡马克</li>
 </ol>
 
     </div>
@@ -548,8 +544,8 @@ screen[((<span class="type">int</span>)X + <span class="number">1</span>) * W + 
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/06/14/Prime/" rel="prev" title="质数判断与质数筛">
-                  <i class="fa fa-angle-left"></i> 质数判断与质数筛
+                <a href="/2024/06/14/Linux/" rel="prev" title="Linux常用命令学习与实战">
+                  <i class="fa fa-angle-left"></i> Linux常用命令学习与实战
                 </a>
             </div>
             <div class="post-nav-item">
@@ -594,7 +590,6 @@ screen[((<span class="type">int</span>)X + <span class="number">1</span>) * W + 
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="Back to top">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
